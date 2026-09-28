@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://movex-logistics-webs-zpae.bolt.host/sitemap.xml
