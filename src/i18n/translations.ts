@@ -6,8 +6,8 @@ export const COMPANY = {
   location: 'Tampere, Finland',
   phone: '+358 41 328 6939',
   phoneHref: 'tel:+358413286939',
-  phoneFi: '+358 41 586 8990',
-  phoneFiHref: 'tel:+358415868990',
+  phoneFi: '+358 41 328 6939',
+  phoneFiHref: 'tel:+358413286939',
   phoneEn: '+358 41 328 6939',
   phoneEnHref: 'tel:+358413286939',
   email: 'dangdung.amit@gmail.com',
@@ -26,9 +26,9 @@ export const WHATSAPP_MSG_EN =
 export const EMAIL_SUBJECT = 'MoveX Logistics – Quote Request';
 export const EMAIL_SUBJECT_FI = 'MoveX Logistics – Tarjouspyyntö';
 export const EMAIL_BODY_FI =
-  'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNoutopaikka: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin terveisin';
+  'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNoutopaikka: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin t[...]
 export const EMAIL_BODY_EN =
-  'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or special items: \n\nBest regards,';
+  'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or special item[...]
 
 // Social media placeholders — replace with real profile URLs when available
 export const SOCIAL_LINKS = {
@@ -209,7 +209,7 @@ export const translations = {
         { q: 'Sisältyvätkö hinnat alv:n?', a: 'Kyllä. Kaikki näytetyt tuntihinnat sisältävät alv 25,5 %.' },
         { q: 'Mikä on vähimmäisvaraus?', a: 'Vähimmäismaksu on 1 tunti. Ensimmäisen tunnin jälkeen laskutus jatkuu 30 min välein.' },
         { q: 'Autatteko kantamisessa?', a: 'Kyllä. Voit valita pakettiauto + kuljettaja -palvelun tai 1, 2 tai 3 muuttomiehen palvelun työn mukaan.' },
-        { q: 'Voitteko kuljettaa huonekaluja?', a: 'Kyllä. Kuljetamme sohvia, sänkyjä, pöytiä, kodinkoneita, Tori.fi-ostoksia, kauppanoutoja ja muita sopivia esineitä. Lopullinen hinta riippuu etäisyydestä, koosta, kantovaatimuksista ja pääsyolosuhteista.' },
+        { q: 'Voitteko kuljettaa huonekaluja?', a: 'Kyllä. Kuljetamme sohvia, sänkyjä, pöytiä, kodinkoneita, Tori.fi-ostoksia, kauppanoutoja ja muita sopivia esineitä. Lopullinen hinta riippuu etäisyydestä, esineen koosta ja pääsyolosuhteista.' },
         { q: 'Tarjoatteko kaukokuljetusta?', a: 'Kyllä. Kaukokuljetukset ympäri Suomea hinnoitellaan erikseen kokonaisreitin, työmäärän ja kuljetusvaatimusten mukaan.' },
         { q: 'Suojaatteko huonekalut?', a: 'Kyllä. Käytämme sopivia muuttopeitteitä, suojamateriaaleja ja kuorman kiinnityskalustoa työn mukaan.' },
         { q: 'Oletteko vakuutettuja?', a: 'Kyllä. MoveXilla on yritysvastuuvakuutus, joka on voimassa vakuutusehtojen mukaisesti.' },
@@ -421,7 +421,7 @@ export const translations = {
         { q: 'Are your prices VAT included?', a: 'Yes. All displayed hourly prices include Finnish VAT 25.5%.' },
         { q: 'What is the minimum booking?', a: 'The minimum charge is 1 hour. After the first hour, billing continues in 30-minute increments.' },
         { q: 'Do you help with carrying?', a: 'Yes. You can choose Van + Driver or a service with 1, 2 or 3 movers depending on the job.' },
-        { q: 'Can you transport furniture?', a: 'Yes. We transport sofas, beds, tables, appliances, Marketplace purchases, store pickups and other suitable items. The final price depends on distance, size, carrying and access conditions.' },
+        { q: 'Can you transport furniture?', a: 'Yes. We transport sofas, beds, tables, appliances, Marketplace purchases, store pickups and other suitable items. The final price depends on distance, item size and access conditions.' },
         { q: 'Do you offer long-distance transport?', a: 'Yes. Long-distance jobs across Finland are quoted individually based on the complete route, workload and transport requirements.' },
         { q: 'Do you protect furniture?', a: 'Yes. We use suitable moving blankets, protective materials and load-securing equipment according to the job.' },
         { q: 'Are you insured?', a: 'Yes. MoveX operates with professional business liability insurance, subject to the insurance policy terms and conditions.' },
