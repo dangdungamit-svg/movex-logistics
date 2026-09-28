@@ -26,9 +26,9 @@ export const WHATSAPP_MSG_EN =
 export const EMAIL_SUBJECT = 'MoveX Logistics – Quote Request';
 export const EMAIL_SUBJECT_FI = 'MoveX Logistics – Tarjouspyyntö';
 export const EMAIL_BODY_FI =
-  'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNoutopaikka: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin t[...]
+  'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNoutopaikka: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin terveisin';
 export const EMAIL_BODY_EN =
-  'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or special item[...]
+  'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or special items: \n\nBest regards,';
 
 // Social media placeholders — replace with real profile URLs when available
 export const SOCIAL_LINKS = {
@@ -128,7 +128,7 @@ export const translations = {
       title: 'Huolellista, turvallista ja ammattitaitoista',
       subtitle: 'Sinun tavarasi. Meidän vastuumme.',
       description:
-        'Käsittelemme huonekalusi ja tavarasi huolellisesti noudosta toimitukseen. Käytämme sopivaa suojaa ja kuorman kiinnityskalustoa, jotta esineet pysyvät vakaina ja suojattuina lastauksen, kuljetuksen ja purkamisen aikana.',
+        'Käsittelemme huonekalusi ja tavarasi huolellisesti noudosta toimitukseen. Käytämme sopivaa suojaa ja kuorman kiinnityskalustoa, jotta esineet pysyvät vakaina ja suojattuina lastaukse',
       items: [
         { title: 'Ammattimainen suojaus', desc: 'Huonekalut ja tavarat suojataan tarvittaessa sopivilla suojamateriaaleilla.' },
         { title: 'Turvallinen kuormankäsittely', desc: 'Tavarat sijoitetaan ja kiinnitetään oikein kuljetusta varten.' },
@@ -340,7 +340,7 @@ export const translations = {
       title: 'Careful, Secure & Professional',
       subtitle: 'Your belongings. Our responsibility.',
       description:
-        'We handle your furniture and goods carefully from pickup to delivery. We use suitable protection and load-securing equipment to keep items stable and protected during loading, transport and unloading.',
+        'We handle your furniture and goods carefully from pickup to delivery. We use suitable protection and load-securing equipment to keep items stable and protected during loading, transport',
       items: [
         { title: 'Professional Protection', desc: 'Furniture and goods are protected where needed using suitable protective materials.' },
         { title: 'Secure Load Handling', desc: 'Goods are properly positioned and secured for transport.' },
