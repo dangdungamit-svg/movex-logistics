@@ -59,7 +59,7 @@ function AppContent() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
-                  src="/images/20_20260924_225406_0019.png"
+                  src="https://movexlogistics.fi/images/20_20260924_225406_0019.png"
                   alt="Professional moving service"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
@@ -75,7 +75,7 @@ function AppContent() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
-                  src="/images/22_20260924_225406_0021.png"
+                  src="https://movexlogistics.fi/images/22_20260924_225406_0021.png"
                   alt="Team loading and securing items"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
@@ -92,7 +92,7 @@ function AppContent() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
-                  src="/images/32_20260924_225406_0031.png"
+                  src="https://movexlogistics.fi/images/32_20260924_225406_0031.png"
                   alt="Furniture and item transport"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
@@ -109,7 +109,7 @@ function AppContent() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
-                  src="/images/25_20260924_225406_0024.png"
+                  src="https://movexlogistics.fi/images/25_20260924_225406_0024.png"
                   alt="Van and driver service"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
@@ -126,7 +126,7 @@ function AppContent() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
-                  src="/images/35_20260924_225406_0034.png"
+                  src="https://movexlogistics.fi/images/35_20260924_225406_0034.png"
                   alt="Professional logistics transport"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
@@ -143,7 +143,7 @@ function AppContent() {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
-                  src="/images/34_20260924_225406_0033.png"
+                  src="https://movexlogistics.fi/images/34_20260924_225406_0033.png"
                   alt="Final delivery and service"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
