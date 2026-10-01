@@ -4,7 +4,6 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Pricing from '@/components/Pricing';
 import Services from '@/components/Services';
-import Gallery from '@/components/Gallery';
 import VehicleCapacity from '@/components/VehicleCapacity';
 import QualitySafety from '@/components/QualitySafety';
 import WhatsIncluded from '@/components/WhatsIncluded';
@@ -54,7 +53,6 @@ function AppContent() {
           <Hero />
           <Pricing />
           <Services />
-          <Gallery />
           <VehicleCapacity />
           <QualitySafety />
           <WhatsIncluded />
