@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const origin = 'https://movex-logistics-webs-zpae.bolt.host';
+const origin = 'https://movexlogistics.fi';
 
 const routes = [
   {
