@@ -54,6 +54,14 @@ export function useLanguage() {
   return ctx;
 }
 
+export function trackContactConversion() {
+  if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-18477461376/lOT-CI_d0I8dEIDf3upE'
+    });
+  }
+}
+
 export function getWhatsAppLink(lang: Language) {
   const msg =
     lang === 'fi'
@@ -73,7 +81,7 @@ export function getEmailLink(lang: Language) {
       : 'MoveX Logistics – Quote Request';
   const body =
     lang === 'fi'
-      ? 'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNouto: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin terveisin,'
-      : 'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or special items: \n\nBest regards,';
+      ? 'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNouto: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin t[...]
+      : 'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or specia[...]
   return `mailto:dangdung.amit@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
