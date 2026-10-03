@@ -26,9 +26,9 @@ export const WHATSAPP_MSG_EN =
 export const EMAIL_SUBJECT = 'MoveX Logistics – Quote Request';
 export const EMAIL_SUBJECT_FI = 'MoveX Logistics – Tarjouspyyntö';
 export const EMAIL_BODY_FI =
-  'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNoutopaikka: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin t[...]'
+  'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNoutopaikka: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin terveisin';
 export const EMAIL_BODY_EN =
-  'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or special item[...]'
+  'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or special items: \n\nBest regards,';
 
 // Social media placeholders — replace with real profile URLs when available
 export const SOCIAL_LINKS = {
@@ -127,7 +127,7 @@ export const translations = {
       title: 'Huolellista, turvallista ja ammattitaitoista',
       subtitle: 'Sinun tavarasi. Meidän vastuumme.',
       description:
-        'Käsittelemme huonekalusi ja tavarasi huolellisesti noudosta toimitukseen. Käytämme sopivaa suojaa ja kuorman kiinnityskalustoa, jotta esineet pysyvät vakaina ja suojattuina lastaukse[...]',
+        'Käsittelemme huonekalusi ja tavarasi huolellisesti noudosta toimitukseen. Käytämme sopivaa suojaa ja kuorman kiinnityskalustoa, jotta esineet pysyvät vakaina ja suojattuina lastaukse',
       items: [
         { title: 'Ammattimainen suojaus', desc: 'Huonekalut ja tavarat suojataan tarvittaessa sopivilla suojamateriaaleilla.' },
         { title: 'Turvallinen kuormankäsittely', desc: 'Tavarat sijoitetaan ja kiinnitetään oikein kuljetusta varten.' },
@@ -208,7 +208,7 @@ export const translations = {
         { q: 'Sisältyvätkö hinnat alv:n?', a: 'Kyllä. Kaikki näytetyt tuntihinnat sisältävät alv 25,5 %.' },
         { q: 'Mikä on vähimmäisvaraus?', a: 'Vähimmäismaksu on 1 tunti. Ensimmäisen tunnin jälkeen laskutus jatkuu 30 min välein.' },
         { q: 'Autatteko kantamisessa?', a: 'Kyllä. Voit valita pakettiauto + kuljettaja -palvelun tai 1, 2 tai 3 muuttomiehen palvelun työn mukaan.' },
-        { q: 'Voitteko kuljettaa huonekaluja?', a: 'Kyllä. Kuljetamme sohvia, sänkyjä, pöytiä, kodinkoneita, Tori.fi-ostoksia, kauppanoutoja ja muita sopivia esineitä. Lopullinen hinta riip[...]' },
+        { q: 'Voitteko kuljettaa huonekaluja?', a: 'Kyllä. Kuljetamme sohvia, sänkyjä, pöytiä, kodinkoneita, Tori.fi-ostoksia, kauppanoutoja ja muita sopivia esineitä. Lopullinen hinta riippuu etäisyydestä, esineen koosta ja pääsyolosuhteista.' },
         { q: 'Tarjoatteko kaukokuljetusta?', a: 'Kyllä. Kaukokuljetukset ympäri Suomea hinnoitellaan erikseen kokonaisreitin, työmäärän ja kuljetusvaatimusten mukaan.' },
         { q: 'Suojaatteko huonekalut?', a: 'Kyllä. Käytämme sopivia muuttopeitteitä, suojamateriaaleja ja kuorman kiinnityskalustoa työn mukaan.' },
         { q: 'Oletteko vakuutettuja?', a: 'Kyllä. MoveXilla on yritysvastuuvakuutus, joka on voimassa vakuutusehtojen mukaisesti.' },
@@ -339,7 +339,7 @@ export const translations = {
       title: 'Careful, Secure & Professional',
       subtitle: 'Your belongings. Our responsibility.',
       description:
-        'We handle your furniture and goods carefully from pickup to delivery. We use suitable protection and load-securing equipment to keep items stable and protected during loading, transport'[...],
+        'We handle your furniture and goods carefully from pickup to delivery. We use suitable protection and load-securing equipment to keep items stable and protected during loading, transport',
       items: [
         { title: 'Professional Protection', desc: 'Furniture and goods are protected where needed using suitable protective materials.' },
         { title: 'Secure Load Handling', desc: 'Goods are properly positioned and secured for transport.' },
@@ -420,7 +420,7 @@ export const translations = {
         { q: 'Are your prices VAT included?', a: 'Yes. All displayed hourly prices include Finnish VAT 25.5%.' },
         { q: 'What is the minimum booking?', a: 'The minimum charge is 1 hour. After the first hour, billing continues in 30-minute increments.' },
         { q: 'Do you help with carrying?', a: 'Yes. You can choose Van + Driver or a service with 1, 2 or 3 movers depending on the job.' },
-        { q: 'Can you transport furniture?', a: 'Yes. We transport sofas, beds, tables, appliances, Marketplace purchases, store pickups and other suitable items. The final price depends on dista[...]' },
+        { q: 'Can you transport furniture?', a: 'Yes. We transport sofas, beds, tables, appliances, Marketplace purchases, store pickups and other suitable items. The final price depends on distance, item size and access conditions.' },
         { q: 'Do you offer long-distance transport?', a: 'Yes. Long-distance jobs across Finland are quoted individually based on the complete route, workload and transport requirements.' },
         { q: 'Do you protect furniture?', a: 'Yes. We use suitable moving blankets, protective materials and load-securing equipment according to the job.' },
         { q: 'Are you insured?', a: 'Yes. MoveX operates with professional business liability insurance, subject to the insurance policy terms and conditions.' },
