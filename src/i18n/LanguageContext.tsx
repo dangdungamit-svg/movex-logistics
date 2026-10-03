@@ -81,7 +81,7 @@ export function getEmailLink(lang: Language) {
       : 'MoveX Logistics – Quote Request';
   const body =
     lang === 'fi'
-      ? 'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNouto: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin t[...]
-      : 'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or specia[...]
+      ? 'Hei,\n\nhaluaisin pyytää tarjousta seuraavalle työlle:\n\nNouto: \nMääränpää: \nToivottu päivä: \nPalvelu: \nTavaran määrä: \nRaskaat tai erikoisesineet: \n\nYstävällisin terveisin,'
+      : 'Hello,\n\nI would like to request a quote for the following job:\n\nPickup: \nDestination: \nPreferred date: \nType of transport/move: \nApproximate amount of goods: \nAny heavy or special items: \n\nBest regards,';
   return `mailto:dangdung.amit@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }

@@ -100,7 +100,7 @@ export default function Contact() {
               onClick={handleWhatsAppClick}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/20 transition-all h[...]
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1da851]"
             >
               <MessageCircle className="h-4 w-4" />
               {t.contact.whatsappBtn}
@@ -121,7 +121,7 @@ export default function Contact() {
             <a
               href={getEmailLink(lang)}
               onClick={handleEmailClick}
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-800/20 transition-all [...]
+              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-800/20 transition-all hover:bg-slate-700"
             >
               <Mail className="h-4 w-4" />
               {t.contact.emailBtn}
