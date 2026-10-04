@@ -5,16 +5,16 @@ import { useLanguage } from '@/i18n/LanguageContext';
 
 const services = {
   fi: [
-    { value: 'Van + Driver — €50/h VAT included', label: 'Pakettiauto + kuljettaja — 50 €/h, ALV sisältyy' },
-    { value: 'Van + Driver + 1 mover — €75/h VAT included', label: 'Pakettiauto + kuljettaja + 1 muuttomies — 75 €/h, ALV sisältyy' },
-    { value: 'Van + Driver + 2 movers — €100/h VAT included', label: 'Pakettiauto + kuljettaja + 2 muuttomiestä — 100 €/h, ALV sisältyy' },
-    { value: 'Van + Driver + 3 movers — €125/h VAT included', label: 'Pakettiauto + kuljettaja + 3 muuttomiestä — 125 €/h, ALV sisältyy' },
+    { value: 'Van + Driver — €50/h, VAT included', label: 'Pakettiauto + kuljettaja — 50 €/h, ALV sisältyy' },
+    { value: 'Van + Driver + 1 mover — €75/h, VAT included', label: 'Pakettiauto + kuljettaja + 1 muuttomies — 75 €/h, ALV sisältyy' },
+    { value: 'Van + Driver + 2 movers — €100/h, VAT included', label: 'Pakettiauto + kuljettaja + 2 muuttomiestä — 100 €/h, ALV sisältyy' },
+    { value: 'Van + Driver + 3 movers — €125/h, VAT included', label: 'Pakettiauto + kuljettaja + 3 muuttomiestä — 125 €/h, ALV sisältyy' },
   ],
   en: [
-    { value: 'Van + Driver — €50/h VAT included', label: 'Van + Driver — €50/h VAT included' },
-    { value: 'Van + Driver + 1 mover — €75/h VAT included', label: 'Van + Driver + 1 mover — €75/h VAT included' },
-    { value: 'Van + Driver + 2 movers — €100/h VAT included', label: 'Van + Driver + 2 movers — €100/h VAT included' },
-    { value: 'Van + Driver + 3 movers — €125/h VAT included', label: 'Van + Driver + 3 movers — €125/h VAT included' },
+    { value: 'Van + Driver — €50/h, VAT included', label: 'Van + Driver — €50/h, VAT included' },
+    { value: 'Van + Driver + 1 mover — €75/h, VAT included', label: 'Van + Driver + 1 mover — €75/h, VAT included' },
+    { value: 'Van + Driver + 2 movers — €100/h, VAT included', label: 'Van + Driver + 2 movers — €100/h, VAT included' },
+    { value: 'Van + Driver + 3 movers — €125/h, VAT included', label: 'Van + Driver + 3 movers — €125/h, VAT included' },
   ],
 };
 
@@ -127,12 +127,16 @@ export default function QuoteRequestForm() {
           website: String(form.get('website') ?? ''),
         },
       });
-      if (error || data?.success !== true) throw new Error('Quote request was not saved');
+      if (error || data?.success !== true) {
+        console.error('Quote request was not saved', error ?? data);
+        throw new Error('Quote request was not saved');
+      }
 
       trackContactConversion();
       setMessage(copy.success);
       formElement.reset();
-    } catch {
+    } catch (err) {
+      console.error(err);
       setMessage(copy.error);
     } finally {
       setSubmitting(false);

@@ -72,10 +72,10 @@ CREATE POLICY "Public can submit quote requests"
     AND number_of_movers IS NOT NULL
     AND number_of_movers BETWEEN 0 AND 3
     AND (
-      service = 'Van + Driver — €50/h VAT included' AND number_of_movers = 0
-      OR service = 'Van + Driver + 1 mover — €75/h VAT included' AND number_of_movers = 1
-      OR service = 'Van + Driver + 2 movers — €100/h VAT included' AND number_of_movers = 2
-      OR service = 'Van + Driver + 3 movers — €125/h VAT included' AND number_of_movers = 3
+      service = 'Van + Driver — €50/h, VAT included' AND number_of_movers = 0
+      OR service = 'Van + Driver + 1 mover — €75/h, VAT included' AND number_of_movers = 1
+      OR service = 'Van + Driver + 2 movers — €100/h, VAT included' AND number_of_movers = 2
+      OR service = 'Van + Driver + 3 movers — €125/h, VAT included' AND number_of_movers = 3
       OR service = 'Pakettiauto + kuljettaja — 50 €/h, ALV sisältyy' AND number_of_movers = 0
       OR service = 'Pakettiauto + kuljettaja + 1 muuttomies — 75 €/h, ALV sisältyy' AND number_of_movers = 1
       OR service = 'Pakettiauto + kuljettaja + 2 muuttomiestä — 100 €/h, ALV sisältyy' AND number_of_movers = 2

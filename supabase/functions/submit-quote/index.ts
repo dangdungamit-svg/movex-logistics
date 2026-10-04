@@ -28,10 +28,10 @@ interface SubmitQuoteBody extends Partial<QuoteRequest> {
 }
 
 const allowedServices = new Set([
-  'Van + Driver — €50/h VAT included',
-  'Van + Driver + 1 mover — €75/h VAT included',
-  'Van + Driver + 2 movers — €100/h VAT included',
-  'Van + Driver + 3 movers — €125/h VAT included',
+  'Van + Driver — €50/h, VAT included',
+  'Van + Driver + 1 mover — €75/h, VAT included',
+  'Van + Driver + 2 movers — €100/h, VAT included',
+  'Van + Driver + 3 movers — €125/h, VAT included',
 ]);
 
 interface DenoRuntime {
@@ -227,7 +227,7 @@ runtime?.serve(async (request) => {
       }),
     });
     if (!response.ok) {
-      console.error('Quote request could not be saved.');
+      console.error('Quote request could not be saved.', response.status, await response.text());
       return jsonResponse({ success: false }, 400);
     }
   } catch {
