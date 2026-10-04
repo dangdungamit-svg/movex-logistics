@@ -1,6 +1,7 @@
 import { Phone, MessageCircle, Mail, Check, Clock } from 'lucide-react';
 import { useLanguage, getWhatsAppLink, getEmailLink, trackContactConversion } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
+import QuoteRequestForm from '@/components/QuoteRequestForm';
 
 export default function Contact() {
   const { lang, t } = useLanguage();
@@ -128,6 +129,8 @@ export default function Contact() {
             </a>
           </div>
         </div>
+
+        <QuoteRequestForm />
 
         {/* Instructions */}
         <div className="mx-auto mt-10 max-w-2xl rounded-2xl bg-slate-900 p-6 sm:p-8">

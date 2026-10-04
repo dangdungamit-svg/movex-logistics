@@ -15,7 +15,14 @@
     <meta name="twitter:title" content="MoveX Logistics – Muutto ja kuljetus Tampereella | Selkeät hinnat" />
     <meta name="twitter:description" content="MoveX Logistics tarjoaa ammattimaiset muutto- ja kuljetuspalvelut Tampereella, Pirkanmaalla ja koko Suomessa." />
     <meta name="twitter:image" content="https://images.pexels.com/photos/7464403/pexels-photo-7464403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="noindex, nofollow" />
+    <script>
+      if (window.location.pathname.replace(/\/+$/, '') === '/admin' ||
+          window.location.pathname.replace(/\/+$/, '').startsWith('/admin/')) {
+        document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex, nofollow');
+        document.querySelector('link[rel="canonical"]')?.remove();
+      }
+    </script>
     <meta name="google-site-verification" content="_OucirybdLMr57Jb52wkQC5Nnnl58NAlcwNUkJTN3nQ" />
     <meta name="keywords" content="moving service Tampere, moving company Tampere, muuttopalvelu Tampere, muutto Tampere, kuljetuspalvelu Tampere, furniture transport Tampere, van and driver Tampere, man and van Tampere, moving service Pirkanmaa, transport service Tampere, B2B transport Tampere, long-distance moving Finland" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
