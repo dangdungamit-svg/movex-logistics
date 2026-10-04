@@ -18,6 +18,8 @@ const services = {
   ],
 };
 
+const serviceByMovers = services.en.map((service) => service.value);
+
 const fieldClass =
   'mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100';
 
@@ -25,6 +27,8 @@ export default function QuoteRequestForm() {
   const { lang } = useLanguage();
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState('');
+  const [movers, setMovers] = useState('');
+  const [service, setService] = useState('');
   const copy = lang === 'fi'
     ? {
         title: 'Pyydä tarjous',
@@ -135,6 +139,8 @@ export default function QuoteRequestForm() {
       trackContactConversion();
       setMessage(copy.success);
       formElement.reset();
+      setMovers('');
+      setService('');
     } catch (err) {
       console.error(err);
       setMessage(copy.error);
@@ -165,14 +171,33 @@ export default function QuoteRequestForm() {
         </label>
         <label className="text-sm font-medium text-slate-700">
           {copy.service} <span aria-hidden="true">*</span>
-          <select className={fieldClass} name="service" defaultValue="" required>
+          <select
+            className={fieldClass}
+            name="service"
+            value={service}
+            onChange={(event) => {
+              setService(event.target.value);
+              const index = serviceByMovers.indexOf(event.target.value);
+              if (index >= 0) setMovers(String(index));
+            }}
+            required
+          >
             <option value="" disabled>{copy.chooseService}</option>
-            {services[lang].map((service) => <option key={service.value} value={service.value}>{service.label}</option>)}
+            {services[lang].map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
           </select>
         </label>
         <label className="text-sm font-medium text-slate-700">
           {copy.movers} <span aria-hidden="true">*</span>
-          <select className={fieldClass} name="number_of_movers" defaultValue="" required>
+          <select
+            className={fieldClass}
+            name="number_of_movers"
+            value={movers}
+            onChange={(event) => {
+              setMovers(event.target.value);
+              setService(serviceByMovers[Number(event.target.value)] ?? '');
+            }}
+            required
+          >
             <option value="" disabled>{copy.chooseMovers}</option>
             {[0, 1, 2, 3].map((count) => <option key={count} value={count}>{copy.moverCount(count)}</option>)}
           </select>
