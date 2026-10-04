@@ -54,6 +54,14 @@ export function useLanguage() {
   return ctx;
 }
 
+export function trackContactConversion() {
+  if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+    (window as any).gtag('event', 'conversion', {
+      'send_to': 'AW-18477461376/lOT-CI_d0I8dEIDf3upE'
+    });
+  }
+}
+
 export function getWhatsAppLink(lang: Language) {
   const msg =
     lang === 'fi'

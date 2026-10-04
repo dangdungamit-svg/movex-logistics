@@ -1,10 +1,18 @@
 import { Phone, MessageCircle, Mail, Check, Clock } from 'lucide-react';
-import { useLanguage, getWhatsAppLink, getEmailLink } from '@/i18n/LanguageContext';
+import { useLanguage, getWhatsAppLink, getEmailLink, trackContactConversion } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
 import QuoteRequestForm from '@/components/QuoteRequestForm';
 
 export default function Contact() {
   const { lang, t } = useLanguage();
+
+  const handleWhatsAppClick = () => {
+    trackContactConversion();
+  };
+
+  const handleEmailClick = () => {
+    trackContactConversion();
+  };
 
   return (
     <section id="contact" className="bg-white py-20 lg:py-28">
@@ -90,6 +98,7 @@ export default function Contact() {
             </p>
             <a
               href={getWhatsAppLink(lang)}
+              onClick={handleWhatsAppClick}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1da851]"
@@ -112,6 +121,7 @@ export default function Contact() {
             </p>
             <a
               href={getEmailLink(lang)}
+              onClick={handleEmailClick}
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-800/20 transition-all hover:bg-slate-700"
             >
               <Mail className="h-4 w-4" />
