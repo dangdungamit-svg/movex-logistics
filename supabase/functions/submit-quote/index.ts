@@ -34,6 +34,13 @@ const allowedServices = new Set([
   'Van + Driver + 3 movers — €125/h, VAT included',
 ]);
 
+const moversByService = new Map<string, number>([
+  ['Van + Driver — €50/h, VAT included', 0],
+  ['Van + Driver + 1 mover — €75/h, VAT included', 1],
+  ['Van + Driver + 2 movers — €100/h, VAT included', 2],
+  ['Van + Driver + 3 movers — €125/h, VAT included', 3],
+]);
+
 interface DenoRuntime {
   env: { get(name: string): string | undefined };
   serve(handler: (request: Request) => Response | Promise<Response>): void;
@@ -154,6 +161,7 @@ runtime?.serve(async (request) => {
     !email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ||
     !phone ||
     !service || !allowedServices.has(service) ||
+    moversByService.get(service) !== numberOfMovers ||
     !pickup ||
     !destination ||
     !preferredDate || !validDate(preferredDate) ||
