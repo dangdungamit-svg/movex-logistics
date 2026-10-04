@@ -39,8 +39,7 @@ export default function Contact() {
               {t.contact.phone}
             </h3>
 
-            {/* Two phone numbers with language flags */}
-            <div className="mt-4 w-full space-y-3">
+            <div className="mt-4 w-full">
               <div className="rounded-xl bg-white p-3 ring-1 ring-slate-200/60">
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-sm font-medium text-slate-600">
@@ -55,27 +54,6 @@ export default function Contact() {
                 </div>
                 <a
                   href={COMPANY.phoneFiHref}
-                  className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-brand-400"
-                >
-                  <Phone className="h-3.5 w-3.5" />
-                  {t.contact.callBtn}
-                </a>
-              </div>
-
-              <div className="rounded-xl bg-white p-3 ring-1 ring-slate-200/60">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-sm font-medium text-slate-600">
-                    {t.contact.phoneEn}
-                  </span>
-                  <a
-                    href={COMPANY.phoneEnHref}
-                    className="font-display text-lg font-bold text-slate-900 transition-colors hover:text-brand-600"
-                  >
-                    {COMPANY.phoneEn}
-                  </a>
-                </div>
-                <a
-                  href={COMPANY.phoneEnHref}
                   className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-brand-500 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-brand-400"
                 >
                   <Phone className="h-3.5 w-3.5" />

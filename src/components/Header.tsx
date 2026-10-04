@@ -87,11 +87,11 @@ export default function Header() {
             </div>
 
             <a
-              href={COMPANY.phoneEnHref}
+              href={COMPANY.phoneHref}
               className="hidden items-center gap-1.5 text-sm font-medium text-slate-300 transition-colors hover:text-white xl:flex"
             >
               <Phone className="h-4 w-4" />
-              {COMPANY.phoneEn}
+              {COMPANY.phone}
             </a>
 
             <a
