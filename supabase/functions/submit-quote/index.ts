@@ -38,11 +38,10 @@ function optionalText(value: unknown, maximum: number): string | null | undefine
 }
 
 function validDate(value: string | null | undefined): value is string | null {
-  return value === null || (
-    typeof value === 'string' &&
-    /^\d{4}-\d{2}-\d{2}$/.test(value) &&
-    !Number.isNaN(Date.parse(`${value}T00:00:00.000Z`))
-  );
+  if (value === null) return true;
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00.000Z`);
+  return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
 }
 
 async function notifyByEmail(request: QuoteRequest) {
@@ -95,12 +94,16 @@ runtime?.serve(async (request) => {
   const contentLength = Number(request.headers.get('content-length') ?? 0);
   if (contentLength > 12_000) return jsonResponse({ success: false }, 413);
 
-  let body: Partial<QuoteRequest>;
+  let parsedBody: unknown;
   try {
-    body = await request.json() as Partial<QuoteRequest>;
+    parsedBody = await request.json();
   } catch {
     return jsonResponse({ success: false }, 400);
   }
+  if (typeof parsedBody !== 'object' || parsedBody === null || Array.isArray(parsedBody)) {
+    return jsonResponse({ success: false }, 400);
+  }
+  const body = parsedBody as Partial<QuoteRequest>;
 
   if (typeof body.website === 'string' && body.website.trim()) {
     return jsonResponse({ success: false }, 400);

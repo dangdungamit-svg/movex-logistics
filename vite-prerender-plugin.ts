@@ -63,8 +63,16 @@ export function prerenderPlugin() {
         alias: { '@': path.resolve(__dirname, 'src') },
         define: {
           'process.env.NODE_ENV': '"production"',
+          'import.meta.env.VITE_SUPABASE_URL': '""',
+          'import.meta.env.VITE_SUPABASE_ANON_KEY': '""',
         },
-        external: ['react', 'react-dom', 'react-dom/server', 'lucide-react'],
+        external: [
+          'react',
+          'react-dom',
+          'react-dom/server',
+          'lucide-react',
+          '@supabase/supabase-js',
+        ],
       });
 
       const mod = await import(`file://${tmpFile}`);
@@ -91,6 +99,10 @@ export function prerenderPlugin() {
         html = html.replace(
           /<link rel="canonical" href="[^"]*"/,
           `<link rel="canonical" href="${route.canonical}"`
+        );
+        html = html.replace(
+          /<meta name="robots" content="[^"]*"/,
+          '<meta name="robots" content="index, follow"'
         );
 
         const outPath =

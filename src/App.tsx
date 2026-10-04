@@ -16,6 +16,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import MobileContactBar from '@/components/MobileContactBar';
 import BlogPage from '@/components/Blog';
+import Admin from '@/components/Admin';
 
 function setHomepageMetadata(lang: 'fi' | 'en') {
   const title = lang === 'fi'
@@ -39,10 +40,14 @@ function setHomepageMetadata(lang: 'fi' | 'en') {
 
 function AppContent() {
   const { lang } = useLanguage();
-  const isBlog = window.location.pathname.startsWith('/blog');
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+  const isAdmin = pathname === '/admin' || pathname === '/admin/login';
+  const isBlog = pathname.startsWith('/blog');
   useEffect(() => {
-    if (!isBlog) setHomepageMetadata(lang);
-  }, [isBlog, lang]);
+    if (!isBlog && !isAdmin) setHomepageMetadata(lang);
+  }, [isAdmin, isBlog, lang]);
+  if (isAdmin) return <Admin loginOnly={pathname === '/admin/login'} />;
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
