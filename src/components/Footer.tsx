@@ -58,20 +58,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a
-                  href={COMPANY.phoneFiHref}
+                  href={COMPANY.phoneHref}
                   className="flex items-center gap-2 transition-colors hover:text-white"
                 >
                   <Phone className="h-4 w-4 text-brand-400" />
-                  {COMPANY.phoneFi}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={COMPANY.phoneEnHref}
-                  className="flex items-center gap-2 transition-colors hover:text-white"
-                >
-                  <Phone className="h-4 w-4 text-brand-400" />
-                  {COMPANY.phoneEn}
+                  {COMPANY.phone}
                 </a>
               </li>
               <li>

@@ -55,7 +55,7 @@ export const translations = {
     },
     hero: {
       badge: 'Tampere · Pirkanmaa · Koko Suomi',
-      title: 'Muutto ja kuljetus Tampereella – helpoksi',
+      title: 'Muutto ja kuljetus – helposti ja turvallisesti',
       subtitle:
         'Ammattimaiset muutto- ja kuljetuspalvelut Tampereella ja koko Suomessa.',
       supporting:
@@ -219,12 +219,12 @@ export const translations = {
       title: 'Puhutaan muuttostasi',
       subtitle: 'Olemme tavoitettavissa päivittäin 07:00–21:00',
       phone: 'Puhelin',
-      phoneFi: 'Suomeksi',
-      phoneEn: 'Englanniksi',
+      phoneFi: 'Soita meille',
+      phoneEn: 'Soita meille',
       whatsapp: 'WhatsApp',
       email: 'Sähköposti',
       hours: 'Aukioloajat',
-      callBtn: 'Soita MoveXille',
+      callBtn: 'Soita meille',
       whatsappBtn: 'WhatsApp MoveXille',
       emailBtn: 'Lähetä sähköpostia MoveXille',
       instructions: 'Kun otat yhteyttä, kerro:',
