@@ -18,7 +18,15 @@ interface QuoteRequest {
   pickup_location: string | null;
   destination: string | null;
   preferred_date: string | null;
-  details: string | null;
+  preferred_time: string | null;
+  number_of_movers: number | null;
+  number_of_rooms: number | null;
+  large_items: string | null;
+  elevator_available: boolean | null;
+  stairs: boolean | null;
+  parking_info: string | null;
+  message: string | null;
+  consent: boolean;
   status: QuoteStatus;
   quoted_price: number | null;
   admin_notes: string | null;
@@ -59,7 +67,15 @@ const labels = {
     pickup: 'Noutopaikka',
     destination: 'Määränpää',
     date: 'Toivottu päivä',
-    details: 'Lisätiedot',
+    time: 'Toivottu aika',
+    movers: 'Muuttajien määrä',
+    rooms: 'Huoneiden määrä',
+    largeItems: 'Suuret tai raskaat esineet',
+    elevator: 'Hissi käytettävissä',
+    stairs: 'Portaita',
+    parking: 'Pysäköintitiedot',
+    message: 'Viesti',
+    consent: 'Tietojenkäsittely hyväksytty',
     contact: 'Yhteystiedot',
     allDetails: 'Valitse tarjouspyyntö nähdäksesi tiedot.',
     invalidPrice: 'Hinnan tulee olla nolla tai sitä suurempi luku.',
@@ -98,7 +114,15 @@ const labels = {
     pickup: 'Pickup location',
     destination: 'Destination',
     date: 'Preferred date',
-    details: 'Additional details',
+    time: 'Preferred time',
+    movers: 'Number of movers',
+    rooms: 'Number of rooms',
+    largeItems: 'Large or heavy items',
+    elevator: 'Elevator available',
+    stairs: 'Stairs',
+    parking: 'Parking information',
+    message: 'Message',
+    consent: 'Data processing consent',
     contact: 'Contact',
     allDetails: 'Select a quote request to see its details.',
     invalidPrice: 'Price must be a number greater than or equal to zero.',
@@ -183,7 +207,7 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
     setLoading(true);
     const { data, error } = await client
       .from('quote_requests')
-      .select('id, created_at, updated_at, name, email, phone, service, pickup_location, destination, preferred_date, details, status, quoted_price, admin_notes')
+      .select('id, created_at, updated_at, name, email, phone, service, pickup_location, destination, preferred_date, preferred_time, number_of_movers, number_of_rooms, large_items, elevator_available, stairs, parking_info, message, consent, status, quoted_price, admin_notes')
       .order('created_at', { ascending: false })
       .range(offset, offset + 499);
     setLoading(false);
@@ -441,7 +465,15 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
                       {labelValue(copy.pickup, selected.pickup_location)}
                       {labelValue(copy.destination, selected.destination)}
                       {labelValue(copy.date, selected.preferred_date)}
-                      {labelValue(copy.details, selected.details)}
+                      {labelValue(copy.time, selected.preferred_time)}
+                      {labelValue(copy.movers, selected.number_of_movers === null ? null : String(selected.number_of_movers))}
+                      {labelValue(copy.rooms, selected.number_of_rooms === null ? null : String(selected.number_of_rooms))}
+                      {labelValue(copy.largeItems, selected.large_items)}
+                      {labelValue(copy.elevator, selected.elevator_available === null ? null : selected.elevator_available ? (lang === 'fi' ? 'Kyllä' : 'Yes') : (lang === 'fi' ? 'Ei' : 'No'))}
+                      {labelValue(copy.stairs, selected.stairs === null ? null : selected.stairs ? (lang === 'fi' ? 'Kyllä' : 'Yes') : (lang === 'fi' ? 'Ei' : 'No'))}
+                      {labelValue(copy.parking, selected.parking_info)}
+                      {labelValue(copy.message, selected.message)}
+                      {labelValue(copy.consent, selected.consent ? (lang === 'fi' ? 'Kyllä' : 'Yes') : (lang === 'fi' ? 'Ei' : 'No'))}
                     </dl>
 
                     <form className="mt-5 space-y-4" onSubmit={handleSave}>

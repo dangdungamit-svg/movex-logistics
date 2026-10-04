@@ -5,16 +5,16 @@ import { useLanguage } from '@/i18n/LanguageContext';
 
 const services = {
   fi: [
-    'Pakettiauto + kuljettaja — 50 €/h, ALV sisältyy',
-    'Pakettiauto + kuljettaja + 1 muuttomies — 75 €/h, ALV sisältyy',
-    'Pakettiauto + kuljettaja + 2 muuttomiestä — 100 €/h, ALV sisältyy',
-    'Pakettiauto + kuljettaja + 3 muuttomiestä — 125 €/h, ALV sisältyy',
+    { value: 'Van + Driver — €50/h VAT included', label: 'Pakettiauto + kuljettaja — 50 €/h, ALV sisältyy' },
+    { value: 'Van + Driver + 1 mover — €75/h VAT included', label: 'Pakettiauto + kuljettaja + 1 muuttomies — 75 €/h, ALV sisältyy' },
+    { value: 'Van + Driver + 2 movers — €100/h VAT included', label: 'Pakettiauto + kuljettaja + 2 muuttomiestä — 100 €/h, ALV sisältyy' },
+    { value: 'Van + Driver + 3 movers — €125/h VAT included', label: 'Pakettiauto + kuljettaja + 3 muuttomiestä — 125 €/h, ALV sisältyy' },
   ],
   en: [
-    'Van + Driver — €50/h, VAT included',
-    'Van + Driver + 1 mover — €75/h, VAT included',
-    'Van + Driver + 2 movers — €100/h, VAT included',
-    'Van + Driver + 3 movers — €125/h, VAT included',
+    { value: 'Van + Driver — €50/h VAT included', label: 'Van + Driver — €50/h VAT included' },
+    { value: 'Van + Driver + 1 mover — €75/h VAT included', label: 'Van + Driver + 1 mover — €75/h VAT included' },
+    { value: 'Van + Driver + 2 movers — €100/h VAT included', label: 'Van + Driver + 2 movers — €100/h VAT included' },
+    { value: 'Van + Driver + 3 movers — €125/h VAT included', label: 'Van + Driver + 3 movers — €125/h VAT included' },
   ],
 };
 
@@ -29,15 +29,27 @@ export default function QuoteRequestForm() {
     ? {
         title: 'Pyydä tarjous',
         subtitle: 'Kerro työstäsi, niin palaamme sinulle tarjouksella.',
-        name: 'Nimi',
+        name: 'Koko nimi',
         email: 'Sähköposti',
-        phone: 'Puhelin (valinnainen)',
+        phone: 'Puhelin',
         service: 'Palvelu',
         chooseService: 'Valitse palvelu',
-        pickup: 'Noutopaikka (valinnainen)',
-        destination: 'Määränpää (valinnainen)',
-        date: 'Toivottu päivä (valinnainen)',
-        details: 'Lisätiedot (valinnainen)',
+        movers: 'Muuttajien määrä',
+        chooseMovers: 'Valitse muuttajien määrä',
+        moverCount: (count: number) => count === 0 ? 'Ei muuttajia' : `${count} muuttajaa`,
+        pickup: 'Noutopaikka',
+        destination: 'Toimitusosoite',
+        date: 'Toivottu päivä',
+        time: 'Toivottu aika (valinnainen)',
+        rooms: 'Huoneiden määrä (valinnainen)',
+        largeItems: 'Suuret tai raskaat esineet (valinnainen)',
+        elevator: 'Hissi käytettävissä? (valinnainen)',
+        stairs: 'Portaita? (valinnainen)',
+        yes: 'Kyllä',
+        no: 'Ei',
+        notSpecified: 'Ei valintaa',
+        parking: 'Pysäköintitiedot (valinnainen)',
+        message: 'Viesti (valinnainen)',
         consent: 'Hyväksyn henkilötietojeni käsittelyn tähän tarjouspyyntöön vastaamiseksi.',
         submit: 'Lähetä tarjouspyyntö',
         sending: 'Lähetetään…',
@@ -49,15 +61,27 @@ export default function QuoteRequestForm() {
     : {
         title: 'Request a Quote',
         subtitle: 'Tell us about your job and we will get back to you with a quote.',
-        name: 'Name',
+        name: 'Full name',
         email: 'Email',
-        phone: 'Phone (optional)',
+        phone: 'Phone',
         service: 'Service',
         chooseService: 'Choose a service',
-        pickup: 'Pickup location (optional)',
-        destination: 'Destination (optional)',
-        date: 'Preferred date (optional)',
-        details: 'Additional details (optional)',
+        movers: 'Number of movers',
+        chooseMovers: 'Choose the number of movers',
+        moverCount: (count: number) => `${count} ${count === 1 ? 'mover' : 'movers'}`,
+        pickup: 'Pickup location',
+        destination: 'Delivery location',
+        date: 'Preferred date',
+        time: 'Preferred time (optional)',
+        rooms: 'Number of rooms (optional)',
+        largeItems: 'Large or heavy items (optional)',
+        elevator: 'Elevator available? (optional)',
+        stairs: 'Stairs? (optional)',
+        yes: 'Yes',
+        no: 'No',
+        notSpecified: 'Not specified',
+        parking: 'Parking information (optional)',
+        message: 'Message (optional)',
         consent: 'I consent to the processing of my personal data to respond to this quote request.',
         submit: 'Send Quote Request',
         sending: 'Sending…',
@@ -79,6 +103,7 @@ export default function QuoteRequestForm() {
     }
 
     const form = new FormData(event.currentTarget);
+    const moverCount = form.get('number_of_movers');
     setSubmitting(true);
     try {
       const { data, error } = await client.functions.invoke('submit-quote', {
@@ -87,10 +112,17 @@ export default function QuoteRequestForm() {
           email: String(form.get('email') ?? '').trim(),
           phone: String(form.get('phone') ?? '').trim() || null,
           service: String(form.get('service') ?? ''),
-          pickup_location: String(form.get('pickup_location') ?? '').trim() || null,
-          destination: String(form.get('destination') ?? '').trim() || null,
-          preferred_date: String(form.get('preferred_date') ?? '') || null,
-          details: String(form.get('details') ?? '').trim() || null,
+          pickup_location: String(form.get('pickup_location') ?? '').trim(),
+          destination: String(form.get('destination') ?? '').trim(),
+          preferred_date: String(form.get('preferred_date') ?? ''),
+          preferred_time: String(form.get('preferred_time') ?? '') || null,
+          number_of_movers: moverCount === null || moverCount === '' ? null : Number(moverCount),
+          number_of_rooms: String(form.get('number_of_rooms') ?? '') ? Number(form.get('number_of_rooms')) : null,
+          large_items: String(form.get('large_items') ?? '').trim() || null,
+          elevator_available: String(form.get('elevator_available') ?? '') === '' ? null : form.get('elevator_available') === 'true',
+          stairs: String(form.get('stairs') ?? '') === '' ? null : form.get('stairs') === 'true',
+          parking_info: String(form.get('parking_info') ?? '').trim() || null,
+          message: String(form.get('message') ?? '').trim() || null,
           consent: form.get('consent') === 'on',
           website: String(form.get('website') ?? ''),
         },
@@ -124,31 +156,70 @@ export default function QuoteRequestForm() {
           <input className={fieldClass} name="email" type="email" autoComplete="email" maxLength={254} required />
         </label>
         <label className="text-sm font-medium text-slate-700">
-          {copy.phone}
-          <input className={fieldClass} name="phone" type="tel" autoComplete="tel" maxLength={40} />
+          {copy.phone} <span aria-hidden="true">*</span>
+          <input className={fieldClass} name="phone" type="tel" autoComplete="tel" maxLength={40} required />
         </label>
         <label className="text-sm font-medium text-slate-700">
           {copy.service} <span aria-hidden="true">*</span>
           <select className={fieldClass} name="service" defaultValue="" required>
             <option value="" disabled>{copy.chooseService}</option>
-            {services[lang].map((service) => <option key={service} value={service}>{service}</option>)}
+            {services[lang].map((service) => <option key={service.value} value={service.value}>{service.label}</option>)}
+          </select>
+        </label>
+        <label className="text-sm font-medium text-slate-700">
+          {copy.movers} <span aria-hidden="true">*</span>
+          <select className={fieldClass} name="number_of_movers" defaultValue="" required>
+            <option value="" disabled>{copy.chooseMovers}</option>
+            {[0, 1, 2, 3].map((count) => <option key={count} value={count}>{copy.moverCount(count)}</option>)}
           </select>
         </label>
         <label className="text-sm font-medium text-slate-700">
           {copy.pickup}
-          <input className={fieldClass} name="pickup_location" autoComplete="street-address" maxLength={300} />
+          <input className={fieldClass} name="pickup_location" autoComplete="street-address" maxLength={300} required />
         </label>
         <label className="text-sm font-medium text-slate-700">
           {copy.destination}
-          <input className={fieldClass} name="destination" maxLength={300} />
+          <input className={fieldClass} name="destination" maxLength={300} required />
         </label>
         <label className="text-sm font-medium text-slate-700">
           {copy.date}
-          <input className={fieldClass} name="preferred_date" type="date" />
+          <input className={fieldClass} name="preferred_date" type="date" required />
         </label>
         <label className="text-sm font-medium text-slate-700 sm:col-span-2">
-          {copy.details}
-          <textarea className={fieldClass} name="details" rows={4} maxLength={4000} />
+          {copy.time}
+          <input className={fieldClass} name="preferred_time" type="time" />
+        </label>
+        <label className="text-sm font-medium text-slate-700">
+          {copy.rooms}
+          <input className={fieldClass} name="number_of_rooms" type="number" min="1" max="100" step="1" />
+        </label>
+        <label className="text-sm font-medium text-slate-700">
+          {copy.largeItems}
+          <textarea className={fieldClass} name="large_items" rows={2} maxLength={2000} />
+        </label>
+        <label className="text-sm font-medium text-slate-700">
+          {copy.elevator}
+          <select className={fieldClass} name="elevator_available" defaultValue="">
+            <option value="">{copy.notSpecified}</option>
+            <option value="true">{copy.yes}</option>
+            <option value="false">{copy.no}</option>
+          </select>
+        </label>
+        <label className="text-sm font-medium text-slate-700">
+          {copy.stairs}
+          <select className={fieldClass} name="stairs" defaultValue="">
+            <option value="">{copy.notSpecified}</option>
+            <option value="true">{copy.yes}</option>
+            <option value="false">{copy.no}</option>
+          </select>
+        </label>
+        <label className="text-sm font-medium text-slate-700 sm:col-span-2">
+          {copy.parking}
+          <textarea className={fieldClass} name="parking_info" rows={2} maxLength={1000} />
+        </label>
+        <label className="text-sm font-medium text-slate-700 sm:col-span-2">
+          {copy.message}
+          <textarea className={fieldClass} name="message" rows={4} maxLength={4000} />
         </label>
         <label
           className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden"

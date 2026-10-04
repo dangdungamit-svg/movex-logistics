@@ -7,15 +7,32 @@ const corsHeaders = {
 interface QuoteRequest {
   name: string;
   email: string;
-  phone: string | null;
+  phone: string;
   service: string;
-  pickup_location: string | null;
-  destination: string | null;
-  preferred_date: string | null;
-  details: string | null;
+  pickup_location: string;
+  destination: string;
+  preferred_date: string;
+  preferred_time: string | null;
+  number_of_movers: number;
+  number_of_rooms: number | null;
+  large_items: string | null;
+  elevator_available: boolean | null;
+  stairs: boolean | null;
+  parking_info: string | null;
+  message: string | null;
   consent: boolean;
-  website: string;
 }
+
+interface SubmitQuoteBody extends Partial<QuoteRequest> {
+  website?: unknown;
+}
+
+const allowedServices = new Set([
+  'Van + Driver — €50/h VAT included',
+  'Van + Driver + 1 mover — €75/h VAT included',
+  'Van + Driver + 2 movers — €100/h VAT included',
+  'Van + Driver + 3 movers — €125/h VAT included',
+]);
 
 interface DenoRuntime {
   env: { get(name: string): string | undefined };
@@ -62,7 +79,14 @@ async function notifyByEmail(request: QuoteRequest) {
     `Pickup: ${request.pickup_location ?? 'Not provided'}`,
     `Destination: ${request.destination ?? 'Not provided'}`,
     `Preferred date: ${request.preferred_date ?? 'Not provided'}`,
-    `Details: ${request.details ?? 'Not provided'}`,
+    `Preferred time: ${request.preferred_time ?? 'Not provided'}`,
+    `Number of movers: ${request.number_of_movers}`,
+    `Number of rooms: ${request.number_of_rooms ?? 'Not provided'}`,
+    `Large or heavy items: ${request.large_items ?? 'Not provided'}`,
+    `Elevator available: ${request.elevator_available === null ? 'Not specified' : request.elevator_available ? 'Yes' : 'No'}`,
+    `Stairs: ${request.stairs === null ? 'Not specified' : request.stairs ? 'Yes' : 'No'}`,
+    `Parking information: ${request.parking_info ?? 'Not provided'}`,
+    `Message: ${request.message ?? 'Not provided'}`,
   ];
 
   try {
@@ -75,7 +99,7 @@ async function notifyByEmail(request: QuoteRequest) {
       body: JSON.stringify({
         from,
         to: ['dangdung.amit@gmail.com'],
-        subject: 'New MoveX quote request',
+        subject: `New MoveX quote request – ${request.name.replace(/[\r\n]+/g, ' ').trim()}`,
         text: lines.join('\n'),
       }),
       signal: AbortSignal.timeout(10_000),
@@ -103,7 +127,7 @@ runtime?.serve(async (request) => {
   if (typeof parsedBody !== 'object' || parsedBody === null || Array.isArray(parsedBody)) {
     return jsonResponse({ success: false }, 400);
   }
-  const body = parsedBody as Partial<QuoteRequest>;
+  const body = parsedBody as SubmitQuoteBody;
 
   if (typeof body.website === 'string' && body.website.trim()) {
     return jsonResponse({ success: false }, 400);
@@ -116,17 +140,33 @@ runtime?.serve(async (request) => {
   const pickup = optionalText(body.pickup_location, 300);
   const destination = optionalText(body.destination, 300);
   const preferredDate = optionalText(body.preferred_date, 10);
-  const details = optionalText(body.details, 4000);
+  const preferredTime = optionalText(body.preferred_time, 5);
+  const largeItems = optionalText(body.large_items, 2000);
+  const parkingInfo = optionalText(body.parking_info, 1000);
+  const message = optionalText(body.message, 4000);
+  const numberOfMovers = body.number_of_movers;
+  const numberOfRooms = body.number_of_rooms;
+  const elevatorAvailable = body.elevator_available;
+  const stairs = body.stairs;
 
   if (
     !name || name.length < 2 ||
     !email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ||
-    phone === undefined ||
-    !service ||
-    pickup === undefined ||
-    destination === undefined ||
-    preferredDate === undefined || !validDate(preferredDate) ||
-    details === undefined ||
+    !phone ||
+    !service || !allowedServices.has(service) ||
+    !pickup ||
+    !destination ||
+    !preferredDate || !validDate(preferredDate) ||
+    preferredTime === undefined || (preferredTime !== null && !/^([01]\d|2[0-3]):[0-5]\d$/.test(preferredTime)) ||
+    typeof numberOfMovers !== 'number' || !Number.isInteger(numberOfMovers) || numberOfMovers < 0 || numberOfMovers > 3 ||
+    numberOfRooms !== null && numberOfRooms !== undefined && (
+      typeof numberOfRooms !== 'number' || !Number.isInteger(numberOfRooms) || numberOfRooms < 1 || numberOfRooms > 100
+    ) ||
+    largeItems === undefined ||
+    parkingInfo === undefined ||
+    message === undefined ||
+    elevatorAvailable !== null && elevatorAvailable !== undefined && typeof elevatorAvailable !== 'boolean' ||
+    stairs !== null && stairs !== undefined && typeof stairs !== 'boolean' ||
     body.consent !== true
   ) {
     return jsonResponse({ success: false }, 400);
@@ -147,9 +187,15 @@ runtime?.serve(async (request) => {
     pickup_location: pickup,
     destination,
     preferred_date: preferredDate,
-    details,
+    preferred_time: preferredTime ?? null,
+    number_of_movers: numberOfMovers,
+    number_of_rooms: numberOfRooms ?? null,
+    large_items: largeItems,
+    elevator_available: elevatorAvailable ?? null,
+    stairs: stairs ?? null,
+    parking_info: parkingInfo,
+    message,
     consent: true,
-    website: '',
   };
 
   try {
@@ -169,7 +215,14 @@ runtime?.serve(async (request) => {
         pickup_location: quote.pickup_location,
         destination: quote.destination,
         preferred_date: quote.preferred_date,
-        details: quote.details,
+        preferred_time: quote.preferred_time,
+        number_of_movers: quote.number_of_movers,
+        number_of_rooms: quote.number_of_rooms,
+        large_items: quote.large_items,
+        elevator_available: quote.elevator_available,
+        stairs: quote.stairs,
+        parking_info: quote.parking_info,
+        message: quote.message,
         consent: quote.consent,
       }),
     });
