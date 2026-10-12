@@ -22,11 +22,11 @@ const socials = [
 ];
 
 const navLinks = [
-  { key: 'services', href: '#services' },
-  { key: 'pricing', href: '#pricing' },
-  { key: 'faq', href: '#faq' },
+  { key: 'services', href: '/#services' },
+  { key: 'pricing', href: '/#pricing' },
+  { key: 'faq', href: '/#faq' },
   { key: 'blog', href: '/blog' },
-  { key: 'contact', href: '#contact' },
+  { key: 'contact', href: '/#contact' },
 ];
 
 export default function Footer() {

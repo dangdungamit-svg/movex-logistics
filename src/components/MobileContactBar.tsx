@@ -24,7 +24,7 @@ export default function MobileContactBar() {
         <span className="text-xs font-semibold">{t.mobileBar.whatsapp}</span>
       </a>
       <a
-        href="#contact"
+        href="/#contact"
         className="flex flex-col items-center gap-1 py-2.5 text-brand-600 transition-colors active:bg-brand-50"
       >
         <FileText className="h-5 w-5" />

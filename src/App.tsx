@@ -46,6 +46,11 @@ function AppContent() {
   useEffect(() => {
     if (!isBlog && !isAdmin) setHomepageMetadata(lang);
   }, [isAdmin, isBlog, lang]);
+  useEffect(() => {
+    if (isBlog || isAdmin || !window.location.hash) return;
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    document.getElementById(id)?.scrollIntoView();
+  }, [isAdmin, isBlog]);
   if (isAdmin) return <Admin loginOnly={pathname === '/admin/login'} />;
 
   return (
