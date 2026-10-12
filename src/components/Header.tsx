@@ -15,14 +15,14 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { label: t.nav.home, href: '#home' },
-    { label: t.nav.services, href: '#services' },
-    { label: t.nav.pricing, href: '#pricing' },
-    { label: t.nav.howItWorks, href: '#how-it-works' },
-    { label: t.nav.whyMoveX, href: '#why-movex' },
-    { label: t.nav.faq, href: '#faq' },
+    { label: t.nav.home, href: '/#home' },
+    { label: t.nav.services, href: '/#services' },
+    { label: t.nav.pricing, href: '/#pricing' },
+    { label: t.nav.howItWorks, href: '/#how-it-works' },
+    { label: t.nav.whyMoveX, href: '/#why-movex' },
+    { label: t.nav.faq, href: '/#faq' },
     { label: t.nav.blog, href: '/blog' },
-    { label: t.nav.contact, href: '#contact' },
+    { label: t.nav.contact, href: '/#contact' },
   ];
 
   const closeMenu = () => setOpen(false);
@@ -38,7 +38,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
           <a
-            href="#home"
+            href="/#home"
             onClick={closeMenu}
             className="flex items-center gap-2.5 text-white"
           >
@@ -95,7 +95,7 @@ export default function Header() {
             </a>
 
             <a
-              href="#contact"
+              href="/#contact"
               className="hidden rounded-xl bg-brand-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition-all hover:bg-brand-400 hover:shadow-brand-500/30 lg:inline-flex"
             >
               {t.nav.getQuote}
@@ -126,7 +126,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               onClick={closeMenu}
               className="mt-2 block rounded-xl bg-brand-500 px-4 py-3 text-center text-base font-semibold text-white shadow-lg shadow-brand-500/20"
             >
