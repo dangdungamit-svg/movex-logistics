@@ -30,7 +30,7 @@ function setHomepageMetadata(lang: 'fi' | 'en') {
   descTag?.setAttribute('content', description);
   const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
   canonical.setAttribute('rel', 'canonical');
-  canonical.setAttribute('href', window.location.origin + '/');
+  canonical.setAttribute('href', 'https://movexlogistics.fi/');
   if (!canonical.parentElement) document.head.appendChild(canonical);
   const robots = document.querySelector('meta[name="robots"]') ?? document.createElement('meta');
   robots.setAttribute('name', 'robots');
@@ -46,6 +46,12 @@ function AppContent() {
   useEffect(() => {
     if (!isBlog && !isAdmin) setHomepageMetadata(lang);
   }, [isAdmin, isBlog, lang]);
+  useEffect(() => {
+    if (!isAdmin) return;
+    document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex, nofollow');
+    document.querySelector('link[rel="canonical"]')?.remove();
+  }, [isAdmin]);
+
   useEffect(() => {
     if (isBlog || isAdmin || !window.location.hash) return;
     const id = decodeURIComponent(window.location.hash.slice(1));
