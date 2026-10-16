@@ -1,4 +1,4 @@
-import { ArrowRight, Info, Sofa, MapPin } from 'lucide-react';
+import { ArrowRight, Sofa, MapPin } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function Pricing() {
@@ -47,22 +47,6 @@ export default function Pricing() {
                 >
                   {card.unit}
                 </span>
-              </div>
-              <div className="mt-3 space-y-1">
-                <p
-                  className={`text-xs font-medium ${
-                    i === 0 ? 'text-brand-300' : 'text-brand-600'
-                  }`}
-                >
-                  {card.vat}
-                </p>
-                <p
-                  className={`text-xs ${
-                    i === 0 ? 'text-slate-400' : 'text-slate-500'
-                  }`}
-                >
-                  {card.min}
-                </p>
               </div>
             </div>
           ))}
@@ -124,22 +108,7 @@ export default function Pricing() {
         </div>
 
         {/* Notes */}
-        <div className="mx-auto mt-8 max-w-2xl rounded-2xl bg-slate-50 p-5 ring-1 ring-slate-200/60">
-          <div className="mb-2 flex items-center gap-2 text-sm font-semibold text-slate-700">
-            <Info className="h-4 w-4 text-brand-500" />
-            {t.pricing.subtitle}
-          </div>
-          <ul className="space-y-1.5">
-            <li className="flex items-start gap-2 text-sm text-slate-600">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400" />
-              {t.pricing.vatNote}
-            </li>
-            <li className="flex items-start gap-2 text-sm text-slate-600">
-              <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400" />
-              {t.pricing.minNote}
-            </li>
-          </ul>
-        </div>
+        <p className="mt-4 text-center text-sm text-slate-500">{t.pricing.minNote}</p>
 
         {/* CTA */}
         <div className="mt-8 text-center">

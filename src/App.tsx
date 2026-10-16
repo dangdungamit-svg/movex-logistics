@@ -4,7 +4,6 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Pricing from '@/components/Pricing';
 import FixedPriceQuote from '@/components/FixedPriceQuote';
-import QuickInfo from '@/components/QuickInfo';
 import Services from '@/components/Services';
 import VehicleCapacity from '@/components/VehicleCapacity';
 import QualitySafety from '@/components/QualitySafety';
@@ -69,7 +68,6 @@ function AppContent() {
       ) : (
         <main>
           <Hero />
-          <QuickInfo />
           <Pricing />
           <FixedPriceQuote />
           <Services />
@@ -164,7 +162,7 @@ function AppContent() {
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
                   src="https://raw.githubusercontent.com/dangdungamit-svg/movex-logistics/main/public/images/34_20260924_225406_0033.png"
-                  alt="Final delivery and service"
+                  alt="Contact MoveX Logistics"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
                 />
