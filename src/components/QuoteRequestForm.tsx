@@ -1,284 +1,217 @@
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
+import { MessageCircle, Mail } from 'lucide-react';
 import { trackContactConversion } from '@/lib/analytics';
-import { supabase } from '@/lib/supabase';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { COMPANY, WHATSAPP_NUMBER } from '@/i18n/translations';
+import { QUOTE_PREF_EVENT } from '@/components/FixedPriceQuote';
 
-const services = {
-  fi: [
-    { value: 'Van + Driver — €50/h, VAT included', label: 'Pakettiauto + kuljettaja — 50 €/h, ALV sisältyy' },
-    { value: 'Van + Driver + 1 mover — €75/h, VAT included', label: 'Pakettiauto + kuljettaja + 1 muuttomies — 75 €/h, ALV sisältyy' },
-    { value: 'Van + Driver + 2 movers — €100/h, VAT included', label: 'Pakettiauto + kuljettaja + 2 muuttomiestä — 100 €/h, ALV sisältyy' },
-    { value: 'Van + Driver + 3 movers — €125/h, VAT included', label: 'Pakettiauto + kuljettaja + 3 muuttomiestä — 125 €/h, ALV sisältyy' },
-  ],
-  en: [
-    { value: 'Van + Driver — €50/h, VAT included', label: 'Van + Driver — €50/h, VAT included' },
-    { value: 'Van + Driver + 1 mover — €75/h, VAT included', label: 'Van + Driver + 1 mover — €75/h, VAT included' },
-    { value: 'Van + Driver + 2 movers — €100/h, VAT included', label: 'Van + Driver + 2 movers — €100/h, VAT included' },
-    { value: 'Van + Driver + 3 movers — €125/h, VAT included', label: 'Van + Driver + 3 movers — €125/h, VAT included' },
-  ],
-};
-
-const serviceByMovers = services.en.map((service) => service.value);
+type Pref = 'hourly' | 'fixed' | 'unsure';
 
 const fieldClass =
   'mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100';
 
 export default function QuoteRequestForm() {
-  const { lang } = useLanguage();
-  const [submitting, setSubmitting] = useState(false);
-  const [message, setMessage] = useState('');
-  const [movers, setMovers] = useState('');
-  const [service, setService] = useState('');
-  const copy = lang === 'fi'
-    ? {
-        title: 'Pyydä tarjous',
-        subtitle: 'Kerro työstäsi, niin palaamme sinulle tarjouksella.',
-        name: 'Koko nimi',
-        email: 'Sähköposti',
-        phone: 'Puhelin',
-        service: 'Palvelu',
-        chooseService: 'Valitse palvelu',
-        movers: 'Muuttajien määrä',
-        chooseMovers: 'Valitse muuttajien määrä',
-        moverCount: (count: number) => count === 0 ? 'Ei muuttajia' : `${count} muuttajaa`,
-        pickup: 'Noutopaikka',
-        destination: 'Toimitusosoite',
-        date: 'Toivottu päivä',
-        time: 'Toivottu aika (valinnainen)',
-        rooms: 'Huoneiden määrä (valinnainen)',
-        largeItems: 'Suuret tai raskaat esineet (valinnainen)',
-        elevator: 'Hissi käytettävissä? (valinnainen)',
-        stairs: 'Portaita? (valinnainen)',
-        yes: 'Kyllä',
-        no: 'Ei',
-        notSpecified: 'Ei valintaa',
-        parking: 'Pysäköintitiedot (valinnainen)',
-        message: 'Viesti (valinnainen)',
-        consent: 'Hyväksyn henkilötietojeni käsittelyn tähän tarjouspyyntöön vastaamiseksi.',
-        submit: 'Lähetä tarjouspyyntö',
-        sending: 'Lähetetään…',
-        success: 'Kiitos! Tarjouspyyntösi on tallennettu. Otamme sinuun yhteyttä.',
-        error: 'Tarjouspyyntöä ei voitu tallentaa. Yritä myöhemmin uudelleen tai ota yhteyttä puhelimitse.',
-        configError: 'Tarjouspyyntö ei ole tällä hetkellä käytettävissä. Ota meihin yhteyttä puhelimitse, WhatsAppilla tai sähköpostitse.',
-        minimum: 'Vähimmäisvaraus 1 tunti. Ensimmäisen tunnin jälkeen laskutus 30 minuutin välein.',
-      }
-    : {
-        title: 'Request a Quote',
-        subtitle: 'Tell us about your job and we will get back to you with a quote.',
-        name: 'Full name',
-        email: 'Email',
-        phone: 'Phone',
-        service: 'Service',
-        chooseService: 'Choose a service',
-        movers: 'Number of movers',
-        chooseMovers: 'Choose the number of movers',
-        moverCount: (count: number) => `${count} ${count === 1 ? 'mover' : 'movers'}`,
-        pickup: 'Pickup location',
-        destination: 'Delivery location',
-        date: 'Preferred date',
-        time: 'Preferred time (optional)',
-        rooms: 'Number of rooms (optional)',
-        largeItems: 'Large or heavy items (optional)',
-        elevator: 'Elevator available? (optional)',
-        stairs: 'Stairs? (optional)',
-        yes: 'Yes',
-        no: 'No',
-        notSpecified: 'Not specified',
-        parking: 'Parking information (optional)',
-        message: 'Message (optional)',
-        consent: 'I consent to the processing of my personal data to respond to this quote request.',
-        submit: 'Send Quote Request',
-        sending: 'Sending…',
-        success: 'Thank you! Your quote request has been saved. We will be in touch.',
-        error: 'We could not save your quote request. Please try again later or contact us by phone.',
-        configError: 'Quote requests are not available right now. Please contact us by phone, WhatsApp or email.',
-        minimum: 'Minimum booking: 1 hour. After the first hour, billing continues in 30-minute increments.',
-      };
+  const { t } = useLanguage();
+  const q = t.quoteForm;
+  const [pref, setPref] = useState<Pref>('unsure');
+  const [error, setError] = useState('');
+  const [opened, setOpened] = useState(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const value = (e as CustomEvent<Pref>).detail;
+      if (value === 'hourly' || value === 'fixed' || value === 'unsure') setPref(value);
+    };
+    window.addEventListener(QUOTE_PREF_EVENT, handler);
+    return () => window.removeEventListener(QUOTE_PREF_EVENT, handler);
+  }, []);
+
+  function buildMessage(form: FormData) {
+    const get = (k: string) => String(form.get(k) ?? '').trim();
+    const yesNo = (k: string) => (get(k) === 'yes' ? q.yes : get(k) === 'no' ? q.no : '');
+    const helpMap: Record<string, string> = {
+      loading: q.helpLoading,
+      unloading: q.helpUnloading,
+      both: q.helpBoth,
+      none: q.helpNone,
+    };
+    const prefText = { hourly: q.msgPrefHourly, fixed: q.msgPrefFixed, unsure: q.msgPrefUnsure }[pref];
+    const contact = [get('phone'), get('email')].filter(Boolean).join(' / ');
+    const lines: [string, string][] = [
+      [q.msgPref, prefText],
+      [q.msgName, get('name')],
+      [q.msgContact, contact],
+      [q.msgPickup, get('pickup')],
+      [q.msgDelivery, get('delivery')],
+      [q.msgDate, get('date')],
+      [q.msgItems, get('items')],
+      [q.msgPickupFloor, get('pickup_floor')],
+      [q.msgDeliveryFloor, get('delivery_floor')],
+      [q.msgPickupElevator, yesNo('pickup_elevator')],
+      [q.msgDeliveryElevator, yesNo('delivery_elevator')],
+      [q.msgHelp, helpMap[get('help')] ?? ''],
+      [q.msgNotes, get('notes')],
+    ];
+    return `${q.msgHello}\n\n${lines.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n')}`;
+  }
+
+  function handleSend(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setMessage('');
-    const formElement = event.currentTarget;
-
-    const client = supabase;
-    if (!client) {
-      setMessage(copy.configError);
+    setError('');
+    const form = new FormData(event.currentTarget);
+    const phone = String(form.get('phone') ?? '').trim();
+    const email = String(form.get('email') ?? '').trim();
+    if (!phone && !email) {
+      setError(q.errContact);
       return;
     }
-
-    const form = new FormData(event.currentTarget);
-    const moverCount = form.get('number_of_movers');
-    setSubmitting(true);
-    try {
-      const { data, error } = await client.functions.invoke('submit-quote', {
-        body: {
-          name: String(form.get('name') ?? '').trim(),
-          email: String(form.get('email') ?? '').trim(),
-          phone: String(form.get('phone') ?? '').trim() || null,
-          service: String(form.get('service') ?? ''),
-          pickup_location: String(form.get('pickup_location') ?? '').trim(),
-          destination: String(form.get('destination') ?? '').trim(),
-          preferred_date: String(form.get('preferred_date') ?? ''),
-          preferred_time: String(form.get('preferred_time') ?? '') || null,
-          number_of_movers: moverCount === null || moverCount === '' ? null : Number(moverCount),
-          number_of_rooms: String(form.get('number_of_rooms') ?? '') ? Number(form.get('number_of_rooms')) : null,
-          large_items: String(form.get('large_items') ?? '').trim() || null,
-          elevator_available: String(form.get('elevator_available') ?? '') === '' ? null : form.get('elevator_available') === 'true',
-          stairs: String(form.get('stairs') ?? '') === '' ? null : form.get('stairs') === 'true',
-          parking_info: String(form.get('parking_info') ?? '').trim() || null,
-          message: String(form.get('message') ?? '').trim() || null,
-          consent: form.get('consent') === 'on',
-          website: String(form.get('website') ?? ''),
-        },
-      });
-      if (error || data?.success !== true) {
-        console.error('Quote request was not saved', error ?? data);
-        throw new Error('Quote request was not saved');
-      }
-
-      trackContactConversion();
-      setMessage(copy.success);
-      formElement.reset();
-      setMovers('');
-      setService('');
-    } catch (err) {
-      console.error(err);
-      setMessage(copy.error);
-    } finally {
-      setSubmitting(false);
+    if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      setError(q.errEmail);
+      return;
     }
+    const channel = ((event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
+    const text = encodeURIComponent(buildMessage(form));
+    const url =
+      channel === 'email'
+        ? `mailto:${COMPANY.email}?subject=${encodeURIComponent(q.emailSubject)}&body=${text}`
+        : `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    trackContactConversion();
+    setOpened(true);
+    if (channel === 'email') window.location.href = url;
+    else window.open(url, '_blank', 'noopener,noreferrer');
   }
+
+  const prefOptions: { value: Pref; label: string }[] = [
+    { value: 'hourly', label: q.prefHourly },
+    { value: 'fixed', label: q.prefFixed },
+    { value: 'unsure', label: q.prefUnsure },
+  ];
+  const labelClass = 'text-sm font-medium text-slate-700';
+  const yesNoOptions = (
+    <>
+      <option value="">{q.notSpecified}</option>
+      <option value="yes">{q.yes}</option>
+      <option value="no">{q.no}</option>
+    </>
+  );
 
   return (
     <div className="mx-auto mt-12 max-w-4xl rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200/70 sm:p-8">
       <div className="mb-6">
-        <h3 className="text-2xl font-bold text-slate-900">{copy.title}</h3>
-        <p className="mt-2 text-sm text-slate-600">{copy.subtitle}</p>
-        <p className="mt-2 text-xs text-slate-500">{copy.minimum}</p>
+        <h3 className="text-2xl font-bold text-slate-900">{q.title}</h3>
+        <p className="mt-2 text-sm text-slate-600">{q.subtitle}</p>
+        <p className="mt-2 text-xs text-slate-500">{q.minimum}</p>
       </div>
-      <form onSubmit={handleSubmit} className="grid gap-5 sm:grid-cols-2">
-        <label className="text-sm font-medium text-slate-700">
-          {copy.name} <span aria-hidden="true">*</span>
-          <input className={fieldClass} name="name" autoComplete="name" maxLength={120} required />
+      <form onSubmit={handleSend} className="grid gap-5 sm:grid-cols-2">
+        <fieldset className="sm:col-span-2">
+          <legend className={labelClass}>{q.prefLegend}</legend>
+          <div className="mt-2 grid gap-2 sm:grid-cols-3">
+            {prefOptions.map((o) => (
+              <label
+                key={o.value}
+                className={`flex cursor-pointer items-center gap-2 rounded-xl border px-4 py-3 text-sm ${
+                  pref === o.value ? 'border-brand-500 bg-brand-50 text-slate-900' : 'border-slate-200 bg-white text-slate-700'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="pref"
+                  value={o.value}
+                  checked={pref === o.value}
+                  onChange={() => setPref(o.value)}
+                  className="accent-brand-500"
+                />
+                {o.label}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <label className={labelClass}>
+          {q.name}
+          <input className={fieldClass} name="name" autoComplete="name" maxLength={120} />
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.email} <span aria-hidden="true">*</span>
-          <input className={fieldClass} name="email" type="email" autoComplete="email" maxLength={254} required />
+        <div className="grid gap-5 sm:col-span-2 sm:grid-cols-2">
+          <label className={labelClass}>
+            {q.phone}
+            <input className={fieldClass} name="phone" type="tel" autoComplete="tel" maxLength={40} aria-describedby="contact-hint" />
+          </label>
+          <label className={labelClass}>
+            {q.email}
+            <input className={fieldClass} name="email" type="email" autoComplete="email" maxLength={254} aria-describedby="contact-hint" />
+          </label>
+          <p id="contact-hint" className="text-xs text-slate-500 sm:col-span-2">{q.contactHint}</p>
+        </div>
+        <label className={labelClass}>
+          {q.pickup}
+          <input className={fieldClass} name="pickup" autoComplete="street-address" maxLength={300} />
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.phone} <span aria-hidden="true">*</span>
-          <input className={fieldClass} name="phone" type="tel" autoComplete="tel" maxLength={40} required />
+        <label className={labelClass}>
+          {q.delivery}
+          <input className={fieldClass} name="delivery" maxLength={300} />
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.service} <span aria-hidden="true">*</span>
-          <select
-            className={fieldClass}
-            name="service"
-            value={service}
-            onChange={(event) => {
-              setService(event.target.value);
-              const index = serviceByMovers.indexOf(event.target.value);
-              if (index >= 0) setMovers(String(index));
-            }}
-            required
-          >
-            <option value="" disabled>{copy.chooseService}</option>
-            {services[lang].map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+        <label className={labelClass}>
+          {q.date}
+          <input className={fieldClass} name="date" type="date" />
+        </label>
+        <label className={labelClass}>
+          {q.help}
+          <select className={fieldClass} name="help" defaultValue="">
+            <option value="">{q.notSpecified}</option>
+            <option value="loading">{q.helpLoading}</option>
+            <option value="unloading">{q.helpUnloading}</option>
+            <option value="both">{q.helpBoth}</option>
+            <option value="none">{q.helpNone}</option>
           </select>
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.movers} <span aria-hidden="true">*</span>
-          <select
-            className={fieldClass}
-            name="number_of_movers"
-            value={movers}
-            onChange={(event) => {
-              setMovers(event.target.value);
-              setService(serviceByMovers[Number(event.target.value)] ?? '');
-            }}
-            required
-          >
-            <option value="" disabled>{copy.chooseMovers}</option>
-            {[0, 1, 2, 3].map((count) => <option key={count} value={count}>{copy.moverCount(count)}</option>)}
-          </select>
+        <label className={`${labelClass} sm:col-span-2`}>
+          {q.items}
+          <textarea className={fieldClass} name="items" rows={3} maxLength={2000} placeholder={q.itemsPlaceholder} />
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.pickup}
-          <input className={fieldClass} name="pickup_location" autoComplete="street-address" maxLength={300} required />
+        <label className={labelClass}>
+          {q.pickupFloor}
+          <input className={fieldClass} name="pickup_floor" maxLength={20} />
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.destination}
-          <input className={fieldClass} name="destination" maxLength={300} required />
+        <label className={labelClass}>
+          {q.deliveryFloor}
+          <input className={fieldClass} name="delivery_floor" maxLength={20} />
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.date}
-          <input className={fieldClass} name="preferred_date" type="date" required />
+        <label className={labelClass}>
+          {q.pickupElevator}
+          <select className={fieldClass} name="pickup_elevator" defaultValue="">{yesNoOptions}</select>
         </label>
-        <label className="text-sm font-medium text-slate-700 sm:col-span-2">
-          {copy.time}
-          <input className={fieldClass} name="preferred_time" type="time" />
+        <label className={labelClass}>
+          {q.deliveryElevator}
+          <select className={fieldClass} name="delivery_elevator" defaultValue="">{yesNoOptions}</select>
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.rooms}
-          <input className={fieldClass} name="number_of_rooms" type="number" min="1" max="100" step="1" />
+        <label className={`${labelClass} sm:col-span-2`}>
+          {q.notes}
+          <textarea className={fieldClass} name="notes" rows={3} maxLength={4000} />
         </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.largeItems}
-          <textarea className={fieldClass} name="large_items" rows={2} maxLength={2000} />
-        </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.elevator}
-          <select className={fieldClass} name="elevator_available" defaultValue="">
-            <option value="">{copy.notSpecified}</option>
-            <option value="true">{copy.yes}</option>
-            <option value="false">{copy.no}</option>
-          </select>
-        </label>
-        <label className="text-sm font-medium text-slate-700">
-          {copy.stairs}
-          <select className={fieldClass} name="stairs" defaultValue="">
-            <option value="">{copy.notSpecified}</option>
-            <option value="true">{copy.yes}</option>
-            <option value="false">{copy.no}</option>
-          </select>
-        </label>
-        <label className="text-sm font-medium text-slate-700 sm:col-span-2">
-          {copy.parking}
-          <textarea className={fieldClass} name="parking_info" rows={2} maxLength={1000} />
-        </label>
-        <label className="text-sm font-medium text-slate-700 sm:col-span-2">
-          {copy.message}
-          <textarea className={fieldClass} name="message" rows={4} maxLength={4000} />
-        </label>
-        <label
-          className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden"
-          aria-hidden="true"
-        >
-          Website
-          <input name="website" tabIndex={-1} autoComplete="off" />
-        </label>
-        <label className="flex items-start gap-3 text-sm leading-relaxed text-slate-600 sm:col-span-2">
-          <input className="mt-1 h-4 w-4 shrink-0 accent-brand-500" name="consent" type="checkbox" required />
-          <span>{copy.consent} <span aria-hidden="true">*</span></span>
-        </label>
-        {message && (
-          <p
-            className={`text-sm sm:col-span-2 ${message === copy.success ? 'text-green-700' : 'text-red-700'}`}
-            role="status"
-            aria-live="polite"
-          >
-            {message}
-          </p>
+        {error && (
+          <p className="text-sm text-red-700 sm:col-span-2" role="alert">{error}</p>
         )}
-        <div className="sm:col-span-2">
+        {opened && !error && (
+          <p className="text-sm text-green-700 sm:col-span-2" role="status" aria-live="polite">{q.opened}</p>
+        )}
+        <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row">
           <button
-            className="inline-flex w-full items-center justify-center rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-400 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             type="submit"
-            disabled={submitting}
+            value="whatsapp"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1da851]"
           >
-            {submitting ? copy.sending : copy.submit}
+            <MessageCircle className="h-4 w-4" />
+            {q.sendWhatsApp}
+          </button>
+          <button
+            type="submit"
+            value="email"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-800 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-slate-700"
+          >
+            <Mail className="h-4 w-4" />
+            {q.sendEmail}
           </button>
         </div>
+        <p className="text-xs text-slate-500 sm:col-span-2">{q.whatsappNote} {q.emailNote}</p>
       </form>
     </div>
   );

@@ -3,6 +3,8 @@ import { LanguageProvider, useLanguage } from '@/i18n/LanguageContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Pricing from '@/components/Pricing';
+import FixedPriceQuote from '@/components/FixedPriceQuote';
+import QuickInfo from '@/components/QuickInfo';
 import Services from '@/components/Services';
 import VehicleCapacity from '@/components/VehicleCapacity';
 import QualitySafety from '@/components/QualitySafety';
@@ -67,7 +69,9 @@ function AppContent() {
       ) : (
         <main>
           <Hero />
+          <QuickInfo />
           <Pricing />
+          <FixedPriceQuote />
           <Services />
 
           {/* Photo 1: After Services */}
