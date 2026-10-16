@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
-const icons = [Boxes, Truck, Users, Sofa, Package, Building2, MapPin];
+const icons = [Boxes, Truck, Users, Sofa, Package, Building2, MapPin, Package, Package];
 
 export default function Services() {
   const { t } = useLanguage();
