@@ -1,21 +1,32 @@
 import { useEffect, useState, type FormEvent } from 'react';
 import { MessageCircle, Mail } from 'lucide-react';
 import { trackContactConversion } from '@/lib/analytics';
+import { supabase } from '@/lib/supabase';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY, WHATSAPP_NUMBER } from '@/i18n/translations';
 import { QUOTE_PREF_EVENT } from '@/components/FixedPriceQuote';
 
 type Pref = 'hourly' | 'fixed' | 'unsure';
 
+const packages = [
+  { value: 'Van + Driver — €50/h, VAT included', movers: 0, fi: 'Pakettiauto + kuljettaja — 50 €/h, ALV sisältyy', en: 'Van + Driver — €50/h, VAT included' },
+  { value: 'Van + Driver + 1 mover — €75/h, VAT included', movers: 1, fi: '1 muuttomies + auto — 75 €/h, ALV sisältyy', en: '1 Mover + Van — €75/h, VAT included' },
+  { value: 'Van + Driver + 2 movers — €100/h, VAT included', movers: 2, fi: '2 muuttomiestä + auto — 100 €/h, ALV sisältyy', en: '2 Movers + Van — €100/h, VAT included' },
+  { value: 'Van + Driver + 3 movers — €125/h, VAT included', movers: 3, fi: '3 muuttomiestä + auto — 125 €/h, ALV sisältyy', en: '3 Movers + Van — €125/h, VAT included' },
+];
+
 const fieldClass =
   'mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100';
 
 export default function QuoteRequestForm() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const q = t.quoteForm;
   const [pref, setPref] = useState<Pref>('unsure');
   const [error, setError] = useState('');
   const [opened, setOpened] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [saveError, setSaveError] = useState('');
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -55,21 +66,94 @@ export default function QuoteRequestForm() {
     return `${q.msgHello}\n\n${lines.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n')}`;
   }
 
-  function handleSend(event: FormEvent<HTMLFormElement>) {
+  function validate(form: FormData, requireDirect: boolean) {
+    const get = (k: string) => String(form.get(k) ?? '').trim();
+    const phone = get('phone');
+    const email = get('email');
+    if (requireDirect) {
+      if (get('name').length < 2 || !get('package') || !phone || !email || !get('pickup') || !get('delivery') || !get('date') || form.get('consent') !== 'on') {
+        return q.errDirectRequired;
+      }
+    } else if (!phone && !email) {
+      return q.errContact;
+    }
+    if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return q.errEmail;
+    return '';
+  }
+
+  async function handleSend(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError('');
-    const form = new FormData(event.currentTarget);
-    const phone = String(form.get('phone') ?? '').trim();
-    const email = String(form.get('email') ?? '').trim();
-    if (!phone && !email) {
-      setError(q.errContact);
-      return;
-    }
-    if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-      setError(q.errEmail);
-      return;
-    }
+    setSaveError('');
+    setSaved(false);
+    setOpened(false);
+    const formElement = event.currentTarget;
+    const form = new FormData(formElement);
     const channel = ((event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
+    const get = (k: string) => String(form.get(k) ?? '').trim();
+
+    if (channel === 'direct') {
+      const problem = validate(form, true);
+      if (problem) {
+        setError(problem);
+        return;
+      }
+      const pkg = packages.find((p) => p.value === get('package'));
+      if (!supabase || !pkg) {
+        setSaveError(q.configError);
+        return;
+      }
+      const yn = (k: string) => (get(k) === 'yes' ? q.yes : get(k) === 'no' ? q.no : '');
+      const details = [
+        [q.msgPickupFloor, get('pickup_floor')],
+        [q.msgDeliveryFloor, get('delivery_floor')],
+        [q.msgPickupElevator, yn('pickup_elevator')],
+        [q.msgDeliveryElevator, yn('delivery_elevator')],
+        [q.msgHelp, ({ loading: q.helpLoading, unloading: q.helpUnloading, both: q.helpBoth, none: q.helpNone } as Record<string, string>)[get('help')] ?? ''],
+        [q.msgNotes, get('notes')],
+      ].filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n');
+      setSubmitting(true);
+      try {
+        const { data, error: fnError } = await supabase.functions.invoke('submit-quote', {
+          body: {
+            name: get('name'),
+            email: get('email'),
+            phone: get('phone'),
+            service: pkg.value,
+            pickup_location: get('pickup'),
+            destination: get('delivery'),
+            preferred_date: get('date'),
+            preferred_time: null,
+            number_of_movers: pkg.movers,
+            number_of_rooms: null,
+            large_items: get('items') || null,
+            elevator_available: null,
+            stairs: null,
+            parking_info: null,
+            message: details || null,
+            consent: form.get('consent') === 'on',
+            website: get('website'),
+          },
+        });
+        if (fnError || data?.success !== true) throw new Error('Quote request was not saved');
+        trackContactConversion();
+        setSaved(true);
+        formElement.reset();
+        setPref('hourly');
+      } catch (err) {
+        console.error(err);
+        setSaveError(q.saveError);
+      } finally {
+        setSubmitting(false);
+      }
+      return;
+    }
+
+    const problem = validate(form, false);
+    if (problem) {
+      setError(problem);
+      return;
+    }
     const text = encodeURIComponent(buildMessage(form));
     const url =
       channel === 'email'
@@ -126,6 +210,15 @@ export default function QuoteRequestForm() {
             ))}
           </div>
         </fieldset>
+        {pref === 'hourly' && (
+          <label className={`${labelClass} sm:col-span-2`}>
+            {q.package}
+            <select className={fieldClass} name="package" defaultValue="">
+              <option value="" disabled>{q.choosePackage}</option>
+              {packages.map((p) => <option key={p.value} value={p.value}>{p[lang]}</option>)}
+            </select>
+          </label>
+        )}
         <label className={labelClass}>
           {q.name}
           <input className={fieldClass} name="name" autoComplete="name" maxLength={120} />
@@ -187,13 +280,40 @@ export default function QuoteRequestForm() {
           {q.notes}
           <textarea className={fieldClass} name="notes" rows={3} maxLength={4000} />
         </label>
+        <label className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+          Website
+          <input name="website" tabIndex={-1} autoComplete="off" />
+        </label>
+        {pref === 'hourly' && (
+          <label className="flex items-start gap-3 text-sm leading-relaxed text-slate-600 sm:col-span-2">
+            <input className="mt-1 h-4 w-4 shrink-0 accent-brand-500" name="consent" type="checkbox" />
+            <span>{q.consent}</span>
+          </label>
+        )}
         {error && (
           <p className="text-sm text-red-700 sm:col-span-2" role="alert">{error}</p>
         )}
         {opened && !error && (
           <p className="text-sm text-green-700 sm:col-span-2" role="status" aria-live="polite">{q.opened}</p>
         )}
+        {saved && (
+          <p className="text-sm text-green-700 sm:col-span-2" role="status" aria-live="polite">{q.saved}</p>
+        )}
+        {saveError && (
+          <p className="text-sm text-red-700 sm:col-span-2" role="alert">{saveError}</p>
+        )}
+        {pref === 'hourly' && <p className="text-xs text-slate-500 sm:col-span-2">{q.directNote}</p>}
         <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row">
+          {pref === 'hourly' && (
+            <button
+              type="submit"
+              value="direct"
+              disabled={submitting}
+              className="inline-flex items-center justify-center rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-400 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {submitting ? q.sending : q.submitDirect}
+            </button>
+          )}
           <button
             type="submit"
             value="whatsapp"
@@ -211,7 +331,7 @@ export default function QuoteRequestForm() {
             {q.sendEmail}
           </button>
         </div>
-        <p className="text-xs text-slate-500 sm:col-span-2">{q.whatsappNote} {q.emailNote}</p>
+        <p className="text-xs text-slate-500 sm:col-span-2">{q.fallbackNote} {q.whatsappNote} {q.emailNote}</p>
       </form>
     </div>
   );
