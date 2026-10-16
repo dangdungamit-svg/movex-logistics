@@ -209,7 +209,7 @@ export const translations = {
       items: [
         { q: 'Sisältyvätkö hinnat alv:n?', a: 'Kyllä. Kaikki näytetyt tuntihinnat sisältävät alv 25,5 %.' },
         { q: 'Mikä on vähimmäisvaraus?', a: 'Vähimmäisvaraus on yksi tunti. Sen jälkeen laskutus jatkuu 30 minuutin jaksoissa.' },
-        { q: 'Autatteko kantamisessa?', a: 'Kyllä. Voit valita pakettiauto + kuljettaja -palvelun tai 1, 2 tai 3 muuttomiehen palvelun työn mukaan.' },
+        { q: 'Autatteko kantamisessa?', a: 'Kyllä. Kanto-, lastaus- ja purkuapua saa 1, 2 tai 3 muuttomiehen palvelulla. Pakettiauto + kuljettaja on tarkoitettu pääasiassa kuljetukseen.' },
         { q: 'Voitteko kuljettaa huonekaluja?', a: 'Kyllä. Kuljetamme sohvia, sänkyjä, pöytiä, kodinkoneita, Tori.fi-ostoksia, kauppanoutoja ja muita sopivia esineitä. Lopullinen hinta riippuu etäisyydestä, esineen koosta, kantovaatimuksista ja pääsyolosuhteista.' },
         { q: 'Tarjoatteko kaukokuljetusta?', a: 'Kyllä. Kaukokuljetukset ympäri Suomea hinnoitellaan erikseen kokonaisreitin, työmäärän ja kuljetusvaatimusten mukaan.' },
         { q: 'Suojaatteko huonekalut?', a: 'Kyllä. Käytämme sopivia muuttopeitteitä, suojamateriaaleja ja kuorman kiinnityskalustoa työn mukaan.' },
@@ -503,7 +503,7 @@ export const translations = {
       items: [
         { q: 'Are your prices VAT included?', a: 'Yes. All displayed hourly prices include Finnish VAT (25.5%).' },
         { q: 'What is the minimum booking?', a: 'The minimum booking is 1 hour. After the first hour, billing continues in 30-minute increments.' },
-        { q: 'Do you help with carrying?', a: 'Yes. You can choose Van + Driver or a service with 1, 2 or 3 movers depending on the job.' },
+        { q: 'Do you help with carrying?', a: 'Yes. Carrying, loading and unloading are available with the 1-, 2- or 3-mover service. Van + Driver is mainly for transport.' },
         { q: 'Can you transport furniture?', a: 'Yes. We transport sofas, beds, tables, appliances, Marketplace purchases, store pickups and other suitable items. The final price depends on distance, item size, carrying requirements and access conditions.' },
         { q: 'Do you offer long-distance transport?', a: 'Yes. Long-distance jobs across Finland are quoted individually based on the complete route, workload and transport requirements.' },
         { q: 'Do you protect furniture?', a: 'Yes. We use suitable moving blankets, protective materials and load-securing equipment according to the job.' },
