@@ -29,6 +29,13 @@ export default function QuoteRequestForm() {
   const [saveError, setSaveError] = useState('');
 
   useEffect(() => {
+    setError('');
+    setOpened(false);
+    setSaveError('');
+    setSaved(false);
+  }, [pref]);
+
+  useEffect(() => {
     const handler = (e: Event) => {
       const value = (e as CustomEvent<Pref>).detail;
       if (value === 'hourly' || value === 'fixed' || value === 'unsure') setPref(value);
@@ -278,7 +285,7 @@ export default function QuoteRequestForm() {
         </label>
         <label className={`${labelClass} sm:col-span-2`}>
           {q.notes}
-          <textarea className={fieldClass} name="notes" rows={3} maxLength={4000} />
+          <textarea className={fieldClass} name="notes" rows={3} maxLength={3500} />
         </label>
         <label className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
           Website
