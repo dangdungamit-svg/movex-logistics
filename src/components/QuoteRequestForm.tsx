@@ -191,7 +191,6 @@ export default function QuoteRequestForm() {
       <div className="mb-6">
         <h3 className="text-2xl font-bold text-slate-900">{q.title}</h3>
         <p className="mt-2 text-sm text-slate-600">{q.subtitle}</p>
-        <p className="mt-2 text-xs text-slate-500">{q.minimum}</p>
       </div>
       <form onSubmit={handleSend} className="grid gap-5 sm:grid-cols-2">
         <fieldset className="sm:col-span-2">
@@ -338,7 +337,6 @@ export default function QuoteRequestForm() {
             {q.sendEmail}
           </button>
         </div>
-        <p className="text-xs text-slate-500 sm:col-span-2">{q.fallbackNote} {q.whatsappNote} {q.emailNote}</p>
       </form>
     </div>
   );
