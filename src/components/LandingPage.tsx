@@ -6,17 +6,21 @@ import { landingPages, type LandingPage as LandingPageData } from '@/i18n/landin
 
 const origin = 'https://movexlogistics.fi';
 
+function updateMetaContent(selector: string, content: string) {
+  document.querySelector(selector)?.setAttribute('content', content);
+}
+
 export default function LandingPage({ page }: { page: LandingPageData }) {
   const { lang, t } = useLanguage();
 
   useEffect(() => {
     document.title = page.title[lang];
-    document.querySelector('meta[name="description"]')?.setAttribute('content', page.description[lang]);
-    document.querySelector('meta[property="og:title"]')?.setAttribute('content', page.title[lang]);
-    document.querySelector('meta[property="og:description"]')?.setAttribute('content', page.description[lang]);
-    document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${origin}${page.path}`);
-    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', page.title[lang]);
-    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', page.description[lang]);
+    updateMetaContent('meta[name="description"]', page.description[lang]);
+    updateMetaContent('meta[property="og:title"]', page.title[lang]);
+    updateMetaContent('meta[property="og:description"]', page.description[lang]);
+    updateMetaContent('meta[property="og:url"]', `${origin}${page.path}`);
+    updateMetaContent('meta[name="twitter:title"]', page.title[lang]);
+    updateMetaContent('meta[name="twitter:description"]', page.description[lang]);
     const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
     canonical.setAttribute('href', `${origin}${page.path}`);

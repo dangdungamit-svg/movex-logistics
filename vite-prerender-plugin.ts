@@ -25,8 +25,8 @@ function setMetaContent(
     `(<meta ${attribute}="${key}" content=")[^"]*(")`
   );
   if (!pattern.test(html)) {
-    console.warn(`  missing metadata tag: ${attribute}="${key}"`);
-    return html;
+    const tag = `<meta ${attribute}="${key}" content="${escapeHtml(content)}" />`;
+    return html.replace('</head>', `    ${tag}\n  </head>`);
   }
   return html.replace(
     pattern,

@@ -116,6 +116,7 @@ export default function Header() {
 
       <div
         id="mobile-navigation"
+        aria-hidden={!open}
         className={`${open ? 'animate-slide-down' : 'hidden'} border-t border-white/10 bg-slate-900 lg:hidden`}
       >
         <nav className="mx-auto max-w-7xl space-y-1 px-4 py-4">
