@@ -18,6 +18,8 @@ import Footer from '@/components/Footer';
 import MobileContactBar from '@/components/MobileContactBar';
 import BlogPage from '@/components/Blog';
 import Admin from '@/components/Admin';
+import LandingPage from '@/components/LandingPage';
+import { getLandingPage } from '@/i18n/landing';
 
 function setHomepageMetadata(lang: 'fi' | 'en') {
   const title = lang === 'fi'
@@ -44,9 +46,10 @@ function AppContent() {
   const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
   const isAdmin = pathname === '/admin' || pathname === '/admin/login';
   const isBlog = pathname.startsWith('/blog');
+  const landing = getLandingPage(pathname);
   useEffect(() => {
-    if (!isBlog && !isAdmin) setHomepageMetadata(lang);
-  }, [isAdmin, isBlog, lang]);
+    if (!isBlog && !isAdmin && !landing) setHomepageMetadata(lang);
+  }, [isAdmin, isBlog, landing, lang]);
   useEffect(() => {
     if (!isAdmin) return;
     document.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex, nofollow');
@@ -54,16 +57,18 @@ function AppContent() {
   }, [isAdmin]);
 
   useEffect(() => {
-    if (isBlog || isAdmin || !window.location.hash) return;
+    if (isBlog || isAdmin || landing || !window.location.hash) return;
     const id = decodeURIComponent(window.location.hash.slice(1));
     document.getElementById(id)?.scrollIntoView();
-  }, [isAdmin, isBlog]);
+  }, [isAdmin, isBlog, landing]);
   if (isAdmin) return <Admin loginOnly={pathname === '/admin/login'} />;
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      {isBlog ? (
+      {landing ? (
+        <LandingPage page={landing} />
+      ) : isBlog ? (
         <BlogPage />
       ) : (
         <main>
@@ -78,7 +83,7 @@ function AppContent() {
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
                   src="https://raw.githubusercontent.com/dangdungamit-svg/movex-logistics/main/public/images/20_20260924_225406_0019.png"
-                  alt="Professional moving service"
+                  alt="Muuttopalvelu Tampereella – muuttoauto ja kuljettaja"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
                 />
@@ -94,7 +99,7 @@ function AppContent() {
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
                   src="https://raw.githubusercontent.com/dangdungamit-svg/movex-logistics/main/public/images/22_20260924_225406_0021.png"
-                  alt="Team loading and securing items"
+                  alt="Muuttomiehet lastaamassa ja kiinnittämässä tavaroita"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
                 />
@@ -111,7 +116,7 @@ function AppContent() {
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
                   src="https://raw.githubusercontent.com/dangdungamit-svg/movex-logistics/main/public/images/32_20260924_225406_0031.png"
-                  alt="Furniture and item transport"
+                  alt="Huonekalujen ja esineiden kuljetus Tampereella"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
                 />
@@ -128,7 +133,7 @@ function AppContent() {
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
                   src="https://raw.githubusercontent.com/dangdungamit-svg/movex-logistics/main/public/images/25_20260924_225406_0024.png"
-                  alt="Van and driver service"
+                  alt="Pakettiauto ja kuljettaja"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
                 />
@@ -145,7 +150,7 @@ function AppContent() {
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
                   src="https://raw.githubusercontent.com/dangdungamit-svg/movex-logistics/main/public/images/35_20260924_225406_0034.png"
-                  alt="Professional logistics transport"
+                  alt="Kuljetuspalvelu Tampereella ja Pirkanmaalla"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
                 />
@@ -162,7 +167,7 @@ function AppContent() {
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
                 <img
                   src="https://raw.githubusercontent.com/dangdungamit-svg/movex-logistics/main/public/images/34_20260924_225406_0033.png"
-                  alt="Contact MoveX Logistics"
+                  alt="Ota yhteyttä MoveX Logisticsiin"
                   className="aspect-video w-full object-cover"
                   loading="lazy"
                 />

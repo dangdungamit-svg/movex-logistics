@@ -2,6 +2,7 @@ import { ArrowRight, BookOpen, Check, Clock, MessageCircle, Phone, Truck } from 
 import { useEffect, useRef } from 'react';
 import { getWhatsAppLink, useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
+import { landingPages } from '@/i18n/landing';
 import { blogArticles, getBlogArticle, type BlogArticle } from '@/i18n/blog';
 
 const blogAccent = '#8f3b46';
@@ -151,7 +152,7 @@ export function BlogArticle({ slug }: { slug: string }) {
           <div className="mt-10 space-y-9">
             {article.sections[lang].map((section) => <section key={section.heading}><h2 className="font-display text-2xl font-bold text-slate-900">{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph} className="mt-3 text-base leading-8 text-slate-600">{paragraph}</p>)}</section>)}
           </div>
-          <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-200 pt-6 text-sm font-semibold"><a href="/#services" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{lang === 'fi' ? 'Tutustu palveluihin' : 'Explore services'}</a><a href="/#pricing" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{lang === 'fi' ? 'Katso hinnat' : 'See prices'}</a><a href="/#faq" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>FAQ</a></div>
+          <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-200 pt-6 text-sm font-semibold"><a href="/#services" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{lang === 'fi' ? 'Tutustu palveluihin' : 'Explore services'}</a><a href="/#pricing" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{lang === 'fi' ? 'Katso hinnat' : 'See prices'}</a><a href="/#faq" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>FAQ</a>{landingPages.map((p) => <a key={p.path} href={p.path} className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{p.navLabel[lang]}</a>)}</div>
         </div>
         <BlogCTA />
       </article>

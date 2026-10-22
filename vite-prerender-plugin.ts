@@ -43,6 +43,27 @@ const routes = [
       'Yleiskatsaus asioihin, jotka vaikuttavat kaukomuuton kiinteään tarjoukseen.',
     canonical: `${origin}/blog/muutto-tampereelta-muualle-suomeen`,
   },
+  {
+    path: '/muuttopalvelu-tampere',
+    title: 'Muuttopalvelu Tampere – selkeät hinnat | MoveX Logistics',
+    description:
+      'Muuttopalvelu Tampereella ja Pirkanmaalla: pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Hinnat alkaen 50 € / h (sis. alv). Pyydä tarjous MoveX Logisticsilta.',
+    canonical: `${origin}/muuttopalvelu-tampere`,
+  },
+  {
+    path: '/muuttofirma-tampere',
+    title: 'Muuttofirma Tampere – muuttomiehet ja pakettiauto | MoveX Logistics',
+    description:
+      'Etsitkö muuttofirmaa Tampereelle? MoveX Logistics tarjoaa muuttomiehet ja pakettiauton selkein tuntihinnoin alkaen 50 € / h (sis. alv). Pyydä tarjous.',
+    canonical: `${origin}/muuttofirma-tampere`,
+  },
+  {
+    path: '/huonekalukuljetus-tampere',
+    title: 'Huonekalukuljetus Tampere – pakettiauto + kuljettaja | MoveX Logistics',
+    description:
+      'Huonekalukuljetus Tampereella: sohvat, sängyt, pöydät, kodinkoneet ja Tori.fi-ostokset. Pakettiauto + kuljettaja alkaen 50 € / h (sis. alv). Pyydä tarjous.',
+    canonical: `${origin}/huonekalukuljetus-tampere`,
+  },
 ];
 
 export function prerenderPlugin() {
