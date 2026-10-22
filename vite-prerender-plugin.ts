@@ -7,6 +7,42 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const origin = 'https://movexlogistics.fi';
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function setMetaContent(
+  html: string,
+  attribute: 'name' | 'property',
+  key: string,
+  content: string
+) {
+  const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const tagPattern = new RegExp(
+    `<meta\\b(?=[^>]*\\b${attribute}="${escapedKey}")[^>]*>`,
+    'i'
+  );
+  const tag = html.match(tagPattern)?.[0];
+  if (!tag) {
+    const newTag = `<meta ${attribute}="${escapeHtml(key)}" content="${escapeHtml(content)}" />`;
+    return html.replace('</head>', () => `    ${newTag}\n  </head>`);
+  }
+  const contentPattern = /\bcontent="[^"]*"/i;
+  const updatedTag = contentPattern.test(tag)
+    ? tag.replace(
+        contentPattern,
+        () => `content="${escapeHtml(content)}"`
+      )
+    : tag.replace(/\/?>$/, (ending) =>
+        ` content="${escapeHtml(content)}"${ending}`
+      );
+  return html.replace(tag, () => updatedTag);
+}
+
 const routes = [
   {
     path: '/',
@@ -106,20 +142,36 @@ export function prerenderPlugin() {
         const appHtml = mod.render(route.path);
         let html = template.replace(
           '<div id="root"></div>',
-          `<div id="root">${appHtml}</div>`
+          () => `<div id="root">${appHtml}</div>`
         );
 
         html = html.replace(
           /<title>.*?<\/title>/s,
-          `<title>${route.title}</title>`
+          () => `<title>${escapeHtml(route.title)}</title>`
         );
         html = html.replace(
           /<meta name="description" content="[^"]*"/,
-          `<meta name="description" content="${route.description}"`
+          () =>
+            `<meta name="description" content="${escapeHtml(route.description)}"`
         );
         html = html.replace(
           /<link rel="canonical" href="[^"]*"/,
-          `<link rel="canonical" href="${route.canonical}"`
+          () => `<link rel="canonical" href="${escapeHtml(route.canonical)}"`
+        );
+        html = setMetaContent(html, 'property', 'og:title', route.title);
+        html = setMetaContent(
+          html,
+          'property',
+          'og:description',
+          route.description
+        );
+        html = setMetaContent(html, 'property', 'og:url', route.canonical);
+        html = setMetaContent(html, 'name', 'twitter:title', route.title);
+        html = setMetaContent(
+          html,
+          'name',
+          'twitter:description',
+          route.description
         );
         html = html.replace(
           /<meta name="robots" content="[^"]*"/,

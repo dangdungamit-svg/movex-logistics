@@ -105,6 +105,7 @@ export default function Header() {
               onClick={() => setOpen(!open)}
               className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 lg:hidden"
               aria-label={lang === 'fi' ? 'Valikko' : 'Menu'}
+              aria-expanded={open}
             >
               {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

@@ -2,16 +2,40 @@ import { useEffect } from 'react';
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
 import { getWhatsAppLink, useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
-import { type LandingPage as LandingPageData } from '@/i18n/landing';
+import { landingPages, type LandingPage as LandingPageData } from '@/i18n/landing';
 
 const origin = 'https://movexlogistics.fi';
+const textLinkClass =
+  'font-semibold text-slate-700 underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2';
+
+// Keep client metadata updates aligned with setMetaContent in vite-prerender-plugin.ts.
+function updateMetaContent(
+  attribute: 'name' | 'property',
+  key: string,
+  content: string
+) {
+  let meta = document.querySelector<HTMLMetaElement>(
+    `meta[${attribute}="${key}"]`
+  );
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(attribute, key);
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute('content', content);
+}
 
 export default function LandingPage({ page }: { page: LandingPageData }) {
   const { lang, t } = useLanguage();
 
   useEffect(() => {
     document.title = page.title[lang];
-    document.querySelector('meta[name="description"]')?.setAttribute('content', page.description[lang]);
+    updateMetaContent('name', 'description', page.description[lang]);
+    updateMetaContent('property', 'og:title', page.title[lang]);
+    updateMetaContent('property', 'og:description', page.description[lang]);
+    updateMetaContent('property', 'og:url', `${origin}${page.path}`);
+    updateMetaContent('name', 'twitter:title', page.title[lang]);
+    updateMetaContent('name', 'twitter:description', page.description[lang]);
     const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
     canonical.setAttribute('href', `${origin}${page.path}`);
@@ -19,6 +43,9 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
   }, [page, lang]);
 
   const faq = page.faq[lang];
+  const relatedPages = landingPages.filter(
+    (relatedPage) => relatedPage.path !== page.path
+  );
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -76,11 +103,25 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
               ))}
             </div>
           </section>
+          <section aria-labelledby="related-services">
+            <h2 id="related-services" className="font-display text-2xl font-bold text-slate-900">
+              {t.services.relatedTitle}
+            </h2>
+            <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+              {relatedPages.map((relatedPage) => (
+                <li key={relatedPage.path}>
+                  <a href={relatedPage.path} className={textLinkClass}>
+                    {relatedPage.navLabel[lang]}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
         <p className="mt-10 text-sm font-semibold">
-          <a href="/#pricing" className="mr-5 text-slate-700 underline">{t.nav.pricing}</a>
-          <a href="/#services" className="mr-5 text-slate-700 underline">{t.nav.services}</a>
-          <a href="/blog" className="text-slate-700 underline">{t.nav.blog}</a>
+          <a href="/#pricing" className={`mr-5 ${textLinkClass}`}>{t.nav.pricing}</a>
+          <a href="/#services" className={`mr-5 ${textLinkClass}`}>{t.nav.services}</a>
+          <a href="/blog" className={textLinkClass}>{t.nav.blog}</a>
         </p>
       </article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />

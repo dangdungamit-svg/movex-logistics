@@ -100,6 +100,7 @@ export const translations = {
     services: {
       title: 'Palvelumme',
       subtitle: 'Monipuoliset muutto- ja kuljetuspalvelut',
+      relatedTitle: 'Tutustu myös',
       items: [
         { title: 'Muuttopalvelut', desc: 'Asunto-, talo- ja pienyritysmuutot.' },
         { title: 'Pakettiauto + kuljettaja', desc: 'Ammattimainen kuljettaja ja pakettiauto asiakkaille, jotka tarvitsevat pääasiassa kuljetusta.' },
@@ -394,6 +395,7 @@ export const translations = {
     services: {
       title: 'Our Services',
       subtitle: 'Versatile moving and transport services',
+      relatedTitle: 'Explore related services',
       items: [
         { title: 'Moving Services', desc: 'Apartment, house and small business moves.' },
         { title: 'Van + Driver', desc: 'A professional transport vehicle and driver for customers who mainly need transport.' },
