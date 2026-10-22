@@ -6,8 +6,20 @@ import { landingPages, type LandingPage as LandingPageData } from '@/i18n/landin
 
 const origin = 'https://movexlogistics.fi';
 
-function updateMetaContent(selector: string, content: string) {
-  document.querySelector(selector)?.setAttribute('content', content);
+function updateMetaContent(
+  attribute: 'name' | 'property',
+  key: string,
+  content: string
+) {
+  let meta = document.querySelector<HTMLMetaElement>(
+    `meta[${attribute}="${key}"]`
+  );
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(attribute, key);
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute('content', content);
 }
 
 export default function LandingPage({ page }: { page: LandingPageData }) {
@@ -15,12 +27,12 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
 
   useEffect(() => {
     document.title = page.title[lang];
-    updateMetaContent('meta[name="description"]', page.description[lang]);
-    updateMetaContent('meta[property="og:title"]', page.title[lang]);
-    updateMetaContent('meta[property="og:description"]', page.description[lang]);
-    updateMetaContent('meta[property="og:url"]', `${origin}${page.path}`);
-    updateMetaContent('meta[name="twitter:title"]', page.title[lang]);
-    updateMetaContent('meta[name="twitter:description"]', page.description[lang]);
+    updateMetaContent('name', 'description', page.description[lang]);
+    updateMetaContent('property', 'og:title', page.title[lang]);
+    updateMetaContent('property', 'og:description', page.description[lang]);
+    updateMetaContent('property', 'og:url', `${origin}${page.path}`);
+    updateMetaContent('name', 'twitter:title', page.title[lang]);
+    updateMetaContent('name', 'twitter:description', page.description[lang]);
     const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
     canonical.setAttribute('href', `${origin}${page.path}`);

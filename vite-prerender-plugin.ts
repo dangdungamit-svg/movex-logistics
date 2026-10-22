@@ -21,18 +21,23 @@ function setMetaContent(
   key: string,
   content: string
 ) {
-  const pattern = new RegExp(
-    `(<meta ${attribute}="${key}" content=")[^"]*(")`
+  const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const tagPattern = new RegExp(
+    `<meta\\b(?=[^>]*\\b${attribute}="${escapedKey}")[^>]*>`,
+    'i'
   );
-  if (!pattern.test(html)) {
+  const tag = html.match(tagPattern)?.[0];
+  if (!tag) {
     const tag = `<meta ${attribute}="${key}" content="${escapeHtml(content)}" />`;
     return html.replace('</head>', `    ${tag}\n  </head>`);
   }
-  return html.replace(
-    pattern,
-    (_match, prefix: string, suffix: string) =>
-      `${prefix}${escapeHtml(content)}${suffix}`
-  );
+  const contentPattern = /\bcontent="[^"]*"/i;
+  const updatedTag = contentPattern.test(tag)
+    ? tag.replace(contentPattern, `content="${escapeHtml(content)}"`)
+    : tag.replace(/\/?>$/, (ending) =>
+        ` content="${escapeHtml(content)}"${ending}`
+      );
+  return html.replace(tag, updatedTag);
 }
 
 const routes = [
