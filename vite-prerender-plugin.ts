@@ -15,6 +15,26 @@ function escapeHtml(value: string) {
     .replace(/>/g, '&gt;');
 }
 
+function setMetaContent(
+  html: string,
+  attribute: 'name' | 'property',
+  key: string,
+  content: string
+) {
+  const pattern = new RegExp(
+    `(<meta ${attribute}="${key}" content=")[^"]*(")`
+  );
+  if (!pattern.test(html)) {
+    console.warn(`  missing metadata tag: ${attribute}="${key}"`);
+    return html;
+  }
+  return html.replace(
+    pattern,
+    (_match, prefix: string, suffix: string) =>
+      `${prefix}${escapeHtml(content)}${suffix}`
+  );
+}
+
 const routes = [
   {
     path: '/',
@@ -129,27 +149,20 @@ export function prerenderPlugin() {
           /<link rel="canonical" href="[^"]*"/,
           `<link rel="canonical" href="${route.canonical}"`
         );
-        html = html.replace(
-          /(<meta property="og:title" content=")[^"]*"/,
-          (_match, prefix: string) => `${prefix}${escapeHtml(route.title)}"`
+        html = setMetaContent(html, 'property', 'og:title', route.title);
+        html = setMetaContent(
+          html,
+          'property',
+          'og:description',
+          route.description
         );
-        html = html.replace(
-          /(<meta property="og:description" content=")[^"]*"/,
-          (_match, prefix: string) =>
-            `${prefix}${escapeHtml(route.description)}"`
-        );
-        html = html.replace(
-          /(<meta property="og:url" content=")[^"]*"/,
-          (_match, prefix: string) => `${prefix}${route.canonical}"`
-        );
-        html = html.replace(
-          /(<meta name="twitter:title" content=")[^"]*"/,
-          (_match, prefix: string) => `${prefix}${escapeHtml(route.title)}"`
-        );
-        html = html.replace(
-          /(<meta name="twitter:description" content=")[^"]*"/,
-          (_match, prefix: string) =>
-            `${prefix}${escapeHtml(route.description)}"`
+        html = setMetaContent(html, 'property', 'og:url', route.canonical);
+        html = setMetaContent(html, 'name', 'twitter:title', route.title);
+        html = setMetaContent(
+          html,
+          'name',
+          'twitter:description',
+          route.description
         );
         html = html.replace(
           /<meta name="robots" content="[^"]*"/,

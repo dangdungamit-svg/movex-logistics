@@ -116,28 +116,27 @@ export default function Header() {
 
       <div
         id="mobile-navigation"
-        hidden={!open}
-        className="animate-slide-down border-t border-white/10 bg-slate-900 lg:hidden"
+        className={`${open ? 'animate-slide-down' : 'hidden'} border-t border-white/10 bg-slate-900 lg:hidden`}
       >
-          <nav className="mx-auto max-w-7xl space-y-1 px-4 py-4">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={closeMenu}
-                className="block rounded-lg px-4 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-white"
-              >
-                {item.label}
-              </a>
-            ))}
+        <nav className="mx-auto max-w-7xl space-y-1 px-4 py-4">
+          {navItems.map((item) => (
             <a
-              href="/#contact"
+              key={item.href}
+              href={item.href}
               onClick={closeMenu}
-              className="mt-2 block rounded-xl bg-brand-500 px-4 py-3 text-center text-base font-semibold text-white shadow-lg shadow-brand-500/20"
+              className="block rounded-lg px-4 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-white"
             >
-              {t.nav.getQuote}
+              {item.label}
             </a>
-          </nav>
+          ))}
+          <a
+            href="/#contact"
+            onClick={closeMenu}
+            className="mt-2 block rounded-xl bg-brand-500 px-4 py-3 text-center text-base font-semibold text-white shadow-lg shadow-brand-500/20"
+          >
+            {t.nav.getQuote}
+          </a>
+        </nav>
       </div>
     </header>
   );

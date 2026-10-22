@@ -83,7 +83,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
           </section>
           <section aria-labelledby="related-services">
             <h2 id="related-services" className="font-display text-2xl font-bold text-slate-900">
-              {lang === 'fi' ? 'Tutustu myös' : 'Explore related services'}
+              {t.services.relatedTitle}
             </h2>
             <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
               {landingPages.filter((relatedPage) => relatedPage.path !== page.path).map((relatedPage) => (

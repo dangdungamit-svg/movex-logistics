@@ -55,7 +55,7 @@ export function useLanguage() {
 }
 
 export function trackContactConversion() {
-  const gtag = (window as Window & {
+  const gtag = typeof window === 'undefined' ? undefined : (window as Window & {
     gtag?: (command: string, eventName: string, params: { send_to: string }) => void;
   }).gtag;
   if (typeof gtag === 'function') {
