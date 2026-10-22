@@ -28,16 +28,19 @@ function setMetaContent(
   );
   const tag = html.match(tagPattern)?.[0];
   if (!tag) {
-    const tag = `<meta ${attribute}="${key}" content="${escapeHtml(content)}" />`;
-    return html.replace('</head>', `    ${tag}\n  </head>`);
+    const newTag = `<meta ${attribute}="${key}" content="${escapeHtml(content)}" />`;
+    return html.replace('</head>', () => `    ${newTag}\n  </head>`);
   }
   const contentPattern = /\bcontent="[^"]*"/i;
   const updatedTag = contentPattern.test(tag)
-    ? tag.replace(contentPattern, `content="${escapeHtml(content)}"`)
+    ? tag.replace(
+        contentPattern,
+        () => `content="${escapeHtml(content)}"`
+      )
     : tag.replace(/\/?>$/, (ending) =>
         ` content="${escapeHtml(content)}"${ending}`
       );
-  return html.replace(tag, updatedTag);
+  return html.replace(tag, () => updatedTag);
 }
 
 const routes = [
@@ -139,20 +142,21 @@ export function prerenderPlugin() {
         const appHtml = mod.render(route.path);
         let html = template.replace(
           '<div id="root"></div>',
-          `<div id="root">${appHtml}</div>`
+          () => `<div id="root">${appHtml}</div>`
         );
 
         html = html.replace(
           /<title>.*?<\/title>/s,
-          `<title>${escapeHtml(route.title)}</title>`
+          () => `<title>${escapeHtml(route.title)}</title>`
         );
         html = html.replace(
           /<meta name="description" content="[^"]*"/,
-          `<meta name="description" content="${escapeHtml(route.description)}"`
+          () =>
+            `<meta name="description" content="${escapeHtml(route.description)}"`
         );
         html = html.replace(
           /<link rel="canonical" href="[^"]*"/,
-          `<link rel="canonical" href="${route.canonical}"`
+          () => `<link rel="canonical" href="${escapeHtml(route.canonical)}"`
         );
         html = setMetaContent(html, 'property', 'og:title', route.title);
         html = setMetaContent(

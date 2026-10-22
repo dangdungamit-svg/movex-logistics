@@ -6,6 +6,7 @@ import { landingPages, type LandingPage as LandingPageData } from '@/i18n/landin
 
 const origin = 'https://movexlogistics.fi';
 
+// Keep client metadata updates aligned with setMetaContent in vite-prerender-plugin.ts.
 function updateMetaContent(
   attribute: 'name' | 'property',
   key: string,
@@ -107,7 +108,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
             <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
               {relatedPages.map((relatedPage) => (
                 <li key={relatedPage.path}>
-                  <a href={relatedPage.path} className="font-semibold text-slate-700 underline">
+                  <a href={relatedPage.path} className="font-semibold text-slate-700 underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
                     {relatedPage.navLabel[lang]}
                   </a>
                 </li>
