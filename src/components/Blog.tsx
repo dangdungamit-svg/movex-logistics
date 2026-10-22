@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, Check, Clock, MessageCircle, Phone, Truck } from 'lucide-react';
+import { ArrowRight, BookOpen, Check, Clock, MessageCircle, Phone } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { getWhatsAppLink, useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';

@@ -55,8 +55,11 @@ export function useLanguage() {
 }
 
 export function trackContactConversion() {
-  if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
-    (window as any).gtag('event', 'conversion', {
+  const gtag = (window as Window & {
+    gtag?: (command: string, eventName: string, params: { send_to: string }) => void;
+  }).gtag;
+  if (typeof gtag === 'function') {
+    gtag('event', 'conversion', {
       'send_to': 'AW-18477461376/lOT-CI_d0I8dEIDf3upE'
     });
   }

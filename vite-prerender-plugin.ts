@@ -7,6 +7,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const origin = 'https://movexlogistics.fi';
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
 const routes = [
   {
     path: '/',
@@ -111,15 +119,37 @@ export function prerenderPlugin() {
 
         html = html.replace(
           /<title>.*?<\/title>/s,
-          `<title>${route.title}</title>`
+          `<title>${escapeHtml(route.title)}</title>`
         );
         html = html.replace(
           /<meta name="description" content="[^"]*"/,
-          `<meta name="description" content="${route.description}"`
+          `<meta name="description" content="${escapeHtml(route.description)}"`
         );
         html = html.replace(
           /<link rel="canonical" href="[^"]*"/,
           `<link rel="canonical" href="${route.canonical}"`
+        );
+        html = html.replace(
+          /(<meta property="og:title" content=")[^"]*"/,
+          (_match, prefix: string) => `${prefix}${escapeHtml(route.title)}"`
+        );
+        html = html.replace(
+          /(<meta property="og:description" content=")[^"]*"/,
+          (_match, prefix: string) =>
+            `${prefix}${escapeHtml(route.description)}"`
+        );
+        html = html.replace(
+          /(<meta property="og:url" content=")[^"]*"/,
+          (_match, prefix: string) => `${prefix}${route.canonical}"`
+        );
+        html = html.replace(
+          /(<meta name="twitter:title" content=")[^"]*"/,
+          (_match, prefix: string) => `${prefix}${escapeHtml(route.title)}"`
+        );
+        html = html.replace(
+          /(<meta name="twitter:description" content=")[^"]*"/,
+          (_match, prefix: string) =>
+            `${prefix}${escapeHtml(route.description)}"`
         );
         html = html.replace(
           /<meta name="robots" content="[^"]*"/,

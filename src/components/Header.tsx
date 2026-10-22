@@ -105,6 +105,8 @@ export default function Header() {
               onClick={() => setOpen(!open)}
               className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 lg:hidden"
               aria-label={lang === 'fi' ? 'Valikko' : 'Menu'}
+              aria-expanded={open}
+              aria-controls="mobile-navigation"
             >
               {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -112,8 +114,11 @@ export default function Header() {
         </div>
       </div>
 
-      {open && (
-        <div className="animate-slide-down border-t border-white/10 bg-slate-900 lg:hidden">
+      <div
+        id="mobile-navigation"
+        hidden={!open}
+        className="animate-slide-down border-t border-white/10 bg-slate-900 lg:hidden"
+      >
           <nav className="mx-auto max-w-7xl space-y-1 px-4 py-4">
             {navItems.map((item) => (
               <a
@@ -133,8 +138,7 @@ export default function Header() {
               {t.nav.getQuote}
             </a>
           </nav>
-        </div>
-      )}
+      </div>
     </header>
   );
 }

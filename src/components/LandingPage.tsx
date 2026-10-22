@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
 import { getWhatsAppLink, useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
-import { type LandingPage as LandingPageData } from '@/i18n/landing';
+import { landingPages, type LandingPage as LandingPageData } from '@/i18n/landing';
 
 const origin = 'https://movexlogistics.fi';
 
@@ -12,6 +12,11 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
   useEffect(() => {
     document.title = page.title[lang];
     document.querySelector('meta[name="description"]')?.setAttribute('content', page.description[lang]);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', page.title[lang]);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', page.description[lang]);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', `${origin}${page.path}`);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', page.title[lang]);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', page.description[lang]);
     const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
     canonical.setAttribute('href', `${origin}${page.path}`);
@@ -75,6 +80,20 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
                 </div>
               ))}
             </div>
+          </section>
+          <section aria-labelledby="related-services">
+            <h2 id="related-services" className="font-display text-2xl font-bold text-slate-900">
+              {lang === 'fi' ? 'Tutustu myös' : 'Explore related services'}
+            </h2>
+            <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+              {landingPages.filter((relatedPage) => relatedPage.path !== page.path).map((relatedPage) => (
+                <li key={relatedPage.path}>
+                  <a href={relatedPage.path} className="font-semibold text-slate-700 underline">
+                    {relatedPage.navLabel[lang]}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
         </div>
         <p className="mt-10 text-sm font-semibold">
