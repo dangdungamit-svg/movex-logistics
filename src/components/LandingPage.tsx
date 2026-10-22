@@ -24,6 +24,9 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
   }, [page, lang]);
 
   const faq = page.faq[lang];
+  const relatedPages = landingPages.filter(
+    (relatedPage) => relatedPage.path !== page.path
+  );
   const jsonLd = [
     {
       '@context': 'https://schema.org',
@@ -86,7 +89,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
               {t.services.relatedTitle}
             </h2>
             <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
-              {landingPages.filter((relatedPage) => relatedPage.path !== page.path).map((relatedPage) => (
+              {relatedPages.map((relatedPage) => (
                 <li key={relatedPage.path}>
                   <a href={relatedPage.path} className="font-semibold text-slate-700 underline">
                     {relatedPage.navLabel[lang]}
