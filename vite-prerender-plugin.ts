@@ -28,7 +28,7 @@ function setMetaContent(
   );
   const tag = html.match(tagPattern)?.[0];
   if (!tag) {
-    const newTag = `<meta ${attribute}="${key}" content="${escapeHtml(content)}" />`;
+    const newTag = `<meta ${attribute}="${escapeHtml(key)}" content="${escapeHtml(content)}" />`;
     return html.replace('</head>', () => `    ${newTag}\n  </head>`);
   }
   const contentPattern = /\bcontent="[^"]*"/i;

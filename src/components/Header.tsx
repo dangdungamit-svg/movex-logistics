@@ -106,7 +106,6 @@ export default function Header() {
               className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 lg:hidden"
               aria-label={lang === 'fi' ? 'Valikko' : 'Menu'}
               aria-expanded={open}
-              aria-controls="mobile-navigation"
             >
               {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -114,31 +113,29 @@ export default function Header() {
         </div>
       </div>
 
-      <div
-        id="mobile-navigation"
-        hidden={!open}
-        className={`${open ? 'animate-slide-down' : ''} border-t border-white/10 bg-slate-900 lg:hidden`}
-      >
-        <nav className="mx-auto max-w-7xl space-y-1 px-4 py-4">
-          {navItems.map((item) => (
+      {open && (
+        <div className="animate-slide-down border-t border-white/10 bg-slate-900 lg:hidden">
+          <nav className="mx-auto max-w-7xl space-y-1 px-4 py-4">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                className="block rounded-lg px-4 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
             <a
-              key={item.href}
-              href={item.href}
+              href="/#contact"
               onClick={closeMenu}
-              className="block rounded-lg px-4 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-white"
+              className="mt-2 block rounded-xl bg-brand-500 px-4 py-3 text-center text-base font-semibold text-white shadow-lg shadow-brand-500/20"
             >
-              {item.label}
+              {t.nav.getQuote}
             </a>
-          ))}
-          <a
-            href="/#contact"
-            onClick={closeMenu}
-            className="mt-2 block rounded-xl bg-brand-500 px-4 py-3 text-center text-base font-semibold text-white shadow-lg shadow-brand-500/20"
-          >
-            {t.nav.getQuote}
-          </a>
-        </nav>
-      </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
