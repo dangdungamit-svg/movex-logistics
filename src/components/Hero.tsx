@@ -159,7 +159,7 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
               <img
                 src={HERO_IMAGE}
-                alt="Professional movers loading furniture into a moving van"
+                alt="Muuttomiehet lastaamassa huonekaluja pakettiautoon"
                 className="h-[520px] w-full object-cover"
                 loading="eager"
               />

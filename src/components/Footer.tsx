@@ -1,4 +1,5 @@
 import { Truck, Phone, Mail, Clock, Facebook, Instagram } from 'lucide-react';
+import { landingPages } from '@/i18n/landing';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY, SOCIAL_LINKS } from '@/i18n/translations';
 
@@ -30,7 +31,7 @@ const navLinks = [
 ];
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <footer className="bg-slate-950 text-slate-400">
@@ -94,6 +95,13 @@ export default function Footer() {
                     className="transition-colors hover:text-white"
                   >
                     {t.nav[link.key as keyof typeof t.nav]}
+                  </a>
+                </li>
+              ))}
+              {landingPages.map((page) => (
+                <li key={page.path}>
+                  <a href={page.path} className="transition-colors hover:text-white">
+                    {page.navLabel[lang]}
                   </a>
                 </li>
               ))}
