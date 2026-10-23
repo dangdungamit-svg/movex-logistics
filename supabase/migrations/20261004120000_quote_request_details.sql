@@ -61,10 +61,10 @@ CREATE POLICY "Public can submit quote requests"
       'Pakettiauto + kuljettaja + 1 muuttomies — 75 €/h, ALV sisältyy',
       'Pakettiauto + kuljettaja + 2 muuttomiestä — 100 €/h, ALV sisältyy',
       'Pakettiauto + kuljettaja + 3 muuttomiestä — 125 €/h, ALV sisältyy',
-      'Van + Driver — €50/h, VAT included',
-      'Van + Driver + 1 mover — €75/h, VAT included',
-      'Van + Driver + 2 movers — €100/h, VAT included',
-      'Van + Driver + 3 movers — €125/h, VAT included'
+      'Van + Driver — €50/h VAT included',
+      'Van + Driver + 1 mover — €75/h VAT included',
+      'Van + Driver + 2 movers — €100/h VAT included',
+      'Van + Driver + 3 movers — €125/h VAT included'
     )
     AND pickup_location IS NOT NULL
     AND destination IS NOT NULL
