@@ -142,7 +142,8 @@ export function prerenderPlugin() {
         const appHtml = mod.render(route.path);
         let html = template.replace(
           '<div id="root"></div>',
-          () => `<div id="root">${appHtml}</div>`
+          () =>
+            `<div id="root" data-prerendered-path="${escapeHtml(route.path)}">${appHtml}</div>`
         );
 
         html = html.replace(
