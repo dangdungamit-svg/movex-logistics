@@ -76,7 +76,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
           <a href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white">
             {t.nav.getQuote} <ArrowRight className="h-4 w-4" />
           </a>
-          <a href={getWhatsAppLink(lang)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white">
+          <a href={getWhatsAppLink(lang)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-slate-950">
             <MessageCircle className="h-4 w-4" /> WhatsApp
           </a>
           <a href={COMPANY.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-300">

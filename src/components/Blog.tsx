@@ -48,7 +48,7 @@ function BlogCTA() {
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <a href={getWhatsAppLink(lang)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#1da851]">
+          <a href={getWhatsAppLink(lang)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-slate-950 transition-colors hover:bg-[#1da851]">
             <MessageCircle className="h-4 w-4" /> WhatsApp
           </a>
           <a href={COMPANY.phoneHref} className="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white ring-1 ring-white/20 transition-colors hover:bg-white/10">

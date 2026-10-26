@@ -1,8 +1,9 @@
 import { useLanguage } from '@/i18n/LanguageContext';
+import { getResponsiveWebpSrcSet } from '@/lib/images';
 
 const photos = [
-  '14_20260924_225406_0013.png',
-  '34_20260924_225406_0033.png',
+  '14_20260924_225406_0013',
+  '34_20260924_225406_0033',
 ];
 
 export default function Gallery() {
@@ -24,12 +25,22 @@ export default function Gallery() {
               className="group relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60"
             >
               <div className="aspect-video overflow-hidden bg-slate-100">
-                <img
-                  src={`https://movexlogistics.fi/images/${photo}`}
-                  alt={lang === 'fi' ? 'MoveX Logistics kuva' : 'MoveX Logistics photo'}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet={getResponsiveWebpSrcSet(`/images/${photo}`)}
+                    sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1280px) calc((100vw - 3.5rem) / 2), 604px"
+                  />
+                  <img
+                    src={`/images/${photo}.png`}
+                    alt={lang === 'fi' ? 'MoveX Logistics kuva' : 'MoveX Logistics photo'}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    width={1080}
+                    height={608}
+                  />
+                </picture>
               </div>
             </div>
           ))}

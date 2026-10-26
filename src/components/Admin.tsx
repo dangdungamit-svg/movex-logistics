@@ -373,7 +373,7 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
                 <input className={inputClass} type="password" name="password" autoComplete="current-password" required />
               </label>
               {loginError && <p className="text-sm text-red-700" role="alert">{loginError}</p>}
-              <button className="w-full rounded-xl bg-brand-500 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-400 disabled:opacity-60" disabled={submitting} type="submit">
+              <button className="w-full rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60" disabled={submitting} type="submit">
                 {copy.login}
               </button>
             </form>
@@ -492,7 +492,7 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
                         <textarea className={inputClass} rows={4} maxLength={5000} value={notes} onChange={(event) => setNotes(event.target.value)} />
                       </label>
                       {notice && <p className="text-sm text-slate-700" role="status">{notice}</p>}
-                      <button className="rounded-xl bg-brand-500 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-400 disabled:opacity-60" type="submit" disabled={submitting}>
+                      <button className="rounded-xl bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60" type="submit" disabled={submitting}>
                         {submitting ? copy.loading : copy.save}
                       </button>
                     </form>

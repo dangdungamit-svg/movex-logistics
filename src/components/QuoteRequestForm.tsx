@@ -315,7 +315,7 @@ export default function QuoteRequestForm() {
               type="submit"
               value="direct"
               disabled={submitting}
-              className="inline-flex items-center justify-center rounded-xl bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-400 disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {submitting ? q.sending : q.submitDirect}
             </button>
@@ -323,7 +323,7 @@ export default function QuoteRequestForm() {
           <button
             type="submit"
             value="whatsapp"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1da851]"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-[#1da851]"
           >
             <MessageCircle className="h-4 w-4" />
             {q.sendWhatsApp}
