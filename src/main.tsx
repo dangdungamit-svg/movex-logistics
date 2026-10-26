@@ -1,10 +1,20 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+const container = document.getElementById('root')!;
+const app = (
   <StrictMode>
     <App />
   </StrictMode>
 );
+
+// Hydrate only when the HTML was prerendered for this exact route, so the hero
+// is not torn down and repainted on load.
+const path = window.location.pathname.replace(/\/+$/, '') || '/';
+if (container.dataset.prerenderedPath === path) {
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}

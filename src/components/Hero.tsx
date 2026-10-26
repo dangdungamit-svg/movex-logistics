@@ -30,36 +30,32 @@ export default function Hero() {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Left — text + price */}
           <div className="text-center lg:text-left">
-            <div className="animate-fade-up mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-brand-300 ring-1 ring-white/10">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-brand-300 ring-1 ring-white/10">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
               {t.hero.badge}
             </div>
 
             <h1
-              className="animate-fade-up text-4xl font-bold leading-[1.1] text-white text-balance sm:text-5xl lg:text-6xl"
-              style={{ animationDelay: '0.05s' }}
+              className="text-4xl font-bold leading-[1.1] text-white text-balance sm:text-5xl lg:text-6xl"
             >
               {t.hero.title}
             </h1>
 
             <p
-              className="animate-fade-up mt-4 text-lg text-slate-300 sm:text-xl"
-              style={{ animationDelay: '0.1s' }}
+              className="mt-4 text-lg text-slate-300 sm:text-xl"
             >
               {t.hero.subtitle}
             </p>
 
             <p
-              className="animate-fade-up mt-2 text-base text-slate-400"
-              style={{ animationDelay: '0.12s' }}
+              className="mt-2 text-base text-slate-400"
             >
               {t.hero.supporting}
             </p>
 
             {/* Price card */}
             <div
-              className="animate-fade-up mt-6 inline-block rounded-2xl bg-gradient-to-br from-brand-500/15 to-brand-600/5 p-5 text-left ring-1 ring-brand-400/30 sm:p-6"
-              style={{ animationDelay: '0.15s' }}
+              className="mt-6 inline-block rounded-2xl bg-gradient-to-br from-brand-500/15 to-brand-600/5 p-5 text-left ring-1 ring-brand-400/30 sm:p-6"
             >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
                 <div>
@@ -91,8 +87,7 @@ export default function Hero() {
 
             {/* Service + capacity row */}
             <div
-              className="animate-fade-up mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
-              style={{ animationDelay: '0.18s' }}
+              className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
             >
               <div className="inline-flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-2.5 ring-1 ring-white/10">
                 <Truck className="h-5 w-5 text-brand-400" />
@@ -105,8 +100,7 @@ export default function Hero() {
 
             {/* CTAs */}
             <div
-              className="animate-fade-up mt-6 flex flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:justify-center lg:justify-start"
-              style={{ animationDelay: '0.25s' }}
+              className="mt-6 flex flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:justify-center lg:justify-start"
             >
               <a
                 href="#contact"
@@ -135,8 +129,7 @@ export default function Hero() {
 
             {/* Phone + hours */}
             <div
-              className="animate-fade-up mt-4 flex flex-col items-center gap-2 text-sm text-slate-400 sm:flex-row sm:gap-4 lg:justify-start"
-              style={{ animationDelay: '0.3s' }}
+              className="mt-4 flex flex-col items-center gap-2 text-sm text-slate-400 sm:flex-row sm:gap-4 lg:justify-start"
             >
               <a
                 href={COMPANY.phoneHref}
