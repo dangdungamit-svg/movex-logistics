@@ -1,6 +1,7 @@
 import { Phone, MessageCircle, ArrowRight, Clock, Truck } from 'lucide-react';
 import { useLanguage, getWhatsAppLink } from '@/i18n/LanguageContext';
 import { COMPANY, HERO_IMAGE } from '@/i18n/translations';
+import { getResponsiveWebpSrcSet } from '@/lib/images';
 
 export default function Hero() {
   const { lang, t } = useLanguage();
@@ -109,7 +110,7 @@ export default function Hero() {
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-400 hover:shadow-brand-500/40"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40"
               >
                 {t.hero.ctaQuote}
                 <ArrowRight className="h-5 w-5" />
@@ -118,7 +119,7 @@ export default function Hero() {
                 href={getWhatsAppLink(lang)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-slate-950 shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30"
               >
                 <MessageCircle className="h-5 w-5" />
                 {t.hero.ctaWhatsApp}
@@ -157,12 +158,28 @@ export default function Hero() {
             style={{ animationDelay: '0.15s' }}
           >
             <div className="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
-              <img
-                src={HERO_IMAGE}
-                alt="Muuttomiehet lastaamassa huonekaluja pakettiautoon"
-                className="h-[520px] w-full object-cover"
-                loading="eager"
-              />
+              <picture>
+                <source
+                  media="(min-width: 1024px)"
+                  type="image/webp"
+                  srcSet={getResponsiveWebpSrcSet('/images/14_20260924_225406_0013')}
+                  sizes="(min-width: 1280px) 576px, 50vw"
+                />
+                <source
+                  media="(min-width: 1024px)"
+                  type="image/png"
+                  srcSet={HERO_IMAGE}
+                />
+                <img
+                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                  alt="Muuttomiehet lastaamassa huonekaluja pakettiautoon"
+                  className="h-[520px] w-full object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                  width={1080}
+                  height={520}
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
 
               {/* Floating VAT badge */}

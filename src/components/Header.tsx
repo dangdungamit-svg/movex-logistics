@@ -68,7 +68,7 @@ export default function Header() {
                 onClick={() => setLang('fi')}
                 className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-colors ${
                   lang === 'fi'
-                    ? 'bg-brand-500 text-white'
+                    ? 'bg-brand-600 text-white'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -78,7 +78,7 @@ export default function Header() {
                 onClick={() => setLang('en')}
                 className={`rounded-md px-2.5 py-1 text-xs font-semibold transition-colors ${
                   lang === 'en'
-                    ? 'bg-brand-500 text-white'
+                    ? 'bg-brand-600 text-white'
                     : 'text-slate-300 hover:text-white'
                 }`}
               >
@@ -96,7 +96,7 @@ export default function Header() {
 
             <a
               href="/#contact"
-              className="hidden rounded-xl bg-brand-500 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition-all hover:bg-brand-400 hover:shadow-brand-500/30 lg:inline-flex"
+              className="hidden rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition-all hover:bg-brand-700 hover:shadow-brand-500/30 lg:inline-flex"
             >
               {t.nav.getQuote}
             </a>
@@ -129,7 +129,7 @@ export default function Header() {
             <a
               href="/#contact"
               onClick={closeMenu}
-              className="mt-2 block rounded-xl bg-brand-500 px-4 py-3 text-center text-base font-semibold text-white shadow-lg shadow-brand-500/20"
+              className="mt-2 block rounded-xl bg-brand-600 px-4 py-3 text-center text-base font-semibold text-white shadow-lg shadow-brand-500/20"
             >
               {t.nav.getQuote}
             </a>

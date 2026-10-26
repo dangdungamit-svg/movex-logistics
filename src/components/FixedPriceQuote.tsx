@@ -36,7 +36,7 @@ export default function FixedPriceQuote() {
             <a
               href="#contact"
               onClick={() => window.dispatchEvent(new CustomEvent(QUOTE_PREF_EVENT, { detail: 'fixed' }))}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-500 px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-brand-400"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-brand-700"
             >
               {f.ctaFixed}
               <ArrowRight className="h-5 w-5" />
@@ -52,7 +52,7 @@ export default function FixedPriceQuote() {
               onClick={trackContactConversion}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-white transition-all hover:bg-[#1da851]"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-slate-950 transition-all hover:bg-[#1da851]"
             >
               <MessageCircle className="h-5 w-5" />
               {f.ctaWhatsApp}

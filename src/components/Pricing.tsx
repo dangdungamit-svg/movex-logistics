@@ -114,7 +114,7 @@ export default function Pricing() {
         <div className="mt-8 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-xl bg-brand-500 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-500/25 transition-all hover:bg-brand-400 hover:shadow-brand-500/40"
+            className="inline-flex items-center gap-2 rounded-xl bg-brand-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40"
           >
             {t.pricing.cta}
             <ArrowRight className="h-5 w-5" />
