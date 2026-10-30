@@ -240,7 +240,12 @@ export function prerenderPlugin() {
 
       for (const route of routes) {
         const appHtml = mod.render(route.path);
-        let html = template.replace(
+        const routeLanguage = route.path === '/en' || route.path.startsWith('/en/') ? 'en' : 'fi';
+        const routeTemplate = template.replace(
+          /<html\\b([^>]*\\blang=")[^"]*"/i,
+          (_match, prefix: string) => `${prefix}${routeLanguage}"`
+        );
+        let html = routeTemplate.replace(
           '<div id="root"></div>',
           () =>
             `<div id="root" data-prerendered-path="${escapeHtml(route.path)}">${appHtml}</div>`
