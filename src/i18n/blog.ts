@@ -318,7 +318,6 @@ export const blogArticles: BlogArticle[] = [
       ],
     },
   },
-,
   {
     slug: 'opiskelijamuutto-tampere',
     published: true,
