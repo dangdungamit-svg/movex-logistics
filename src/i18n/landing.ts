@@ -159,11 +159,23 @@ export const landingPages: LandingPage[] = [
     },
     sections: {
       fi: [
+        {
+          heading: 'Sohvan, sängyn ja kodinkoneen kuljetus Tampereella',
+          paragraphs: [
+            'Tarjoamme sohvan kuljetusta, sängyn siirtoa ja pesukoneen tai muun kodinkoneen kuljetusta Tampereella. Voimme noutaa huonekalun esimerkiksi Tori.fi-myyjältä tai kaupasta ja toimittaa sen sovittuun osoitteeseen. Kerro etukäteen esineen mitat, paino, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.',
+          ],
+        },
         { heading: 'Huonekalukuljetuksen hinta', paragraphs: ['Pakettiauto + kuljettaja alkaen 50 € / h.', priceNote.fi] },
         { heading: 'Kerro tarjouspyynnössä', paragraphs: ['Esineen koko ja paino, nouto- ja toimitusosoite, kerrokset ja hissi sekä tarvitaanko kantoapua. Näin saat mahdollisimman tarkan arvion. Lue lisää oppaasta Huonekalukuljetus Tampereella: mitä kannattaa ilmoittaa?'] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
       ],
       en: [
+        {
+          heading: 'Sofa, bed and appliance transport in Tampere',
+          paragraphs: [
+            'We offer sofa transport, bed moving and washing machine or other appliance transport in Tampere. We can collect furniture from a Tori.fi seller or a shop and deliver it to the agreed address. Please share the item dimensions and weight, floors, elevator access and whether carrying help is needed.',
+          ],
+        },
         { heading: 'Furniture transport price', paragraphs: ['Van + driver from €50 / h.', priceNote.en] },
         { heading: 'What to tell us in your request', paragraphs: ['Item size and weight, pickup and delivery addresses, floors and elevator, and whether you need carrying help. This gives you the most accurate estimate.'] },
         { heading: 'Service area', paragraphs: [area.en] },
@@ -325,11 +337,15 @@ export const landingPages: LandingPage[] = [
     },
     faq: {
       fi: [
+        { q: 'Onko saatavilla muuttoauto kuljettajalla Tampereella?', a: 'Kyllä. Pakettiauto ja kuljettaja maksavat alkaen 50 €/h, alv 25,5 % sisältyy. Vähimmäisvaraus on yksi tunti.' },
+        { q: 'Voitteko kuljettaa sohvan tai pesukoneen?', a: 'Kyllä, jos esineen mitat ja paino sopivat ajoneuvoon. Kerro nouto- ja toimitusosoitteet, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.' },
         { q: 'Voitteko noutaa huonekalun Tori.fi-myyjältä?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, esineen koko sekä tarvitaanko kantamista molemmissa päissä.' },
         { q: 'Sisältääkö 50 €/h hinta arvonlisäveron?', a: 'Kyllä. Pakettiauto + kuljettaja maksaa alkaen 50 €/h, ja alv 25,5 % sisältyy ilmoitettuun hintaan.' },
         { q: 'Voitteko kuljettaa tavaroita Tampereen ulkopuolelle?', a: 'Kyllä. Pirkanmaan ulkopuolisista ja pidemmistä kuljetuksista annamme tarjouksen koko reitin ja työn tietojen perusteella.' },
       ],
       en: [
+        { q: 'Do you offer a van with a driver in Tampere?', a: 'Yes. A van and driver cost from €50/hour, including Finnish VAT (25.5%). The minimum booking is one hour.' },
+        { q: 'Can you transport a sofa or washing machine?', a: 'Yes, if the item dimensions and weight fit the vehicle. Share the pickup and delivery addresses, floors, elevator access and whether carrying help is needed.' },
         { q: 'Can you collect furniture from a Tori.fi seller?', a: 'Yes. Share the pickup and delivery addresses, item size and whether carrying help is needed at either location.' },
         { q: 'Does the €50/hour price include VAT?', a: 'Yes. Van + driver starts at €50/hour, including Finnish VAT (25.5%).' },
         { q: 'Can you transport items outside Tampere?', a: 'Yes. We quote transport outside Pirkanmaa and longer routes based on the complete route and job details.' },
