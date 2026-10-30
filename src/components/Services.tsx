@@ -8,7 +8,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { landingPages } from '@/i18n/landing';
+import { landingPages, getLocalizedPath } from '@/i18n/landing';
 
 const icons = [Boxes, Truck, Users, Sofa, Package, Building2, MapPin, Package, Package];
 
@@ -51,7 +51,7 @@ export default function Services() {
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {landingPages.map((page) => (
               <li key={page.path}>
-                <a href={`${page.path}/`} className="block rounded-xl bg-slate-50 px-4 py-3 font-semibold text-slate-800 ring-1 ring-slate-200 transition-colors hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
+                <a href={`${getLocalizedPath(page.path, lang)}/`} className="block rounded-xl bg-slate-50 px-4 py-3 font-semibold text-slate-800 ring-1 ring-slate-200 transition-colors hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
                   {page.navLabel[lang]} <span aria-hidden="true">→</span>
                 </a>
               </li>
