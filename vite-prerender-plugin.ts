@@ -90,7 +90,7 @@ const routes = [
     path: '/muuttofirma-tampere',
     title: 'Muuttofirma Tampere | MoveX Logistics',
     description:
-      'Muuttofirma Tampereella asunto-, talo- ja pienyritysmuuttoihin. Muuttomiehet ja pakettiauto alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous.',
+      'Muuttofirma Tampereella koteihin ja pienyrityksille. Pakettiauto ja kuljettaja alkaen 50 €/h, 1 muuttomies ja auto alkaen 75 €/h (sis. alv 25,5 %). Pyydä tarjous.',
     canonical: `${origin}/muuttofirma-tampere`,
   },
   {

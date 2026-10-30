@@ -108,8 +108,8 @@ export const landingPages: LandingPage[] = [
       en: 'Moving Company in Tampere | MoveX Logistics',
     },
     description: {
-      fi: 'Muuttofirma Tampereella asunto-, talo- ja pienyritysmuuttoihin. Muuttomiehet ja pakettiauto alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous.',
-      en: 'Moving company in Tampere for homes and small businesses. Movers and a van from €50/hour, including Finnish VAT (25.5%). Request a quote.',
+      fi: 'Muuttofirma Tampereella koteihin ja pienyrityksille. Pakettiauto ja kuljettaja alkaen 50 €/h, 1 muuttomies ja auto alkaen 75 €/h (sis. alv 25,5 %). Pyydä tarjous.',
+      en: 'Moving company in Tampere for homes and small businesses. Van and driver from €50/hour; 1 mover and van from €75/hour (incl. Finnish VAT 25.5%). Request a quote.',
     },
     h1: { fi: 'Muuttofirma Tampere', en: 'Moving company in Tampere' },
     intro: {
