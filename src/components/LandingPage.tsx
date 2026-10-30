@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
 import { getWhatsAppLink, useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
-import { landingPages, type LandingPage as LandingPageData } from '@/i18n/landing';
+import { landingPages, getLocalizedPath, type LandingPage as LandingPageData } from '@/i18n/landing';
 
 const origin = 'https://movexlogistics.fi';
 
@@ -37,12 +37,13 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
     updateMetaContent('name', 'description', page.description[lang]);
     updateMetaContent('property', 'og:title', page.title[lang]);
     updateMetaContent('property', 'og:description', page.description[lang]);
-    updateMetaContent('property', 'og:url', `${canonicalUrl(page.path)}`);
+    const currentCanonical = window.location.pathname.startsWith('/en') ? `https://movexlogistics.fi${window.location.pathname.replace(/\/+$/, '')}/` : canonicalUrl(page.path);
+    updateMetaContent('property', 'og:url', currentCanonical);
     updateMetaContent('name', 'twitter:title', page.title[lang]);
     updateMetaContent('name', 'twitter:description', page.description[lang]);
     const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${canonicalUrl(page.path)}`);
+    canonical.setAttribute('href', currentCanonical);
     if (!canonical.parentElement) document.head.appendChild(canonical);
   }, [page, lang]);
 
@@ -114,7 +115,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
             <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
               {relatedPages.map((relatedPage) => (
                 <li key={relatedPage.path}>
-                  <a href={relatedPage.path} className={textLinkClass}>
+                  <a href={getLocalizedPath(relatedPage.path, lang)} className={textLinkClass}>
                     {relatedPage.navLabel[lang]}
                   </a>
                 </li>
@@ -123,9 +124,9 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
           </section>
         </div>
         <p className="mt-10 text-sm font-semibold">
-          <a href="/#pricing" className={`mr-5 ${textLinkClass}`}>{t.nav.pricing}</a>
-          <a href="/#services" className={`mr-5 ${textLinkClass}`}>{t.nav.services}</a>
-          <a href="/blog" className={textLinkClass}>{t.nav.blog}</a>
+          <a href={lang === "en" ? "/en/#pricing" : "/#pricing"} className={`mr-5 ${textLinkClass}`}>{t.nav.pricing}</a>
+          <a href={lang === "en" ? "/en/#services" : "/#services"} className={`mr-5 ${textLinkClass}`}>{t.nav.services}</a>
+          <a href={lang === "en" ? "/en/blog/" : "/blog"} className={textLinkClass}>{t.nav.blog}</a>
         </p>
       </article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
