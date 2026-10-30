@@ -15,6 +15,26 @@ function escapeHtml(value: string) {
     .replace(/>/g, '&gt;');
 }
 
+function setCanonicalHref(html: string, href: string) {
+  const tagPattern = /<link\b(?=[^>]*\brel="canonical")[^>]*>/i;
+  const tag = html.match(tagPattern)?.[0];
+  const escapedHref = escapeHtml(href);
+
+  if (!tag) {
+    return html.replace(
+      '</head>',
+      '    <link rel="canonical" href="' + escapedHref + '" />\n  </head>'
+    );
+  }
+
+  const hrefPattern = /\bhref="[^"]*"/i;
+  const updatedTag = hrefPattern.test(tag)
+    ? tag.replace(hrefPattern, () => 'href="' + escapedHref + '"')
+    : tag.replace(/\/?>$/, (ending) => ' href="' + escapedHref + '"' + ending);
+
+  return html.replace(tag, () => updatedTag);
+}
+
 function setMetaContent(
   html: string,
   attribute: 'name' | 'property',
@@ -171,15 +191,9 @@ export function prerenderPlugin() {
           /<title>.*?<\/title>/s,
           () => `<title>${escapeHtml(route.title)}</title>`
         );
-        html = html.replace(
-          /<meta name="description" content="[^"]*"/,
-          () =>
-            `<meta name="description" content="${escapeHtml(route.description)}"`
-        );
-        html = html.replace(
-          /<link rel="canonical" href="[^"]*"/,
-          () => `<link rel="canonical" href="${escapeHtml(route.canonical)}"`
-        );
+        // Always ensure SEO tags exist; don't rely on the base template containing them.
+        html = setMetaContent(html, 'name', 'description', route.description);
+        html = setCanonicalHref(html, route.canonical);
         html = setMetaContent(html, 'property', 'og:title', route.title);
         html = setMetaContent(
           html,
@@ -199,6 +213,14 @@ export function prerenderPlugin() {
           /<meta name="robots" content="[^"]*"/,
           '<meta name="robots" content="index, follow"'
         );
+
+        const headEnd = html.indexOf('</head>');
+        const renderedHead = headEnd >= 0 ? html.slice(0, headEnd) : html;
+        const hasDescription = /<meta\b(?=[^>]*\bname="description")[^>]*\bcontent="[^"]+"/i.test(renderedHead);
+        const canonicalMatch = renderedHead.match(/<link\b(?=[^>]*\brel="canonical")[^>]*\bhref="([^"]+)"/i);
+        if (!hasDescription || !canonicalMatch || canonicalMatch[1] !== route.canonical) {
+          throw new Error('Missing or incorrect SEO metadata for ' + route.path + ': description=' + hasDescription + ', canonical=' + (canonicalMatch?.[1] ?? 'missing'));
+        }
 
         const outPath =
           route.path === '/'
