@@ -19,7 +19,7 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Language>('fi');
+  const [lang, setLangState] = useState<Language>(() => typeof window !== 'undefined' && window.location.pathname.startsWith('/en') ? 'en' : 'fi');
 
   const setLang = useCallback((l: Language) => {
     setLangState(l);
