@@ -8,11 +8,12 @@ import {
   MapPin,
 } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { landingPages } from '@/i18n/landing';
 
 const icons = [Boxes, Truck, Users, Sofa, Package, Building2, MapPin, Package, Package];
 
 export default function Services() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <section id="services" className="bg-slate-50 py-20 lg:py-28">
@@ -45,6 +46,20 @@ export default function Services() {
             );
           })}
         </div>
+        <nav aria-label={t.services.relatedTitle} className="mt-12 rounded-2xl bg-white p-6 ring-1 ring-slate-200 sm:p-8">
+          <h3 className="text-xl font-bold text-slate-900">{t.services.relatedTitle}</h3>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {landingPages.map((page) => (
+              <li key={page.path}>
+                <a href={`${page.path}/`} className="block rounded-xl bg-slate-50 px-4 py-3 font-semibold text-slate-800 ring-1 ring-slate-200 transition-colors hover:bg-brand-50 hover:text-brand-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500">
+                  {page.navLabel[lang]} <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-sm text-slate-600">{lang === 'fi' ? 'Valitse sopiva palvelu ja tutustu hintoihin, muuttoapuun sekä kuljetusvaihtoehtoihin. Voit pyytää tarjouksen myös kiinteällä hinnalla työn tietojen perusteella.' : 'Choose the service you need and explore pricing, moving help and transport options. You can also request a fixed quote based on your job details.'}</p>
+          <a href="#contact" className="mt-5 inline-flex rounded-xl bg-brand-600 px-5 py-3 font-semibold text-white transition-colors hover:bg-brand-700">{t.nav.getQuote} <span aria-hidden="true" className="ml-2">→</span></a>
+        </nav>
       </div>
     </section>
   );
