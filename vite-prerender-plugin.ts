@@ -7,6 +7,35 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const origin = 'https://movexlogistics.fi';
 
+const languagePairs = [
+  ['/', '/en'],
+  ['/muuttopalvelu-tampere', '/en/moving-service-tampere'],
+  ['/muuttofirma-tampere', '/en/moving-company-tampere'],
+  ['/huonekalukuljetus-tampere', '/en/furniture-transport-tampere'],
+  ['/pieni-muutto-tampere', '/en/small-move-tampere'],
+  ['/kuljetuspalvelu-tampere', '/en/transport-service-tampere'],
+] as const;
+
+function canonicalPath(routePath: string) {
+  return routePath === '/' || routePath.endsWith('/') ? routePath : routePath + '/';
+}
+
+function addHreflang(html: string, routePath: string) {
+  const pair = languagePairs.find(([fiPath, enPath]) => routePath === fiPath || routePath === enPath);
+  if (!pair || html.includes('hreflang="fi-FI"')) return html;
+
+  const [fiPath, enPath] = pair;
+  const fiUrl = origin + canonicalPath(fiPath);
+  const enUrl = origin + canonicalPath(enPath);
+  const links = [
+    '<link rel="alternate" hreflang="fi-FI" href="' + fiUrl + '" />',
+    '<link rel="alternate" hreflang="en-FI" href="' + enUrl + '" />',
+    '<link rel="alternate" hreflang="x-default" href="' + fiUrl + '" />',
+  ].join(String.fromCharCode(10) + '    ');
+
+  return html.replace('</head>', '    ' + links + String.fromCharCode(10) + '  </head>');
+}
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, '&amp;')
@@ -290,6 +319,8 @@ export function prerenderPlugin() {
           route.path === '/'
             ? path.resolve(__dirname, 'dist/index.html')
             : path.resolve(__dirname, `dist${route.path}/index.html`);
+
+        html = addHreflang(html, route.path);
 
         fs.mkdirSync(path.dirname(outPath), { recursive: true });
         fs.writeFileSync(outPath, html);
