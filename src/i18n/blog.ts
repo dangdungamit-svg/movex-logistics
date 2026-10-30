@@ -229,7 +229,7 @@ export const blogArticles: BlogArticle[] = [
         },
       ],
     },
-  },,
+  },
 {
     slug: 'muuttoapu-hinta-tampere',
     published: true,
