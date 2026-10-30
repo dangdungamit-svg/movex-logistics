@@ -4,18 +4,18 @@ import path from 'node:path';
 const outputDir = path.resolve(process.cwd(), 'dist');
 const origin = 'https://movexlogistics.fi';
 
-// The app uses the same landing-page slug under /en/ and switches language by prefix.
+// Keep these pairs aligned with the actual routes in vite-prerender-plugin.ts.
 const languagePairs = [
   ['/', '/en/'],
-  ['/muuttopalvelu-tampere/', '/en/muuttopalvelu-tampere/'],
-  ['/muuttofirma-tampere/', '/en/muuttofirma-tampere/'],
-  ['/huonekalukuljetus-tampere/', '/en/huonekalukuljetus-tampere/'],
-  ['/pieni-muutto-tampere/', '/en/pieni-muutto-tampere/'],
-  ['/kuljetuspalvelu-tampere/', '/en/kuljetuspalvelu-tampere/'],
+  ['/muuttopalvelu-tampere/', '/en/moving-service-tampere/'],
+  ['/muuttofirma-tampere/', '/en/moving-company-tampere/'],
+  ['/huonekalukuljetus-tampere/', '/en/furniture-transport-tampere/'],
+  ['/pieni-muutto-tampere/', '/en/small-move-tampere/'],
+  ['/kuljetuspalvelu-tampere/', '/en/transport-service-tampere/'],
 ] as const;
 
 function outputPath(route: string) {
-  const normalized = route.replace(/^\/+|\/+$/g, '');
+  const normalized = route.replace(/^\\/+|\\/+$/g, '');
   return path.join(outputDir, normalized, 'index.html');
 }
 
@@ -26,7 +26,7 @@ function alternateLinks(fiPath: string, enPath: string) {
     `<link rel="alternate" hreflang="fi-FI" href="${fiUrl}" />`,
     `<link rel="alternate" hreflang="en-FI" href="${enUrl}" />`,
     `<link rel="alternate" hreflang="x-default" href="${fiUrl}" />`,
-  ].join('\n    ');
+  ].join('\\n    ');
 }
 
 export function hreflangPlugin() {
@@ -48,7 +48,7 @@ export function hreflangPlugin() {
             if (!html.includes('</head>')) {
               throw new Error(`Cannot add hreflang links; </head> is missing in ${file}`);
             }
-            fs.writeFileSync(file, html.replace('</head>', `    ${markup}\n  </head>`));
+            fs.writeFileSync(file, html.replace('</head>', `    ${markup}\\n  </head>`));
           }
         }
         console.log('  added reciprocal fi-FI/en-FI hreflang links to 6 language pairs');
