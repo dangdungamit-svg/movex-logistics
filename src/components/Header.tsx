@@ -163,7 +163,7 @@ export default function Header() {
               {landingPages.map((page) => (
                 <a
                   key={page.path}
-                  href={page.path}
+                  href={getLocalizedPath(page.path, lang)}
                   onClick={closeMenu}
                   className="block rounded-lg px-4 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-white"
                 >
@@ -172,7 +172,7 @@ export default function Header() {
               ))}
             </div>
             <a
-              href="/#contact"
+              href={lang === "en" ? "/en/#contact" : "/#contact"}
               onClick={closeMenu}
               className="mt-2 block rounded-xl bg-brand-600 px-4 py-3 text-center text-base font-semibold text-white shadow-lg shadow-brand-500/20"
             >
