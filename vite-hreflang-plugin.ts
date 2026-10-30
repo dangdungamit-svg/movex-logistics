@@ -4,14 +4,14 @@ import path from 'node:path';
 const outputDir = path.resolve(process.cwd(), 'dist');
 const origin = 'https://movexlogistics.fi';
 
-// Only pair pages that have genuine Finnish and English equivalents.
+// The app uses the same landing-page slug under /en/ and switches language by prefix.
 const languagePairs = [
   ['/', '/en/'],
-  ['/muuttopalvelu-tampere/', '/en/moving-service-tampere/'],
-  ['/muuttofirma-tampere/', '/en/moving-company-tampere/'],
-  ['/huonekalukuljetus-tampere/', '/en/furniture-transport-tampere/'],
-  ['/pieni-muutto-tampere/', '/en/small-move-tampere/'],
-  ['/kuljetuspalvelu-tampere/', '/en/transport-service-tampere/'],
+  ['/muuttopalvelu-tampere/', '/en/muuttopalvelu-tampere/'],
+  ['/muuttofirma-tampere/', '/en/muuttofirma-tampere/'],
+  ['/huonekalukuljetus-tampere/', '/en/huonekalukuljetus-tampere/'],
+  ['/pieni-muutto-tampere/', '/en/pieni-muutto-tampere/'],
+  ['/kuljetuspalvelu-tampere/', '/en/kuljetuspalvelu-tampere/'],
 ] as const;
 
 function outputPath(route: string) {
@@ -22,11 +22,10 @@ function outputPath(route: string) {
 function alternateLinks(fiPath: string, enPath: string) {
   const fiUrl = `${origin}${fiPath}`;
   const enUrl = `${origin}${enPath}`;
-  const defaultUrl = fiUrl;
   return [
     `<link rel="alternate" hreflang="fi-FI" href="${fiUrl}" />`,
     `<link rel="alternate" hreflang="en-FI" href="${enUrl}" />`,
-    `<link rel="alternate" hreflang="x-default" href="${defaultUrl}" />`,
+    `<link rel="alternate" hreflang="x-default" href="${fiUrl}" />`,
   ].join('\n    ');
 }
 
