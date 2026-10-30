@@ -41,12 +41,12 @@ export const landingPages: LandingPage[] = [
     path: '/muuttopalvelu-tampere',
     navLabel: { fi: 'Muuttopalvelu Tampere', en: 'Moving service Tampere' },
     title: {
-      fi: 'Muuttopalvelu Tampere | MoveX Logistics',
-      en: 'Moving Service in Tampere | MoveX Logistics',
+      fi: 'Muuttopalvelu Tampere ja Pirkanmaa | MoveX Logistics',
+      en: 'Moving Service in Tampere & Pirkanmaa | MoveX Logistics',
     },
     description: {
-      fi: 'Muuttopalvelu Tampereella: pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Hinnat alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous.',
-      en: 'Moving service in Tampere: van and driver or 1–3 movers. Prices from €50/hour, including Finnish VAT (25.5%). Request a quote.',
+      fi: 'Muuttopalvelu Tampereella ja Pirkanmaalla: asunto- ja pienmuutot, pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Alk. 50 €/h sis. alv. Pyydä tarjous.',
+      en: 'Moving service in Tampere and Pirkanmaa, Finland. Van and driver or 1–3 movers for local and long-distance moves. From €50/hour incl. VAT.',
     },
     h1: { fi: 'Muuttopalvelu Tampere', en: 'Moving service in Tampere' },
     intro: {
@@ -110,12 +110,12 @@ export const landingPages: LandingPage[] = [
     path: '/muuttofirma-tampere',
     navLabel: { fi: 'Muuttofirma Tampere', en: 'Moving company Tampere' },
     title: {
-      fi: 'Muuttofirma Tampere | MoveX Logistics',
-      en: 'Moving Company in Tampere | MoveX Logistics',
+      fi: 'Muuttofirma Tampere ja Pirkanmaa | MoveX Logistics',
+      en: 'Moving Company in Tampere, Finland | MoveX Logistics',
     },
     description: {
-      fi: 'Muuttofirma Tampereella koteihin ja pienyrityksille. Pakettiauto ja kuljettaja alkaen 50 €/h, 1 muuttomies ja auto alkaen 75 €/h (sis. alv 25,5 %). Pyydä tarjous.',
-      en: 'Moving company in Tampere for homes and small businesses. Van and driver from €50/hour; 1 mover and van from €75/hour (incl. Finnish VAT 25.5%). Request a quote.',
+      fi: 'Muuttofirma Tampereella ja Pirkanmaalla: koti- ja pienyritysmuutot, muuttoapu ja kuljetukset. Pakettiauto + kuljettaja 50 €/h (sis. alv). Pyydä tarjous.',
+      en: 'Moving company in Tampere and Pirkanmaa, Finland. Home and small business moves, van and driver from €50/hour incl. VAT. Request a quote.',
     },
     h1: { fi: 'Muuttofirma Tampere', en: 'Moving company in Tampere' },
     intro: {
@@ -126,11 +126,13 @@ export const landingPages: LandingPage[] = [
       fi: [
         { heading: 'Muuttofirman palvelut', paragraphs: ['Asunto-, talo- ja pienyritysmuutot, huonekalu- ja esinekuljetukset, pakettiauto + kuljettaja sekä kaukokuljetus ympäri Suomea kiinteällä tarjouksella.'] },
         { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Paikallinen muuttofirma Pirkanmaalla', paragraphs: ['Autamme muutossa Tampereen lisäksi Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Kerro nouto- ja toimitusosoitteet, tavaroiden määrä, kerrokset, hissi ja toivottu muuttopäivä. Tarjous voi olla tuntiperusteinen tai työn tietojen mukaan sovittu kiinteä hinta. Tampereelta muualle Suomeen tehtävät muutot hinnoitellaan koko reitin perusteella.'] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
       ],
       en: [
         { heading: 'Moving company services', paragraphs: ['Apartment, house and small business moves, furniture and item transport, van + driver, and long-distance transport across Finland with a fixed quotation.'] },
         { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Local movers in Pirkanmaa', paragraphs: ['We serve Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Share your pickup and delivery addresses, volume of belongings, floor and lift access, and preferred date. Ask for an hourly service or a fixed quote based on the job details. For moves to other parts of Finland, we price the complete route.'] },
         { heading: 'Service area', paragraphs: [area.en] },
       ],
     },
