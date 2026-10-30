@@ -78,7 +78,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
         <h1 className="font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">{page.h1[lang]}</h1>
         <p className="mt-5 text-lg leading-relaxed text-slate-600">{page.intro[lang]}</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white">
+          <a href={lang === "en" ? "/en/#contact" : "/#contact"} className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white">
             {t.nav.getQuote} <ArrowRight className="h-4 w-4" />
           </a>
           <a href={getWhatsAppLink(lang)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-slate-950">
