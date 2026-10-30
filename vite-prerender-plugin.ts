@@ -163,6 +163,43 @@ const routes = [
       'Pakettiauto ja kuljettaja Tampereella alkaen 50 €/h (sis. alv 25,5 %). Katso palvelun käyttökohteet ja mitä tarjouspyyntöön tarvitaan.',
     canonical: `${origin}/blog/pakettiauto-kuljettajalla-tampere/`,
   },
+
+  {
+    path: '/en',
+    title: 'Moving & Transport in Tampere, Finland | MoveX Logistics',
+    description: 'Moving and transport services in Tampere and Pirkanmaa, Finland. Clear hourly prices from €50 including Finnish VAT. Request a quote.',
+    canonical: `${origin}/en/`,
+  },
+  {
+    path: '/en/moving-service-tampere',
+    title: 'Moving Service in Tampere & Pirkanmaa | MoveX Logistics',
+    description: 'Moving service in Tampere and Pirkanmaa, Finland. Van and driver or 1–3 movers for local and long-distance moves. From €50/hour incl. VAT.',
+    canonical: `${origin}/en/moving-service-tampere/`,
+  },
+  {
+    path: '/en/moving-company-tampere',
+    title: 'Moving Company in Tampere, Finland | MoveX Logistics',
+    description: 'Moving company in Tampere and Pirkanmaa, Finland. Home and small business moves, van and driver from €50/hour incl. VAT. Request a quote.',
+    canonical: `${origin}/en/moving-company-tampere/`,
+  },
+  {
+    path: '/en/furniture-transport-tampere',
+    title: 'Furniture Transport in Tampere | MoveX Logistics',
+    description: 'Furniture transport in Tampere for sofas, beds, appliances and Tori.fi purchases. Van and driver from €50/hour, including Finnish VAT.',
+    canonical: `${origin}/en/furniture-transport-tampere/`,
+  },
+  {
+    path: '/en/small-move-tampere',
+    title: 'Small Move in Tampere | MoveX Logistics',
+    description: 'Small moves in Tampere: studio flats, student moves and a few items. Van and driver from €50/hour, Finnish VAT included.',
+    canonical: `${origin}/en/small-move-tampere/`,
+  },
+  {
+    path: '/en/transport-service-tampere',
+    title: 'Transport Service in Tampere | MoveX Logistics',
+    description: 'Transport service in Tampere and Pirkanmaa for furniture, appliances, store pickups and smaller loads. Van and driver from €50/hour incl. VAT.',
+    canonical: `${origin}/en/transport-service-tampere/`,
+  },
 ];
 
 export function prerenderPlugin() {
