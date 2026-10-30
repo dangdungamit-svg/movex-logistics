@@ -122,16 +122,16 @@ const routes = [
   },
   {
     path: '/muuttopalvelu-tampere',
-    title: 'Muuttopalvelu Tampere | MoveX Logistics',
+    title: 'Muuttopalvelu Tampere ja Pirkanmaa | MoveX Logistics',
     description:
-      'Muuttopalvelu Tampereella: pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Hinnat alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous.',
+      'Muuttopalvelu Tampereella ja Pirkanmaalla: asunto- ja pienmuutot, pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Alk. 50 €/h sis. alv. Pyydä tarjous.',
     canonical: `${origin}/muuttopalvelu-tampere/`,
   },
   {
     path: '/muuttofirma-tampere',
-    title: 'Muuttofirma Tampere | MoveX Logistics',
+    title: 'Muuttofirma Tampere ja Pirkanmaa | MoveX Logistics',
     description:
-      'Muuttofirma Tampereella koteihin ja pienyrityksille. Pakettiauto ja kuljettaja alkaen 50 €/h, 1 muuttomies ja auto alkaen 75 €/h (sis. alv 25,5 %). Pyydä tarjous.',
+      'Muuttofirma Tampereella ja Pirkanmaalla: koti- ja pienyritysmuutot, muuttoapu ja kuljetukset. Pakettiauto + kuljettaja 50 €/h (sis. alv). Pyydä tarjous.',
     canonical: `${origin}/muuttofirma-tampere/`,
   },
   {
