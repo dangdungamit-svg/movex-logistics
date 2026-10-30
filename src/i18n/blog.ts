@@ -318,6 +318,143 @@ export const blogArticles: BlogArticle[] = [
       ],
     },
   },
+,
+  {
+    slug: 'opiskelijamuutto-tampere',
+    published: true,
+    category: { fi: 'Pieni muutto', en: 'Small move' },
+    title: {
+      fi: 'Opiskelijamuutto Tampereella: hinta, pakkaaminen ja muuttoapu',
+      en: 'Student moving in Tampere: cost, packing and moving help',
+    },
+    excerpt: {
+      fi: 'Suunnitteletko yksiön tai opiskelija-asunnon muuttoa Tampereella? Katso, milloin pakettiauto ja kuljettaja riittää, milloin kannattaa ottaa kantoapua ja mitä tarjouspyyntöön kannattaa kirjata.',
+      en: 'Planning a studio or student-apartment move in Tampere? Compare van-only transport with carrying help and learn what to include in a quote request.',
+    },
+    readTime: { fi: '5 min lukuaika', en: '4 min read' },
+    sections: {
+      fi: [
+        { heading: 'Mitä opiskelijamuutto Tampereella yleensä sisältää?', paragraphs: [
+          'Opiskelijamuutto voi tarkoittaa yksiön, soluhuoneen tai pienen asunnon tavaroiden siirtämistä. Tavaramäärä on usein tavallista kotimuuttoa pienempi, mutta sänky, työpöytä, sohva, hylly ja laatikot voivat silti vaatia sopivan pakettiauton ja suunnitellun kantamisen.',
+          'Listaa suurimmat huonekalut ja arvioi laatikoiden määrä ennen muuttopäivää. Näin muuttoapu Tampereella voidaan mitoittaa tarpeen mukaan ilman, että varaat turhaan liian suuren palvelun.'
+        ]},
+        { heading: 'Kannattaako valita pakettiauto vai muuttomiehet?', paragraphs: [
+          'Jos tavarat ovat valmiiksi pakattuja ja pystyt itse kantamaan ne, pakettiauto ja kuljettaja voi olla sopiva vaihtoehto. Jos asunnossa on portaita, raskaita huonekaluja tai vähän apukäsiä, valitse lisäksi yksi tai useampi muuttomies lastaukseen ja purkuun.',
+          'MoveX Logisticsin tuntihinnat ovat: pakettiauto ja kuljettaja 50 €/h, yksi muuttomies ja auto 75 €/h, kaksi muuttomiestä ja auto 100 €/h sekä kolme muuttomiestä ja auto 125 €/h. Hinnat sisältävät alv 25,5 %. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa.'
+        ]},
+        { heading: 'Mistä opiskelijamuuton hinta muodostuu?', paragraphs: [
+          'Muuttohinta riippuu ajomatkasta, tavaroiden määrästä, kerroksista, hissistä, pysäköinnistä ja tarvittavasta kantamisavusta. Kerro sekä nouto- että toimitusosoitteen olosuhteet. Jos reitti kulkee Tampereen ulkopuolelle, pyydä tarjous koko reitistä.',
+          'Lähetä tarjouspyynnössä muuttopäivä, osoitteet, suuret huonekalut, laatikoiden arvioitu määrä ja tieto hissistä. Tarkat tiedot auttavat arvioimaan työn realistisesti.'
+        ]},
+        { heading: 'Opiskelijamuuton tarkistuslista', paragraphs: [
+          'Pakkaa tavarat huoneittain, tyhjennä ja sulata kodinkoneet ajoissa, irrota tarvittaessa pöydän jalat ja suojaa näytöt sekä särkyvät esineet. Varmista avainten luovutus ja pysäköintipaikka muuttoautolle.',
+          'Pyydä MoveX Logisticsilta tarjous, jos tarvitset pienen muuton kuljetusta Tampereella tai Pirkanmaalla. Kerro selvästi, tarvitsetko vain auton ja kuljettajan vai myös kantoapua.'
+        ]}
+      ],
+      en: [
+        { heading: 'What does a student move involve?', paragraphs: [
+          'A student move may involve a studio, shared flat or small apartment. Even a smaller move can include a bed, desk, sofa, shelves and boxes that need a suitable van and a plan for carrying.',
+          'List the largest items and estimate the number of boxes before moving day. This helps choose a suitable small moving service in Tampere.'
+        ]},
+        { heading: 'Van and driver or movers?', paragraphs: [
+          'A van and driver may suit you if everything is packed and you can handle the carrying yourself. Add movers if there are stairs, heavy furniture or limited help at either address.',
+          'MoveX Logistics rates are €50/hour for a van and driver, €75/hour for one mover and van, €100/hour for two movers and van, and €125/hour for three movers and van. Finnish VAT (25.5%) is included. Minimum booking is one hour, then billing continues in 30-minute steps.'
+        ]},
+        { heading: 'What affects the price?', paragraphs: [
+          'The price depends on driving distance, amount of goods, floors, elevator access, parking and carrying help. Share both addresses, date, large items, estimated boxes and lift access when requesting a quote.',
+          'Pack by room, protect fragile items and arrange key handover and parking in advance. Contact MoveX Logistics for a quote for a small move in Tampere or Pirkanmaa.'
+        ]}
+      ]
+    }
+  },
+  {
+    slug: 'tori-ikea-kuljetus-tampere',
+    published: true,
+    category: { fi: 'Huonekalukuljetus', en: 'Furniture transport' },
+    title: {
+      fi: 'Tori.fi- ja IKEA-kuljetus Tampereella: näin tilaat huonekalukuljetuksen',
+      en: 'Tori.fi and IKEA delivery in Tampere: how to arrange furniture transport',
+    },
+    excerpt: {
+      fi: 'Ostitko sohvan, sängyn tai pöydän Tori.fi:stä tai kaupasta? Näillä tiedoilla huonekalun nouto ja kuljetus Tampereella on helpompi suunnitella.',
+      en: 'Bought a sofa, bed or table from Tori.fi or a shop? Share these details to plan a furniture pickup and delivery in Tampere.',
+    },
+    readTime: { fi: '4 min lukuaika', en: '4 min read' },
+    sections: {
+      fi: [
+        { heading: 'Mitä tietoja kuljetukseen tarvitaan?', paragraphs: [
+          'Kerro, mistä huonekalu noudetaan ja mihin se toimitetaan. Ilmoita esineen mitat ja arvioitu paino sekä se, onko tavara valmiiksi purettu tai pakattu. Sohvan, sängyn, pöydän ja kaapin mitat auttavat varmistamaan, että esine sopii kuljetukseen.',
+          'Tori.fi-ostoksissa sovi myyjän kanssa noutoaika etukäteen. Kauppanoudossa tarkista, milloin tavara on noudettavissa ja tarvitseeko noutoon tilausnumeroa tai muuta vahvistusta.'
+        ]},
+        { heading: 'Tarvitaanko kantoapua?', paragraphs: [
+          'Pelkkä pakettiauto ja kuljettaja voi sopia, jos pystyt itse auttamaan lastauksessa ja purussa. Jos huonekalu on painava tai asunnossa on portaita, ilmoita siitä ja pyydä kantoapua. Kerro kerros, hissi ja sisäänkäynnin etäisyys molemmissa osoitteissa.',
+          'MoveX Logistics tarjoaa pakettiauton ja kuljettajan alkaen 50 €/h (sis. alv 25,5 %). Työn laajuuden mukaan voit pyytää tarjouksen myös muuttomiehistä. Vähimmäisvaraus on yksi tunti.'
+        ]},
+        { heading: 'Miten saat tarkan kuljetustarjouksen?', paragraphs: [
+          'Lähetä nouto- ja toimitusosoite, toivottu päivä, huonekalun mitat, kerrokset ja tieto kantoavusta. Mainitse myös, jos samalla reitillä on useita noutoja tai toimituksia.',
+          'Huonekalukuljetus Tampereella voi olla yksittäisen sohvan nouto, pesukoneen siirto tai useamman ostoksen toimitus. MoveX arvioi työn antamiesi tietojen perusteella ja vahvistaa tarjouksen ennen työn aloittamista.'
+        ]}
+      ],
+      en: [
+        { heading: 'What details are needed?', paragraphs: [
+          'Share the pickup and delivery addresses, item dimensions and estimated weight, and whether the item is dismantled or packed. These details help confirm that the furniture can be transported safely.',
+          'For Tori.fi purchases, agree on a pickup time with the seller. For store collection, check when the item is ready and whether an order number or confirmation is required.'
+        ]},
+        { heading: 'Do you need carrying help?', paragraphs: [
+          'A van and driver may work if you can help with loading and unloading. For heavy furniture or stairs, request carrying help and share the floor, elevator and entrance details at both addresses.',
+          'MoveX Logistics offers a van and driver from €50/hour, including Finnish VAT (25.5%). Minimum booking is one hour.'
+        ]},
+        { heading: 'How to get a clear quote', paragraphs: [
+          'Send both addresses, preferred date, item dimensions, floors and whether carrying help is needed. Mention any extra pickup or delivery stops.',
+          'Furniture transport in Tampere can include a sofa, washing machine or several shop purchases. MoveX assesses the job from the details you provide and confirms a quote before work starts.'
+        ]}
+      ]
+    }
+  },
+  {
+    slug: 'pakettiauto-kuljettajalla-tampere',
+    published: true,
+    category: { fi: 'Kuljetuspalvelu', en: 'Transport service' },
+    title: {
+      fi: 'Pakettiauto kuljettajalla Tampereella: hinta ja käyttökohteet',
+      en: 'Van with driver in Tampere: price and when to use it',
+    },
+    excerpt: {
+      fi: 'Milloin kannattaa tilata pakettiauto kuljettajalla? Lue, mitä palveluun sisältyy, miten tuntihinta muodostuu ja mitä tietoja tarjouspyyntöön tarvitaan.',
+      en: 'When should you book a van with a driver? Learn what the service includes, how hourly pricing works and what to include in a quote request.',
+    },
+    readTime: { fi: '4 min lukuaika', en: '4 min read' },
+    sections: {
+      fi: [
+        { heading: 'Milloin pakettiauto kuljettajalla on hyvä vaihtoehto?', paragraphs: [
+          'Pakettiauto kuljettajalla sopii esimerkiksi huonekalun siirtoon, verkkokauppa- tai myymälänoudon kuljetukseen, laatikoihin ja pieneen muuttoon. Se on vaihtoehto silloin, kun tarvitset kuljetuksen mutta et välttämättä muuttomiehiä kantamiseen.',
+          'Palvelun sopivuus riippuu tavaran koosta, painosta, määrästä ja siitä, pystytkö itse auttamaan lastauksessa ja purussa. Kerro tavarat etukäteen, jotta kuljetus voidaan suunnitella oikein.'
+        ]},
+        { heading: 'Mitä MoveX Logisticsin palvelu maksaa?', paragraphs: [
+          'Pakettiauto ja kuljettaja maksavat 50 €/h, alv 25,5 % sisältyy hintaan. Vähimmäisvaraus on yksi tunti ja sen jälkeen laskutus jatkuu 30 minuutin jaksoissa. Tämä on tuntihinta, ei automaattisesti koko työn kiinteä kokonaishinta.',
+          'Kokonaiskustannukseen vaikuttavat koko ajoreitti, lastaus ja purku, odotusaika, ylimääräiset pysähdykset ja se, tarvitaanko kantamisapua. Pidemmälle matkalle kannattaa pyytää tarjous koko reitistä.'
+        ]},
+        { heading: 'Mitä tarjouspyyntöön kannattaa kirjoittaa?', paragraphs: [
+          'Kerro nouto- ja toimitusosoite, päivä ja toivottu aika, kuljetettavat tavarat ja niiden mitat, kerrokset sekä hissin saatavuus. Ilmoita, tarvitsetko apua kantamiseen ja onko kuorma valmiiksi pakattu.',
+          'MoveX Logistics toimii Tampereella ja Pirkanmaalla, ja kuljetukset muualle Suomeen onnistuvat tarjouksella. Tarkat tiedot auttavat valitsemaan sopivan palvelun ja arvioimaan työn realistisesti.'
+        ]}
+      ],
+      en: [
+        { heading: 'When is a van with driver useful?', paragraphs: [
+          'A van with driver can suit furniture transport, store collection, boxes and small moves. It is useful when you need transport but may not need movers for carrying.',
+          'Suitability depends on the size, weight and amount of goods and whether you can help load and unload. Share item details before booking.'
+        ]},
+        { heading: 'How much does it cost?', paragraphs: [
+          'MoveX Logistics charges €50/hour for a van and driver, including Finnish VAT (25.5%). Minimum booking is one hour, then billing continues in 30-minute increments. This is an hourly rate, not automatically a fixed total price.',
+          'The full cost depends on the complete route, loading and unloading, waiting time, extra stops and any carrying help. Request a quote for longer routes.'
+        ]},
+        { heading: 'What to include in a quote request', paragraphs: [
+          'Share pickup and delivery addresses, date and preferred time, items and dimensions, floors, elevator access and whether carrying help is needed.',
+          'MoveX Logistics operates in Tampere and Pirkanmaa, with transport elsewhere in Finland available by quotation. Accurate details help estimate the job.'
+        ]}
+      ]
+    }
+  }
 ];
 
 export function getBlogArticle(slug: string) {
