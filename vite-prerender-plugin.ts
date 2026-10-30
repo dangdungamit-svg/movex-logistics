@@ -80,6 +80,20 @@ const routes = [
     canonical: `${origin}/blog/muutto-tampereelta-muualle-suomeen`,
   },
   {
+    path: '/pieni-muutto-tampere',
+    title: 'Pieni muutto Tampere | MoveX Logistics',
+    description:
+      'Pieni muutto Tampereella: yksiö, opiskelijamuutto tai muutama huonekalu. Pakettiauto ja kuljettaja alkaen 50 €/h, alv sisältyy.',
+    canonical: `${origin}/pieni-muutto-tampere`,
+  },
+  {
+    path: '/kuljetuspalvelu-tampere',
+    title: 'Kuljetuspalvelu Tampere | MoveX Logistics',
+    description:
+      'Kuljetuspalvelu Tampereella: huonekalut, kodinkoneet, verkkokauppa- ja Tori.fi-noudot sekä pienkuljetukset. Pakettiauto ja kuljettaja alkaen 50 €/h.',
+    canonical: `${origin}/kuljetuspalvelu-tampere`,
+  },
+  {
     path: '/muuttopalvelu-tampere',
     title: 'Muuttopalvelu Tampere | MoveX Logistics',
     description:
