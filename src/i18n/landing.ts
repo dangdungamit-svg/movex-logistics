@@ -181,7 +181,7 @@ export const landingPages: LandingPage[] = [
         { q: 'What is the minimum booking?', a: 'The minimum booking is one hour. After that, billing continues in 30-minute steps.' },
       ],
     },
-  },,
+  },
 {
     path: '/pieni-muutto-tampere',
     navLabel: { fi: 'Pieni muutto Tampere', en: 'Small move Tampere' },
