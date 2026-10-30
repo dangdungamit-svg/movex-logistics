@@ -48,7 +48,7 @@ export function hreflangPlugin() {
             if (!html.includes('</head>')) {
               throw new Error(`Cannot add hreflang links; </head> is missing in ${file}`);
             }
-            fs.writeFileSync(file, html.replace('</head>', \`    \${markup}\n  </head>\`));
+            fs.writeFileSync(file, html.replace('</head>', '    ' + markup + '\n  </head>'));
           }
         }
         console.log('  added reciprocal fi-FI/en-FI hreflang links to 6 language pairs');
