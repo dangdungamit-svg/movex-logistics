@@ -3,6 +3,7 @@ import {
   useContext,
   useState,
   useCallback,
+  useEffect,
   type ReactNode,
 } from 'react';
 import { translations, type Language, type Translation } from './translations';
@@ -19,7 +20,11 @@ const LanguageContext = createContext<LanguageContextValue | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Language>(() => typeof window !== 'undefined' && window.location.pathname.startsWith('/en') ? 'en' : 'fi');
+  const [lang, setLangState] = useState<Language>(() => typeof window !== 'undefined' && (window.location.pathname === '/en' || window.location.pathname.startsWith('/en/')) ? 'en' : 'fi');
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const setLang = useCallback((l: Language) => {
     setLangState(l);
