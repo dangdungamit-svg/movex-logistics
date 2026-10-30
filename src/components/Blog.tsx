@@ -17,7 +17,7 @@ function setPageMetadata(title: string, description: string, path: string, noInd
   if (!robots.parentElement) document.head.appendChild(robots);
   const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
   canonical.setAttribute('rel', 'canonical');
-  canonical.setAttribute('href', `${window.location.origin}${path}`);
+  canonical.setAttribute('href', `${window.location.origin}${path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`}`);
   if (!canonical.parentElement) document.head.appendChild(canonical);
 }
 
