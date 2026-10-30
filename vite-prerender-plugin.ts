@@ -56,70 +56,70 @@ const routes = [
     title: 'MoveX Logistics Blogi – Muutto- ja kuljetusoppaat',
     description:
       'Käytännöllisiä muutto- ja kuljetusoppaita Tampereelle, Pirkanmaalle ja koko Suomeen.',
-    canonical: `${origin}/blog`,
+    canonical: `${origin}/blog/`,
   },
   {
     path: '/blog/muutto-tampereella-tarkistuslista',
     title: 'Muutto Tampereella: käytännöllinen tarkistuslista | MoveX Logistics',
     description:
       'Käytännöllinen suomenkielinen opas muuttoon Tampereella: aikataulu, tavarat, pakkaaminen, kantaminen, palvelun valinta ja tarjouspyyntö – kaikki samasta tarkistuslistasta.',
-    canonical: `${origin}/blog/muutto-tampereella-tarkistuslista`,
+    canonical: `${origin}/blog/muutto-tampereella-tarkistuslista/`,
   },
   {
     path: '/blog/muuttoapu-hinta-tampere',
     title: 'Muuttoapu Tampereella: hinnat ja mistä muuton hinta muodostuu? | MoveX Logistics',
     description:
       'Muuttoavun hinta Tampereella riippuu kuljetusreitistä, tavaroiden määrästä ja kantoavusta. Vertaa MoveX Logisticsin tuntihintoja ja katso, mitä tarjouspyyntöön kannattaa kertoa.',
-    canonical: `${origin}/blog/muuttoapu-hinta-tampere`,
+    canonical: `${origin}/blog/muuttoapu-hinta-tampere/`,
   },
   {
     path: '/blog/huonekalukuljetus-tampere',
     title: 'Huonekalukuljetus Tampereella: mitä kannattaa ilmoittaa? | MoveX Logistics',
     description:
       'Näin saat huonekalu- ja esinekuljetuksesta mahdollisimman tarkan arvion.',
-    canonical: `${origin}/blog/huonekalukuljetus-tampere`,
+    canonical: `${origin}/blog/huonekalukuljetus-tampere/`,
   },
   {
     path: '/blog/muutto-tampereelta-muualle-suomeen',
     title: 'Muutto Tampereelta muualle Suomeen: miten tarjous muodostuu? | MoveX Logistics',
     description:
       'Yleiskatsaus asioihin, jotka vaikuttavat kaukomuuton kiinteään tarjoukseen.',
-    canonical: `${origin}/blog/muutto-tampereelta-muualle-suomeen`,
+    canonical: `${origin}/blog/muutto-tampereelta-muualle-suomeen/`,
   },
   {
     path: '/pieni-muutto-tampere',
     title: 'Pieni muutto Tampere | MoveX Logistics',
     description:
       'Pieni muutto Tampereella: yksiö, opiskelijamuutto tai muutama huonekalu. Pakettiauto ja kuljettaja alkaen 50 €/h, alv sisältyy.',
-    canonical: `${origin}/pieni-muutto-tampere`,
+    canonical: `${origin}/pieni-muutto-tampere/`,
   },
   {
     path: '/kuljetuspalvelu-tampere',
     title: 'Kuljetuspalvelu Tampere | MoveX Logistics',
     description:
       'Kuljetuspalvelu Tampereella: huonekalut, kodinkoneet, verkkokauppa- ja Tori.fi-noudot sekä pienkuljetukset. Pakettiauto ja kuljettaja alkaen 50 €/h.',
-    canonical: `${origin}/kuljetuspalvelu-tampere`,
+    canonical: `${origin}/kuljetuspalvelu-tampere/`,
   },
   {
     path: '/muuttopalvelu-tampere',
     title: 'Muuttopalvelu Tampere | MoveX Logistics',
     description:
       'Muuttopalvelu Tampereella: pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Hinnat alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous.',
-    canonical: `${origin}/muuttopalvelu-tampere`,
+    canonical: `${origin}/muuttopalvelu-tampere/`,
   },
   {
     path: '/muuttofirma-tampere',
     title: 'Muuttofirma Tampere | MoveX Logistics',
     description:
       'Muuttofirma Tampereella koteihin ja pienyrityksille. Pakettiauto ja kuljettaja alkaen 50 €/h, 1 muuttomies ja auto alkaen 75 €/h (sis. alv 25,5 %). Pyydä tarjous.',
-    canonical: `${origin}/muuttofirma-tampere`,
+    canonical: `${origin}/muuttofirma-tampere/`,
   },
   {
     path: '/huonekalukuljetus-tampere',
     title: 'Huonekalukuljetus Tampere | MoveX Logistics',
     description:
       'Huonekalukuljetus Tampereella: sohvat, sängyt, kodinkoneet ja Tori.fi-ostokset. Pakettiauto ja kuljettaja alkaen 50 €/h (sis. alv 25,5 %).',
-    canonical: `${origin}/huonekalukuljetus-tampere`,
+    canonical: `${origin}/huonekalukuljetus-tampere/`,
   },
 ];
 

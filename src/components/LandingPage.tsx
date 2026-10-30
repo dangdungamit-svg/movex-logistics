@@ -5,6 +5,10 @@ import { COMPANY } from '@/i18n/translations';
 import { landingPages, type LandingPage as LandingPageData } from '@/i18n/landing';
 
 const origin = 'https://movexlogistics.fi';
+
+function canonicalUrl(path: string) {
+  return `${origin}${path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`}`;
+}
 const textLinkClass =
   'font-semibold text-slate-700 underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2';
 
@@ -33,12 +37,12 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
     updateMetaContent('name', 'description', page.description[lang]);
     updateMetaContent('property', 'og:title', page.title[lang]);
     updateMetaContent('property', 'og:description', page.description[lang]);
-    updateMetaContent('property', 'og:url', `${origin}${page.path}`);
+    updateMetaContent('property', 'og:url', `${canonicalUrl(page.path)}`);
     updateMetaContent('name', 'twitter:title', page.title[lang]);
     updateMetaContent('name', 'twitter:description', page.description[lang]);
     const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
     canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${origin}${page.path}`);
+    canonical.setAttribute('href', `${canonicalUrl(page.path)}`);
     if (!canonical.parentElement) document.head.appendChild(canonical);
   }, [page, lang]);
 
@@ -52,7 +56,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
       '@type': 'Service',
       name: page.h1[lang],
       description: page.description[lang],
-      url: `${origin}${page.path}`,
+      url: `${canonicalUrl(page.path)}`,
       provider: { '@type': 'Organization', name: COMPANY.name, url: `${origin}/` },
       areaServed: ['Tampere', 'Pirkanmaa'],
     },
