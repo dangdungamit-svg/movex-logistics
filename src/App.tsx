@@ -41,7 +41,7 @@ function setHomepageMetadata(lang: 'fi' | 'en') {
   document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', description);
   const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
   canonical.setAttribute('rel', 'canonical');
-  canonical.setAttribute('href', 'https://movexlogistics.fi/');
+  canonical.setAttribute('href', window.location.pathname.startsWith('/en') ? 'https://movexlogistics.fi/en/' : 'https://movexlogistics.fi/');
   if (!canonical.parentElement) document.head.appendChild(canonical);
   const robots = document.querySelector('meta[name="robots"]') ?? document.createElement('meta');
   robots.setAttribute('name', 'robots');
@@ -51,12 +51,14 @@ function setHomepageMetadata(lang: 'fi' | 'en') {
 
 function AppContent() {
   const { lang } = useLanguage();
-  const pathname = window.location.pathname.replace(/\/+$/, '') || '/';
+  const rawPathname = window.location.pathname.replace(/\/+$/, '') || '/';
+  const isEnglishRoute = rawPathname === '/en' || rawPathname.startsWith('/en/');
+  const pathname = isEnglishRoute ? (rawPathname.replace(/^\/en(?=\/|$)/, '') || '/') : rawPathname;
   const isAdmin = pathname === '/admin' || pathname === '/admin/login';
   const isBlog = pathname.startsWith('/blog');
-  const landing = getLandingPage(pathname);
+  const landing = getLandingPage(rawPathname) ?? getLandingPage(pathname);
   useEffect(() => {
-    if (!isBlog && !isAdmin && !landing) setHomepageMetadata(lang);
+    if (!isBlog && !isAdmin && !landing) setHomepageMetadata(isEnglishRoute ? 'en' : lang);
   }, [isAdmin, isBlog, landing, lang]);
   useEffect(() => {
     if (!isAdmin) return;

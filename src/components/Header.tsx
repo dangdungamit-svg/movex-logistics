@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Phone, Truck, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
-import { landingPages } from '@/i18n/landing';
+import { landingPages, getLocalizedPath } from '@/i18n/landing';
 
 export default function Header() {
   const { lang, t, setLang } = useLanguage();
@@ -16,14 +16,14 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { label: t.nav.home, href: '/#home' },
-    { label: t.nav.services, href: '/#services' },
-    { label: t.nav.pricing, href: '/#pricing' },
-    { label: t.nav.howItWorks, href: '/#how-it-works' },
-    { label: t.nav.whyMoveX, href: '/#why-movex' },
-    { label: t.nav.faq, href: '/#faq' },
-    { label: t.nav.blog, href: '/blog' },
-    { label: t.nav.contact, href: '/#contact' },
+    { label: t.nav.home, href: lang === 'en' ? '/en/#home' : '/#home' },
+    { label: t.nav.services, href: lang === 'en' ? '/en/#services' : '/#services' },
+    { label: t.nav.pricing, href: lang === 'en' ? '/en/#pricing' : '/#pricing' },
+    { label: t.nav.howItWorks, href: lang === 'en' ? '/en/#how-it-works' : '/#how-it-works' },
+    { label: t.nav.whyMoveX, href: lang === 'en' ? '/en/#why-movex' : '/#why-movex' },
+    { label: t.nav.faq, href: lang === 'en' ? '/en/#faq' : '/#faq' },
+    { label: t.nav.blog, href: lang === 'en' ? '/en/blog/' : '/blog' },
+    { label: t.nav.contact, href: lang === 'en' ? '/en/#contact' : '/#contact' },
   ];
 
   const closeMenu = () => setOpen(false);
@@ -39,7 +39,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
           <a
-            href="/#home"
+            href={lang === "en" ? "/en/#home" : "/#home"}
             onClick={closeMenu}
             className="flex items-center gap-2.5 text-white"
           >
@@ -71,7 +71,7 @@ export default function Header() {
                     {landingPages.map((page) => (
                       <li key={page.path}>
                         <a
-                          href={page.path}
+                          href={getLocalizedPath(page.path, lang)}
                           className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
                         >
                           {page.navLabel[lang]}
@@ -125,7 +125,7 @@ export default function Header() {
             </a>
 
             <a
-              href="/#contact"
+              href={lang === "en" ? "/en/#contact" : "/#contact"}
               className="hidden rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition-all hover:bg-brand-700 hover:shadow-brand-500/30 lg:inline-flex"
             >
               {t.nav.getQuote}
