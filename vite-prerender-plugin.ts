@@ -62,7 +62,7 @@ const routes = [
     path: '/blog/muutto-tampereella-tarkistuslista',
     title: 'Muutto Tampereella: käytännöllinen tarkistuslista | MoveX Logistics',
     description:
-      'Käytännöllinen suomi opas muuttoon Tampereella: aikataulu, tavarat, pakkaaminen, kantaminen, palvelun valinta ja tarjouspyyntö – kaikki samasta tarkistuslistasta.',
+      'Käytännöllinen suomenkielinen opas muuttoon Tampereella: aikataulu, tavarat, pakkaaminen, kantaminen, palvelun valinta ja tarjouspyyntö – kaikki samasta tarkistuslistasta.',
     canonical: `${origin}/blog/muutto-tampereella-tarkistuslista`,
   },
   {
