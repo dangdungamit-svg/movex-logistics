@@ -26,7 +26,7 @@ export const blogArticles: BlogArticle[] = [
       en: 'Moving in Tampere: a practical checklist',
     },
     excerpt: {
-      fi: 'Käytännöllinen suomi opas muuttoon Tampereella: aikataulu, tavarat, pakkaaminen, kantaminen, palvelun valinta ja tarjouspyyntö – kaikki samasta tarkistuslistasta.',
+      fi: 'Käytännöllinen suomenkielinen opas muuttoon Tampereella: aikataulu, tavarat, pakkaaminen, kantaminen, palvelun valinta ja tarjouspyyntö – kaikki samasta tarkistuslistasta.',
       en: 'A clear starting point for planning your home, schedule and transport before moving day.',
     },
     readTime: { fi: '8 min lukuaika', en: '5 min read' },
@@ -225,6 +225,94 @@ export const blogArticles: BlogArticle[] = [
           heading: 'Request a quotation early',
           paragraphs: [
             'Once the details are ready, contact MoveX Logistics. Long-distance transport is quoted individually based on the complete job, by phone, WhatsApp or email.',
+          ],
+        },
+      ],
+    },
+  },
+{
+    slug: 'muuttoapu-hinta-tampere',
+    published: true,
+    category: { fi: 'Hintaopas', en: 'Price guide' },
+    title: {
+      fi: 'Muuttoapu Tampereella: hinnat ja mistä muuton hinta muodostuu?',
+      en: 'Moving help in Tampere: prices and what affects the cost',
+    },
+    excerpt: {
+      fi: 'Muuttoavun hinta Tampereella riippuu kuljetusreitistä, tavaroiden määrästä ja kantoavusta. Vertaa MoveX Logisticsin tuntihintoja ja katso, mitä tarjouspyyntöön kannattaa kertoa.',
+      en: 'The cost of moving help in Tampere depends on the route, the amount of goods and carrying help. Compare MoveX Logistics hourly rates and learn what to include in a quote request.',
+    },
+    readTime: { fi: '5 min lukuaika', en: '5 min read' },
+    sections: {
+      fi: [
+        {
+          heading: 'Mitä muuttoapu Tampereella maksaa?',
+          paragraphs: [
+            'MoveX Logisticsin ilmoitetut tuntihinnat sisältävät alv 25,5 %. Pakettiauto + kuljettaja maksaa 50 €/h, 1 muuttomies ja auto 75 €/h, 2 muuttomiestä ja auto 100 €/h sekä 3 muuttomiestä ja auto 125 €/h. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa.',
+            'Pakettiauto + kuljettaja sopii tilanteeseen, jossa tarvitset pääasiassa kuljetuksen ja pystyt järjestämään kantamisen itse. Jos tarvitset apua portaissa, lastauksessa tai purkamisessa, valitse mukaan muuttomiehiä. Hinnat ovat tuntihintoja, eivät automaattisesti koko muuton kiinteitä kokonaishintoja.',
+          ],
+        },
+        {
+          heading: 'Mitkä asiat vaikuttavat muuton kokonaishintaan?',
+          paragraphs: [
+            'Kokonaishintaan vaikuttavat nouto- ja toimitusosoitteet, koko ajoreitti, tavaroiden määrä ja koko, kantamiseen tarvittava työvoima, kerrokset, hissi sekä se, kuinka lähelle autoa pääsee pysäköimään. Myös suuret kodinkoneet ja painavat huonekalut kannattaa mainita etukäteen.',
+            'Jos muutto alkaa tai päättyy Tampereen ulkopuolelle, pyydä tarjous koko reitille. Kerro myös mahdollisista välietapeista ja siitä, pitääkö tavaroita noutaa useasta osoitteesta.',
+          ],
+        },
+        {
+          heading: 'Miten voit helpottaa tarjouksen laskemista?',
+          paragraphs: [
+            'Ilmoita nouto- ja toimitusosoitteet, toivottu päivä, kerrokset ja hissin saatavuus molemmissa päissä. Listaa suuret huonekalut ja kodinkoneet sekä kerro, onko tavara jo pakattu. Jos mahdollista, arvioi laatikoiden määrä tai lähetä kuvia kuljetettavista tavaroista yhteydenoton yhteydessä.',
+            'Tarkat tiedot auttavat arvioimaan työmäärää realistisesti ja vähentävät yllätyksiä muuttopäivänä. Voit pyytää tarjouksen verkkosivun lomakkeella, puhelimitse tai WhatsAppilla.',
+          ],
+        },
+        {
+          heading: 'Tarvitsetko vain yhden huonekalun kuljetuksen?',
+          paragraphs: [
+            'Koko asunnon muuttopalvelua ei tarvita jokaiseen työhön. MoveX Logistics kuljettaa myös yksittäisiä huonekaluja, kodinkoneita, laatikoita ja sopivia Tori.fi- tai Facebook Marketplace -ostoksia Tampereella ja Pirkanmaalla. Ilmoita esineen mitat ja paino sekä se, tarvitaanko kantamista noudossa ja toimituksessa.',
+            'Tutustu myös huonekalukuljetuksen palvelusivuun ja kerro tarjouspyynnössä, mitä kuljetetaan ja mistä minne.',
+          ],
+        },
+        {
+          heading: 'Pyydä omaan työhösi sopiva arvio',
+          paragraphs: [
+            'Edullisin vaihtoehto riippuu siitä, tarvitsetko vain ajoneuvon ja kuljettajan vai myös kantajia. Kerro työn tiedot etukäteen, niin MoveX Logistics voi arvioida sopivan palvelun ja antaa tarjouksen työn laajuuden perusteella.',
+          ],
+        },
+      ],
+      en: [
+        {
+          heading: 'How much does moving help in Tampere cost?',
+          paragraphs: [
+            'MoveX Logistics hourly prices include Finnish VAT (25.5%). Van + driver costs €50/hour, one mover with a van €75/hour, two movers with a van €100/hour, and three movers with a van €125/hour. The minimum booking is one hour, followed by billing in 30-minute increments.',
+            'Van + driver is suitable when you mainly need transport and can arrange carrying yourself. Add movers if you need help with stairs, loading or unloading. These are hourly rates, not automatically fixed total prices for an entire move.',
+          ],
+        },
+        {
+          heading: 'What affects the total moving cost?',
+          paragraphs: [
+            'The total depends on the pickup and delivery addresses, complete driving route, amount and size of goods, number of movers needed, floors, elevator access and parking near the entrance. Mention large appliances and heavy furniture in advance.',
+            'If the move starts or ends outside Tampere, request a quote for the complete route. Include any extra stops or multiple pickup addresses.',
+          ],
+        },
+        {
+          heading: 'How to get a more accurate quote',
+          paragraphs: [
+            'Share the pickup and delivery addresses, preferred date, floors and elevator access at both locations. List large furniture and appliances and say whether everything is packed. If possible, estimate the number of boxes or share photos of the items when contacting us.',
+            'Accurate details help estimate the work realistically and reduce surprises on moving day. You can request a quote through the website form, by phone or WhatsApp.',
+          ],
+        },
+        {
+          heading: 'Only need one item transported?',
+          paragraphs: [
+            'You do not need a full home-moving service for every job. MoveX Logistics also transports individual furniture items, appliances, boxes and suitable Tori.fi or Facebook Marketplace purchases in Tampere and Pirkanmaa. Tell us the item dimensions and weight and whether carrying help is needed at pickup and delivery.',
+            'See the furniture transport service page and include what is being moved and the pickup and delivery locations in your request.',
+          ],
+        },
+        {
+          heading: 'Request an estimate for your job',
+          paragraphs: [
+            'The best-value option depends on whether you need only a van and driver or also carrying help. Share the job details in advance so MoveX Logistics can recommend a suitable service and quote based on the scope of work.',
           ],
         },
       ],
