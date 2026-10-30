@@ -16,21 +16,21 @@ function escapeHtml(value: string) {
 }
 
 function setCanonicalHref(html: string, href: string) {
-  const tagPattern = /<link\\b(?=[^>]*\\brel="canonical")[^>]*>/i;
+  const tagPattern = /<link\b(?=[^>]*\brel="canonical")[^>]*>/i;
   const tag = html.match(tagPattern)?.[0];
   const escapedHref = escapeHtml(href);
 
   if (!tag) {
     return html.replace(
       '</head>',
-      () => `    <link rel="canonical" href="${escapedHref}" />\\n  </head>`
+      '    <link rel="canonical" href="' + escapedHref + '" />\n  </head>'
     );
   }
 
-  const hrefPattern = /\\bhref="[^"]*"/i;
+  const hrefPattern = /\bhref="[^"]*"/i;
   const updatedTag = hrefPattern.test(tag)
-    ? tag.replace(hrefPattern, () => `href="${escapedHref}"`)
-    : tag.replace(/\\/?>$/, (ending) => ` href="${escapedHref}"${ending}`);
+    ? tag.replace(hrefPattern, () => 'href="' + escapedHref + '"')
+    : tag.replace(/\/?>$/, (ending) => ' href="' + escapedHref + '"' + ending);
 
   return html.replace(tag, () => updatedTag);
 }
@@ -216,10 +216,10 @@ export function prerenderPlugin() {
 
         const headEnd = html.indexOf('</head>');
         const renderedHead = headEnd >= 0 ? html.slice(0, headEnd) : html;
-        const hasDescription = /<meta\\b(?=[^>]*\\bname="description")[^>]*\\bcontent="[^"]+"/i.test(renderedHead);
-        const canonicalMatch = renderedHead.match(/<link\\b(?=[^>]*\\brel="canonical")[^>]*\\bhref="([^"]+)"/i);
+        const hasDescription = /<meta\b(?=[^>]*\bname="description")[^>]*\bcontent="[^"]+"/i.test(renderedHead);
+        const canonicalMatch = renderedHead.match(/<link\b(?=[^>]*\brel="canonical")[^>]*\bhref="([^"]+)"/i);
         if (!hasDescription || !canonicalMatch || canonicalMatch[1] !== route.canonical) {
-          throw new Error(`Missing or incorrect SEO metadata for ${route.path}: description=${hasDescription}, canonical=${canonicalMatch?.[1] ?? 'missing'}`);
+          throw new Error('Missing or incorrect SEO metadata for ' + route.path + ': description=' + hasDescription + ', canonical=' + (canonicalMatch?.[1] ?? 'missing'));
         }
 
         const outPath =
