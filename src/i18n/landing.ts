@@ -41,12 +41,12 @@ export const landingPages: LandingPage[] = [
     path: '/muuttopalvelu-tampere',
     navLabel: { fi: 'Muuttopalvelu Tampere', en: 'Moving service Tampere' },
     title: {
-      fi: 'Muuttopalvelu Tampere – selkeät hinnat | MoveX Logistics',
-      en: 'Moving Service in Tampere – Clear Prices | MoveX Logistics',
+      fi: 'Muuttopalvelu Tampere | MoveX Logistics',
+      en: 'Moving Service in Tampere | MoveX Logistics',
     },
     description: {
-      fi: 'Muuttopalvelu Tampereella ja Pirkanmaalla: pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Hinnat alkaen 50 € / h (sis. alv). Pyydä tarjous MoveX Logisticsilta.',
-      en: 'Moving service in Tampere and Pirkanmaa: van and driver or 1–3 movers. Prices from €50 / h (VAT incl.). Request a quote from MoveX Logistics.',
+      fi: 'Muuttopalvelu Tampereella: pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Hinnat alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous.',
+      en: 'Moving service in Tampere: van and driver or 1–3 movers. Prices from €50/hour, including Finnish VAT (25.5%). Request a quote.',
     },
     h1: { fi: 'Muuttopalvelu Tampere', en: 'Moving service in Tampere' },
     intro: {
@@ -55,6 +55,12 @@ export const landingPages: LandingPage[] = [
     },
     sections: {
       fi: [
+        {
+          heading: 'Muuttoapu Tampereella',
+          paragraphs: [
+            'Muuttoapu Tampereella voi tarkoittaa pelkkää kuljetusta tai apua tavaroiden kantamiseen, lastaukseen ja purkuun. Valitse tarpeeseesi pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Kerro tarjouspyynnössä muuton tiedot, jotta saat sopivan hinnan tai tarjouksen.',
+          ],
+        },
         { heading: 'Muuttopalvelun hinnat', paragraphs: [...prices.fi, priceNote.fi] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
         {
@@ -65,6 +71,12 @@ export const landingPages: LandingPage[] = [
         },
       ],
       en: [
+        {
+          heading: 'Moving help in Tampere',
+          paragraphs: [
+            'Moving help in Tampere can mean transport only or help carrying, loading and unloading your belongings. Choose a van and driver or 1–3 movers to suit your needs. Share the move details to receive a suitable price or quote.',
+          ],
+        },
         { heading: 'Moving service prices', paragraphs: [...prices.en, priceNote.en] },
         { heading: 'Service area', paragraphs: [area.en] },
         {
@@ -92,12 +104,12 @@ export const landingPages: LandingPage[] = [
     path: '/muuttofirma-tampere',
     navLabel: { fi: 'Muuttofirma Tampere', en: 'Moving company Tampere' },
     title: {
-      fi: 'Muuttofirma Tampere – muuttomiehet ja pakettiauto | MoveX Logistics',
-      en: 'Moving Company in Tampere – Movers and Van | MoveX Logistics',
+      fi: 'Muuttofirma Tampere | MoveX Logistics',
+      en: 'Moving Company in Tampere | MoveX Logistics',
     },
     description: {
-      fi: 'Etsitkö muuttofirmaa Tampereelle? MoveX Logistics tarjoaa muuttomiehet ja pakettiauton selkein tuntihinnoin alkaen 50 € / h (sis. alv). Pyydä tarjous.',
-      en: 'Looking for a moving company in Tampere? MoveX Logistics offers movers and a van with clear hourly prices from €50 / h (VAT incl.). Request a quote.',
+      fi: 'Muuttofirma Tampereella asunto-, talo- ja pienyritysmuuttoihin. Muuttomiehet ja pakettiauto alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous.',
+      en: 'Moving company in Tampere for homes and small businesses. Movers and a van from €50/hour, including Finnish VAT (25.5%). Request a quote.',
     },
     h1: { fi: 'Muuttofirma Tampere', en: 'Moving company in Tampere' },
     intro: {
@@ -133,12 +145,12 @@ export const landingPages: LandingPage[] = [
     path: '/huonekalukuljetus-tampere',
     navLabel: { fi: 'Huonekalukuljetus Tampere', en: 'Furniture transport Tampere' },
     title: {
-      fi: 'Huonekalukuljetus Tampere – pakettiauto + kuljettaja | MoveX Logistics',
-      en: 'Furniture Transport in Tampere – Van + Driver | MoveX Logistics',
+      fi: 'Huonekalukuljetus Tampere | MoveX Logistics',
+      en: 'Furniture Transport in Tampere | MoveX Logistics',
     },
     description: {
-      fi: 'Huonekalukuljetus Tampereella: sohvat, sängyt, pöydät, kodinkoneet ja Tori.fi-ostokset. Pakettiauto + kuljettaja alkaen 50 € / h (sis. alv). Pyydä tarjous.',
-      en: 'Furniture transport in Tampere: sofas, beds, tables, appliances and Tori.fi purchases. Van + driver from €50 / h (VAT incl.). Request a quote.',
+      fi: 'Huonekalukuljetus Tampereella: sohvat, sängyt, kodinkoneet ja Tori.fi-ostokset. Pakettiauto ja kuljettaja alkaen 50 €/h (sis. alv 25,5 %).',
+      en: 'Furniture transport in Tampere for sofas, beds, appliances and Tori.fi purchases. Van and driver from €50/hour, including Finnish VAT (25.5%).',
     },
     h1: { fi: 'Huonekalukuljetus Tampere', en: 'Furniture transport in Tampere' },
     intro: {

@@ -27,14 +27,18 @@ const photoSizes =
 
 function setHomepageMetadata(lang: 'fi' | 'en') {
   const title = lang === 'fi'
-    ? 'MoveX Logistics – Muutto ja kuljetus Tampereella | Selkeät hinnat'
-    : 'MoveX Logistics – Moving & Transport Services in Tampere | Clear Prices';
+    ? 'Muutto ja kuljetus Tampereella | MoveX Logistics'
+    : 'Moving & Transport in Tampere | MoveX Logistics';
   const description = lang === 'fi'
-    ? 'MoveX Logistics tarjoaa ammattimaiset muutto- ja kuljetuspalvelut Tampereella, Pirkanmaalla ja koko Suomessa. Selkeät hinnat, huolellinen käsittely ja suora yhteydenotto. Pyydä tarjous!'
-    : 'MoveX Logistics provides professional moving and transport services in Tampere, Pirkanmaa and across Finland. Clear prices, careful handling and direct communication. Get a quote!';
+    ? 'Muutto- ja kuljetuspalvelut Tampereella ja Pirkanmaalla. Selkeät hinnat alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous MoveX Logisticsilta.'
+    : 'Moving and transport services in Tampere and Pirkanmaa. Clear prices from €50/hour, including Finnish VAT (25.5%). Request a quote.';
   document.title = title;
   const descTag = document.querySelector('meta[name="description"]');
   descTag?.setAttribute('content', description);
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title);
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', description);
   const canonical = document.querySelector('link[rel="canonical"]') ?? document.createElement('link');
   canonical.setAttribute('rel', 'canonical');
   canonical.setAttribute('href', 'https://movexlogistics.fi/');
