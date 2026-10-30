@@ -66,6 +66,13 @@ const routes = [
     canonical: `${origin}/blog/muutto-tampereella-tarkistuslista`,
   },
   {
+    path: '/blog/muuttoapu-hinta-tampere',
+    title: 'Muuttoapu Tampereella: hinnat ja mistä muuton hinta muodostuu? | MoveX Logistics',
+    description:
+      'Muuttoavun hinta Tampereella riippuu kuljetusreitistä, tavaroiden määrästä ja kantoavusta. Vertaa MoveX Logisticsin tuntihintoja ja katso, mitä tarjouspyyntöön kannattaa kertoa.',
+    canonical: `${origin}/blog/muuttoapu-hinta-tampere`,
+  },
+  {
     path: '/blog/huonekalukuljetus-tampere',
     title: 'Huonekalukuljetus Tampereella: mitä kannattaa ilmoittaa? | MoveX Logistics',
     description:
