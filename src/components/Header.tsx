@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Phone, Truck } from 'lucide-react';
+import { Menu, X, Phone, Truck, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
+import { landingPages } from '@/i18n/landing';
 
 export default function Header() {
   const { lang, t, setLang } = useLanguage();
@@ -51,15 +52,44 @@ export default function Header() {
           </a>
 
           <nav className="hidden items-center gap-0.5 lg:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.href === '/#services' ? (
+                <details key={item.href} className="group relative">
+                  <summary className="flex cursor-pointer list-none items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
+                    {item.label}
+                    <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <ul className="absolute left-0 top-full z-50 mt-2 w-64 rounded-xl border border-slate-700 bg-slate-900 p-2 shadow-xl">
+                    <li>
+                      <a
+                        href={item.href}
+                        className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+                      >
+                        {lang === 'fi' ? 'Kaikki palvelut' : 'All services'}
+                      </a>
+                    </li>
+                    {landingPages.map((page) => (
+                      <li key={page.path}>
+                        <a
+                          href={page.path}
+                          className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+                        >
+                          {page.navLabel[lang]}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {item.label}
+                </a>
+              )
+            )}
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
@@ -126,6 +156,21 @@ export default function Header() {
                 {item.label}
               </a>
             ))}
+            <div className="border-t border-white/10 pt-3">
+              <p className="px-4 pb-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                {lang === 'fi' ? 'Muuttopalvelut' : 'Moving services'}
+              </p>
+              {landingPages.map((page) => (
+                <a
+                  key={page.path}
+                  href={page.path}
+                  onClick={closeMenu}
+                  className="block rounded-lg px-4 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {page.navLabel[lang]}
+                </a>
+              ))}
+            </div>
             <a
               href="/#contact"
               onClick={closeMenu}
