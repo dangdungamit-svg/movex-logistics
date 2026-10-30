@@ -15,7 +15,7 @@ const languagePairs = [
 ] as const;
 
 function outputPath(route: string) {
-  const normalized = route.replace(/^\\/+|\\/+$/g, '');
+  const normalized = route.split('/').filter(Boolean).join('/');
   return path.join(outputDir, normalized, 'index.html');
 }
 
@@ -26,7 +26,7 @@ function alternateLinks(fiPath: string, enPath: string) {
     `<link rel="alternate" hreflang="fi-FI" href="${fiUrl}" />`,
     `<link rel="alternate" hreflang="en-FI" href="${enUrl}" />`,
     `<link rel="alternate" hreflang="x-default" href="${fiUrl}" />`,
-  ].join('\\n    ');
+  ].join('\n    ');
 }
 
 export function hreflangPlugin() {
@@ -48,7 +48,7 @@ export function hreflangPlugin() {
             if (!html.includes('</head>')) {
               throw new Error(`Cannot add hreflang links; </head> is missing in ${file}`);
             }
-            fs.writeFileSync(file, html.replace('</head>', `    ${markup}\\n  </head>`));
+            fs.writeFileSync(file, html.replace('</head>', \`    \${markup}\n  </head>\`));
           }
         }
         console.log('  added reciprocal fi-FI/en-FI hreflang links to 6 language pairs');
