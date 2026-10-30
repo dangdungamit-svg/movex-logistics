@@ -141,6 +141,28 @@ const routes = [
       'Huonekalukuljetus Tampereella: sohvat, sängyt, kodinkoneet ja Tori.fi-ostokset. Pakettiauto ja kuljettaja alkaen 50 €/h (sis. alv 25,5 %).',
     canonical: `${origin}/huonekalukuljetus-tampere/`,
   },
+
+  {
+    path: '/blog/opiskelijamuutto-tampere',
+    title: 'Opiskelijamuutto Tampereella: hinta, pakkaaminen ja muuttoapu | MoveX Logistics',
+    description:
+      'Suunnitteletko yksiön tai opiskelija-asunnon muuttoa Tampereella? Katso hinnat, pakkausvinkit ja milloin kannattaa ottaa kantoapua.',
+    canonical: `${origin}/blog/opiskelijamuutto-tampere/`,
+  },
+  {
+    path: '/blog/tori-ikea-kuljetus-tampere',
+    title: 'Tori.fi- ja IKEA-kuljetus Tampereella: näin tilaat huonekalukuljetuksen | MoveX Logistics',
+    description:
+      'Ostitko sohvan, sängyn tai pöydän Tori.fi:stä tai kaupasta? Näin suunnittelet huonekalun noudon ja kuljetuksen Tampereella.',
+    canonical: `${origin}/blog/tori-ikea-kuljetus-tampere/`,
+  },
+  {
+    path: '/blog/pakettiauto-kuljettajalla-tampere',
+    title: 'Pakettiauto kuljettajalla Tampereella: hinta ja käyttökohteet | MoveX Logistics',
+    description:
+      'Pakettiauto ja kuljettaja Tampereella alkaen 50 €/h (sis. alv 25,5 %). Katso palvelun käyttökohteet ja mitä tarjouspyyntöön tarvitaan.',
+    canonical: `${origin}/blog/pakettiauto-kuljettajalla-tampere/`,
+  },
 ];
 
 export function prerenderPlugin() {
