@@ -105,6 +105,16 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://g.page/r/CTGqc8Xz2oTHEAE/review"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  {lang === 'fi' ? 'Jätä Google-arvostelu' : 'Leave a Google review'}
+                </a>
+              </li>
             </ul>
           </div>
 
