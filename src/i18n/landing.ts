@@ -366,6 +366,21 @@ export const landingPages: LandingPage[] = [
   },
 ];
 
+const englishSlugs: Record<string, string> = {
+  '/muuttopalvelu-tampere': '/en/moving-service-tampere',
+  '/muuttofirma-tampere': '/en/moving-company-tampere',
+  '/huonekalukuljetus-tampere': '/en/furniture-transport-tampere',
+  '/pieni-muutto-tampere': '/en/small-move-tampere',
+  '/kuljetuspalvelu-tampere': '/en/transport-service-tampere',
+};
+
 export function getLandingPage(path: string) {
-  return landingPages.find((p) => p.path === path);
+  const normalized = path.replace(/\/+$/, '') || '/';
+  const finnishPath = Object.entries(englishSlugs).find(([, english]) => english === normalized)?.[0] ?? normalized;
+  return landingPages.find((p) => p.path === finnishPath);
+}
+
+export function getLocalizedPath(path: string, lang: Lang) {
+  if (lang === 'en') return englishSlugs[path] ?? (path === '/' ? '/en/' : '/en' + path);
+  return path;
 }
