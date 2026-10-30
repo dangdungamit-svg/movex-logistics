@@ -53,7 +53,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
       name: page.h1[lang],
       description: page.description[lang],
       url: `${origin}${page.path}`,
-      provider: { '@type': 'LocalBusiness', name: COMPANY.name, url: `${origin}/` },
+      provider: { '@type': 'Organization', name: COMPANY.name, url: `${origin}/` },
       areaServed: ['Tampere', 'Pirkanmaa'],
     },
     {
