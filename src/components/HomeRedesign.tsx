@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowDownRight, ArrowRight, Check, ChevronDown, Clock3, Menu, Package, Phone, Truck, X } from 'lucide-react';
+import { ArrowDownRight, ArrowRight, Check, Clock3, Menu, Package, Phone, Truck, X } from 'lucide-react';
 
 const copy = {
  fi: {
