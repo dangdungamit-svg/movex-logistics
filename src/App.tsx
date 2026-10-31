@@ -14,6 +14,30 @@ function setHomepageMetadata(lang: 'fi' | 'en') {
   const description = lang === 'fi'
     ? 'Muutto- ja kuljetuspalvelut Tampereella ja Pirkanmaalla. Selkeät hinnat alkaen 50 €/h (sis. alv 25,5 %). Pyydä tarjous MoveX Logisticsilta.'
     : 'Moving and transport services in Tampere and Pirkanmaa. Clear prices from €50/hour, including Finnish VAT (25.5%). Request a quote.';
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'MovingCompany',
+    name: 'MoveX Logistics',
+    url: 'https://movexlogistics.fi/',
+    telephone: '+358413286939',
+    email: 'dangdung.amit@gmail.com',
+    description: description,
+    priceRange: '€50–€125 per hour',
+    areaServed: [
+      { '@type': 'City', name: 'Tampere' },
+      { '@type': 'AdministrativeArea', name: 'Pirkanmaa' },
+      { '@type': 'Country', name: 'Finland' }
+    ],
+    knowsAbout: ['House moving', 'Furniture transport', 'Small removals', 'Pickup and delivery', 'Business transport']
+  };
+  let structuredDataScript = document.querySelector('script[type="application/ld+json"][data-movex="homepage"]');
+  if (!structuredDataScript) {
+    structuredDataScript = document.createElement('script');
+    structuredDataScript.setAttribute('type', 'application/ld+json');
+    structuredDataScript.setAttribute('data-movex', 'homepage');
+    document.head.appendChild(structuredDataScript);
+  }
+  structuredDataScript.textContent = JSON.stringify(structuredData);
   document.title = title;
   document.querySelector('meta[name="description"]')?.setAttribute('content', description);
   document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
