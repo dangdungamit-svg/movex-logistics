@@ -37,7 +37,7 @@ function AppContent() {
 
   useEffect(() => {
     if (!isBlog && !isAdmin && !landing) setHomepageMetadata(isEnglishRoute ? 'en' : lang);
-  }, [isAdmin, isBlog, landing, lang]);
+  }, [isAdmin, isBlog, landing, lang, isEnglishRoute]);
 
   useEffect(() => {
     if (!isAdmin) return;
