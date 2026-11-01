@@ -151,7 +151,7 @@ export function BlogArticle({ slug }: { slug: string }) {
         </div>
         <BlogCTA />
       </article>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\u003c') }} />
     </main>
   );
 }
