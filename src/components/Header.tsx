@@ -29,8 +29,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
           <a href={lang === 'en' ? '/en/#home' : '/#home'} onClick={closeMenu} className="flex items-center">
-            <img src="/images/movex-logo.svg" alt="MoveX Logistics — Safe, Fast, Reliable" className="h-12 w-12 rounded-md bg-white object-contain p-0.5 sm:h-14 sm:w-14" />
-            <span className="ml-2 font-display text-lg font-bold tracking-tight text-white sm:text-xl">MoveX<span className="text-brand-400"> Logistics</span></span>
+            <img src="/images/movex-logo.webp" alt="MoveX Logistics — Safe, Fast, Reliable" className="h-14 w-14 object-contain sm:h-16 sm:w-16" />
           </a>
           <nav className="hidden items-center gap-0.5 lg:flex">
             {navItems.map((item) => item.href === '/#services' ? (
