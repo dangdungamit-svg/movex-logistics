@@ -173,7 +173,7 @@ export const landingPages: LandingPage[] = [
             'Tarjoamme sohvan kuljetusta, sängyn siirtoa ja pesukoneen tai muun kodinkoneen kuljetusta Tampereella. Voimme noutaa huonekalun esimerkiksi Tori.fi-myyjältä tai kaupasta ja toimittaa sen sovittuun osoitteeseen. Kerro etukäteen esineen mitat, paino, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.',
           ],
         },
-        { heading: 'Huonekalukuljetuksen hinta', paragraphs: ['Pakettiauto + kuljettaja alkaen 50 € / h.', priceNote.fi] },
+        { heading: 'Huonekalukuljetuksen hinta', paragraphs: [...prices.fi, priceNote.fi] },
         { heading: 'Kerro tarjouspyynnössä', paragraphs: ['Esineen koko ja paino, nouto- ja toimitusosoite, kerrokset ja hissi sekä tarvitaanko kantoapua. Näin saat mahdollisimman tarkan arvion. Lue lisää oppaasta Huonekalukuljetus Tampereella: mitä kannattaa ilmoittaa?'] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
       ],
