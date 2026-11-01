@@ -123,7 +123,7 @@ export default function QuoteRequestForm() {
         if (externalWindow) externalWindow.location.href = url; else window.location.href = url;
         setOpened(true);
       }
-      formElement.reset(); setPref('hourly');
+      formElement.reset();
     } catch (err) {
       externalWindow?.close(); console.error(err); setSaveError(q.saveError);
     } finally { setSubmitting(false); }
