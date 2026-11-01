@@ -299,7 +299,7 @@ export function prerenderPlugin() {
         const appHtml = mod.render(route.path);
         const routeLanguage = route.path === '/en' || route.path.startsWith('/en/') ? 'en' : 'fi';
         const routeTemplate = template.replace(
-          /<html\\b([^>]*\\blang=")[^"]*"/i,
+          /<html\b([^>]*\blang=")[^"]*"/i,
           (_match, prefix: string) => `${prefix}${routeLanguage}"`
         );
         let html = routeTemplate.replace(
