@@ -1,7 +1,6 @@
 import { Phone, MessageCircle, ArrowRight, Clock, Truck } from 'lucide-react';
 import { useLanguage, getWhatsAppLink } from '@/i18n/LanguageContext';
-import { COMPANY, HERO_IMAGE } from '@/i18n/translations';
-import { getResponsiveWebpSrcSet } from '@/lib/images';
+import { COMPANY } from '@/i18n/translations';
 
 export default function Hero() {
   const { lang, t } = useLanguage();
@@ -11,23 +10,30 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-[100svh] items-center overflow-hidden bg-slate-900 pt-16 lg:pt-20"
     >
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950" />
-        <div className="absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-brand-600/20 blur-[120px]" />
-        <div className="absolute -right-32 bottom-0 h-[400px] w-[400px] rounded-full bg-brand-500/10 blur-[100px]" />
+      {/* MoveX background video: desktop/tablet; lightweight still image on small screens */}
+      <div className="absolute inset-0" aria-hidden="true">
         <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
+          className="absolute inset-0 bg-cover bg-center sm:hidden"
+          style={{ backgroundImage: "url('/images/14_20260924_225406_0013-1080w.webp')" }}
         />
+        <video
+          className="absolute inset-0 hidden h-full w-full object-cover sm:block"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/14_20260924_225406_0013-1080w.webp"
+        >
+          <source src="/images/2026-09-19-215814347.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-slate-950/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/35" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-900/80 to-transparent" />
       </div>
 
       <div className="relative mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        <div className="mx-auto grid w-full max-w-4xl items-center gap-8">
           {/* Left — text + price */}
           <div className="text-center lg:text-left">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-brand-300 ring-1 ring-white/10">
@@ -145,56 +151,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — visual */}
-          <div
-            className="animate-fade-up relative hidden lg:block"
-            style={{ animationDelay: '0.15s' }}
-          >
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
-              <picture>
-                <source
-                  media="(min-width: 1024px)"
-                  type="image/webp"
-                  srcSet={getResponsiveWebpSrcSet('/images/14_20260924_225406_0013')}
-                  sizes="(min-width: 1280px) 576px, 50vw"
-                />
-                <source
-                  media="(min-width: 1024px)"
-                  type="image/png"
-                  srcSet={HERO_IMAGE}
-                />
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Muuttomiehet lastaamassa huonekaluja pakettiautoon"
-                  className="h-[520px] w-full object-cover"
-                  loading="eager"
-                  fetchPriority="high"
-                  width={1080}
-                  height={520}
-                />
-              </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
 
-              {/* Floating VAT badge */}
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-slate-900/90 p-5 backdrop-blur-md ring-1 ring-white/10">
-                <div className="flex items-center justify-center gap-8">
-                  <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-brand-400">25.5%</p>
-                    <p className="mt-0.5 text-xs text-slate-400">
-                      {lang === 'fi' ? 'ALV sisältyy' : 'VAT inc.'}
-                    </p>
-                  </div>
-                  <div className="h-10 w-px bg-white/15" />
-                  <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-white">1 h</p>
-                    <p className="mt-0.5 text-xs text-slate-400">
-                      {lang === 'fi' ? 'Vähimmäisvaraus' : 'Minimum'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
