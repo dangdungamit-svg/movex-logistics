@@ -58,8 +58,8 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
       name: page.h1[lang],
       description: page.description[lang],
       url: window.location.pathname.startsWith('/en') ? `https://movexlogistics.fi${window.location.pathname.replace(/\/+$/, '')}/` : canonicalUrl(page.path),
-      provider: { '@type': 'Organization', name: COMPANY.name, url: `${origin}/` },
-      areaServed: ['Tampere', 'Pirkanmaa'],
+      provider: { '@id': `${origin}/#business` },
+      areaServed: ['Tampere', 'Pirkanmaa', 'Nokia', 'Ylöjärvi', 'Pirkkala', 'Lempäälä', 'Kangasala'],
     },
     {
       '@context': 'https://schema.org',
