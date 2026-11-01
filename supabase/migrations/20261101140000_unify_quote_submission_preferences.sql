@@ -45,3 +45,6 @@ CREATE POLICY "Public can submit quote requests"
       )
     )
   );
+
+-- Table privilege is required in addition to the INSERT RLS policy.
+GRANT INSERT ON TABLE public.quote_requests TO anon, authenticated;
