@@ -18,7 +18,7 @@ export default function FixedPriceQuote() {
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <div className="rounded-2xl bg-white/5 p-5 ring-1 ring-white/10">
-              <h3 className="flex items-center gap-2 font-semibold">
+              <h3 className="flex items-center gap-2 font-semibold text-brand-200">
                 <Clock className="h-5 w-5 text-brand-300" /> {f.hourlyTitle}
               </h3>
               <p className="mt-2 text-sm text-slate-300">{f.hourlyDesc}</p>
