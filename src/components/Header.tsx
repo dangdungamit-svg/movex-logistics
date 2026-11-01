@@ -144,7 +144,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="animate-slide-down border-t border-white/10 bg-slate-900 lg:hidden">
+        <div className="animate-slide-down max-h-[calc(100dvh-9rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-slate-900 lg:hidden">
           <nav className="mx-auto max-w-7xl space-y-1 px-4 py-4">
             {navItems.map((item) => (
               <a
