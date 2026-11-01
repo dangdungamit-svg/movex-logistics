@@ -14,6 +14,7 @@ const languagePairs = [
   ['/huonekalukuljetus-tampere', '/en/furniture-transport-tampere'],
   ['/pieni-muutto-tampere', '/en/small-move-tampere'],
   ['/kuljetuspalvelu-tampere', '/en/transport-service-tampere'],
+  ['/muuttopalvelu-hinta-tampere', '/en/moving-cost-tampere'],
 ] as const;
 
 function canonicalPath(routePath: string) {
@@ -224,10 +225,22 @@ const routes = [
     canonical: `${origin}/en/small-move-tampere/`,
   },
   {
+    path: '/muuttopalvelu-hinta-tampere',
+    title: 'Muuttopalvelun hinta Tampereella | MoveX Logistics',
+    description: 'Muuttopalvelun hinta Tampereella alkaen 50 €/h. Vertaa selkeitä tuntihintoja, katso mistä muuton hinta muodostuu ja pyydä tarjous.',
+    canonical: `${origin}/muuttopalvelu-hinta-tampere/`,
+  },
+  {
     path: '/en/transport-service-tampere',
     title: 'Transport Service in Tampere | MoveX Logistics',
     description: 'Transport service in Tampere and Pirkanmaa for furniture, appliances, store pickups and smaller loads. Van and driver from €50/hour incl. VAT.',
     canonical: `${origin}/en/transport-service-tampere/`,
+  },
+  {
+    path: '/en/moving-cost-tampere',
+    title: 'Moving Costs in Tampere, Finland | MoveX Logistics',
+    description: 'Moving costs in Tampere, Finland: van and driver from €50/hour. Compare clear hourly rates, understand what affects the price and request a quote.',
+    canonical: `${origin}/en/moving-cost-tampere/`,
   },
 ];
 
