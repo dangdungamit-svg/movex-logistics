@@ -254,12 +254,10 @@ export default function QuoteRequestForm() {
           Website
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
-        {pref === 'hourly' && (
-          <label className="flex items-start gap-3 text-sm leading-relaxed text-slate-600 sm:col-span-2">
-            <input className="mt-1 h-4 w-4 shrink-0 accent-brand-500" name="consent" type="checkbox" />
-            <span>{q.consent}</span>
-          </label>
-        )}
+        <label className="flex items-start gap-3 text-sm leading-relaxed text-slate-600 sm:col-span-2">
+          <input className="mt-1 h-4 w-4 shrink-0 accent-brand-500" name="consent" type="checkbox" />
+          <span>{q.consent}</span>
+        </label>
         {error && (
           <p className="text-sm text-red-700 sm:col-span-2" role="alert">{error}</p>
         )}
@@ -272,18 +270,16 @@ export default function QuoteRequestForm() {
         {saveError && (
           <p className="text-sm text-red-700 sm:col-span-2" role="alert">{saveError}</p>
         )}
-        <p className="text-xs text-slate-500 sm:col-span-2">{q.directNote}</p>}
+        <p className="text-xs text-slate-500 sm:col-span-2">{q.directNote}</p>
         <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row">
-          {pref === 'hourly' && (
-            <button
-              type="submit"
-              value="direct"
-              disabled={submitting}
-              className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {submitting ? q.sending : q.submitDirect}
-            </button>
-          )}
+          <button
+            type="submit"
+            value="direct"
+            disabled={submitting}
+            className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {submitting ? q.sending : q.submitDirect}
+          </button>
           <button
             type="submit"
             value="whatsapp"
