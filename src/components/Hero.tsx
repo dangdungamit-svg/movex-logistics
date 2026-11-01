@@ -55,6 +55,33 @@ export default function Hero() {
               {t.hero.supporting}
             </p>
 
+            {/* CTAs: keep all three actions together and above the fold on mobile */}
+            <div className="mt-5 grid w-full grid-cols-2 gap-2 sm:mt-6 sm:flex sm:items-center sm:justify-center sm:gap-2.5 lg:justify-start">
+              <a
+                href="#contact"
+                className="col-span-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-3 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40 sm:col-span-1 sm:w-auto sm:px-6 sm:py-3.5"
+              >
+                {t.hero.ctaQuote}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a
+                href={getWhatsAppLink(lang)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#25D366] px-2.5 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30 sm:w-auto sm:px-6 sm:py-3.5 sm:text-base"
+              >
+                <MessageCircle className="h-5 w-5 shrink-0" />
+                {t.hero.ctaWhatsApp}
+              </a>
+              <a
+                href={COMPANY.phoneHref}
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-white/10 px-2.5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition-all hover:bg-white/15 sm:w-auto sm:px-6 sm:py-3.5 sm:text-base"
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                {t.hero.ctaCall}
+              </a>
+            </div>
+
             {/* Price card */}
             <div
               className="mt-4 inline-block rounded-2xl bg-gradient-to-br from-brand-500/15 to-brand-600/5 p-4 text-left ring-1 ring-brand-400/30 sm:mt-6 sm:p-6"
@@ -98,35 +125,6 @@ export default function Hero() {
                   <p className="text-xs text-slate-400">{t.hero.serviceDesc}</p>
                 </div>
               </div>
-            </div>
-
-            {/* CTAs */}
-            <div
-              className="mt-4 grid grid-cols-2 gap-2 sm:mt-6 sm:flex sm:items-center sm:justify-center sm:gap-2.5 lg:justify-start"
-            >
-              <a
-                href="#contact"
-                className="col-span-2 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-3 sm:col-span-1 sm:px-6 sm:py-3.5 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40"
-              >
-                {t.hero.ctaQuote}
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              <a
-                href={getWhatsAppLink(lang)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-3 py-3 text-sm sm:px-6 sm:py-3.5 sm:text-base text-base font-semibold text-slate-950 shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30"
-              >
-                <MessageCircle className="h-5 w-5" />
-                {t.hero.ctaWhatsApp}
-              </a>
-              <a
-                href={COMPANY.phoneHref}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-3 py-3 text-sm sm:px-6 sm:py-3.5 sm:text-base text-base font-semibold text-white ring-1 ring-white/15 transition-all hover:bg-white/15"
-              >
-                <Phone className="h-5 w-5" />
-                {t.hero.ctaCall}
-              </a>
             </div>
 
             {/* Phone + hours */}
