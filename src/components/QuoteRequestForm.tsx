@@ -78,7 +78,7 @@ export default function QuoteRequestForm() {
     const phone = get('phone');
     const email = get('email');
     if (requireDirect) {
-      if (get('name').length < 2 || !get('package') || !phone || !email || !get('pickup') || !get('delivery') || !get('date') || form.get('consent') !== 'on') {
+      if (get('name').length < 2 || (pref === 'hourly' && !get('package')) || !phone || !email || !get('pickup') || !get('delivery') || !get('date') || form.get('consent') !== 'on') {
         return q.errDirectRequired;
       }
     } else if (!phone && !email) {
@@ -90,86 +90,43 @@ export default function QuoteRequestForm() {
 
   async function handleSend(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setError('');
-    setSaveError('');
-    setSaved(false);
-    setOpened(false);
+    setError(''); setSaveError(''); setSaved(false); setOpened(false);
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
-    const channel = ((event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
+    const channel = ((event.nativeEvent as SubmitEvent).submitter as HTMLButtonElement | null)?.value ?? 'direct';
     const get = (k: string) => String(form.get(k) ?? '').trim();
-
-    if (channel === 'direct') {
-      const problem = validate(form, true);
-      if (problem) {
-        setError(problem);
-        return;
+    const problem = validate(form, true);
+    if (problem) { setError(problem); return; }
+    const pkg = packages.find((p) => p.value === get('package'));
+    if (!supabase) { setSaveError(q.configError); return; }
+    if (pref === 'hourly' && !pkg) { setError(q.errDirectRequired); return; }
+    const service = pref === 'hourly' ? pkg!.value : pref === 'fixed' ? 'Fixed offer — quote requested' : 'Not sure — recommend an option';
+    const messageText = buildMessage(form);
+    const externalWindow = channel === 'whatsapp' || channel === 'email' ? window.open('about:blank', '_blank') : null;
+    setSubmitting(true);
+    try {
+      const { data, error: fnError } = await supabase.functions.invoke('submit-quote', { body: {
+        name: get('name'), email: get('email'), phone: get('phone'), service,
+        pickup_location: get('pickup'), destination: get('delivery'), preferred_date: get('date'),
+        preferred_time: null, number_of_movers: pkg?.movers ?? null, number_of_rooms: null,
+        large_items: get('items') || null, elevator_available: null, stairs: null, parking_info: null,
+        message: messageText.slice(0, 4000) || null,
+        consent: form.get('consent') === 'on', website: get('website'),
+      }});
+      if (fnError || data?.success !== true) throw new Error('Quote request was not saved');
+      trackContactConversion(); setSaved(true);
+      if (channel === 'whatsapp' || channel === 'email') {
+        const encoded = encodeURIComponent(messageText);
+        const url = channel === 'email'
+          ? 'mailto:' + COMPANY.email + '?subject=' + encodeURIComponent(q.emailSubject) + '&body=' + encoded
+          : 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encoded;
+        if (externalWindow) externalWindow.location.href = url; else window.location.href = url;
+        setOpened(true);
       }
-      const pkg = packages.find((p) => p.value === get('package'));
-      if (!supabase || !pkg) {
-        setSaveError(q.configError);
-        return;
-      }
-      const yn = (k: string) => (get(k) === 'yes' ? q.yes : get(k) === 'no' ? q.no : '');
-      const details = [
-        [q.msgPickupFloor, get('pickup_floor')],
-        [q.msgDeliveryFloor, get('delivery_floor')],
-        [q.msgPickupElevator, yn('pickup_elevator')],
-        [q.msgDeliveryElevator, yn('delivery_elevator')],
-        [q.msgHelp, ({ loading: q.helpLoading, unloading: q.helpUnloading, both: q.helpBoth, none: q.helpNone } as Record<string, string>)[get('help')] ?? ''],
-        [q.msgNotes, get('notes')],
-      ].filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n');
-      setSubmitting(true);
-      try {
-        const { data, error: fnError } = await supabase.functions.invoke('submit-quote', {
-          body: {
-            name: get('name'),
-            email: get('email'),
-            phone: get('phone'),
-            service: pkg.value,
-            pickup_location: get('pickup'),
-            destination: get('delivery'),
-            preferred_date: get('date'),
-            preferred_time: null,
-            number_of_movers: pkg.movers,
-            number_of_rooms: null,
-            large_items: get('items') || null,
-            elevator_available: null,
-            stairs: null,
-            parking_info: null,
-            message: details || null,
-            consent: form.get('consent') === 'on',
-            website: get('website'),
-          },
-        });
-        if (fnError || data?.success !== true) throw new Error('Quote request was not saved');
-        trackContactConversion();
-        setSaved(true);
-        formElement.reset();
-        setPref('hourly');
-      } catch (err) {
-        console.error(err);
-        setSaveError(q.saveError);
-      } finally {
-        setSubmitting(false);
-      }
-      return;
-    }
-
-    const problem = validate(form, false);
-    if (problem) {
-      setError(problem);
-      return;
-    }
-    const text = encodeURIComponent(buildMessage(form));
-    const url =
-      channel === 'email'
-        ? `mailto:${COMPANY.email}?subject=${encodeURIComponent(q.emailSubject)}&body=${text}`
-        : `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-    trackContactConversion();
-    setOpened(true);
-    if (channel === 'email') window.location.href = url;
-    else window.open(url, '_blank', 'noopener,noreferrer');
+      formElement.reset();
+    } catch (err) {
+      externalWindow?.close(); console.error(err); setSaveError(q.saveError);
+    } finally { setSubmitting(false); }
   }
 
   const prefOptions: { value: Pref; label: string }[] = [
@@ -290,12 +247,10 @@ export default function QuoteRequestForm() {
           Website
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
-        {pref === 'hourly' && (
-          <label className="flex items-start gap-3 text-sm leading-relaxed text-slate-600 sm:col-span-2">
-            <input className="mt-1 h-4 w-4 shrink-0 accent-brand-500" name="consent" type="checkbox" />
-            <span>{q.consent}</span>
-          </label>
-        )}
+        <label className="flex items-start gap-3 text-sm leading-relaxed text-slate-600 sm:col-span-2">
+          <input className="mt-1 h-4 w-4 shrink-0 accent-brand-500" name="consent" type="checkbox" />
+          <span>{q.consent}</span>
+        </label>
         {error && (
           <p className="text-sm text-red-700 sm:col-span-2" role="alert">{error}</p>
         )}
@@ -308,21 +263,20 @@ export default function QuoteRequestForm() {
         {saveError && (
           <p className="text-sm text-red-700 sm:col-span-2" role="alert">{saveError}</p>
         )}
-        {pref === 'hourly' && <p className="text-xs text-slate-500 sm:col-span-2">{q.directNote}</p>}
+        <p className="text-xs text-slate-500 sm:col-span-2">{q.directNote}</p>
         <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row">
-          {pref === 'hourly' && (
-            <button
-              type="submit"
-              value="direct"
-              disabled={submitting}
-              className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {submitting ? q.sending : q.submitDirect}
-            </button>
-          )}
+          <button
+            type="submit"
+            value="direct"
+            disabled={submitting}
+            className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {submitting ? q.sending : q.submitDirect}
+          </button>
           <button
             type="submit"
             value="whatsapp"
+            disabled={submitting}
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-[#1da851]"
           >
             <MessageCircle className="h-4 w-4" />
@@ -331,6 +285,7 @@ export default function QuoteRequestForm() {
           <button
             type="submit"
             value="email"
+            disabled={submitting}
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-800 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-slate-700"
           >
             <Mail className="h-4 w-4" />

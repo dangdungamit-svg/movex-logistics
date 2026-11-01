@@ -13,7 +13,7 @@ interface QuoteRequest {
   destination: string;
   preferred_date: string;
   preferred_time: string | null;
-  number_of_movers: number;
+  number_of_movers: number | null;
   number_of_rooms: number | null;
   large_items: string | null;
   elevator_available: boolean | null;
@@ -32,6 +32,8 @@ const allowedServices = new Set([
   'Van + Driver + 1 mover — €75/h, VAT included',
   'Van + Driver + 2 movers — €100/h, VAT included',
   'Van + Driver + 3 movers — €125/h, VAT included',
+  'Fixed offer — quote requested',
+  'Not sure — recommend an option',
 ]);
 
 const moversByService = new Map<string, number>([
@@ -87,7 +89,7 @@ async function notifyByEmail(request: QuoteRequest) {
     `Destination: ${request.destination ?? 'Not provided'}`,
     `Preferred date: ${request.preferred_date ?? 'Not provided'}`,
     `Preferred time: ${request.preferred_time ?? 'Not provided'}`,
-    `Number of movers: ${request.number_of_movers}`,
+    `Number of movers: ${request.number_of_movers ?? 'Not specified'}`,
     `Number of rooms: ${request.number_of_rooms ?? 'Not provided'}`,
     `Large or heavy items: ${request.large_items ?? 'Not provided'}`,
     `Elevator available: ${request.elevator_available === null ? 'Not specified' : request.elevator_available ? 'Yes' : 'No'}`,
@@ -161,12 +163,13 @@ runtime?.serve(async (request) => {
     !email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ||
     !phone ||
     !service || !allowedServices.has(service) ||
-    moversByService.get(service) !== numberOfMovers ||
+    (moversByService.has(service) ? moversByService.get(service) !== numberOfMovers : numberOfMovers !== null) ||
     !pickup ||
     !destination ||
     !preferredDate || !validDate(preferredDate) ||
     preferredTime === undefined || (preferredTime !== null && !/^([01]\d|2[0-3]):[0-5]\d$/.test(preferredTime)) ||
-    typeof numberOfMovers !== 'number' || !Number.isInteger(numberOfMovers) || numberOfMovers < 0 || numberOfMovers > 3 ||
+    numberOfMovers === undefined ||
+    (numberOfMovers !== null && (typeof numberOfMovers !== 'number' || !Number.isInteger(numberOfMovers) || numberOfMovers < 0 || numberOfMovers > 3)) ||
     numberOfRooms !== null && numberOfRooms !== undefined && (
       typeof numberOfRooms !== 'number' || !Number.isInteger(numberOfRooms) || numberOfRooms < 1 || numberOfRooms > 100
     ) ||
