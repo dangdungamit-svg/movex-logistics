@@ -276,6 +276,7 @@ export default function QuoteRequestForm() {
           <button
             type="submit"
             value="whatsapp"
+            disabled={submitting}
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-[#1da851]"
           >
             <MessageCircle className="h-4 w-4" />
@@ -284,6 +285,7 @@ export default function QuoteRequestForm() {
           <button
             type="submit"
             value="email"
+            disabled={submitting}
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-800 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-slate-700"
           >
             <Mail className="h-4 w-4" />
