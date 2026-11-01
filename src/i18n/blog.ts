@@ -130,25 +130,28 @@ export const blogArticles: BlogArticle[] = [
       fi: 'Näin saat huonekalu- ja esinekuljetuksesta mahdollisimman tarkan arvion.',
       en: 'How to share the right details for a clearer furniture and item transport estimate.',
     },
-    readTime: { fi: '4 min lukuaika', en: '4 min read' },
+    readTime: { fi: '6 min lukuaika', en: '5 min read' },
     sections: {
       fi: [
         {
           heading: 'Kerro nouto ja määränpää',
           paragraphs: [
-            'Noutopaikka ja toimitusosoite vaikuttavat ajoreittiin ja työn kokonaisuuteen. Ilmoita myös, jos nouto tulee liikkeestä tai yksityiseltä myyjältä.',
+            'Noutopaikka ja toimitusosoite vaikuttavat ajoreittiin ja työn kokonaisuuteen. Ilmoita myös, jos nouto tulee liikkeestä tai yksityiseltä myyjältä. Jos samalla matkalla on useita noutoja tai toimituksia, lisää kaikki osoitteet ja kerro toivottu järjestys.\n            ' +
+            'Tori.fi- ja Facebook Marketplace -ostoksissa sovi myyjän kanssa noutoaika etukäteen ja varmista, että huonekalu on valmiina. Kauppanoudossa tarkista tilausnumero, noutopiste ja tavaran luovutusaika.',
           ],
         },
         {
           heading: 'Kuvaile esineen koko ja paino',
           paragraphs: [
-            'Sohvan, sängyn, pöydän tai kodinkoneen mitat auttavat valitsemaan sopivan kuljetusratkaisun. Mainitse painavat, helposti vaurioituvat tai purettavat osat etukäteen.',
+            'Sohvan, sängyn, pöydän tai kodinkoneen leveys, korkeus ja syvyys auttavat valitsemaan sopivan kuljetusratkaisun. Tarkista myös, mahtuuko esine ovista, käytävistä, portaista ja hissiin.\n            ' +
+            'Mainitse painavat, helposti vaurioituvat tai purettavat osat etukäteen. Kuvat auttavat arvioimaan tavaran muotoa ja suojaustarvetta. Jos jalat tai muut osat voidaan irrottaa, kerro siitä tarjouspyynnössä.',
           ],
         },
         {
           heading: 'Huomioi kantaminen ja suojaus',
           paragraphs: [
-            'Kerro kerrokset, hissi, portaat ja sisäänkäynti. MoveX käyttää työn mukaan sopivia suojamateriaaleja ja kuorman kiinnitystä. Lopullinen hinta riippuu etäisyydestä, koosta, kantamisesta ja pääsyolosuhteista.',
+            'Kerro sekä nouto- että toimitusosoitteen kerrokset, hissi, portaat, pysäköintipaikan etäisyys ja sisäänkäynnin olosuhteet. Pitkä kantomatka voi vaikuttaa työn kestoon yhtä paljon kuin ajomatka.\n            ' +
+            'MoveX käyttää työn mukaan sopivia suojamateriaaleja ja kuorman kiinnitystä. Tyhjennä laatikot ja kaapit sekä suojaa lasi, peilit ja helposti naarmuuntuvat pinnat. Lopullinen hinta riippuu reitistä, esineen koosta ja painosta, lastausajasta sekä kantamisavusta.',
           ],
         },
       ],
@@ -156,19 +159,22 @@ export const blogArticles: BlogArticle[] = [
         {
           heading: 'Share the pickup and destination',
           paragraphs: [
-            'The pickup and delivery addresses affect the route and the complete job. Tell us whether the item is being collected from a shop or a private seller.',
+            'The pickup and delivery addresses affect the route and the complete job. Tell us whether the item is being collected from a shop or a private seller. If there are several pickups or deliveries, include every address and the preferred order.\n            ' +
+            'For Tori.fi or Facebook Marketplace purchases, agree on a pickup time with the seller and make sure the item is ready. For store collection, check the order number, collection point and release hours.',
           ],
         },
         {
           heading: 'Describe the item size and weight',
           paragraphs: [
-            'The dimensions of a sofa, bed, table or appliance help us choose a suitable transport solution. Mention heavy, fragile or dismantled parts in advance.',
+            'The width, height and depth of a sofa, bed, table or appliance help us choose a suitable transport solution. Also check whether the item fits through doors, hallways, stairs and the elevator.\n            ' +
+            'Mention heavy, fragile or dismantled parts in advance. Photos help us understand the item shape and protection needs. Tell us if legs or other parts can be removed.',
           ],
         },
         {
           heading: 'Consider carrying and protection',
           paragraphs: [
-            'Tell us about floors, lifts, stairs and entrances. MoveX uses suitable protective materials and load securing according to the job. The final price depends on distance, size, carrying and access conditions.',
+            'Tell us the floor, elevator access, stairs, parking distance and entrance conditions at both addresses. A long carrying distance can affect working time as much as the driving route.\n            ' +
+            'MoveX uses suitable protective materials and load securing according to the job. Empty drawers and cabinets and protect glass, mirrors and surfaces that can be scratched. The final price depends on the route, item size and weight, loading time and carrying help.',
           ],
         },
       ],
@@ -186,25 +192,28 @@ export const blogArticles: BlogArticle[] = [
       fi: 'Yleiskatsaus asioihin, jotka vaikuttavat kaukomuuton kiinteään tarjoukseen.',
       en: 'An overview of the details that affect a fixed long-distance moving quotation.',
     },
-    readTime: { fi: '5 min lukuaika', en: '5 min read' },
+    readTime: { fi: '6 min lukuaika', en: '5 min read' },
     sections: {
       fi: [
         {
           heading: 'Reitti ja etäisyys',
           paragraphs: [
-            'Kaukokuljetuksen tarjous perustuu koko reittiin. Nouto- ja määränpääosoitteet, mahdolliset välietapit sekä aikataulu kannattaa ilmoittaa heti.',
+            'Kaukokuljetuksen tarjous perustuu koko reittiin, ei vain nouto- ja toimitusosoitteiden väliseen matkaan. Ilmoita lähtöosoite, määränpää ja mahdolliset välietapit. Jos tavaroita noudetaan useasta osoitteesta tai toimitetaan useaan paikkaan, lisää kaikki pysähdykset tarjouspyyntöön.\n            ' +
+            'Kerro myös, lähteekö auto Tampereelta ja palaako se työn jälkeen takaisin. Kun koko reitti on tiedossa, työ voidaan arvioida realistisesti ja tarjoukseen voidaan huomioida työn todellinen laajuus.',
           ],
         },
         {
           heading: 'Tavaran määrä ja työvaiheet',
           paragraphs: [
-            'Kerro muuton tai kuljetuksen laajuus, suuret esineet, lastaus, purku ja mahdollinen kantaminen. Näiden tietojen avulla työ voidaan arvioida kokonaisuutena.',
+            'Kerro muuton tai kuljetuksen laajuus, suuret huonekalut, kodinkoneet, laatikot ja muut tilaa vievät tavarat. Asunnon neliöt ovat vain suuntaa antava tieto, joten tavaralista tai kuvat auttavat arvioimaan määrää paremmin.\n            ' +
+            'Ilmoita myös lastaus, purku, kantaminen ja mahdollinen huonekalujen purkaminen tai kokoaminen. Mainitse erityisen painavat tai hankalan muotoiset esineet sekä varasto, kellari tai autotalli, jos ne kuuluvat muuttoon.',
           ],
         },
         {
           heading: 'Pyydä tarjous ajoissa',
           paragraphs: [
-            'Kun tiedot ovat koossa, ota yhteyttä MoveX Logisticsiin. Kaukokuljetukset hinnoitellaan erikseen kokonaisuuden perusteella, ja voit kysyä tarjousta puhelimitse, WhatsAppilla tai sähköpostilla.',
+            'Kun tiedot ovat koossa, ota yhteyttä MoveX Logisticsiin. Hyvä tarjouspyyntö sisältää kaikki osoitteet, muuttopäivän, tavaramäärän, suurimmat esineet, kerrokset, hissit ja kantamisen tarpeen. Kuvat ovat hyödyllisiä, jos tavaramäärää on vaikea kuvata sanallisesti.\n            ' +
+            'Kaukokuljetukset hinnoitellaan erikseen koko reitin ja työn sisällön perusteella. Kerro myös avainten luovutusajoista, lastauksen aloituksesta ja mahdollisista odotusajoista. Voit pyytää tarjousta verkkolomakkeella, puhelimitse tai WhatsAppilla.',
           ],
         },
       ],
@@ -212,19 +221,22 @@ export const blogArticles: BlogArticle[] = [
         {
           heading: 'Route and distance',
           paragraphs: [
-            'A long-distance quotation is based on the complete route. Share the pickup and destination addresses, any intermediate stops and your preferred schedule early.',
+            'A long-distance quotation is based on the complete driving route, not only the distance between pickup and delivery. Share the starting point, destination and any intermediate stops. If items are collected from several addresses or delivered to more than one place, include every stop in the request.\n            ' +
+            'Also tell us whether the van starts in Tampere and returns there after the job. Knowing the complete route helps assess the real scope of the transport and prepare a realistic quotation.',
           ],
         },
         {
           heading: 'Goods and work stages',
           paragraphs: [
-            'Describe the scope of the move or transport, large items, loading, unloading and any carrying. This helps the job to be assessed as a complete service.',
+            'Describe the scope of the move or transport, large furniture, appliances, boxes and other bulky items. Home size is only a rough guide, so an item list or photos help assess the volume more accurately.\n            ' +
+            'Include loading, unloading, carrying and any furniture dismantling or assembly. Mention unusually heavy or awkward items and any storage room, cellar or garage included in the move.',
           ],
         },
         {
           heading: 'Request a quotation early',
           paragraphs: [
-            'Once the details are ready, contact MoveX Logistics. Long-distance transport is quoted individually based on the complete job, by phone, WhatsApp or email.',
+            'Once the details are ready, contact MoveX Logistics with all addresses, the moving date, estimated volume, largest items, floors, elevator access and carrying needs. Photos are useful if the amount of belongings is difficult to describe.\n            ' +
+            'Long-distance transport is quoted individually using the complete route and work required. Include key handover times, loading start time and any expected waiting. You can request a quote through the website form, by phone or WhatsApp.',
           ],
         },
       ],
