@@ -102,13 +102,6 @@ export default function QuoteRequestForm() {
     if (pref === 'hourly' && !pkg) { setError(q.errDirectRequired); return; }
     const service = pref === 'hourly' ? pkg!.value : pref === 'fixed' ? 'Fixed offer — quote requested' : 'Not sure — recommend an option';
     const messageText = buildMessage(form);
-    const yn = (k: string) => (get(k) === 'yes' ? q.yes : get(k) === 'no' ? q.no : '');
-    const details = [
-      [q.msgPickupFloor, get('pickup_floor')], [q.msgDeliveryFloor, get('delivery_floor')],
-      [q.msgPickupElevator, yn('pickup_elevator')], [q.msgDeliveryElevator, yn('delivery_elevator')],
-      [q.msgHelp, ({ loading: q.helpLoading, unloading: q.helpUnloading, both: q.helpBoth, none: q.helpNone } as Record<string, string>)[get('help')] ?? ''],
-      [q.msgNotes, get('notes')],
-    ].filter(([, v]) => v).map(([k, v]) => k + ': ' + v).join('\n');
     const externalWindow = channel === 'whatsapp' || channel === 'email' ? window.open('about:blank', '_blank') : null;
     setSubmitting(true);
     try {
@@ -117,7 +110,7 @@ export default function QuoteRequestForm() {
         pickup_location: get('pickup'), destination: get('delivery'), preferred_date: get('date'),
         preferred_time: null, number_of_movers: pkg?.movers ?? null, number_of_rooms: null,
         large_items: get('items') || null, elevator_available: null, stairs: null, parking_info: null,
-        message: [messageText, details].filter(Boolean).join('\n\n').slice(0, 4000) || null,
+        message: messageText.slice(0, 4000) || null,
         consent: form.get('consent') === 'on', website: get('website'),
       }});
       if (fnError || data?.success !== true) throw new Error('Quote request was not saved');
