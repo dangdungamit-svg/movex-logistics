@@ -10,19 +10,15 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-[100svh] items-center overflow-hidden bg-slate-900 pt-16 lg:pt-20"
     >
-      {/* MoveX background video: desktop/tablet; lightweight still image on small screens */}
+      {/* Full-bleed background video on desktop and mobile; poster is the fallback */}
       <div className="absolute inset-0" aria-hidden="true">
-        <div
-          className="absolute inset-0 bg-cover bg-center sm:hidden"
-          style={{ backgroundImage: "url('/images/14_20260924_225406_0013-1080w.webp')" }}
-        />
         <video
-          className="absolute inset-0 hidden h-full w-full object-cover sm:block"
+          className="absolute inset-0 block h-full w-full object-cover"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/images/14_20260924_225406_0013-1080w.webp"
         >
           <source src="/images/2026-09-19-215814347.mp4" type="video/mp4" />
@@ -32,36 +28,36 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-900/80 to-transparent" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-16">
-        <div className="mx-auto grid w-full max-w-4xl items-center gap-8">
+      <div className="relative mx-auto w-full max-w-7xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8 lg:py-16">
+        <div className="mx-auto grid w-full max-w-4xl items-center gap-5 sm:gap-8">
           {/* Left — text + price */}
           <div className="text-center lg:text-left">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-brand-300 ring-1 ring-white/10">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-brand-300 ring-1 ring-white/10">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
               {t.hero.badge}
             </div>
 
             <h1
-              className="text-4xl font-bold leading-[1.1] text-white text-balance sm:text-5xl lg:text-6xl"
+              className="text-3xl font-bold leading-[1.08] text-white text-balance sm:text-5xl lg:text-6xl"
             >
               {t.hero.title}
             </h1>
 
             <p
-              className="mt-4 text-lg text-slate-300 sm:text-xl"
+              className="mt-3 text-base text-slate-300 sm:mt-4 sm:text-xl"
             >
               {t.hero.subtitle}
             </p>
 
             <p
-              className="mt-2 text-base text-slate-400"
+              className="mt-1.5 text-sm text-slate-400 sm:mt-2 sm:text-base"
             >
               {t.hero.supporting}
             </p>
 
             {/* Price card */}
             <div
-              className="mt-6 inline-block rounded-2xl bg-gradient-to-br from-brand-500/15 to-brand-600/5 p-5 text-left ring-1 ring-brand-400/30 sm:p-6"
+              className="mt-4 inline-block rounded-2xl bg-gradient-to-br from-brand-500/15 to-brand-600/5 p-4 text-left ring-1 ring-brand-400/30 sm:mt-6 sm:p-6"
             >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
                 <div>
@@ -93,7 +89,7 @@ export default function Hero() {
 
             {/* Service + capacity row */}
             <div
-              className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
+              className="mt-3 flex flex-col gap-2 sm:mt-5 sm:flex-row sm:items-center sm:gap-4"
             >
               <div className="inline-flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-2.5 ring-1 ring-white/10">
                 <Truck className="h-5 w-5 text-brand-400" />
@@ -106,11 +102,11 @@ export default function Hero() {
 
             {/* CTAs */}
             <div
-              className="mt-6 flex flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:justify-center lg:justify-start"
+              className="mt-4 grid grid-cols-2 gap-2 sm:mt-6 sm:flex sm:items-center sm:justify-center sm:gap-2.5 lg:justify-start"
             >
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40"
+                className="col-span-2 inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-3 sm:col-span-1 sm:px-6 sm:py-3.5 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40"
               >
                 {t.hero.ctaQuote}
                 <ArrowRight className="h-5 w-5" />
@@ -119,14 +115,14 @@ export default function Hero() {
                 href={getWhatsAppLink(lang)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-slate-950 shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-3 py-3 text-sm sm:px-6 sm:py-3.5 sm:text-base text-base font-semibold text-slate-950 shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30"
               >
                 <MessageCircle className="h-5 w-5" />
                 {t.hero.ctaWhatsApp}
               </a>
               <a
                 href={COMPANY.phoneHref}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-6 py-3.5 text-base font-semibold text-white ring-1 ring-white/15 transition-all hover:bg-white/15"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-3 py-3 text-sm sm:px-6 sm:py-3.5 sm:text-base text-base font-semibold text-white ring-1 ring-white/15 transition-all hover:bg-white/15"
               >
                 <Phone className="h-5 w-5" />
                 {t.hero.ctaCall}
@@ -135,7 +131,7 @@ export default function Hero() {
 
             {/* Phone + hours */}
             <div
-              className="mt-4 flex flex-col items-center gap-2 text-sm text-slate-400 sm:flex-row sm:gap-4 lg:justify-start"
+              className="mt-3 hidden flex-col items-center gap-2 text-sm text-slate-400 sm:mt-4 sm:flex sm:gap-4 lg:justify-start"
             >
               <a
                 href={COMPANY.phoneHref}
