@@ -1,7 +1,6 @@
 import { Phone, MessageCircle, ArrowRight, Clock, Truck } from 'lucide-react';
 import { useLanguage, getWhatsAppLink } from '@/i18n/LanguageContext';
-import { COMPANY, HERO_IMAGE } from '@/i18n/translations';
-import { getResponsiveWebpSrcSet } from '@/lib/images';
+import { COMPANY } from '@/i18n/translations';
 
 export default function Hero() {
   const { lang, t } = useLanguage();
@@ -11,51 +10,81 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-[100svh] items-center overflow-hidden bg-slate-900 pt-16 lg:pt-20"
     >
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950" />
-        <div className="absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-brand-600/20 blur-[120px]" />
-        <div className="absolute -right-32 bottom-0 h-[400px] w-[400px] rounded-full bg-brand-500/10 blur-[100px]" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
+      {/* Full-bleed background video on desktop and mobile; poster is the fallback */}
+      <div className="absolute inset-0" aria-hidden="true">
+        <video
+          className="absolute inset-0 block h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="/images/14_20260924_225406_0013-1080w.webp"
+        >
+          <source src="/images/2026-09-19-215814347.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-slate-950/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/35" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-900/80 to-transparent" />
       </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <div className="relative mx-auto w-full max-w-7xl px-4 py-5 sm:px-6 sm:py-8 lg:px-8 lg:py-16">
+        <div className="mx-auto grid w-full max-w-4xl items-center gap-5 sm:gap-8">
           {/* Left — text + price */}
           <div className="text-center lg:text-left">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-brand-300 ring-1 ring-white/10">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-brand-300 ring-1 ring-white/10">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
               {t.hero.badge}
             </div>
 
             <h1
-              className="text-4xl font-bold leading-[1.1] text-white text-balance sm:text-5xl lg:text-6xl"
+              className="text-3xl font-bold leading-[1.08] text-white text-balance sm:text-5xl lg:text-6xl"
             >
               {t.hero.title}
             </h1>
 
             <p
-              className="mt-4 text-lg text-slate-300 sm:text-xl"
+              className="mt-3 text-base text-slate-300 sm:mt-4 sm:text-xl"
             >
               {t.hero.subtitle}
             </p>
 
             <p
-              className="mt-2 text-base text-slate-400"
+              className="mt-1.5 text-sm text-slate-400 sm:mt-2 sm:text-base"
             >
               {t.hero.supporting}
             </p>
 
+            {/* CTAs: keep all three actions together and above the fold on mobile */}
+            <div className="mt-5 grid w-full grid-cols-2 gap-2 sm:mt-6 sm:flex sm:items-center sm:justify-center sm:gap-2.5 lg:justify-start">
+              <a
+                href="#contact"
+                className="col-span-2 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-3 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40 sm:col-span-1 sm:w-auto sm:px-6 sm:py-3.5"
+              >
+                {t.hero.ctaQuote}
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <a
+                href={getWhatsAppLink(lang)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#25D366] px-2.5 py-3 text-sm font-semibold text-slate-950 shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30 sm:w-auto sm:px-6 sm:py-3.5 sm:text-base"
+              >
+                <MessageCircle className="h-5 w-5 shrink-0" />
+                {t.hero.ctaWhatsApp}
+              </a>
+              <a
+                href={COMPANY.phoneHref}
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-white/10 px-2.5 py-3 text-sm font-semibold text-white ring-1 ring-white/15 transition-all hover:bg-white/15 sm:w-auto sm:px-6 sm:py-3.5 sm:text-base"
+              >
+                <Phone className="h-5 w-5 shrink-0" />
+                {t.hero.ctaCall}
+              </a>
+            </div>
+
             {/* Price card */}
             <div
-              className="mt-6 inline-block rounded-2xl bg-gradient-to-br from-brand-500/15 to-brand-600/5 p-5 text-left ring-1 ring-brand-400/30 sm:p-6"
+              className="mt-4 inline-block rounded-2xl bg-gradient-to-br from-brand-500/15 to-brand-600/5 p-4 text-left ring-1 ring-brand-400/30 sm:mt-6 sm:p-6"
             >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
                 <div>
@@ -87,7 +116,7 @@ export default function Hero() {
 
             {/* Service + capacity row */}
             <div
-              className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
+              className="mt-3 flex flex-col gap-2 sm:mt-5 sm:flex-row sm:items-center sm:gap-4"
             >
               <div className="inline-flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-2.5 ring-1 ring-white/10">
                 <Truck className="h-5 w-5 text-brand-400" />
@@ -98,38 +127,9 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* CTAs */}
-            <div
-              className="mt-6 flex flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:justify-center lg:justify-start"
-            >
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40"
-              >
-                {t.hero.ctaQuote}
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              <a
-                href={getWhatsAppLink(lang)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-slate-950 shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30"
-              >
-                <MessageCircle className="h-5 w-5" />
-                {t.hero.ctaWhatsApp}
-              </a>
-              <a
-                href={COMPANY.phoneHref}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-6 py-3.5 text-base font-semibold text-white ring-1 ring-white/15 transition-all hover:bg-white/15"
-              >
-                <Phone className="h-5 w-5" />
-                {t.hero.ctaCall}
-              </a>
-            </div>
-
             {/* Phone + hours */}
             <div
-              className="mt-4 flex flex-col items-center gap-2 text-sm text-slate-400 sm:flex-row sm:gap-4 lg:justify-start"
+              className="mt-3 hidden flex-col items-center gap-2 text-sm text-slate-400 sm:mt-4 sm:flex sm:gap-4 lg:justify-start"
             >
               <a
                 href={COMPANY.phoneHref}
@@ -145,56 +145,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — visual */}
-          <div
-            className="animate-fade-up relative hidden lg:block"
-            style={{ animationDelay: '0.15s' }}
-          >
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
-              <picture>
-                <source
-                  media="(min-width: 1024px)"
-                  type="image/webp"
-                  srcSet={getResponsiveWebpSrcSet('/images/14_20260924_225406_0013')}
-                  sizes="(min-width: 1280px) 576px, 50vw"
-                />
-                <source
-                  media="(min-width: 1024px)"
-                  type="image/png"
-                  srcSet={HERO_IMAGE}
-                />
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Muuttomiehet lastaamassa huonekaluja pakettiautoon"
-                  className="h-[520px] w-full object-cover"
-                  loading="eager"
-                  fetchPriority="high"
-                  width={1080}
-                  height={520}
-                />
-              </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
 
-              {/* Floating VAT badge */}
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-slate-900/90 p-5 backdrop-blur-md ring-1 ring-white/10">
-                <div className="flex items-center justify-center gap-8">
-                  <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-brand-400">25.5%</p>
-                    <p className="mt-0.5 text-xs text-slate-400">
-                      {lang === 'fi' ? 'ALV sisältyy' : 'VAT inc.'}
-                    </p>
-                  </div>
-                  <div className="h-10 w-px bg-white/15" />
-                  <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-white">1 h</p>
-                    <p className="mt-0.5 text-xs text-slate-400">
-                      {lang === 'fi' ? 'Vähimmäisvaraus' : 'Minimum'}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
