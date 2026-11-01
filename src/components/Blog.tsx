@@ -1,11 +1,12 @@
 import { ArrowRight, BookOpen, Check, Clock, MessageCircle, Phone } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { getWhatsAppLink, useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
-import { landingPages } from '@/i18n/landing';
+import { landingPages, getLocalizedPath } from '@/i18n/landing';
 import { blogArticles, getBlogArticle, type BlogArticle } from '@/i18n/blog';
 
 const blogAccent = '#8f3b46';
+const blogOrigin = 'https://movexlogistics.fi';
 
 function setPageMetadata(title: string, description: string, path: string, noIndex = false) {
   document.title = title;
@@ -72,7 +73,7 @@ function ArticleCard({ article }: { article: BlogArticle }) {
       </div>
       <h2 className="mt-5 font-display text-xl font-bold leading-tight text-slate-900">{article.title[lang]}</h2>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{article.excerpt[lang]}</p>
-      <a href={`/blog/${article.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-bold transition-colors" style={{ color: blogAccent }}>
+      <a href={lang === "en" ? `/en/blog/${article.slug}` : `/blog/${article.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-bold transition-colors" style={{ color: blogAccent }}>
         {lang === 'fi' ? 'Lue artikkeli' : 'Read article'} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
       </a>
     </article>
@@ -85,7 +86,7 @@ export function BlogHome() {
     setPageMetadata(
       lang === 'fi' ? 'MoveX Logistics Blogi – Muutto- ja kuljetusoppaat' : 'MoveX Logistics Blog – Moving & Transport Guides',
       lang === 'fi' ? 'Käytännöllisiä muutto- ja kuljetusoppaita Tampereelle, Pirkanmaalle ja koko Suomeen.' : 'Practical moving and transport guides for Tampere, Pirkanmaa and across Finland.',
-      '/blog',
+      lang === 'en' ? '/en/blog' : '/blog',
     );
   }, [lang]);
 
@@ -111,40 +112,34 @@ export function BlogHome() {
 export function BlogArticle({ slug }: { slug: string }) {
   const { lang } = useLanguage();
   const article = getBlogArticle(slug);
-  const ldJsonRef = useRef<HTMLScriptElement>(null);
+  const currentPath = window.location.pathname.startsWith('/en/') ? `/en/blog/${slug}` : `/blog/${slug}`;
 
   useEffect(() => {
     if (!article) return;
-    setPageMetadata(`${article.title[lang]} | MoveX Logistics`, article.excerpt[lang], `/blog/${article.slug}`, !article.published);
-  }, [article, lang]);
+    setPageMetadata(`${article.title[lang]} | MoveX Logistics`, article.excerpt[lang], currentPath, !article.published);
+  }, [article, lang, currentPath]);
 
-  useEffect(() => {
-    if (!article || !ldJsonRef.current) return;
-    const data = {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: article.title[lang],
-      description: article.excerpt[lang],
-      url: `${window.location.origin}/blog/${article.slug}`,
-      mainEntityOfPage: `${window.location.origin}/blog/${article.slug}`,
-      author: { '@type': 'Organization', name: COMPANY.name },
-      publisher: { '@type': 'Organization', name: COMPANY.name },
-      isAccessibleForFree: true,
-    };
-    const script = ldJsonRef.current;
-    const textNode = document.createTextNode(JSON.stringify(data));
-    script.textContent = '';
-    script.appendChild(textNode);
-  }, [article, lang]);
+  const articleUrl = `${blogOrigin}${currentPath}/`;
+  const jsonLd = article ? {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: article.title[lang],
+    description: article.excerpt[lang],
+    url: articleUrl,
+    mainEntityOfPage: articleUrl,
+    author: { '@type': 'Organization', name: COMPANY.name },
+    publisher: { '@type': 'Organization', name: COMPANY.name },
+    isAccessibleForFree: true,
+  } : null;
 
   if (!article) {
-    return <main className="min-h-screen bg-[#f4f2f0] px-4 pb-20 pt-36 text-center"><h1 className="font-display text-3xl font-bold text-slate-900">{lang === 'fi' ? 'Artikkelia ei löytynyt' : 'Article not found'}</h1><a href="/blog" className="mt-5 inline-flex font-semibold" style={{ color: blogAccent }}>{lang === 'fi' ? 'Palaa blogiin' : 'Back to blog'}</a></main>;
+    return <main className="min-h-screen bg-[#f4f2f0] px-4 pb-20 pt-36 text-center"><h1 className="font-display text-3xl font-bold text-slate-900">{lang === 'fi' ? 'Artikkelia ei löytynyt' : 'Article not found'}</h1><a href={lang === "en" ? "/en/blog" : "/blog"} className="mt-5 inline-flex font-semibold" style={{ color: blogAccent }}>{lang === 'fi' ? 'Palaa blogiin' : 'Back to blog'}</a></main>;
   }
 
   return (
     <main className="min-h-screen bg-[#f4f2f0] pb-20 pt-28 lg:pt-36">
       <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <a href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition-colors hover:text-slate-900"><ArrowRight className="h-4 w-4 rotate-180" /> {lang === 'fi' ? 'Kaikki oppaat' : 'All guides'}</a>
+        <a href={lang === "en" ? "/en/blog" : "/blog"} className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 transition-colors hover:text-slate-900"><ArrowRight className="h-4 w-4 rotate-180" /> {lang === 'fi' ? 'Kaikki oppaat' : 'All guides'}</a>
         <div className="mt-8 rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200/70 sm:p-10 lg:p-14">
           <div className="flex flex-wrap items-center gap-3"><span className="rounded-full px-3 py-1 text-xs font-bold" style={{ backgroundColor: '#f5e8ea', color: blogAccent }}>{article.category[lang]}</span><span className="text-xs text-slate-500">{article.readTime[lang]}</span></div>
           <h1 className="mt-6 font-display text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">{article.title[lang]}</h1>
@@ -152,17 +147,18 @@ export function BlogArticle({ slug }: { slug: string }) {
           <div className="mt-10 space-y-9">
             {article.sections[lang].map((section) => <section key={section.heading}><h2 className="font-display text-2xl font-bold text-slate-900">{section.heading}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph} className="mt-3 text-base leading-8 text-slate-600">{paragraph}</p>)}</section>)}
           </div>
-          <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-200 pt-6 text-sm font-semibold"><a href="/#services" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{lang === 'fi' ? 'Tutustu palveluihin' : 'Explore services'}</a><a href="/#pricing" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{lang === 'fi' ? 'Katso hinnat' : 'See prices'}</a><a href="/#faq" className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>FAQ</a>{landingPages.map((p) => <a key={p.path} href={p.path} className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{p.navLabel[lang]}</a>)}</div>
+          <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-200 pt-6 text-sm font-semibold"><a href={lang === "en" ? "/en/#services" : "/#services"} className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{lang === 'fi' ? 'Tutustu palveluihin' : 'Explore services'}</a><a href={lang === "en" ? "/en/#pricing" : "/#pricing"} className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{lang === 'fi' ? 'Katso hinnat' : 'See prices'}</a><a href={lang === "en" ? "/en/#faq" : "/#faq"} className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>FAQ</a>{landingPages.map((p) => <a key={p.path} href={getLocalizedPath(p.path, lang)} className="transition-colors hover:text-slate-900" style={{ color: blogAccent }}>{p.navLabel[lang]}</a>)}</div>
         </div>
         <BlogCTA />
       </article>
-      <script type="application/ld+json" ref={ldJsonRef} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\u003c') }} />
     </main>
   );
 }
 
 export default function BlogPage() {
-  const path = window.location.pathname.replace(/\/$/, '');
+  const rawPath = window.location.pathname.replace(/\/+$/, '');
+  const path = rawPath.replace(/^\/en(?=\/|$)/, '') || '/';
   const slug = path.split('/')[2];
   return slug ? <BlogArticle slug={slug} /> : <BlogHome />;
 }

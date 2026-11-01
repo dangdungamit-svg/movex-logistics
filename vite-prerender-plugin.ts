@@ -2,6 +2,7 @@ import { build as esbuildBuild } from 'esbuild';
 import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import { blogArticles } from './src/i18n/blog';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -15,6 +16,8 @@ const languagePairs = [
   ['/pieni-muutto-tampere', '/en/small-move-tampere'],
   ['/kuljetuspalvelu-tampere', '/en/transport-service-tampere'],
   ['/muuttopalvelu-hinta-tampere', '/en/moving-cost-tampere'],
+  ['/blog', '/en/blog'],
+  ...blogArticles.filter((article) => article.published).map((article) => [`/blog/${article.slug}`, `/en/blog/${article.slug}`] as const),
 ] as const;
 
 function canonicalPath(routePath: string) {
@@ -107,6 +110,12 @@ const routes = [
     description:
       'Käytännöllisiä muutto- ja kuljetusoppaita Tampereelle, Pirkanmaalle ja koko Suomeen.',
     canonical: `${origin}/blog/`,
+  },
+  {
+    path: '/en/blog',
+    title: 'MoveX Logistics Blog – Moving & Transport Guides',
+    description: 'Practical moving and transport guides for Tampere, Pirkanmaa and across Finland.',
+    canonical: `${origin}/en/blog/`,
   },
   {
     path: '/blog/muutto-tampereella-tarkistuslista',
@@ -242,6 +251,12 @@ const routes = [
     description: 'Moving costs in Tampere, Finland: van and driver from €50/hour. Compare clear hourly rates, understand what affects the price and request a quote.',
     canonical: `${origin}/en/moving-cost-tampere/`,
   },
+  ...blogArticles.filter((article) => article.published).map((article) => ({
+    path: `/en/blog/${article.slug}`,
+    title: `${article.title.en} | MoveX Logistics`,
+    description: article.excerpt.en,
+    canonical: `${origin}/en/blog/${article.slug}/`,
+  })),
 ];
 
 export function prerenderPlugin() {
