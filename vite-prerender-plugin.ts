@@ -300,12 +300,12 @@ export function prerenderPlugin() {
         const routeLanguage = route.path === '/en' || route.path.startsWith('/en/') ? 'en' : 'fi';
         const routeTemplate = template.replace(
           /<html\b([^>]*\blang=")[^"]*"/i,
-          (_match, prefix: string) => `<html${prefix}${routeLanguage}"`;
+          (_match, prefix: string) => `<html${prefix}${routeLanguage}"`
+        );
         const htmlLanguage = routeTemplate.match(/<html\b[^>]*\blang="([^"]+)"/i)?.[1];
         if (htmlLanguage !== routeLanguage) {
           throw new Error('Incorrect or missing HTML language for ' + route.path + ': ' + (htmlLanguage ?? 'missing'));
         }
-        );
         let html = routeTemplate.replace(
           '<div id="root"></div>',
           () =>
