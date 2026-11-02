@@ -369,22 +369,22 @@ export const landingPages: LandingPage[] = [
     path: '/muuttopalvelu-hinta-tampere',
     navLabel: { fi: 'Muuttopalvelun hinta', en: 'Moving cost Tampere' },
     title: {
-      fi: 'Muuttopalvelun hinta Tampereella | MoveX Logistics',
-      en: 'Moving Costs in Tampere, Finland | MoveX Logistics',
+      fi: 'Edullinen muuttopalvelu Tampereella | Hinnat | MoveX Logistics',
+      en: 'Affordable Moving Service in Tampere | Prices | MoveX Logistics',
     },
     description: {
-      fi: 'Muuttopalvelun hinta Tampereella alkaen 50 €/h. Vertaa MoveX Logisticsin selkeitä tuntihintoja, katso mistä muuton hinta muodostuu ja pyydä tarjous.',
-      en: 'Moving costs in Tampere, Finland: van and driver from €50/hour. Compare clear hourly rates, understand what affects the price and request a quote.',
+      fi: 'Edullinen muuttopalvelu Tampereella alkaen 50 €/h. Vertaa MoveX Logisticsin selkeitä, arvonlisäverollisia tuntihintoja ja valitse tarpeeseesi sopiva muuttoapu.',
+      en: 'Affordable moving service in Tampere, Finland, with clear prices from €50/hour including VAT. Compare van-and-driver and mover options, understand moving costs and request a quote.',
     },
-    h1: { fi: 'Muuttopalvelun hinta Tampereella', en: 'Moving costs in Tampere, Finland' },
+    h1: { fi: 'Edullinen muuttopalvelu Tampereella', en: 'Affordable moving service in Tampere' },
     intro: {
-      fi: 'Muuttopalvelun hinta riippuu siitä, tarvitsetko vain pakettiauton ja kuljettajan vai myös muuttomiehiä kantamiseen. MoveX Logistics ilmoittaa tuntihinnat selkeästi etukäteen. Palvelemme Tampereella ja Pirkanmaalla sekä annamme tarjouksia pidemmistä kuljetuksista ympäri Suomen.',
-      en: 'The cost of a moving service depends on whether you need only a van and driver or movers to carry your belongings as well. MoveX Logistics publishes clear hourly rates in advance. We serve Tampere and Pirkanmaa and quote for longer moves across Finland.',
+      fi: 'Etsitkö edullista muuttopalvelua Tampereella? MoveX Logistics tarjoaa selkeät tuntihinnat: voit valita pelkän pakettiauton ja kuljettajan tai lisätä muuttomiehiä kantamiseen. Näin valitset palvelun työn todellisen tarpeen mukaan. Palvelemme Tampereella ja Pirkanmaalla sekä annamme tarjouksia pidemmistä kuljetuksista ympäri Suomen.',
+      en: 'Looking for an affordable moving service in Tampere? MoveX Logistics publishes clear hourly prices: choose a van and driver only, or add movers for carrying. This lets you choose the level of help that fits the job. We serve Tampere and Pirkanmaa and quote for longer moves across Finland.',
     },
     sections: {
       fi: [
         {
-          heading: 'Muuttopalvelun tuntihinnat',
+          heading: 'Edullinen muuttopalvelu Tampereella – selkeät tuntihinnat',
           paragraphs: [
             'Pakettiauto + kuljettaja: 50 € / h',
             '1 muuttomies + auto: 75 € / h',
@@ -394,7 +394,13 @@ export const landingPages: LandingPage[] = [
           ],
         },
         {
-          heading: 'Mistä muuton hinta muodostuu?',
+          heading: 'Edullinen muuttoapu Tampereella – mitä kannattaa vertailla?',
+          paragraphs: [
+            'Jos etsit halpaa muuttopalvelua Tampereella, vertaa aina kokonaishintaa pelkän tuntihinnan sijaan. Tarkista, sisältyvätkö arvonlisävero, auto, kuljettaja ja tarvitsemasi kantajat hintaan. Ajomatka, kerrokset, hissi ja kantomatka vaikuttavat myös työn kestoon.',
+            'Jos pystyt kantamaan tavarat itse, pakettiauto + kuljettaja voi riittää. Jos tarvitset apua portaissa tai painavien tavaroiden kanssa, pyydä sopiva määrä muuttomiehiä heti tarjouspyynnössä.',
+          ],
+        },
+        {
           paragraphs: [
             'Muuton hintaan vaikuttavat nouto- ja toimitusosoitteiden välinen matka, tavaroiden määrä ja koko, kerrokset, hissin saatavuus sekä se, kuinka monta henkilöä tarvitaan kantamiseen. Myös pysäköinti, pitkät kantomatkat, huonekalujen purkaminen ja erityisen painavat esineet voivat vaikuttaa työn kestoon.',
             'Tarkan arvion saamiseksi ilmoita tarjouspyynnössä molemmat osoitteet, muuttopäivä, asunnon koko, kerrokset, hissit ja suurimmat huonekalut. Valokuvat auttavat arvioimaan tavaramäärää.',
@@ -434,7 +440,13 @@ export const landingPages: LandingPage[] = [
           ],
         },
         {
-          heading: 'What affects the cost of a move?',
+          heading: 'Affordable moving help in Tampere – what should you compare?',
+          paragraphs: [
+            'When comparing low-cost moving services in Tampere, compare the complete job price rather than the hourly rate alone. Check whether VAT, the vehicle, driver and any movers you need are included. Driving distance, floors, elevator access and carrying distance also affect the time required.',
+            'The most affordable option depends on the job. If you can carry your belongings yourself, a van and driver may be enough. If you need help with stairs or heavy items, request the right number of movers from the start.',
+          ],
+        },
+        {
           paragraphs: [
             'The price depends on the distance between the pickup and delivery addresses, the amount and size of belongings, floors, elevator access and the number of people needed for carrying. Parking, long carrying distances, furniture disassembly and unusually heavy items can also affect the time required.',
             'For an accurate estimate, include both addresses, the moving date, home size, floors, elevator access and your largest items. Photos can help us assess the volume.',
@@ -465,6 +477,7 @@ export const landingPages: LandingPage[] = [
     },
     faq: {
       fi: [
+        { q: 'Miten löydän edullisen muuttopalvelun Tampereella?', a: 'Vertaa kokonaishintaa, älä vain tuntihintaa. Tarkista, mitä auton, kuljettajan, muuttomiesten ja arvonlisäveron hinta sisältää. MoveXin hinnat ovat näkyvissä etukäteen, ja voit valita pelkän kuljetuksen tai tarvitsemasi kantoavun.' },
         { q: 'Paljonko muuttopalvelu maksaa Tampereella?', a: 'MoveX Logisticsin pakettiauto ja kuljettaja maksavat 50 €/h. Yksi muuttomies ja auto maksavat 75 €/h, kaksi 100 €/h ja kolme 125 €/h. Hinnat sisältävät alv 25,5 %.' },
         { q: 'Onko tuntihinnassa vähimmäisveloitus?', a: 'Kyllä. Vähimmäisvaraus on yksi tunti. Sen jälkeen laskutus jatkuu 30 minuutin jaksoissa.' },
         { q: 'Voinko saada kiinteän muuttohinnan?', a: 'Kyllä. Lähetä reitti, muuttopäivä, tavaramäärä, kerrokset ja kantoavun tarve. Vahvistamme kiinteän tarjouksen, kun tiedot riittävät luotettavaan arvioon.' },
@@ -472,6 +485,7 @@ export const landingPages: LandingPage[] = [
         { q: 'Miten saan tarkan tarjouksen muutosta?', a: 'Ilmoita nouto- ja toimitusosoitteet, muuttopäivä, kerrokset, hissi, asunnon koko ja suurimmat tavarat. Lisää tarvittaessa kuvia.' },
       ],
       en: [
+        { q: 'How can I find an affordable moving service in Tampere?', a: 'Compare the complete job price, not only the hourly rate. Check what is included for the vehicle, driver, movers and VAT. MoveX publishes its prices in advance, and you can choose transport only or add the carrying help you need.' },
         { q: 'How much does a moving service cost in Tampere?', a: 'MoveX Logistics charges €50/hour for a van and driver, €75/hour for one mover and a van, €100/hour for two movers and a van, and €125/hour for three movers and a van. Finnish VAT (25.5%) is included.' },
         { q: 'Is there a minimum booking?', a: 'Yes. The minimum booking is one hour, followed by 30-minute billing increments.' },
         { q: 'Can I get a fixed moving quote?', a: 'Yes. Send the route, moving date, volume, floors and carrying requirements. We confirm a fixed quote when the details allow a reliable estimate.' },
