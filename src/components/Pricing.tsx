@@ -16,7 +16,7 @@ export default function Pricing() {
 
         {/* Hourly pricing cards */}
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {t.pricing.cards.map((card, i) => (
+          {(t.pricing.cards ?? []).map((card, i) => (
             <div
               key={i}
               className={`rounded-2xl p-6 shadow-sm ring-1 transition-all duration-300 hover:shadow-lg ${
@@ -64,7 +64,7 @@ export default function Pricing() {
             <p className="mt-3 text-sm leading-relaxed text-slate-600">{t.pricing.fixedMoveDesc}</p>
           </div>
           <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {t.pricing.fixedMoveBands.map((band, i) => (
+            {(t.pricing.fixedMoveBands ?? []).map((band, i) => (
               <div key={band.size} className={`rounded-2xl p-5 text-center ring-1 ${i === 0 ? 'bg-slate-900 text-white ring-slate-700' : 'bg-white text-slate-900 ring-slate-200'}`}>
                 <h4 className={`text-sm font-semibold ${i === 0 ? 'text-brand-300' : 'text-slate-500'}`}>{band.size}</h4>
                 <p className="mt-3 font-display text-2xl font-bold">{band.price}</p>
