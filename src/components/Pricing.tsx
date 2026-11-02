@@ -57,6 +57,23 @@ export default function Pricing() {
           {t.pricing.incrementNote}
         </p>
 
+        {/* Fixed-price moving by apartment size */}
+        <div className="mt-12">
+          <div className="mx-auto max-w-3xl text-center">
+            <h3 className="text-2xl font-bold text-slate-900 sm:text-3xl">{t.pricing.fixedMoveTitle}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">{t.pricing.fixedMoveDesc}</p>
+          </div>
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {t.pricing.fixedMoveBands.map((band, i) => (
+              <div key={band.size} className={`rounded-2xl p-5 text-center ring-1 ${i === 0 ? 'bg-slate-900 text-white ring-slate-700' : 'bg-white text-slate-900 ring-slate-200'}`}>
+                <h4 className={`text-sm font-semibold ${i === 0 ? 'text-brand-300' : 'text-slate-500'}`}>{band.size}</h4>
+                <p className="mt-3 font-display text-2xl font-bold">{band.price}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mx-auto mt-5 max-w-3xl text-center text-sm leading-relaxed text-slate-500">{t.pricing.fixedMoveNote}</p>
+        </div>
+
         {/* Furniture + Long distance */}
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           {/* Furniture */}
