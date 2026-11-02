@@ -1,4 +1,4 @@
-import { ArrowRight, Sofa, MapPin } from 'lucide-react';
+import { ArrowRight, Sofa, MapPin, Package, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function Pricing() {
@@ -102,6 +102,58 @@ export default function Pricing() {
                     {t.pricing.longDistancePrice}
                   </span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Optional moving boxes and extra protection */}
+        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+          <div className="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200/60 sm:p-8">
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 ring-1 ring-brand-100">
+                <Package className="h-6 w-6" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-slate-900">
+                  {t.pricing.boxRentalTitle}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {t.pricing.boxRentalDesc}
+                </p>
+                <div className="mt-3 flex items-baseline gap-1">
+                  <span className="font-display text-2xl font-bold text-slate-900">
+                    {t.pricing.boxRentalPrice}
+                  </span>
+                  <span className="text-sm text-slate-500">{t.pricing.boxRentalUnit}</span>
+                </div>
+                <p className="mt-1.5 text-xs text-slate-500">
+                  {t.pricing.boxRentalNote}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-2xl bg-white p-6 ring-1 ring-slate-200/80 sm:p-8">
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 ring-1 ring-brand-100">
+                <ShieldCheck className="h-6 w-6" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-slate-900">
+                  {t.pricing.extraProtectionTitle}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                  {t.pricing.extraProtectionDesc}
+                </p>
+                <div className="mt-3 flex items-baseline gap-1">
+                  <span className="font-display text-2xl font-bold text-slate-900">
+                    {t.pricing.extraProtectionPrice}
+                  </span>
+                </div>
+                <p className="mt-1.5 text-xs text-slate-500">
+                  {t.pricing.extraProtectionNote}
+                </p>
               </div>
             </div>
           </div>
