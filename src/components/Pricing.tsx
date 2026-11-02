@@ -1,4 +1,4 @@
-import { ArrowRight, Sofa, MapPin, Package, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sofa, MapPin, Package } from 'lucide-react';
 import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function Pricing() {
@@ -151,29 +151,7 @@ export default function Pricing() {
             </div>
           </div>
 
-          <div className="rounded-2xl bg-white p-6 ring-1 ring-slate-200/80 sm:p-8">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 ring-1 ring-brand-100">
-                <ShieldCheck className="h-6 w-6" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-semibold text-slate-900">
-                  {t.pricing.extraProtectionTitle}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  {t.pricing.extraProtectionDesc}
-                </p>
-                <div className="mt-3 flex items-baseline gap-1">
-                  <span className="font-display text-2xl font-bold text-slate-900">
-                    {t.pricing.extraProtectionPrice}
-                  </span>
-                </div>
-                <p className="mt-1.5 text-xs text-slate-500">
-                  {t.pricing.extraProtectionNote}
-                </p>
-              </div>
-            </div>
-          </div>
+
         </div>
 
         {/* Notes */}
