@@ -97,7 +97,7 @@ export const translations = {
       fixedMoveNote: 'Kaikki hinnat sisältävät alv 25,5 %. Lopullinen kokonaishinta vahvistetaan tavaroiden määrän, reitin, kerrosten, hissien, kantomatkojen ja pääsyolosuhteiden perusteella ennen työn alkua. Suuremmat tai poikkeukselliset muutot arvioidaan erikseen.',
       boxRentalTitle: 'Muuttolaatikoiden vuokraus',
       boxRentalDesc: 'Vuokraa tarvitsemasi määrä tukevia muuttolaatikoita. Ei vähimmäisvuokra-aikaa – maksat vain vuokrauspäivistä. Nouto ja palautus sovitaan erikseen.',
-      boxRentalPrice: '0,10 €',
+      boxRentalPrice: '0,15 €',
       boxRentalUnit: '/ laatikko / 24 h',
       boxRentalNote: 'Kaikki hinnat sisältävät alv 25,5 %. Toimitus ja nouto erikseen sovittaessa.',
       extraProtectionTitle: 'Lisäsuojaus huonekaluille ja tavaroille',
