@@ -16,7 +16,7 @@ const packages = [
 ];
 
 const fieldClass =
-  'mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100';
+  'mt-1.5 min-h-[48px] w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3.5 text-base text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100 sm:text-sm';
 
 export default function QuoteRequestForm() {
   const { lang, t } = useLanguage();
@@ -144,12 +144,12 @@ export default function QuoteRequestForm() {
   );
 
   return (
-    <div className="mx-auto mt-12 max-w-4xl rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200/70 sm:p-8">
+    <div className="mx-auto mt-8 max-w-4xl rounded-2xl bg-slate-50 p-4 ring-1 ring-slate-200/70 sm:p-8">
       <div className="mb-6">
         <h3 className="text-2xl font-bold text-slate-900">{q.title}</h3>
         <p className="mt-2 text-sm text-slate-600">{q.subtitle}</p>
       </div>
-      <form onSubmit={handleSend} className="grid gap-5 sm:grid-cols-2">
+      <form onSubmit={handleSend} className="grid gap-4 sm:gap-5 sm:grid-cols-2">
         <fieldset className="sm:col-span-2">
           <legend className={labelClass}>{q.prefLegend}</legend>
           <div className="mt-2 grid gap-2 sm:grid-cols-3">
@@ -223,6 +223,9 @@ export default function QuoteRequestForm() {
           {q.items}
           <textarea className={fieldClass} name="items" rows={3} maxLength={2000} placeholder={q.itemsPlaceholder} />
         </label>
+        <details className="sm:col-span-2 rounded-xl border border-slate-200 bg-white p-4">
+          <summary className="cursor-pointer text-sm font-semibold text-slate-800">{q.moreDetails}</summary>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <label className={labelClass}>
           {q.pickupFloor}
           <input className={fieldClass} name="pickup_floor" maxLength={20} />
@@ -239,6 +242,8 @@ export default function QuoteRequestForm() {
           {q.deliveryElevator}
           <select className={fieldClass} name="delivery_elevator" defaultValue="">{yesNoOptions}</select>
         </label>
+          </div>
+        </details>
         <label className={`${labelClass} sm:col-span-2`}>
           {q.notes}
           <textarea className={fieldClass} name="notes" rows={3} maxLength={3500} />
@@ -264,12 +269,12 @@ export default function QuoteRequestForm() {
           <p className="text-sm text-red-700 sm:col-span-2" role="alert">{saveError}</p>
         )}
         <p className="text-xs text-slate-500 sm:col-span-2">{q.directNote}</p>
-        <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row">
+        <div className="flex flex-col gap-2 sm:col-span-2 sm:flex-row sm:gap-3">
           <button
             type="submit"
             value="direct"
             disabled={submitting}
-            className="inline-flex items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex w-full items-center justify-center rounded-xl bg-brand-600 px-6 py-3.5 sm:w-auto text-sm font-semibold text-white transition hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {submitting ? q.sending : q.submitDirect}
           </button>
@@ -277,7 +282,7 @@ export default function QuoteRequestForm() {
             type="submit"
             value="whatsapp"
             disabled={submitting}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-[#1da851]"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] sm:w-auto px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-[#1da851]"
           >
             <MessageCircle className="h-4 w-4" />
             {q.sendWhatsApp}
@@ -286,7 +291,7 @@ export default function QuoteRequestForm() {
             type="submit"
             value="email"
             disabled={submitting}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-800 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-slate-700"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 sm:w-auto px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-slate-700"
           >
             <Mail className="h-4 w-4" />
             {q.sendEmail}
