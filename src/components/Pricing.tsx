@@ -52,10 +52,11 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Increment note */}
+        {/* Hourly billing notes — separate from box rental */}
         <p className="mt-4 text-center text-sm text-slate-500">
           {t.pricing.incrementNote}
         </p>
+        <p className="mt-1 text-center text-sm text-slate-500">{t.pricing.minNote}</p>
 
         {/* Fixed-price moving by apartment size */}
         <div className="mt-12">
@@ -153,9 +154,6 @@ export default function Pricing() {
 
 
         </div>
-
-        {/* Notes */}
-        <p className="mt-4 text-center text-sm text-slate-500">{t.pricing.minNote}</p>
 
         {/* CTA */}
         <div className="mt-8 text-center">
