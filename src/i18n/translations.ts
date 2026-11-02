@@ -417,7 +417,7 @@ export const translations = {
         { size: '46–55 m²', price: '€379' },
         { size: '56–65 m²', price: '€449' },
       ],
-      fixedMoveNote: 'All prices include Finnish VAT (25.5%). The final total price is confirmed before the job based on the inventory, route, floors, elevators, carrying distances and access conditions. Larger or unusual moves are assessed individually.',
+      fixedMoveNote: 'All prices include Finnish VAT (25.5%). The final total price is confirmed in advance based on the inventory, route, floors, elevators, carrying distances and access conditions. Jobs outside the approximately 20 km Tampere service area are quoted separately.',
       boxRentalTitle: 'Moving Box Rental',
       boxRentalDesc: 'Rent the number of moving boxes you need. We deliver the boxes to your agreed address and collect them when the rental ends. Rental periods are flexible.',
       boxRentalPrice: '€0.15',
