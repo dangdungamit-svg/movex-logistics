@@ -401,6 +401,7 @@ export const landingPages: LandingPage[] = [
           ],
         },
         {
+          heading: 'Mistä muuton hinta muodostuu?',
           paragraphs: [
             'Muuton hintaan vaikuttavat nouto- ja toimitusosoitteiden välinen matka, tavaroiden määrä ja koko, kerrokset, hissin saatavuus sekä se, kuinka monta henkilöä tarvitaan kantamiseen. Myös pysäköinti, pitkät kantomatkat, huonekalujen purkaminen ja erityisen painavat esineet voivat vaikuttaa työn kestoon.',
             'Tarkan arvion saamiseksi ilmoita tarjouspyynnössä molemmat osoitteet, muuttopäivä, asunnon koko, kerrokset, hissit ja suurimmat huonekalut. Valokuvat auttavat arvioimaan tavaramäärää.',
@@ -447,6 +448,7 @@ export const landingPages: LandingPage[] = [
           ],
         },
         {
+          heading: 'What affects the cost of a move?',
           paragraphs: [
             'The price depends on the distance between the pickup and delivery addresses, the amount and size of belongings, floors, elevator access and the number of people needed for carrying. Parking, long carrying distances, furniture disassembly and unusually heavy items can also affect the time required.',
             'For an accurate estimate, include both addresses, the moving date, home size, floors, elevator access and your largest items. Photos can help us assess the volume.',
