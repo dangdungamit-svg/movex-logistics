@@ -124,7 +124,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* Optional moving boxes and extra protection */}
+        {/* Moving box rental */}
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           <div className="rounded-2xl bg-slate-50 p-6 ring-1 ring-slate-200/60 sm:p-8">
             <div className="flex items-start gap-4">
