@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
 import { getWhatsAppLink, useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
 import { landingPages, getLocalizedPath, type LandingPage as LandingPageData } from '@/i18n/landing';
+import { setHreflangLinks } from '@/lib/seo';
 
 const origin = 'https://movexlogistics.fi';
 
@@ -45,6 +46,7 @@ export default function LandingPage({ page }: { page: LandingPageData }) {
     canonical.setAttribute('rel', 'canonical');
     canonical.setAttribute('href', currentCanonical);
     if (!canonical.parentElement) document.head.appendChild(canonical);
+    setHreflangLinks(page.path, getLocalizedPath(page.path, 'en'));
   }, [page, lang]);
 
   const faq = page.faq[lang];

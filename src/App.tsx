@@ -21,6 +21,7 @@ import Admin from '@/components/Admin';
 import LandingPage from '@/components/LandingPage';
 import { getLandingPage } from '@/i18n/landing';
 import { getResponsiveWebpSrcSet } from '@/lib/images';
+import { setHreflangLinks } from '@/lib/seo';
 
 const photoSizes =
   '(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) calc(100vw - 3rem), (max-width: 1280px) calc(100vw - 4rem), 1216px';
@@ -43,6 +44,7 @@ function setHomepageMetadata(lang: 'fi' | 'en') {
   canonical.setAttribute('rel', 'canonical');
   canonical.setAttribute('href', window.location.pathname.startsWith('/en') ? 'https://movexlogistics.fi/en/' : 'https://movexlogistics.fi/');
   if (!canonical.parentElement) document.head.appendChild(canonical);
+  setHreflangLinks('/', '/en/');
   const robots = document.querySelector('meta[name="robots"]') ?? document.createElement('meta');
   robots.setAttribute('name', 'robots');
   robots.setAttribute('content', 'index, follow');

@@ -4,11 +4,12 @@ import { getWhatsAppLink, useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
 import { landingPages, getLocalizedPath } from '@/i18n/landing';
 import { blogArticles, getBlogArticle, type BlogArticle } from '@/i18n/blog';
+import { setHreflangLinks } from '@/lib/seo';
 
 const blogAccent = '#8f3b46';
 const blogOrigin = 'https://movexlogistics.fi';
 
-function setPageMetadata(title: string, description: string, path: string, noIndex = false) {
+function setPageMetadata(title: string, description: string, path: string, noIndex = false, finnishPath = path, englishPath = path) {
   document.title = title;
   const descriptionTag = document.querySelector('meta[name="description"]');
   descriptionTag?.setAttribute('content', description);
@@ -20,6 +21,7 @@ function setPageMetadata(title: string, description: string, path: string, noInd
   canonical.setAttribute('rel', 'canonical');
   canonical.setAttribute('href', `${window.location.origin}${path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`}`);
   if (!canonical.parentElement) document.head.appendChild(canonical);
+  setHreflangLinks(finnishPath, englishPath);
 }
 
 function BlogMark() {
@@ -87,6 +89,9 @@ export function BlogHome() {
       lang === 'fi' ? 'MoveX Logistics Blogi – Muutto- ja kuljetusoppaat' : 'MoveX Logistics Blog – Moving & Transport Guides',
       lang === 'fi' ? 'Käytännöllisiä muutto- ja kuljetusoppaita Tampereelle, Pirkanmaalle ja koko Suomeen.' : 'Practical moving and transport guides for Tampere, Pirkanmaa and across Finland.',
       lang === 'en' ? '/en/blog' : '/blog',
+      false,
+      '/blog/',
+      '/en/blog/',
     );
   }, [lang]);
 
@@ -116,7 +121,7 @@ export function BlogArticle({ slug }: { slug: string }) {
 
   useEffect(() => {
     if (!article) return;
-    setPageMetadata(`${article.title[lang]} | MoveX Logistics`, article.excerpt[lang], currentPath, !article.published);
+    setPageMetadata(`${article.title[lang]} | MoveX Logistics`, article.excerpt[lang], currentPath, !article.published, `/blog/${slug}`, `/en/blog/${slug}`);
   }, [article, lang, currentPath]);
 
   const articleUrl = `${blogOrigin}${currentPath}/`;
