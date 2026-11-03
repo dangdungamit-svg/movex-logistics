@@ -2,7 +2,7 @@ const ORIGIN = 'https://movexlogistics.fi';
 
 function absolutePath(path: string) {
   const normalized = path.startsWith('/') ? path : `/${path}`;
-  return `${ORIGIN}${normalized === '/' ? '/' : `${normalized.replace(/\\/+$/, '')}/`}`;
+  return `${ORIGIN}${normalized === '/' ? '/' : `${normalized.replace(/\/+$/, '')}/`}`;
 }
 
 /** Add reciprocal Finnish/English language alternatives for the current page. */
