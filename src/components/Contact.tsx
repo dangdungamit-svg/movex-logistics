@@ -1,18 +1,11 @@
 import { Phone, MessageCircle, Mail, Check, Clock } from 'lucide-react';
-import { useLanguage, getWhatsAppLink, getEmailLink, trackContactConversion } from '@/i18n/LanguageContext';
+import { useLanguage, getWhatsAppLink, getEmailLink } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
+import { trackContactIntent } from '@/lib/analytics';
 import QuoteRequestForm from '@/components/QuoteRequestForm';
 
 export default function Contact() {
   const { lang, t } = useLanguage();
-
-  const handleWhatsAppClick = () => {
-    trackContactConversion();
-  };
-
-  const handleEmailClick = () => {
-    trackContactConversion();
-  };
 
   return (
     <section id="contact" className="bg-white py-20 lg:py-28">
@@ -47,6 +40,7 @@ export default function Contact() {
                   </span>
                   <a
                     href={COMPANY.phoneFiHref}
+                    onClick={() => trackContactIntent('phone')}
                     className="font-display text-lg font-bold text-slate-900 transition-colors hover:text-brand-600"
                   >
                     {COMPANY.phoneFi}
@@ -54,6 +48,7 @@ export default function Contact() {
                 </div>
                 <a
                   href={COMPANY.phoneFiHref}
+                  onClick={() => trackContactIntent('phone')}
                   className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-brand-700"
                 >
                   <Phone className="h-3.5 w-3.5" />
@@ -76,7 +71,7 @@ export default function Contact() {
             </p>
             <a
               href={getWhatsAppLink(lang)}
-              onClick={handleWhatsAppClick}
+              onClick={() => trackContactIntent('whatsapp')}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-[#25D366]/20 transition-all hover:bg-[#1da851]"
@@ -99,7 +94,7 @@ export default function Contact() {
             </p>
             <a
               href={getEmailLink(lang)}
-              onClick={handleEmailClick}
+              onClick={() => trackContactIntent('email')}
               className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-800/20 transition-all hover:bg-slate-700"
             >
               <Mail className="h-4 w-4" />
