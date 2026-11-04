@@ -502,5 +502,5 @@ export function getLocalizedPath(path: string, lang: Lang) {
   const localized = lang === 'en'
     ? englishSlugs[path] ?? (path === '/' ? '/en/' : '/en' + path)
     : path;
-  return localized === '/' ? '/' : `${localized.replace(/\\/+$/, '')}/`;
+  return localized === '/' ? '/' : `${localized.replace(/\/+$/, '')}/`;
 }
