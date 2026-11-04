@@ -153,11 +153,11 @@ export const landingPages: LandingPage[] = [
     path: '/huonekalukuljetus-tampere',
     navLabel: { fi: 'Huonekalukuljetus Tampere', en: 'Furniture transport Tampere' },
     title: {
-      fi: 'Huonekalukuljetus Tampere | MoveX Logistics',
+      fi: 'Huonekalukuljetus Tampere – sohva ja Tori-noudot alk. 50 € | MoveX',
       en: 'Furniture Transport in Tampere | MoveX Logistics',
     },
     description: {
-      fi: 'Huonekalukuljetus Tampereella: sohvat, sängyt, kodinkoneet ja Tori.fi-ostokset. Pakettiauto ja kuljettaja alkaen 50 €/h (sis. alv 25,5 %).',
+      fi: 'Sohvan, sängyn ja kodinkoneen kuljetus Tampereella. Myös Tori.fi- ja IKEA-noudot. Pakettiauto ja kuljettaja 50 €/h, sis. alv. Pyydä hinta WhatsAppilla.',
       en: 'Furniture transport in Tampere for sofas, beds, appliances and Tori.fi purchases. Van and driver from €50/hour, including Finnish VAT (25.5%).',
     },
     h1: { fi: 'Huonekalukuljetus Tampere', en: 'Furniture transport in Tampere' },
@@ -206,11 +206,11 @@ export const landingPages: LandingPage[] = [
     path: '/pieni-muutto-tampere',
     navLabel: { fi: 'Pieni muutto Tampere', en: 'Small move Tampere' },
     title: {
-      fi: 'Pieni muutto Tampere | MoveX Logistics',
+      fi: 'Pieni muutto Tampere – yksiö ja opiskelijamuutto alk. 50 € | MoveX',
       en: 'Small Move in Tampere | MoveX Logistics',
     },
     description: {
-      fi: 'Pieni muutto Tampereella: yksiö, opiskelijamuutto tai muutama huonekalu. Pakettiauto ja kuljettaja alkaen 50 €/h, alv sisältyy.',
+      fi: 'Pieni muutto Tampereella: yksiö, opiskelijamuutto ja muutama huonekalu. Pakettiauto ja kuljettaja 50 €/h sis. alv. Pyydä tarjous nopeasti WhatsAppilla.',
       en: 'Small moves in Tampere: studio flats, student moves and a few items. Van and driver from €50/hour, Finnish VAT included.',
     },
     h1: { fi: 'Pieni muutto Tampere', en: 'Small move in Tampere' },
