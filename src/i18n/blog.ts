@@ -427,19 +427,19 @@ export const blogArticles: BlogArticle[] = [
     published: true,
     category: { fi: 'Kuljetuspalvelu', en: 'Transport service' },
     title: {
-      fi: 'Pakettiauto kuljettajalla Tampereella: hinta ja käyttökohteet',
-      en: 'Van with driver in Tampere: price and when to use it',
+      fi: 'Muuttoauto Tampereella kuljettajalla | MoveX Logistics',
+      en: 'Van with driver in Tampere | MoveX Logistics',
     },
     excerpt: {
-      fi: 'Milloin kannattaa tilata pakettiauto kuljettajalla? Lue, mitä palveluun sisältyy, miten tuntihinta muodostuu ja mitä tietoja tarjouspyyntöön tarvitaan.',
-      en: 'When should you book a van with a driver? Learn what the service includes, how hourly pricing works and what to include in a quote request.',
+      fi: 'Tarvitsetko muuttoauton Tampereella? MoveXilta saat pakettiauton ja kuljettajan 50 €/h (sis. alv 25,5 %). Katso, mitä palveluun sisältyy ja miten pyydät tarjouksen.',
+      en: 'Need a van with a driver in Tampere? MoveX offers transport from €50/hour including Finnish VAT. See what is included and how to request a quote.',
     },
     readTime: { fi: '4 min lukuaika', en: '4 min read' },
     sections: {
       fi: [
-        { heading: 'Milloin pakettiauto kuljettajalla on hyvä vaihtoehto?', paragraphs: [
-          'Pakettiauto kuljettajalla sopii esimerkiksi huonekalun siirtoon, verkkokauppa- tai myymälänoudon kuljetukseen, laatikoihin ja pieneen muuttoon. Se on vaihtoehto silloin, kun tarvitset kuljetuksen mutta et välttämättä muuttomiehiä kantamiseen.',
-          'Palvelun sopivuus riippuu tavaran koosta, painosta, määrästä ja siitä, pystytkö itse auttamaan lastauksessa ja purussa. Kerro tavarat etukäteen, jotta kuljetus voidaan suunnitella oikein.'
+        { heading: 'Muuttoauto Tampereella – kuljettaja ja kuljetus samasta palvelusta', paragraphs: [
+          'MoveX Logisticsin muuttoauto Tampereella tarkoittaa ammattimaista pakettiautoa ja kuljettajaa. Palvelu sopii huonekalujen siirtoon, verkkokauppa- ja myymälänoutoihin, laatikoiden kuljetukseen sekä pieneen muuttoon. Saat kuljetuksen ilman, että sinun tarvitsee ajaa vuokra-autoa itse.',
+          'Palvelun sopivuus riippuu tavaran koosta, painosta, määrästä ja lastausolosuhteista. MoveX-pakettiauton käytettävissä oleva kuormatila on noin 13 m³ ja virallinen kantavuus 1 310 kg. Kerro suurimpien tavaroiden mitat ja paino etukäteen, jotta sopivuus voidaan varmistaa.'
         ]},
         { heading: 'Mitä MoveX Logisticsin palvelu maksaa?', paragraphs: [
           'Pakettiauto ja kuljettaja maksavat 50 €/h, alv 25,5 % sisältyy hintaan. Vähimmäisvaraus on yksi tunti ja sen jälkeen laskutus jatkuu 30 minuutin jaksoissa. Tämä on tuntihinta, ei automaattisesti koko työn kiinteä kokonaishinta.',
@@ -451,8 +451,8 @@ export const blogArticles: BlogArticle[] = [
         ]}
       ],
       en: [
-        { heading: 'When is a van with driver useful?', paragraphs: [
-          'A van with driver can suit furniture transport, store collection, boxes and small moves. It is useful when you need transport but may not need movers for carrying.',
+        { heading: 'Van with driver in Tampere – transport without self-drive rental', paragraphs: [
+          'MoveX Logistics provides a professional van and driver in Tampere. The service suits furniture transport, store pickups, boxes and small moves when you need transport without driving a rental van yourself.',
           'Suitability depends on the size, weight and amount of goods and whether you can help load and unload. Share item details before booking.'
         ]},
         { heading: 'How much does it cost?', paragraphs: [
