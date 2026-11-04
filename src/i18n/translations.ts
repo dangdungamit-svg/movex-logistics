@@ -32,7 +32,7 @@ export const EMAIL_BODY_EN =
 
 // Social media placeholders — replace with real profile URLs when available
 export const SOCIAL_LINKS = {
-  facebook: 'https://www.facebook.com/share/1JUDSHgtcJ/',
+  facebook: 'https://www.facebook.com/MoveXLogistics/',
   instagram: 'https://www.instagram.com/logisticsmovex/',
   tiktok: 'https://www.tiktok.com/@movex.logistics4',
 };
