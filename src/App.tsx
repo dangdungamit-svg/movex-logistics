@@ -28,11 +28,11 @@ const photoSizes =
 
 function setHomepageMetadata(lang: 'fi' | 'en') {
   const title = lang === 'fi'
-    ? 'Muuttopalvelu ja huonekalukuljetus Tampereella | MoveX Logistics'
-    : 'Moving & Transport in Tampere | MoveX Logistics';
+    ? 'Kuljetuspalvelu Tampere | Tavarakuljetus ja toimitus – MoveX Logistics'
+    : 'Transport & Delivery in Tampere | MoveX Logistics';
   const description = lang === 'fi'
-    ? 'Muuttopalvelu, huonekalukuljetus ja pakettiauto kuljettajalla Tampereella ja Pirkanmaalla. Hinnat alkaen 50 €/h, ALV 25,5 % sisältyy. Pyydä tarjous MoveX Logisticsilta.'
-    : 'Moving and transport services in Tampere and Pirkanmaa. Clear prices from €50/hour, including Finnish VAT (25.5%). Request a quote.';
+    ? 'Kuljetus- ja toimituspalvelut Tampereella ja Pirkanmaalla: tavarat, paketit, huonekalut, myymälänoudot, yrityskuljetukset ja sopivat lavakuljetukset. Pakettiauto + kuljettaja 50 €/h, sis. alv.'
+    : 'Transport and delivery in Tampere and Pirkanmaa for goods, parcels, furniture, store pickups, business cargo and suitable pallet loads. Van + driver from €50/hour incl. VAT.';
   document.title = title;
   const descTag = document.querySelector('meta[name="description"]');
   descTag?.setAttribute('content', description);
