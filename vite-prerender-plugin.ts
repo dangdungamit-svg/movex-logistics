@@ -197,9 +197,9 @@ const routes = [
   },
   {
     path: '/blog/pakettiauto-kuljettajalla-tampere',
-    title: 'Pakettiauto kuljettajalla Tampereella: hinta ja käyttökohteet | MoveX Logistics',
+    title: 'Muuttoauto Tampereella kuljettajalla | MoveX Logistics',
     description:
-      'Pakettiauto ja kuljettaja Tampereella alkaen 50 €/h (sis. alv 25,5 %). Katso palvelun käyttökohteet ja mitä tarjouspyyntöön tarvitaan.',
+      'Tarvitsetko muuttoauton Tampereella? MoveX tarjoaa pakettiauton ja kuljettajan 50 €/h (sis. alv 25,5 %). Katso palvelun sisältö ja pyydä tarjous.',
     canonical: `${origin}/blog/pakettiauto-kuljettajalla-tampere/`,
   },
 
