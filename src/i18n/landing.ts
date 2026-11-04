@@ -289,30 +289,31 @@ export const landingPages: LandingPage[] = [
     path: '/kuljetuspalvelu-tampere',
     navLabel: { fi: 'Kuljetuspalvelu Tampere', en: 'Transport service Tampere' },
     title: {
-      fi: 'Kuljetuspalvelu Tampere | MoveX Logistics',
-      en: 'Transport Service in Tampere | MoveX Logistics',
+      fi: 'Kuljetuspalvelu ja tavarakuljetus Tampere | MoveX Logistics',
+      en: 'Transport and Delivery Service in Tampere | MoveX Logistics',
     },
     description: {
-      fi: 'Kuljetuspalvelu Tampereella: huonekalut, kodinkoneet, verkkokauppa- ja Tori.fi-noudot sekä pienkuljetukset. Pakettiauto ja kuljettaja alkaen 50 €/h.',
-      en: 'Transport service in Tampere for furniture, appliances, store and Tori.fi pickups and small loads. Van and driver from €50/hour, VAT included.',
+      fi: 'Kuljetuspalvelu ja tavarakuljetus Tampereella: tavarat, paketit, huonekalut, myymälänoudot ja sopivat lavakuljetukset. Pakettiauto ja kuljettaja alkaen 50 €/h.',
+      en: 'Transport and delivery in Tampere for goods, parcels, furniture, store pickups and suitable pallet loads. Van and driver from €50/hour, VAT included.',
     },
-    h1: { fi: 'Kuljetuspalvelu Tampere', en: 'Transport service in Tampere' },
+    h1: { fi: 'Kuljetuspalvelu ja tavarakuljetus Tampere', en: 'Transport and delivery service in Tampere' },
     intro: {
-      fi: 'Tarvitsetko pakettiauton ja kuljettajan huonekalulle, kodinkoneelle, myymäläostokselle tai muulle tavaralle? MoveX Logistics hoitaa yksittäiset kuljetukset ja pienet tavaraerät Tampereella ja Pirkanmaalla.',
-      en: 'Need a van and driver for furniture, an appliance, a store purchase or another item? MoveX Logistics handles single-item deliveries and small loads in Tampere and Pirkanmaa.',
+      fi: 'MoveX Logistics tarjoaa monipuolisia kuljetus- ja toimituspalveluja Tampereella ja Pirkanmaalla. Kuljetamme huonekaluja, kodinkoneita, paketteja, laatikoita, yritysten tavaroita, myymäläostoksia ja sopivia lavakuormia. Saatavilla pakettiauto ja kuljettaja tai erikseen sovittava kantoapu.',
+      en: 'MoveX Logistics provides transport and delivery services in Tampere and Pirkanmaa. We transport furniture, appliances, parcels, boxes, business goods, store purchases and suitable pallet loads, with a van and driver and carrying help by arrangement.',
     },
     sections: {
       fi: [
         {
           heading: 'Mitä voimme kuljettaa?',
           paragraphs: [
-            'Kuljetamme esimerkiksi sohvia, sänkyjä, pöytiä, kodinkoneita, laatikoita, toimistotarvikkeita sekä Tori.fi- ja Facebook Marketplace -ostoksia. Kuljetuksen sopivuus riippuu esineen mitoista, painosta, lastausolosuhteista ja auton kantavuudesta.',
+            'Kuljetamme huonekaluja, kodinkoneita, paketteja, laatikoita, toimistotarvikkeita, yritysten tavaraeriä, myymäläostoksia sekä Tori.fi- ja Facebook Marketplace -hankintoja. Myös EUR- ja FIN-lavojen kuljetus voidaan sopia etukäteen, kun kuorman mitat, paino ja lastausolosuhteet sopivat kalustolle.',
+            'Pakettiauton tavaratilan tilavuus on noin 13 m³ ja suurin sallittu hyötykuorma 1 310 kg. Autossa ei ole perälautaa eikä trukkia. Lavakuormissa asiakkaan tulee järjestää sopiva lastaus ja purku, ellei muuta sovita.',
           ],
         },
         {
           heading: 'Kuljetuksen hinta',
           paragraphs: [
-            'Pakettiauto + kuljettaja alkaen 50 € / h. Hinnat sisältävät alv 25,5 %. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa.',
+            'Pakettiauto + kuljettaja alkaen 50 € / h. Hinnat sisältävät alv 25,5 %. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa. Yritysten tavarakuljetukset, lavakuormat ja pidemmät reitit hinnoitellaan työn tietojen perusteella tarjouksella.',
             'Kerro tarjouspyynnössä nouto- ja toimitusosoitteet, esineen mitat ja paino sekä se, tarvitsetko kantoapua. Näiden tietojen avulla voimme arvioida työn hinnan.',
           ],
         },
@@ -328,13 +329,14 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'What can we transport?',
           paragraphs: [
-            'Typical jobs include sofas, beds, tables, appliances, boxes, office supplies and purchases from Tori.fi or Facebook Marketplace. Suitability depends on the item dimensions, weight, loading conditions and the van’s payload limit.',
+            'We transport furniture, appliances, parcels, boxes, office supplies, business goods, store purchases and items bought through Tori.fi or Facebook Marketplace. EUR and FIN pallet transport can also be arranged in advance when the load dimensions, weight and loading conditions suit the vehicle.',
+            'The van offers approximately 13 m³ of cargo space and a maximum payload of 1,310 kg. It has no tail lift or forklift. For pallet loads, the customer must arrange suitable loading and unloading unless agreed otherwise.',
           ],
         },
         {
           heading: 'Transport price',
           paragraphs: [
-            'Van + driver from €50 / hour. Finnish VAT (25.5%) is included. The minimum booking is one hour, then billing continues in 30-minute steps.',
+            'Van + driver from €50 / hour. Finnish VAT (25.5%) is included. The minimum booking is one hour, then billing continues in 30-minute steps. Business goods, pallet loads and longer routes are quoted based on the job details.',
             'Include the pickup and delivery addresses, item dimensions and weight, and whether you need carrying help. This helps us estimate the job accurately.',
           ],
         },
@@ -353,6 +355,8 @@ export const landingPages: LandingPage[] = [
         { q: 'Voitteko kuljettaa sohvan tai pesukoneen?', a: 'Kyllä, jos esineen mitat ja paino sopivat ajoneuvoon. Kerro nouto- ja toimitusosoitteet, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.' },
         { q: 'Voitteko noutaa huonekalun Tori.fi-myyjältä?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, esineen koko sekä tarvitaanko kantamista molemmissa päissä.' },
         { q: 'Sisältääkö 50 €/h hinta arvonlisäveron?', a: 'Kyllä. Pakettiauto + kuljettaja maksaa alkaen 50 €/h, ja alv 25,5 % sisältyy ilmoitettuun hintaan.' },
+        { q: 'Voitteko kuljettaa yritysten tavaroita ja lavoja?', a: 'Kyllä. Sovimme yritysten tavara- ja lavakuljetuksista kuorman mittojen, painon, reitin ja lastausolosuhteiden perusteella. Pakettiauton enimmäishyötykuorma on 1 310 kg, eikä autossa ole perälautaa tai trukkia.' },
+        { q: 'Kuljetatteko paketteja ja myymäläostoksia?', a: 'Kyllä. Voimme noutaa ja toimittaa sopivia paketteja, huonekaluja, kodinkoneita ja myymäläostoksia Tampereella ja Pirkanmaalla.' },
         { q: 'Voitteko kuljettaa tavaroita Tampereen ulkopuolelle?', a: 'Kyllä. Pirkanmaan ulkopuolisista ja pidemmistä kuljetuksista annamme tarjouksen koko reitin ja työn tietojen perusteella.' },
       ],
       en: [
@@ -360,6 +364,8 @@ export const landingPages: LandingPage[] = [
         { q: 'Can you transport a sofa or washing machine?', a: 'Yes, if the item dimensions and weight fit the vehicle. Share the pickup and delivery addresses, floors, elevator access and whether carrying help is needed.' },
         { q: 'Can you collect furniture from a Tori.fi seller?', a: 'Yes. Share the pickup and delivery addresses, item size and whether carrying help is needed at either location.' },
         { q: 'Does the €50/hour price include VAT?', a: 'Yes. Van + driver starts at €50/hour, including Finnish VAT (25.5%).' },
+        { q: 'Can you transport business goods and pallets?', a: 'Yes. Business goods and pallet transport can be arranged based on load dimensions, weight, route and loading conditions. The van has a maximum payload of 1,310 kg and no tail lift or forklift.' },
+        { q: 'Do you deliver parcels and store purchases?', a: 'Yes. We can collect and deliver suitable parcels, furniture, appliances and store purchases in Tampere and Pirkanmaa.' },
         { q: 'Can you transport items outside Tampere?', a: 'Yes. We quote transport outside Pirkanmaa and longer routes based on the complete route and job details.' },
       ],
     },
