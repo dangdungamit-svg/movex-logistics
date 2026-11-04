@@ -499,6 +499,8 @@ export function getLandingPage(path: string) {
 }
 
 export function getLocalizedPath(path: string, lang: Lang) {
-  if (lang === 'en') return englishSlugs[path] ?? (path === '/' ? '/en/' : '/en' + path);
-  return path;
+  const localized = lang === 'en'
+    ? englishSlugs[path] ?? (path === '/' ? '/en/' : '/en' + path)
+    : path;
+  return localized === '/' ? '/' : `${localized.replace(/\/+$/, '')}/`;
 }

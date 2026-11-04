@@ -1,5 +1,5 @@
 import { Truck, Phone, Mail, Clock, Facebook, Instagram } from 'lucide-react';
-import { landingPages } from '@/i18n/landing';
+import { landingPages, getLocalizedPath } from '@/i18n/landing';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY, SOCIAL_LINKS } from '@/i18n/translations';
 
@@ -100,7 +100,7 @@ export default function Footer() {
               ))}
               {landingPages.map((page) => (
                 <li key={page.path}>
-                  <a href={page.path} className="transition-colors hover:text-white">
+                  <a href={getLocalizedPath(page.path, lang)} className="transition-colors hover:text-white">
                     {page.navLabel[lang]}
                   </a>
                 </li>
