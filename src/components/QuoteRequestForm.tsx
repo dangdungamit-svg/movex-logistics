@@ -78,7 +78,7 @@ export default function QuoteRequestForm() {
     const phone = get('phone');
     const email = get('email');
     if (requireDirect) {
-      if (get('name').length < 2 || (pref === 'hourly' && !get('package')) || !phone || !email || !get('pickup') || !get('delivery') || !get('date') || form.get('consent') !== 'on') {
+      if (get('name').length < 2 || (pref === 'hourly' && !get('package')) || (!phone && !email) || !get('pickup') || !get('delivery') || !get('date') || form.get('consent') !== 'on') {
         return q.errDirectRequired;
       }
     } else if (!phone && !email) {
