@@ -41,11 +41,11 @@ export const landingPages: LandingPage[] = [
     path: '/muuttopalvelu-tampere',
     navLabel: { fi: 'Muuttopalvelu Tampere', en: 'Moving service Tampere' },
     title: {
-      fi: 'Muuttopalvelu Tampere ja Pirkanmaa | MoveX Logistics',
+      fi: 'Muuttoauto kuljettajalla Tampereella | MoveX Logistics',
       en: 'Moving Service in Tampere & Pirkanmaa | MoveX Logistics',
     },
     description: {
-      fi: 'Muuttopalvelu Tampereella ja Pirkanmaalla: asunto- ja pienmuutot, pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Alk. 50 €/h sis. alv. Pyydä tarjous.',
+      fi: 'Tarvitsetko muuttoauton kuljettajalla Tampereella? MoveX tarjoaa pakettiauton ja kuljettajan 50 €/h (sis. ALV 25,5 %). Saatavilla myös kantoapu. Pyydä tarjous.',
       en: 'Moving service in Tampere and Pirkanmaa, Finland. Van and driver or 1–3 movers for local and long-distance moves. From €50/hour incl. VAT.',
     },
     h1: { fi: 'Muuttopalvelu Tampere', en: 'Moving service in Tampere' },
