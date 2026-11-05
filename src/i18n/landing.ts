@@ -206,11 +206,11 @@ export const landingPages: LandingPage[] = [
     path: '/pieni-muutto-tampere',
     navLabel: { fi: 'Pieni muutto Tampere', en: 'Small move Tampere' },
     title: {
-      fi: 'Pieni muutto Tampere – yksiö ja opiskelijamuutto alk. 50 € | MoveX',
+      fi: 'Pieni muutto Tampereella | Yksiö ja opiskelijamuutto – MoveX',
       en: 'Small Move in Tampere | MoveX Logistics',
     },
     description: {
-      fi: 'Pieni muutto Tampereella: yksiö, opiskelijamuutto ja muutama huonekalu. Pakettiauto ja kuljettaja 50 €/h sis. alv. Pyydä tarjous nopeasti WhatsAppilla.',
+      fi: 'Pieni muutto tai yksiön muutto Tampereella? Pakettiauto + kuljettaja 50 €/h (sis. ALV 25,5 %). Saatavilla myös kantoapu. Pyydä tarjous verkossa tai WhatsAppilla.',
       en: 'Small moves in Tampere: studio flats, student moves and a few items. Van and driver from €50/hour, Finnish VAT included.',
     },
     h1: { fi: 'Pieni muutto Tampere', en: 'Small move in Tampere' },
