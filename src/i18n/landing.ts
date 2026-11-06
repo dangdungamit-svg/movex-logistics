@@ -58,7 +58,7 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Muuttoapu Tampereella',
           paragraphs: [
-            'Muuttoapu Tampereella voi tarkoittaa pelkkää kuljetusta tai apua tavaroiden kantamiseen, lastaukseen ja purkuun. Valitse tarpeeseesi pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Kerro tarjouspyynnössä muuton tiedot, jotta saat sopivan hinnan tai tarjouksen.',
+            'Muuttoapu Tampereella voi tarkoittaa pelkkää kuljetusta tai apua tavaroiden kantamiseen, lastaukseen ja purkuun. Valitse tarpeeseesi pakettiauto ja kuljettaja tai 1–3 muuttomiestä. Jos etsit muuttoautoa kuljettajalla Tampereella tai pakettiautoa kuljettajalla Tampereella, tämä palvelu sopii kuljetukseen ilman omaa vuokra-autoa. Muuttomiehet Tampereella auttavat myös lastauksessa ja purussa. Kerro tarjouspyynnössä muuton tiedot, jotta saat sopivan hinnan tai tarjouksen.',
           ],
         },
         { heading: 'Muuttopalvelun hinnat', paragraphs: [...prices.fi, priceNote.fi] },
@@ -126,7 +126,7 @@ export const landingPages: LandingPage[] = [
       fi: [
         { heading: 'Muuttofirman palvelut', paragraphs: ['Asunto-, talo- ja pienyritysmuutot, huonekalu- ja esinekuljetukset, pakettiauto + kuljettaja sekä kaukokuljetus ympäri Suomea kiinteällä tarjouksella.'] },
         { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
-        { heading: 'Paikallinen muuttofirma Pirkanmaalla', paragraphs: ['Autamme muutossa Tampereen lisäksi Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Kerro nouto- ja toimitusosoitteet, tavaroiden määrä, kerrokset, hissi ja toivottu muuttopäivä. Tarjous voi olla tuntiperusteinen tai työn tietojen mukaan sovittu kiinteä hinta. Tampereelta muualle Suomeen tehtävät muutot hinnoitellaan koko reitin perusteella.'] },
+        { heading: 'Paikallinen muuttofirma Pirkanmaalla', paragraphs: ['Autamme muutossa Tampereen lisäksi Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Palvelemme siis myös asiakkaita, jotka etsivät muuttopalvelua Pirkkalasta, muuttopalvelua Nokialta, muuttopalvelua Ylöjärveltä, muuttopalvelua Lempäälästä tai muuttopalvelua Kangasalta. MoveX on paikallinen muuttofirma Pirkanmaalla. Kerro nouto- ja toimitusosoitteet, tavaroiden määrä, kerrokset, hissi ja toivottu muuttopäivä. Tarjous voi olla tuntiperusteinen tai työn tietojen mukaan sovittu kiinteä hinta. Tampereelta muualle Suomeen tehtävät muutot hinnoitellaan koko reitin perusteella.'] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
       ],
       en: [
@@ -170,7 +170,7 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Sohvan, sängyn ja kodinkoneen kuljetus Tampereella',
           paragraphs: [
-            'Tarjoamme sohvan kuljetusta, sängyn siirtoa ja pesukoneen tai muun kodinkoneen kuljetusta Tampereella. Voimme noutaa huonekalun esimerkiksi Tori.fi-myyjältä tai kaupasta ja toimittaa sen sovittuun osoitteeseen. Kerro etukäteen esineen mitat, paino, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.',
+            'Tarjoamme sohvan kuljetusta Tampereella, sängyn kuljetusta Tampereella sekä pesukoneen ja muun kodinkoneen kuljetusta Tampereella. Huonekalukuljetus sopii myös IKEA-kuljetukseen Tampereella, Tori.fi-noutopalveluun, huonekalujen noutoon kaupasta tai yksittäisen huonekalun kuljetukseen. Voimme siirtää esimerkiksi sohvan, pöydän tai sängyn sovittuun osoitteeseen. Kerro etukäteen esineen mitat, paino, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.',
           ],
         },
         { heading: 'Huonekalukuljetuksen hinta', paragraphs: ['Pakettiauto + kuljettaja alkaen 50 € / h.', priceNote.fi] },
@@ -223,7 +223,7 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Milloin pieni muuttoapu sopii?',
           paragraphs: [
-            'Pieni muutto voi olla yksiön tai opiskelija-asunnon muutto, muutaman huonekalun siirto, laatikoiden kuljetus tai tavaroiden siirtäminen varastoon. Kerro tavaroiden määrä ja suurimmat esineet, jotta voimme arvioida sopivan ajoneuvon ja tarvittavan kantoavun.',
+            'Pieni muutto Tampereella voi olla yksiön muutto, opiskelijamuutto, pienen asunnon muutto tai osamuutto, jossa siirretään vain osa kodin tavaroista. MoveX kuljettaa myös muuttolaatikoita ja muutamia huonekaluja, kun tavaroiden mitat ja paino sopivat pakettiautoon. Kerro tavaroiden määrä ja suurimmat esineet, jotta voimme arvioida sopivan ajoneuvon ja tarvittavan kantoavun.',
           ],
         },
         {
@@ -306,7 +306,7 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Mitä voimme kuljettaa?',
           paragraphs: [
-            'Tarjoamme pakettiautokuljetusta Tampereella huonekaluille, kodinkoneille, paketeille, laatikoille, toimistotarvikkeille, yritysten tavaraerille, myymäläostoksille sekä Tori.fi- ja Facebook Marketplace -hankinnoille. Myös EUR- ja FIN-lavojen kuljetus voidaan sopia etukäteen, kun kuorman mitat, paino ja lastausolosuhteet sopivat kalustolle.',
+            'Tarjoamme tavarakuljetusta Tampereella ja kuljetuspalvelua Pirkanmaalla huonekaluille, kodinkoneille, laatikoille, toimistotarvikkeille, yritysten tavaraerille, myymäläostoksille sekä Tori.fi- ja Facebook Marketplace -hankinnoille. Palveluun kuuluu myös tavaran kuljetus Tampereella, noutopalvelu ja kauppanouto sovitusta liikkeestä. EUR- ja FIN-lavojen lavakuljetus voidaan sopia etukäteen, kun kuorman mitat, paino ja lastausolosuhteet sopivat kalustolle.',
             'Pakettiauton tavaratilan tilavuus on noin 13 m³ ja suurin sallittu hyötykuorma 1 310 kg. Autossa ei ole perälautaa eikä trukkia. Lavakuormissa asiakkaan tulee järjestää sopiva lastaus ja purku, ellei muuta sovita.',
           ],
         },
