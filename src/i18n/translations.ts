@@ -59,7 +59,7 @@ export const translations = {
       subtitle:
         'Ammattimaiset muutto- ja kuljetuspalvelut Tampereella ja koko Suomessa.',
       supporting:
-        'Selkeät hinnat, huolellinen käsittely ja suora yhteydenotto.',
+        'Selkeät hinnat, huolellinen käsittely ja kuljetuskalusto työn tarpeiden mukaan.',
       priceLabel: 'ALKAEN',
       price: '50 €',
       priceUnit: '/ tunti',
@@ -77,7 +77,7 @@ export const translations = {
     },
     pricing: {
       title: 'Selkeät hinnat',
-      subtitle: 'Kaikki hinnat sisältävät alv 25,5 %',
+      subtitle: 'Kaikki hinnat sisältävät alv 25,5 %. Suurempi kuljetuskalusto järjestetään tarjouksella työn tarpeen mukaan.',
       cards: [
         { name: 'Pakettiauto + kuljettaja', price: '50 €', unit: '/ h' },
         { name: '1 muuttomies + auto', price: '75 €', unit: '/ h' },
@@ -354,7 +354,7 @@ export const translations = {
       subtitle:
         'Professional moving and transport services in Tampere and across Finland.',
       supporting:
-        'Clear prices, careful handling and direct communication.',
+        'Clear prices, careful handling and transport vehicles arranged to suit each job.',
       priceLabel: 'FROM',
       price: '€50',
       priceUnit: '/ hour',
@@ -372,7 +372,7 @@ export const translations = {
     },
     pricing: {
       title: 'Clear Prices',
-      subtitle: 'All prices include Finnish VAT (25.5%).',
+      subtitle: 'All prices include Finnish VAT (25.5%). Larger vehicles can be arranged by quotation to suit the job.',
       cards: [
         { name: 'Van + Driver', price: '€50', unit: '/ h' },
         { name: '1 Mover + Van', price: '€75', unit: '/ h' },
