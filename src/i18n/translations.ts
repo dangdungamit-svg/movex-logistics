@@ -67,7 +67,7 @@ export const translations = {
       minNote: 'Vähimmäisvaraus 1 tunti',
       incrementNote: 'Ensimmäisen tunnin jälkeen laskutus 30 min välein',
       serviceLabel: 'PAKETTIAUTO + KULJETTAJA',
-      serviceDesc: 'Ammattimainen kuljettaja ja pakettiauto',
+      serviceDesc: 'Kuljetukseen sopiva ajoneuvo ja ammattimainen kuljettaja',
       equipment: 'Ammattimainen muutto- ja kiinnityskalusto',
       ctaQuote: 'Pyydä tarjous',
       ctaWhatsApp: 'WhatsApp',
@@ -103,7 +103,7 @@ export const translations = {
       relatedTitle: 'Tutustu myös',
       items: [
         { title: 'Muuttopalvelut', desc: 'Asunto-, talo- ja pienyritysmuutot.' },
-        { title: 'Pakettiauto + kuljettaja', desc: 'Ammattimainen kuljettaja ja pakettiauto asiakkaille, jotka tarvitsevat pääasiassa kuljetusta.' },
+        { title: 'Kuljetuskalusto + kuljettaja', desc: 'Työhön sopiva kuljetuskalusto ja ammattimainen kuljettaja. Ajoneuvo valitaan kuorman ja työn tarpeiden mukaan.' },
         { title: 'Muuttomiehet + auto', desc: 'Ammattimainen kantaminen, lastaus, kiinnitys, kuljetus ja purku.' },
         { title: 'Huonekalu- ja esinekuljetus', desc: 'Huonekalut, kodinkoneet, Tori.fi-ostokset, kauppanoudot ja muut suuret esineet.' },
         { title: 'Pienkuljetukset', desc: 'Pienemmät muutot ja yksittäiset kuljetustehtävät.' },
@@ -398,7 +398,7 @@ export const translations = {
       relatedTitle: 'Explore related services',
       items: [
         { title: 'Moving Services', desc: 'Apartment, house and small business moves.' },
-        { title: 'Van + Driver', desc: 'A professional transport vehicle and driver for customers who mainly need transport.' },
+        { title: 'Transport vehicle + driver', desc: 'A suitable transport vehicle and professional driver, selected according to the load and job requirements.' },
         { title: 'Movers + Van', desc: 'Professional carrying, loading, securing, transport and unloading.' },
         { title: 'Furniture & Item Transport', desc: 'Furniture, appliances, Marketplace purchases, store pickups and other large items.' },
         { title: 'Small Removals', desc: 'Smaller moves and individual transport jobs.' },
