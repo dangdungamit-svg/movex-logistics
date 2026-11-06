@@ -275,7 +275,7 @@ export const landingPages: LandingPage[] = [
         { q: 'Paljonko pieni muutto Tampereella maksaa?', a: 'Pakettiauto ja kuljettaja maksavat 50 €/h ja 1 muuttomies sekä auto 75 €/h. Hinnat sisältävät alv 25,5 %. Lopullinen hinta riippuu reitistä, tavaroista ja kantoavusta.' },
         { q: 'Mistä muuttoavun hinta muodostuu?', a: 'Hintaan vaikuttavat nouto- ja toimitusosoitteet, ajomatka, tavaroiden määrä ja koko, kerrokset, hissi sekä tarvittavien muuttomiesten määrä. Kerro nämä tiedot tarjouspyynnössä.' },
         { q: 'Autatteko opiskelijamuutoissa ja yksiöissä?', a: 'Kyllä. Voimme auttaa pienissä asuntomuuttoissa, yksiön muutoissa ja opiskelijamuutoissa Tampereella sekä lähikunnissa.' },
-        { q: 'Voinko kuljettaa vain muutaman huonekalun tai laatikon?', a: 'Kyllä. Pieni kuljetus tai muutama huonekalu voi sopia pakettiauto + kuljettaja -palveluun, jos esineiden mitat ja paino sopivat autoon.' },
+        { q: 'Voinko kuljettaa vain muutaman huonekalun tai laatikon?', a: 'Kyllä. Kerro kuljetettavien tavaroiden mitat, paino ja määrä. Valitsemme työn mukaan sopivan ajoneuvon ja järjestämme tarvittaessa suuremman kuljetuskaluston.' },
         { q: 'Pitääkö minun kantaa tavarat itse?', a: 'Voit valita pelkän pakettiauton ja kuljettajan tai lisätä 1–3 muuttomiestä kantamiseen, lastaukseen ja purkuun.' },
       ],
       en: [
@@ -358,7 +358,7 @@ export const landingPages: LandingPage[] = [
         { q: 'Voitteko noutaa huonekalun Tori.fi-myyjältä?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, esineen koko sekä tarvitaanko kantamista molemmissa päissä.' },
         { q: 'Sisältääkö 50 €/h hinta arvonlisäveron?', a: 'Kyllä. Kuljetuspalvelun hinta alkaa 50 €/h, ja alv 25,5 % sisältyy ilmoitettuun hintaan. Ajoneuvo valitaan työn tarpeiden mukaan.' },
         { q: 'Onko saatavilla edullista kuljetuspalvelua Tampereella?', a: 'Kyllä. Pienelle kuormalle tai yksittäiselle huonekalulle pakettiauto ja kuljettaja alkaen 50 €/h voi olla sopiva vaihtoehto. Kerro tavaran koko, paino ja nouto- sekä toimitusosoitteet, jotta voimme arvioida kuljetuksen hinnan etukäteen.' },
-        { q: 'Voitteko kuljettaa yritysten tavaroita ja lavoja?', a: 'Kyllä. Sovimme yritysten tavara- ja lavakuljetuksista kuorman ja reitin perusteella. Lastaus ja purku järjestetään asiakkaan tai kohteen käytettävissä olevalla trukilla tai muulla etukäteen sovitulla tavalla.' },
+        { q: 'Voitteko kuljettaa yritysten tavaroita ja lavoja?', a: 'Kyllä. Sovimme yritysten tavara- ja lavakuljetuksista kuorman ja reitin perusteella. MoveX järjestää tarvittavan kuljetuskaluston sekä lastaus- ja purkuratkaisut, kuten trukin tai muun apuvälineen, työn tarpeiden mukaan.' },
         { q: 'Kuljetatteko paketteja ja myymäläostoksia?', a: 'Kyllä. Voimme noutaa ja toimittaa sopivia paketteja, huonekaluja, kodinkoneita ja myymäläostoksia Tampereella ja Pirkanmaalla.' },
         { q: 'Voitteko kuljettaa tavaroita Tampereen ulkopuolelle?', a: 'Kyllä. Pirkanmaan ulkopuolisista ja pidemmistä kuljetuksista annamme tarjouksen koko reitin ja työn tietojen perusteella.' },
       ],
