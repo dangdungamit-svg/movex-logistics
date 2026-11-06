@@ -439,7 +439,7 @@ export const blogArticles: BlogArticle[] = [
       fi: [
         { heading: 'Muuttoauto Tampereella – kuljettaja ja kuljetus samasta palvelusta', paragraphs: [
           'MoveX Logisticsin muuttoauto Tampereella tarkoittaa ammattimaista pakettiautoa ja kuljettajaa. Palvelu sopii huonekalujen siirtoon, verkkokauppa- ja myymälänoutoihin, laatikoiden kuljetukseen sekä pieneen muuttoon. Saat kuljetuksen ilman, että sinun tarvitsee ajaa vuokra-autoa itse.',
-          'Palvelun sopivuus riippuu tavaran koosta, painosta, määrästä ja lastausolosuhteista. MoveX-pakettiauton käytettävissä oleva kuormatila on noin 13 m³ ja virallinen kantavuus 1 310 kg. Kerro suurimpien tavaroiden mitat ja paino etukäteen, jotta sopivuus voidaan varmistaa.'
+          'Kuljetuskalusto valitaan työn ja kuorman tarpeiden mukaan. Tarvittaessa järjestämme myös suuremman vuokrakaluston. Kerro suurimpien tavaroiden mitat ja paino etukäteen, jotta voimme valita sopivan kuljetusratkaisun.'
         ]},
         { heading: 'Mitä MoveX Logisticsin palvelu maksaa?', paragraphs: [
           'Pakettiauto ja kuljettaja maksavat 50 €/h, alv 25,5 % sisältyy hintaan. Vähimmäisvaraus on yksi tunti ja sen jälkeen laskutus jatkuu 30 minuutin jaksoissa. Tämä on tuntihinta, ei automaattisesti koko työn kiinteä kokonaishinta.',
