@@ -176,7 +176,7 @@ export default function QuoteRequestForm() {
         {pref === 'hourly' && (
           <label className={`${labelClass} sm:col-span-2`}>
             {q.package}
-            <select className={fieldClass} name="package" defaultValue="">
+            <select className={fieldClass} name="package" defaultValue="" required={pref === 'hourly'}>
               <option value="" disabled>{q.choosePackage}</option>
               {packages.map((p) => <option key={p.value} value={p.value}>{p[lang]}</option>)}
             </select>
@@ -184,7 +184,7 @@ export default function QuoteRequestForm() {
         )}
         <label className={labelClass}>
           {q.name}
-          <input className={fieldClass} name="name" autoComplete="name" maxLength={120} />
+          <input className={fieldClass} name="name" autoComplete="name" maxLength={120} required />
         </label>
         <div className="grid gap-5 sm:col-span-2 sm:grid-cols-2">
           <label className={labelClass}>
@@ -199,15 +199,15 @@ export default function QuoteRequestForm() {
         </div>
         <label className={labelClass}>
           {q.pickup}
-          <input className={fieldClass} name="pickup" autoComplete="street-address" maxLength={300} />
+          <input className={fieldClass} name="pickup" autoComplete="street-address" maxLength={300} required />
         </label>
         <label className={labelClass}>
           {q.delivery}
-          <input className={fieldClass} name="delivery" maxLength={300} />
+          <input className={fieldClass} name="delivery" maxLength={300} required />
         </label>
         <label className={labelClass}>
           {q.date}
-          <input className={fieldClass} name="date" type="date" />
+          <input className={fieldClass} name="date" type="date" required />
         </label>
         <label className={labelClass}>
           {q.help}
@@ -248,7 +248,7 @@ export default function QuoteRequestForm() {
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
         <label className="flex items-start gap-3 text-sm leading-relaxed text-slate-600 sm:col-span-2">
-          <input className="mt-1 h-4 w-4 shrink-0 accent-brand-500" name="consent" type="checkbox" />
+          <input className="mt-1 h-4 w-4 shrink-0 accent-brand-500" name="consent" type="checkbox" required />
           <span>{q.consent}</span>
         </label>
         {error && (
