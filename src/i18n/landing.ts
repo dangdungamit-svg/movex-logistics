@@ -225,7 +225,7 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Milloin pieni muuttoapu sopii?',
           paragraphs: [
-            'Pieni muutto Tampereella voi olla yksiön muutto, opiskelijamuutto, pienen asunnon muutto tai osamuutto, jossa siirretään vain osa kodin tavaroista. MoveX kuljettaa myös muuttolaatikoita ja muutamia huonekaluja, kun tavaroiden mitat ja paino sopivat pakettiautoon. Kerro tavaroiden määrä ja suurimmat esineet, jotta voimme arvioida sopivan ajoneuvon ja tarvittavan kantoavun.',
+            'Pieni muutto Tampereella voi olla yksiön muutto, opiskelijamuutto, pienen asunnon muutto tai osamuutto, jossa siirretään vain osa kodin tavaroista. MoveX kuljettaa myös muuttolaatikoita ja muutamia huonekaluja. Kerro tavaroiden määrä ja suurimmat esineet, jotta voimme järjestää työhön sopivan kuljetuskaluston ja tarvittavan kantoavun.',
           ],
         },
         {
@@ -282,7 +282,7 @@ export const landingPages: LandingPage[] = [
         { q: 'How much does a small move in Tampere cost?', a: 'Van and driver cost €50/hour, and one mover with a van costs €75/hour. Finnish VAT (25.5%) is included. The final price depends on the route, items and carrying needs.' },
         { q: 'What affects the price of moving help?', a: 'The price depends on pickup and delivery addresses, driving distance, the amount and size of items, floors, elevator access and the number of movers needed. Include these details in your quote request.' },
         { q: 'Do you help with student and studio moves?', a: 'Yes. We help with small home moves, studio flat moves and student moves in Tampere and nearby municipalities.' },
-        { q: 'Can you move just a few pieces of furniture or boxes?', a: 'Yes. A small transport job or a few items may suit our van-and-driver service if the dimensions and weight fit the vehicle.' },
+        { q: 'Can you move just a few pieces of furniture or boxes?', a: 'Yes. We assess the job details and arrange a suitable transport solution for a small load or a few items.' },
         { q: 'Do I have to carry everything myself?', a: 'Choose van + driver only, or add 1–3 movers for carrying, loading and unloading.' },
       ],
     },
@@ -308,8 +308,8 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Mitä voimme kuljettaa?',
           paragraphs: [
-            'Tarjoamme tavarakuljetusta Tampereella ja kuljetuspalvelua Pirkanmaalla huonekaluille, kodinkoneille, laatikoille, toimistotarvikkeille, yritysten tavaraerille, myymäläostoksille sekä Tori.fi- ja Facebook Marketplace -hankinnoille. Palveluun kuuluu myös tavaran kuljetus Tampereella, noutopalvelu ja kauppanouto sovitusta liikkeestä. EUR- ja FIN-lavojen lavakuljetus voidaan sopia etukäteen, kun kuorman mitat, paino ja lastausolosuhteet sopivat kalustolle.',
-            'Pakettiauton tavaratilan tilavuus on noin 13 m³ ja suurin sallittu hyötykuorma 1 310 kg. Autossa ei ole perälautaa eikä trukkia. Lavakuormissa asiakkaan tulee järjestää sopiva lastaus ja purku, ellei muuta sovita.',
+            'Tarjoamme tavarakuljetusta Tampereella ja kuljetuspalvelua Pirkanmaalla huonekaluille, kodinkoneille, laatikoille, toimistotarvikkeille, yritysten tavaraerille, myymäläostoksille sekä Tori.fi- ja Facebook Marketplace -hankinnoille. Palveluun kuuluu myös tavaran kuljetus Tampereella, noutopalvelu ja kauppanouto sovitusta liikkeestä. EUR- ja FIN-lavojen kuljetukset sovitaan etukäteen. Lastaus ja purku järjestetään asiakkaan tai kohteen käytettävissä olevalla trukilla tai muulla erikseen sovitulla tavalla.',
+            'Kuljetuskalusto valitaan kuorman ja työn tarpeiden mukaan. Tarvittaessa järjestämme myös suuremman vuokrakaluston. EUR- ja FIN-lavojen lastaus ja purku sovitaan etukäteen asiakkaan tai kohteen käytettävissä olevan trukin tai muun lastauskaluston mukaan.',
           ],
         },
         {
@@ -331,8 +331,8 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'What can we transport?',
           paragraphs: [
-            'We transport furniture, appliances, parcels, boxes, office supplies, business goods, store purchases and items bought through Tori.fi or Facebook Marketplace. EUR and FIN pallet transport can also be arranged in advance when the load dimensions, weight and loading conditions suit the vehicle.',
-            'The van offers approximately 13 m³ of cargo space and a maximum payload of 1,310 kg. It has no tail lift or forklift. For pallet loads, the customer must arrange suitable loading and unloading unless agreed otherwise.',
+            'We transport furniture, appliances, parcels, boxes, office supplies, business goods, store purchases and items bought through Tori.fi or Facebook Marketplace. EUR and FIN pallet transport can also be arranged in advance.',
+            'The transport vehicle is selected according to the load and job requirements. Larger rental vehicles can also be arranged when needed. For EUR and FIN pallets, loading and unloading are agreed in advance using the forklift or other loading equipment available at the pickup and delivery locations.',
           ],
         },
         {
@@ -354,21 +354,21 @@ export const landingPages: LandingPage[] = [
     faq: {
       fi: [
         { q: 'Onko saatavilla muuttoauto kuljettajalla Tampereella?', a: 'Kyllä. Pakettiauto ja kuljettaja maksavat alkaen 50 €/h, alv 25,5 % sisältyy. Vähimmäisvaraus on yksi tunti.' },
-        { q: 'Voitteko kuljettaa sohvan tai pesukoneen?', a: 'Kyllä, jos esineen mitat ja paino sopivat ajoneuvoon. Kerro nouto- ja toimitusosoitteet, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.' },
+        { q: 'Voitteko kuljettaa sohvan tai pesukoneen?', a: 'Kyllä. Järjestämme kuljetukseen sopivan kaluston tavaran tietojen perusteella. Kerro nouto- ja toimitusosoitteet, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.' },
         { q: 'Voitteko noutaa huonekalun Tori.fi-myyjältä?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, esineen koko sekä tarvitaanko kantamista molemmissa päissä.' },
         { q: 'Sisältääkö 50 €/h hinta arvonlisäveron?', a: 'Kyllä. Pakettiauto + kuljettaja maksaa alkaen 50 €/h, ja alv 25,5 % sisältyy ilmoitettuun hintaan.' },
         { q: 'Onko saatavilla edullista kuljetuspalvelua Tampereella?', a: 'Kyllä. Pienelle kuormalle tai yksittäiselle huonekalulle pakettiauto ja kuljettaja alkaen 50 €/h voi olla sopiva vaihtoehto. Kerro tavaran koko, paino ja nouto- sekä toimitusosoitteet, jotta voimme arvioida kuljetuksen hinnan etukäteen.' },
-        { q: 'Voitteko kuljettaa yritysten tavaroita ja lavoja?', a: 'Kyllä. Sovimme yritysten tavara- ja lavakuljetuksista kuorman mittojen, painon, reitin ja lastausolosuhteiden perusteella. Pakettiauton enimmäishyötykuorma on 1 310 kg, eikä autossa ole perälautaa tai trukkia.' },
+        { q: 'Voitteko kuljettaa yritysten tavaroita ja lavoja?', a: 'Kyllä. Sovimme yritysten tavara- ja lavakuljetuksista kuorman ja reitin perusteella. Lastaus ja purku järjestetään asiakkaan tai kohteen käytettävissä olevalla trukilla tai muulla etukäteen sovitulla tavalla.' },
         { q: 'Kuljetatteko paketteja ja myymäläostoksia?', a: 'Kyllä. Voimme noutaa ja toimittaa sopivia paketteja, huonekaluja, kodinkoneita ja myymäläostoksia Tampereella ja Pirkanmaalla.' },
         { q: 'Voitteko kuljettaa tavaroita Tampereen ulkopuolelle?', a: 'Kyllä. Pirkanmaan ulkopuolisista ja pidemmistä kuljetuksista annamme tarjouksen koko reitin ja työn tietojen perusteella.' },
       ],
       en: [
         { q: 'Do you offer a van with a driver in Tampere?', a: 'Yes. A van and driver cost from €50/hour, including Finnish VAT (25.5%). The minimum booking is one hour.' },
-        { q: 'Can you transport a sofa or washing machine?', a: 'Yes, if the item dimensions and weight fit the vehicle. Share the pickup and delivery addresses, floors, elevator access and whether carrying help is needed.' },
+        { q: 'Can you transport a sofa or washing machine?', a: 'Yes. We arrange suitable transport equipment based on the item details. Share the pickup and delivery addresses, floors, elevator access and whether carrying help is needed.' },
         { q: 'Can you collect furniture from a Tori.fi seller?', a: 'Yes. Share the pickup and delivery addresses, item size and whether carrying help is needed at either location.' },
         { q: 'Does the €50/hour price include VAT?', a: 'Yes. Van + driver starts at €50/hour, including Finnish VAT (25.5%).' },
         { q: 'Do you offer affordable transport in Tampere?', a: 'Yes. For a small load or a single piece of furniture, a van and driver from €50/hour may be a suitable option. Share the item size, weight, pickup and delivery addresses so we can estimate the price in advance.' },
-        { q: 'Can you transport business goods and pallets?', a: 'Yes. Business goods and pallet transport can be arranged based on load dimensions, weight, route and loading conditions. The van has a maximum payload of 1,310 kg and no tail lift or forklift.' },
+        { q: 'Can you transport business goods and pallets?', a: 'Yes. Business goods and pallet transport can be arranged based on the load and route. Loading and unloading are agreed in advance using a forklift or other suitable equipment available at the pickup and delivery locations.' },
         { q: 'Do you deliver parcels and store purchases?', a: 'Yes. We can collect and deliver suitable parcels, furniture, appliances and store purchases in Tampere and Pirkanmaa.' },
         { q: 'Can you transport items outside Tampere?', a: 'Yes. We quote transport outside Pirkanmaa and longer routes based on the complete route and job details.' },
       ],
