@@ -260,7 +260,7 @@ export const blogArticles: BlogArticle[] = [
         {
           heading: 'Mitä muuttoapu Tampereella maksaa?',
           paragraphs: [
-            'MoveX Logisticsin ilmoitetut tuntihinnat sisältävät alv 25,5 %. Pakettiauto + kuljettaja maksaa 50 €/h, 1 muuttomies ja auto 75 €/h, 2 muuttomiestä ja auto 100 €/h sekä 3 muuttomiestä ja auto 125 €/h. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa.',
+            'MoveX Logisticsin ilmoitetut tuntihinnat sisältävät alv 25,5 %. Peruskuljetuspalvelu alkaa 50 €/h, 1 muuttomies ja kuljetuskalusto 75 €/h, 2 muuttomiestä ja kuljetuskalusto 100 €/h sekä 3 muuttomiestä ja kuljetuskalusto 125 €/h. Työhön sopiva ajoneuvo ja mahdolliset lastausratkaisut järjestetään kuorman mukaan. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa.',
             'Pakettiauto + kuljettaja sopii tilanteeseen, jossa tarvitset pääasiassa kuljetuksen ja pystyt järjestämään kantamisen itse. Jos tarvitset apua portaissa, lastauksessa tai purkamisessa, valitse mukaan muuttomiehiä. Hinnat ovat tuntihintoja, eivät automaattisesti koko muuton kiinteitä kokonaishintoja.',
           ],
         },
@@ -296,7 +296,7 @@ export const blogArticles: BlogArticle[] = [
         {
           heading: 'How much does moving help in Tampere cost?',
           paragraphs: [
-            'MoveX Logistics hourly prices include Finnish VAT (25.5%). Van + driver costs €50/hour, one mover with a van €75/hour, two movers with a van €100/hour, and three movers with a van €125/hour. The minimum booking is one hour, followed by billing in 30-minute increments.',
+            'MoveX Logistics hourly prices include Finnish VAT (25.5%). Basic transport service starts at €50/hour, one mover with transport vehicle at €75/hour, two movers with transport vehicle at €100/hour, and three movers with transport vehicle at €125/hour. The vehicle and any loading equipment are arranged according to the job requirements. The minimum booking is one hour, followed by billing in 30-minute increments.',
             'Van + driver is suitable when you mainly need transport and can arrange carrying yourself. Add movers if you need help with stairs, loading or unloading. These are hourly rates, not automatically fixed total prices for an entire move.',
           ],
         },
