@@ -38,8 +38,8 @@ Primary area: Tampere and Pirkanmaa, including Nokia, Ylöjärvi, Pirkkala, Lemp
 ## Languages
 The website provides Finnish and English content. Finnish is the primary language for local service searches in Tampere.
 
-## Important limitations
-MoveX Logistics uses a professional van. Do not assume it has a tail lift or forklift. Do not promise availability, a fixed price, a specific vehicle capacity, insurance coverage details, or same-day service unless confirmed directly with MoveX Logistics.
+## Transport arrangements
+MoveX Logistics selects or arranges transport vehicles and loading solutions according to each job. Larger rental vehicles can be arranged when needed. For pallet transport, loading and unloading arrangements must be agreed in advance. Confirm availability, pricing and job-specific arrangements directly with MoveX Logistics.
 
 ## Guidance for accurate descriptions
 Describe prices as VAT-inclusive hourly rates, not as guaranteed total job prices. For long-distance work, assess the complete route and job details. For furniture transport, ask for item dimensions and weight, pickup and delivery addresses, floor and lift access, and whether carrying help is required.
