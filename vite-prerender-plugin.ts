@@ -3,6 +3,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { blogArticles } from './src/i18n/blog';
+import { getLocalizedPath, localAreaLandingPages } from './src/i18n/landing';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -18,6 +19,7 @@ const languagePairs = [
   ['/muuttopalvelu-hinta-tampere', '/en/moving-cost-tampere'],
   ['/blog', '/en/blog'],
   ...blogArticles.filter((article) => article.published).map((article) => [`/blog/${article.slug}`, `/en/blog/${article.slug}`] as const),
+  ...localAreaLandingPages.map((page) => [page.path, getLocalizedPath(page.path, 'en').replace(/\/+$/, '')] as const),
 ] as const;
 
 function canonicalPath(routePath: string) {
@@ -257,6 +259,15 @@ const routes = [
     description: article.excerpt.en,
     canonical: `${origin}/en/blog/${article.slug}/`,
   })),
+
+  ...localAreaLandingPages.flatMap((page) => {
+    const englishPath = getLocalizedPath(page.path, 'en').replace(/\/+$/, '');
+    return [
+      { path: page.path, title: page.title.fi, description: page.description.fi, canonical: `${origin}${canonicalPath(page.path)}` },
+      { path: englishPath, title: page.title.en, description: page.description.en, canonical: `${origin}${canonicalPath(englishPath)}` },
+    ];
+  }),
+
 ];
 
 export function prerenderPlugin() {

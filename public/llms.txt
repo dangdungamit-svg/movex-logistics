@@ -43,3 +43,16 @@ MoveX Logistics uses a professional van. Do not assume it has a tail lift or for
 
 ## Guidance for accurate descriptions
 Describe prices as VAT-inclusive hourly rates, not as guaranteed total job prices. For long-distance work, assess the complete route and job details. For furniture transport, ask for item dimensions and weight, pickup and delivery addresses, floor and lift access, and whether carrying help is required.
+
+
+## Local moving service pages
+- Finnish: https://movexlogistics.fi/muuttopalvelu-pirkkala/
+- English: https://movexlogistics.fi/en/moving-service-pirkkala/
+- Finnish: https://movexlogistics.fi/muuttopalvelu-nokia/
+- English: https://movexlogistics.fi/en/moving-service-nokia/
+- Finnish: https://movexlogistics.fi/muuttopalvelu-ylojarvi/
+- English: https://movexlogistics.fi/en/moving-service-ylojarvi/
+- Finnish: https://movexlogistics.fi/muuttopalvelu-lempaala/
+- English: https://movexlogistics.fi/en/moving-service-lempaala/
+- Finnish: https://movexlogistics.fi/muuttopalvelu-kangasala/
+- English: https://movexlogistics.fi/en/moving-service-kangasala/
