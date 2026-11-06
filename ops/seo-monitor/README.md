@@ -40,10 +40,37 @@ A successful response contains current and previous 28-day keyword metrics. Then
 
 ## Keywords monitored
 
+The Worker tracks 30 Finnish and English local-intent phrases:
+
+- muuttopalvelu tampere
 - muuttopalvelut tampere
-- huonekalukuljetus tampere
 - muuttofirma tampere
+- muuttoapu tampere
+- muutto tampere
+- muuttopalvelun hinta tampere
+- muuttofirma hinta tampere
+- edullinen muuttopalvelu tampere
+- halpa muutto tampere
+- edullinen muutto tampere
+- muuttoapu hinta tampere
+- pieni muutto tampere
+- opiskelijamuutto tampere
+- pakettiauto kuljettajalla tampere
+- paku ja kuski tampere
+- kuljetuspalvelu tampere
+- edullinen kuljetuspalvelu tampere
+- tavarakuljetus tampere
+- huonekalukuljetus tampere
+- sohvan kuljetus tampere
+- muuttomiehet tampere
+- muuttofirma lähelläni
+- muuttopalvelu lähelläni
 - moving company tampere
+- moving company near me
+- moving service tampere
+- affordable moving service tampere
+- cheap movers tampere
+- moving cost tampere
 - furniture transport tampere
 
 The script searches query rows returned by Search Console and matches these phrases case-insensitively. Low-volume phrases may not appear in the API response, in which case their metrics are zero/null. Search Console may omit anonymized or low-volume queries.
