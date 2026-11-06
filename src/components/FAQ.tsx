@@ -4,7 +4,7 @@ import { useLanguage } from '@/i18n/LanguageContext';
 
 export default function FAQ() {
   const { t } = useLanguage();
-  const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
     <section id="faq" className="bg-slate-50 py-20 lg:py-28">
