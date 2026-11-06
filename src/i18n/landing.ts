@@ -90,6 +90,7 @@ export const landingPages: LandingPage[] = [
     faq: {
       fi: [
         { q: 'Mitä muuttopalvelu Tampereella maksaa?', a: 'Pakettiauto ja kuljettaja maksavat 50 €/h, yksi muuttomies ja auto 75 €/h, kaksi muuttomiestä ja auto 100 €/h sekä kolme muuttomiestä ja auto 125 €/h. Hinnat sisältävät alv 25,5 %. Vähimmäisvaraus on yksi tunti.' },
+        { q: 'Onko saatavilla edullista muuttopalvelua Tampereella?', a: 'Kyllä. Jos tavaraa on vähän tai tarvitset vain kuljetuksen, pakettiauto ja kuljettaja alkaen 50 €/h voi olla kustannuksiltaan sopiva vaihtoehto. Jos tarvitset kantoapua, voit valita yhden tai useamman muuttomiehen. Hinta vahvistetaan työn tietojen perusteella, ja kaikki ilmoitetut tuntihinnat sisältävät alv 25,5 %.' },
         { q: 'Mistä muuttoavun hinta muodostuu?', a: 'Hinta riippuu tavaroiden määrästä, nouto- ja toimitusosoitteista, ajomatkasta, kerroksista, hissistä ja tarvittavasta kantamisavusta. Kerro nämä tiedot tarjouspyynnössä, jotta voimme arvioida työn oikein.' },
         { q: 'Voinko pyytää kiinteän muuttohinnan?', a: 'Kyllä. Kerro muuton reitti, ajankohta, tavaroiden määrä ja kantamisen tarve. Arvioimme työn ja vahvistamme kiinteän tarjouksen ennen työn aloittamista, jos työn tiedot mahdollistavat luotettavan arvion.' },
         { q: 'Sisältyvätkö hinnat alv:n?', a: 'Kyllä. Kaikki näytetyt tuntihinnat sisältävät alv 25,5 %.' },
@@ -98,6 +99,7 @@ export const landingPages: LandingPage[] = [
       ],
       en: [
         { q: 'How much does a moving service in Tampere cost?', a: 'Van and driver cost €50/hour, one mover with a van €75/hour, two movers with a van €100/hour and three movers with a van €125/hour. Finnish VAT (25.5%) is included. Minimum booking is one hour.' },
+        { q: 'Do you offer an affordable moving service in Tampere?', a: 'Yes. If you have a smaller load or mainly need transport, a van and driver from €50/hour may be a cost-conscious option. If you need carrying help, you can add one or more movers. The price is confirmed based on the job details, and all listed hourly prices include Finnish VAT (25.5%).' },
         { q: 'What affects the price of moving help?', a: 'The price depends on the amount of belongings, pickup and delivery addresses, driving distance, floors, elevator access and carrying help required. Include these details in your quote request so we can assess the job accurately.' },
         { q: 'Can I request a fixed moving price?', a: 'Yes. Share the route, preferred date, amount of belongings and carrying needs. We assess the job and confirm a fixed quote before starting when the details allow a reliable estimate.' },
         { q: 'Do the prices include VAT?', a: 'Yes. All hourly prices shown include Finnish VAT (25.5%).' },
@@ -355,6 +357,7 @@ export const landingPages: LandingPage[] = [
         { q: 'Voitteko kuljettaa sohvan tai pesukoneen?', a: 'Kyllä, jos esineen mitat ja paino sopivat ajoneuvoon. Kerro nouto- ja toimitusosoitteet, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.' },
         { q: 'Voitteko noutaa huonekalun Tori.fi-myyjältä?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, esineen koko sekä tarvitaanko kantamista molemmissa päissä.' },
         { q: 'Sisältääkö 50 €/h hinta arvonlisäveron?', a: 'Kyllä. Pakettiauto + kuljettaja maksaa alkaen 50 €/h, ja alv 25,5 % sisältyy ilmoitettuun hintaan.' },
+        { q: 'Onko saatavilla edullista kuljetuspalvelua Tampereella?', a: 'Kyllä. Pienelle kuormalle tai yksittäiselle huonekalulle pakettiauto ja kuljettaja alkaen 50 €/h voi olla sopiva vaihtoehto. Kerro tavaran koko, paino ja nouto- sekä toimitusosoitteet, jotta voimme arvioida kuljetuksen hinnan etukäteen.' },
         { q: 'Voitteko kuljettaa yritysten tavaroita ja lavoja?', a: 'Kyllä. Sovimme yritysten tavara- ja lavakuljetuksista kuorman mittojen, painon, reitin ja lastausolosuhteiden perusteella. Pakettiauton enimmäishyötykuorma on 1 310 kg, eikä autossa ole perälautaa tai trukkia.' },
         { q: 'Kuljetatteko paketteja ja myymäläostoksia?', a: 'Kyllä. Voimme noutaa ja toimittaa sopivia paketteja, huonekaluja, kodinkoneita ja myymäläostoksia Tampereella ja Pirkanmaalla.' },
         { q: 'Voitteko kuljettaa tavaroita Tampereen ulkopuolelle?', a: 'Kyllä. Pirkanmaan ulkopuolisista ja pidemmistä kuljetuksista annamme tarjouksen koko reitin ja työn tietojen perusteella.' },
@@ -364,6 +367,7 @@ export const landingPages: LandingPage[] = [
         { q: 'Can you transport a sofa or washing machine?', a: 'Yes, if the item dimensions and weight fit the vehicle. Share the pickup and delivery addresses, floors, elevator access and whether carrying help is needed.' },
         { q: 'Can you collect furniture from a Tori.fi seller?', a: 'Yes. Share the pickup and delivery addresses, item size and whether carrying help is needed at either location.' },
         { q: 'Does the €50/hour price include VAT?', a: 'Yes. Van + driver starts at €50/hour, including Finnish VAT (25.5%).' },
+        { q: 'Do you offer affordable transport in Tampere?', a: 'Yes. For a small load or a single piece of furniture, a van and driver from €50/hour may be a suitable option. Share the item size, weight, pickup and delivery addresses so we can estimate the price in advance.' },
         { q: 'Can you transport business goods and pallets?', a: 'Yes. Business goods and pallet transport can be arranged based on load dimensions, weight, route and loading conditions. The van has a maximum payload of 1,310 kg and no tail lift or forklift.' },
         { q: 'Do you deliver parcels and store purchases?', a: 'Yes. We can collect and deliver suitable parcels, furniture, appliances and store purchases in Tampere and Pirkanmaa.' },
         { q: 'Can you transport items outside Tampere?', a: 'Yes. We quote transport outside Pirkanmaa and longer routes based on the complete route and job details.' },
