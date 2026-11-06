@@ -41,15 +41,16 @@ export interface LocalAreaConfig {
   slug: string;
   name: string;
   fiLocative: string;
+  fiElative: string;
   enName: string;
 }
 
 const localAreas: LocalAreaConfig[] = [
-  { slug: 'pirkkala', name: 'Pirkkala', fiLocative: 'Pirkkalassa', enName: 'Pirkkala' },
-  { slug: 'nokia', name: 'Nokia', fiLocative: 'Nokialla', enName: 'Nokia' },
-  { slug: 'ylojarvi', name: 'Ylöjärvi', fiLocative: 'Ylöjärvellä', enName: 'Ylöjärvi' },
-  { slug: 'lempaala', name: 'Lempäälä', fiLocative: 'Lempäälässä', enName: 'Lempäälä' },
-  { slug: 'kangasala', name: 'Kangasala', fiLocative: 'Kangasalla', enName: 'Kangasala' },
+  { slug: 'pirkkala', name: 'Pirkkala', fiLocative: 'Pirkkalassa', fiElative: 'Pirkkalasta', enName: 'Pirkkala' },
+  { slug: 'nokia', name: 'Nokia', fiLocative: 'Nokialla', fiElative: 'Nokiasta', enName: 'Nokia' },
+  { slug: 'ylojarvi', name: 'Ylöjärvi', fiLocative: 'Ylöjärvellä', fiElative: 'Ylöjärveltä', enName: 'Ylöjärvi' },
+  { slug: 'lempaala', name: 'Lempäälä', fiLocative: 'Lempäälässä', fiElative: 'Lempäälästä', enName: 'Lempäälä' },
+  { slug: 'kangasala', name: 'Kangasala', fiLocative: 'Kangasalla', fiElative: 'Kangasalta', enName: 'Kangasala' },
 ];
 
 export const localAreaLandingPages: LandingPage[] = localAreas.map((place) => ({
@@ -70,7 +71,7 @@ export const localAreaLandingPages: LandingPage[] = localAreas.map((place) => ({
   },
   sections: {
     fi: [
-      { heading: `Muuttoapu ja muuttoauto ${place.fiLocative}`, paragraphs: [`Kun etsit muuttoapua ${place.fiLocative}, muuttofirmaa ${place.name} tai muuttoautoa kuljettajalla, voit pyytää MoveXilta tarjouksen paikallisesta muutosta tai kuljetuksesta. Muutto voi alkaa ${place.name}sta, päättyä sinne tai kulkea Tampereen ja muun Pirkanmaan välillä. Hinta ja saatavuus vahvistetaan aina nouto- ja toimitusosoitteiden sekä työn tietojen perusteella.`] },
+      { heading: `Muuttoapu ja muuttoauto ${place.fiLocative}`, paragraphs: [`Kun etsit muuttoapua ${place.fiLocative}, muuttofirmaa ${place.name} tai muuttoautoa kuljettajalla, voit pyytää MoveXilta tarjouksen paikallisesta muutosta tai kuljetuksesta. Muutto voi alkaa ${place.fiElative}, päättyä sinne tai kulkea Tampereen ja muun Pirkanmaan välillä. Hinta ja saatavuus vahvistetaan aina nouto- ja toimitusosoitteiden sekä työn tietojen perusteella.`] },
       { heading: 'Pieni muutto, yksiön muutto ja kantamisapu', paragraphs: [`Palvelu sopii esimerkiksi yksiön muuttoon, opiskelijamuuttoon, pienen asunnon muuttoon tai muutaman huonekalun siirtoon. Pakettiauto + kuljettaja sopii kuljetukseen. Jos tarvitset apua portaissa, lastauksessa tai purkamisessa, voit valita lisäksi 1, 2 tai 3 muuttomiestä.`] },
       { heading: 'Huonekalukuljetus ja tavaran nouto', paragraphs: [`Voit pyytää sohvan, sängyn, pöydän, kodinkoneen tai muun sopivan tavaran kuljetusta ${place.fiLocative}. Nouto voi olla esimerkiksi Tori.fi-myyjältä tai kaupasta. Ilmoita tavaran mitat ja paino sekä kerro, tarvitaanko kantamisapua. Tarkistamme kuljetuksen sopivuuden auton kapasiteetin ja kuorman tietojen perusteella.`] },
       { heading: 'Muuttopalvelun hinnat', paragraphs: [...prices.fi, priceNote.fi] },
