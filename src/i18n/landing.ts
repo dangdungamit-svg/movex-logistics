@@ -36,6 +36,70 @@ const area = {
   en: 'We operate in Tampere and Pirkanmaa (including Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala). Transport elsewhere in Finland is available by quotation.',
 };
 
+
+export interface LocalAreaConfig {
+  slug: string;
+  name: string;
+  fiLocative: string;
+  enName: string;
+}
+
+const localAreas: LocalAreaConfig[] = [
+  { slug: 'pirkkala', name: 'Pirkkala', fiLocative: 'Pirkkalassa', enName: 'Pirkkala' },
+  { slug: 'nokia', name: 'Nokia', fiLocative: 'Nokialla', enName: 'Nokia' },
+  { slug: 'ylojarvi', name: 'Ylöjärvi', fiLocative: 'Ylöjärvellä', enName: 'Ylöjärvi' },
+  { slug: 'lempaala', name: 'Lempäälä', fiLocative: 'Lempäälässä', enName: 'Lempäälä' },
+  { slug: 'kangasala', name: 'Kangasala', fiLocative: 'Kangasalla', enName: 'Kangasala' },
+];
+
+export const localAreaLandingPages: LandingPage[] = localAreas.map((place) => ({
+  path: `/muuttopalvelu-${place.slug}`,
+  navLabel: { fi: `Muuttopalvelu ${place.name}`, en: `Moving service ${place.enName}` },
+  title: {
+    fi: `Muuttopalvelu ${place.name} | Muuttoapu ja kuljetus – MoveX Logistics`,
+    en: `Moving Service in ${place.enName} | MoveX Logistics`,
+  },
+  description: {
+    fi: `Muuttopalvelu ${place.name}: muuttoapu, muuttoauto kuljettajalla ja huonekalukuljetukset. Pakettiauto + kuljettaja 50 €/h sis. alv 25,5 %. Pyydä tarjous.`,
+    en: `Moving help in ${place.enName}, Pirkanmaa. Van and driver from €50/hour including Finnish VAT, with optional carrying help. Request a quote from MoveX Logistics.`,
+  },
+  h1: { fi: `Muuttopalvelu ${place.name}`, en: `Moving service in ${place.enName}` },
+  intro: {
+    fi: `MoveX Logistics tarjoaa muuttoapua ${place.fiLocative} ja muualla Pirkanmaalla. Voit tilata pakettiauton kuljettajalla pelkkään kuljetukseen tai lisätä 1–3 muuttomiestä kantamiseen, lastaukseen ja purkuun. Palvelemme pieniä ja tavallisia kotimuuttoja sekä yksittäisten tavaroiden kuljetuksia.`,
+    en: `MoveX Logistics provides moving help in ${place.enName} and across Pirkanmaa. Book a van and driver for transport, or add 1–3 movers for carrying, loading and unloading. We help with smaller home moves and suitable single-item deliveries.`,
+  },
+  sections: {
+    fi: [
+      { heading: `Muuttoapu ja muuttoauto ${place.fiLocative}`, paragraphs: [`Kun etsit muuttoapua ${place.fiLocative}, muuttofirmaa ${place.name} tai muuttoautoa kuljettajalla, voit pyytää MoveXilta tarjouksen paikallisesta muutosta tai kuljetuksesta. Muutto voi alkaa ${place.name}sta, päättyä sinne tai kulkea Tampereen ja muun Pirkanmaan välillä. Hinta ja saatavuus vahvistetaan aina nouto- ja toimitusosoitteiden sekä työn tietojen perusteella.`] },
+      { heading: 'Pieni muutto, yksiön muutto ja kantamisapu', paragraphs: [`Palvelu sopii esimerkiksi yksiön muuttoon, opiskelijamuuttoon, pienen asunnon muuttoon tai muutaman huonekalun siirtoon. Pakettiauto + kuljettaja sopii kuljetukseen. Jos tarvitset apua portaissa, lastauksessa tai purkamisessa, voit valita lisäksi 1, 2 tai 3 muuttomiestä.`] },
+      { heading: 'Huonekalukuljetus ja tavaran nouto', paragraphs: [`Voit pyytää sohvan, sängyn, pöydän, kodinkoneen tai muun sopivan tavaran kuljetusta ${place.fiLocative}. Nouto voi olla esimerkiksi Tori.fi-myyjältä tai kaupasta. Ilmoita tavaran mitat ja paino sekä kerro, tarvitaanko kantamisapua. Tarkistamme kuljetuksen sopivuuden auton kapasiteetin ja kuorman tietojen perusteella.`] },
+      { heading: 'Muuttopalvelun hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+      { heading: 'Näin pyydät tarjouksen', paragraphs: [`Lähetä nouto- ja toimitusosoitteet, toivottu päivä, tavaroiden määrä, kerrokset ja hissitiedot. Huonekalukuljetuksessa ilmoita myös suurimpien esineiden mitat ja paino. Näillä tiedoilla voimme arvioida työn keston ja vahvistaa hinnan ennen työn aloittamista.`] },
+    ],
+    en: [
+      { heading: `Moving help and a moving van in ${place.enName}`, paragraphs: [`If you are looking for a moving company in ${place.enName}, moving help or a van with a driver, you can request a quote from MoveX Logistics. A move can start or finish in ${place.enName}, or connect the town with Tampere and other parts of Pirkanmaa. Availability and the final price are confirmed using the pickup and delivery addresses and job details.`] },
+      { heading: 'Small moves and carrying help', paragraphs: ['The service is suitable for a studio flat, student move, smaller home move or a few pieces of furniture. Van + driver is intended for transport. If you need help with stairs, loading or unloading, you can add 1, 2 or 3 movers.'] },
+      { heading: 'Furniture transport and item collection', paragraphs: [`You can request transport for a sofa, bed, table, appliance or another suitable item in ${place.enName}. Pickups can be arranged from a Tori.fi seller or a shop. Tell us the item dimensions and weight and whether carrying help is needed. We check that the load is suitable for the van before confirming the job.`] },
+      { heading: 'Moving service prices', paragraphs: [...prices.en, priceNote.en] },
+      { heading: 'How to request a quote', paragraphs: ['Send the pickup and delivery addresses, preferred date, amount of belongings, floors and elevator access. For furniture transport, include the dimensions and weight of the largest items. This helps us estimate the work and confirm the price before starting.'] },
+    ],
+  },
+  faq: {
+    fi: [
+      { q: `Palveletteko ${place.fiLocative}?`, a: `Kyllä. MoveX tarjoaa muutto- ja kuljetuspalveluja ${place.fiLocative} sekä muualla Pirkanmaalla. Saatavuus tarkistetaan osoitteiden ja työn tietojen perusteella.` },
+      { q: 'Paljonko muuttoauto kuljettajalla maksaa?', a: 'Pakettiauto ja kuljettaja maksavat 50 €/h. Hinta sisältää alv 25,5 %. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa.' },
+      { q: 'Saako muuttoon kantamisapua?', a: 'Kyllä. Voit valita 1, 2 tai 3 muuttomiestä, jotka auttavat kantamisessa, lastauksessa ja purkamisessa.' },
+      { q: 'Mitä tietoja tarvitaan tarjoukseen?', a: 'Ilmoita nouto- ja toimitusosoitteet, muuttopäivä, tavaramäärä, kerrokset, hissi ja mahdollinen kantamisavun tarve. Huonekalukuljetuksessa kerro myös esineen mitat ja paino.' },
+    ],
+    en: [
+      { q: `Do you provide moving services in ${place.enName}?`, a: `Yes. MoveX provides moving and transport services in ${place.enName} and across Pirkanmaa. Availability is checked using the addresses and job details.` },
+      { q: 'How much does a van and driver cost?', a: 'A van and driver cost €50/hour, including Finnish VAT (25.5%). Minimum booking is one hour, followed by 30-minute billing increments.' },
+      { q: 'Can I add help with carrying?', a: 'Yes. You can add 1, 2 or 3 movers for carrying, loading and unloading.' },
+      { q: 'What information is needed for a quote?', a: 'Share the pickup and delivery addresses, date, amount of belongings, floors, elevator access and carrying requirements. For furniture, include its dimensions and weight.' },
+    ],
+  },
+}));
+
 export const landingPages: LandingPage[] = [
   {
     path: '/muuttopalvelu-tampere',
@@ -487,6 +551,7 @@ export const landingPages: LandingPage[] = [
     },
   },
 
+  ...localAreaLandingPages,
 ];
 
 const englishSlugs: Record<string, string> = {
@@ -496,6 +561,9 @@ const englishSlugs: Record<string, string> = {
   '/pieni-muutto-tampere': '/en/small-move-tampere',
   '/kuljetuspalvelu-tampere': '/en/transport-service-tampere',
   '/muuttopalvelu-hinta-tampere': '/en/moving-cost-tampere',
+  ...Object.fromEntries(localAreas.map((place) => [
+    `/muuttopalvelu-${place.slug}`, `/en/moving-service-${place.slug}`,
+  ])),
 };
 
 export function getLandingPage(path: string) {
