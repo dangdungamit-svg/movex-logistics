@@ -235,8 +235,8 @@ const routes = [
   },
   {
     path: '/muuttopalvelu-hinta-tampere',
-    title: 'Muuttopalvelun hinta Tampereella | MoveX Logistics',
-    description: 'Muuttopalvelun hinta Tampereella alkaen 50 €/h. Vertaa selkeitä tuntihintoja, katso mistä muuton hinta muodostuu ja pyydä tarjous.',
+    title: 'Edullinen muuttopalvelu Tampereella | Hinnat | MoveX Logistics',
+    description: 'Edullinen muuttopalvelu Tampereella alkaen 50 €/h. Vertaa selkeitä, arvonlisäverollisia tuntihintoja ja valitse tarpeeseesi sopiva muuttoapu.',
     canonical: `${origin}/muuttopalvelu-hinta-tampere/`,
   },
   {
@@ -247,8 +247,8 @@ const routes = [
   },
   {
     path: '/en/moving-cost-tampere',
-    title: 'Moving Costs in Tampere, Finland | MoveX Logistics',
-    description: 'Moving costs in Tampere, Finland: van and driver from €50/hour. Compare clear hourly rates, understand what affects the price and request a quote.',
+    title: 'Affordable Moving Service in Tampere | Prices | MoveX Logistics',
+    description: 'Affordable moving service in Tampere, Finland, with clear prices from €50/hour including VAT. Compare van-and-driver and mover options, understand moving costs and request a quote.',
     canonical: `${origin}/en/moving-cost-tampere/`,
   },
   ...blogArticles.filter((article) => article.published).map((article) => ({
