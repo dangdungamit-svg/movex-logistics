@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { getLocalizedPath, localAreaLandingPages } from './src/i18n/landing';
 
 const outputDir = path.resolve(process.cwd(), 'dist');
 const origin = 'https://movexlogistics.fi';
@@ -12,6 +13,7 @@ const languagePairs = [
   ['/huonekalukuljetus-tampere/', '/en/furniture-transport-tampere/'],
   ['/pieni-muutto-tampere/', '/en/small-move-tampere/'],
   ['/kuljetuspalvelu-tampere/', '/en/transport-service-tampere/'],
+  ...localAreaLandingPages.map((page) => [page.path + '/', getLocalizedPath(page.path, 'en')] as const),
 ] as const;
 
 function outputPath(route: string) {
@@ -51,7 +53,7 @@ export function hreflangPlugin() {
             fs.writeFileSync(file, html.replace('</head>', '    ' + markup + '\n  </head>'));
           }
         }
-        console.log('  added reciprocal fi-FI/en-FI hreflang links to 6 language pairs');
+        console.log('  added reciprocal fi-FI/en-FI hreflang links to 11 language pairs');
       },
     },
   };
