@@ -247,11 +247,11 @@ export const blogArticles: BlogArticle[] = [
     published: true,
     category: { fi: 'Hintaopas', en: 'Price guide' },
     title: {
-      fi: 'Muuttoapu hinta Tampereella | Tuntihinnat ja tarjous – MoveX',
+      fi: 'Muuttoapu hinta Tampere – hinnat alkaen 50 €/h | MoveX',
       en: 'Moving help in Tampere: prices and what affects the cost',
     },
     excerpt: {
-      fi: 'Muuttoavun hinta Tampereella alkaen 50 €/h (sis. ALV 25,5 %). Katso pakettiauton ja muuttomiesten tuntihinnat sekä pyydä oma tarjous MoveX Logisticsilta.',
+      fi: 'Muuttoapu Tampereella alkaen 50 €/h (sis. ALV 25,5 %). Vertaa pakettiauton ja muuttomiesten hinnat, katso mistä muuton kokonaishinta muodostuu ja pyydä tarjous MoveX Logisticsilta.',
       en: 'The cost of moving help in Tampere depends on the route, the amount of goods and carrying help. Compare MoveX Logistics hourly rates and learn what to include in a quote request.',
     },
     readTime: { fi: '5 min lukuaika', en: '5 min read' },
