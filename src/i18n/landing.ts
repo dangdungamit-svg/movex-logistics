@@ -50,8 +50,8 @@ export const landingPages: LandingPage[] = [
     },
     h1: { fi: 'Muuttopalvelu Tampere', en: 'Moving service in Tampere' },
     intro: {
-      fi: 'MoveX Logistics auttaa asunto-, talo- ja pienyritysmuutoissa Tampereella ja Pirkanmaalla. Valitse pelkkä pakettiauto ja kuljettaja tai lisää avuksi 1–3 muuttomiestä.',
-      en: 'MoveX Logistics helps with apartment, house and small business moves in Tampere and Pirkanmaa. Choose just a van and driver, or add 1–3 movers.',
+      fi: 'MoveX Logistics auttaa asunto-, talo- ja pienyritysmuutoissa Tampereella ja Pirkanmaalla. Järjestämme työhön sopivan kuljetuskaluston ja kuljettajan sekä tarvittaessa 1–3 muuttomiestä. Kalusto ja mahdolliset lastausratkaisut valitaan tavaroiden ja työn tarpeiden mukaan.',
+      en: 'MoveX Logistics helps with apartment, house and small business moves in Tampere and Pirkanmaa. We arrange a suitable vehicle and driver, with 1–3 movers when needed. The vehicle and loading solution are selected according to the goods and job requirements.',
     },
     sections: {
       fi: [
@@ -308,14 +308,14 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Mitä voimme kuljettaa?',
           paragraphs: [
-            'Tarjoamme tavarakuljetusta Tampereella ja kuljetuspalvelua Pirkanmaalla huonekaluille, kodinkoneille, laatikoille, toimistotarvikkeille, yritysten tavaraerille, myymäläostoksille sekä Tori.fi- ja Facebook Marketplace -hankinnoille. Palveluun kuuluu myös tavaran kuljetus Tampereella, noutopalvelu ja kauppanouto sovitusta liikkeestä. EUR- ja FIN-lavojen kuljetukset sovitaan etukäteen. Lastaus ja purku järjestetään asiakkaan tai kohteen käytettävissä olevalla trukilla tai muulla erikseen sovitulla tavalla.',
-            'Kuljetuskalusto valitaan kuorman ja työn tarpeiden mukaan. Tarvittaessa järjestämme myös suuremman vuokrakaluston. EUR- ja FIN-lavojen lastaus ja purku sovitaan etukäteen asiakkaan tai kohteen käytettävissä olevan trukin tai muun lastauskaluston mukaan.',
+            'Tarjoamme tavarakuljetusta Tampereella ja kuljetuspalvelua Pirkanmaalla huonekaluille, kodinkoneille, laatikoille, toimistotarvikkeille, yritysten tavaraerille, myymäläostoksille sekä Tori.fi- ja Facebook Marketplace -hankinnoille. Palveluun kuuluu myös tavaran kuljetus Tampereella, noutopalvelu ja kauppanouto sovitusta liikkeestä. EUR- ja FIN-lavojen kuljetukset sovitaan etukäteen. MoveX järjestää kuorman mukaan sopivan kuljetuskaluston sekä tarvittavat lastaus- ja purkuratkaisut, kuten trukin tai muun apuvälineen.',
+            'Kuljetuskalusto valitaan kuorman ja työn tarpeiden mukaan. Tarvittaessa järjestämme myös suuremman vuokrakaluston. EUR- ja FIN-lavojen kuljetuksiin järjestämme tarvittavat lastaus- ja purkuratkaisut etukäteen kuorman ja kohteiden mukaan.',
           ],
         },
         {
           heading: 'Kuljetuksen hinta',
           paragraphs: [
-            'Pakettiauto + kuljettaja alkaen 50 € / h. Hinnat sisältävät alv 25,5 %. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa. Yritysten tavarakuljetukset, lavakuormat ja pidemmät reitit hinnoitellaan työn tietojen perusteella tarjouksella.',
+            'Peruskuljetuspalvelun hinta alkaen 50 € / h. Hinta sisältää kuljettajan ja soveltuvan peruskaluston; suurempi tai erikoiskalusto hinnoitellaan työn mukaan. Hinnat sisältävät alv 25,5 %. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa. Yritysten tavarakuljetukset, lavakuormat ja pidemmät reitit hinnoitellaan työn tietojen perusteella tarjouksella.',
             'Kerro tarjouspyynnössä nouto- ja toimitusosoitteet, esineen mitat ja paino sekä se, tarvitsetko kantoapua. Näiden tietojen avulla voimme arvioida työn hinnan.',
           ],
         },
@@ -332,7 +332,7 @@ export const landingPages: LandingPage[] = [
           heading: 'What can we transport?',
           paragraphs: [
             'We transport furniture, appliances, parcels, boxes, office supplies, business goods, store purchases and items bought through Tori.fi or Facebook Marketplace. EUR and FIN pallet transport can also be arranged in advance.',
-            'The transport vehicle is selected according to the load and job requirements. Larger rental vehicles can also be arranged when needed. For EUR and FIN pallets, loading and unloading are agreed in advance using the forklift or other loading equipment available at the pickup and delivery locations.',
+            'We arrange the transport vehicle and loading solution according to the load and job requirements. Larger rental vehicles, tail-lift vehicles and suitable handling equipment, including forklifts, can be arranged when needed. EUR and FIN pallet transport can be quoted once the load and site details are known.',
           ],
         },
         {
@@ -353,10 +353,10 @@ export const landingPages: LandingPage[] = [
     },
     faq: {
       fi: [
-        { q: 'Onko saatavilla muuttoauto kuljettajalla Tampereella?', a: 'Kyllä. Pakettiauto ja kuljettaja maksavat alkaen 50 €/h, alv 25,5 % sisältyy. Vähimmäisvaraus on yksi tunti.' },
+        { q: 'Onko saatavilla muuttoauto kuljettajalla Tampereella?', a: 'Kyllä. Kuljetuspalvelun hinnat alkavat 50 €/h (sis. alv 25,5 %). Sopiva ajoneuvo valitaan työn ja kuorman mukaan. Vähimmäisvaraus on yksi tunti.' },
         { q: 'Voitteko kuljettaa sohvan tai pesukoneen?', a: 'Kyllä. Järjestämme kuljetukseen sopivan kaluston tavaran tietojen perusteella. Kerro nouto- ja toimitusosoitteet, kerrokset, hissin saatavuus ja tarvitaanko kantoapua.' },
         { q: 'Voitteko noutaa huonekalun Tori.fi-myyjältä?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, esineen koko sekä tarvitaanko kantamista molemmissa päissä.' },
-        { q: 'Sisältääkö 50 €/h hinta arvonlisäveron?', a: 'Kyllä. Pakettiauto + kuljettaja maksaa alkaen 50 €/h, ja alv 25,5 % sisältyy ilmoitettuun hintaan.' },
+        { q: 'Sisältääkö 50 €/h hinta arvonlisäveron?', a: 'Kyllä. Kuljetuspalvelun hinta alkaa 50 €/h, ja alv 25,5 % sisältyy ilmoitettuun hintaan. Ajoneuvo valitaan työn tarpeiden mukaan.' },
         { q: 'Onko saatavilla edullista kuljetuspalvelua Tampereella?', a: 'Kyllä. Pienelle kuormalle tai yksittäiselle huonekalulle pakettiauto ja kuljettaja alkaen 50 €/h voi olla sopiva vaihtoehto. Kerro tavaran koko, paino ja nouto- sekä toimitusosoitteet, jotta voimme arvioida kuljetuksen hinnan etukäteen.' },
         { q: 'Voitteko kuljettaa yritysten tavaroita ja lavoja?', a: 'Kyllä. Sovimme yritysten tavara- ja lavakuljetuksista kuorman ja reitin perusteella. Lastaus ja purku järjestetään asiakkaan tai kohteen käytettävissä olevalla trukilla tai muulla etukäteen sovitulla tavalla.' },
         { q: 'Kuljetatteko paketteja ja myymäläostoksia?', a: 'Kyllä. Voimme noutaa ja toimittaa sopivia paketteja, huonekaluja, kodinkoneita ja myymäläostoksia Tampereella ja Pirkanmaalla.' },
@@ -368,7 +368,7 @@ export const landingPages: LandingPage[] = [
         { q: 'Can you collect furniture from a Tori.fi seller?', a: 'Yes. Share the pickup and delivery addresses, item size and whether carrying help is needed at either location.' },
         { q: 'Does the €50/hour price include VAT?', a: 'Yes. Van + driver starts at €50/hour, including Finnish VAT (25.5%).' },
         { q: 'Do you offer affordable transport in Tampere?', a: 'Yes. For a small load or a single piece of furniture, a van and driver from €50/hour may be a suitable option. Share the item size, weight, pickup and delivery addresses so we can estimate the price in advance.' },
-        { q: 'Can you transport business goods and pallets?', a: 'Yes. Business goods and pallet transport can be arranged based on the load and route. Loading and unloading are agreed in advance using a forklift or other suitable equipment available at the pickup and delivery locations.' },
+        { q: 'Can you transport business goods and pallets?', a: 'Yes. Business goods and pallet transport can be arranged based on the load and route. MoveX arranges suitable loading and unloading solutions in advance according to the load and locations, including forklifts or other handling equipment when required.' },
         { q: 'Do you deliver parcels and store purchases?', a: 'Yes. We can collect and deliver suitable parcels, furniture, appliances and store purchases in Tampere and Pirkanmaa.' },
         { q: 'Can you transport items outside Tampere?', a: 'Yes. We quote transport outside Pirkanmaa and longer routes based on the complete route and job details.' },
       ],
