@@ -32,7 +32,7 @@ const priceNote = {
 };
 
 const area = {
-  fi: 'Toimimme Tampereella ja Pirkanmaalla (mm. Nokia, Ylöjärvi, Pirkkala, Lempäälä ja Kangasala). Kuljetus muualle Suomeen onnistuu tarjouksella.',
+  fi: 'Tarjoamme muuttoapua Tampereella ja lähialueilla: Pirkkala, Nokia, Ylöjärvi, Lempäälä ja Kangasala. Kuljetukset muualle Suomeen onnistuvat tarjouksella.',
   en: 'We operate in Tampere and Pirkanmaa (including Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala). Transport elsewhere in Finland is available by quotation.',
 };
 
@@ -162,7 +162,7 @@ export const landingPages: LandingPage[] = [
     },
     h1: { fi: 'Huonekalukuljetus Tampere', en: 'Furniture transport in Tampere' },
     intro: {
-      fi: 'Kuljetamme sohvia, sänkyjä, pöytiä, kodinkoneita, Tori.fi-ostoksia, kauppanoutoja ja muita sopivia esineitä Tampereella ja Pirkanmaalla.',
+      fi: 'Kuljetamme sohvia, sänkyjä, pöytiä ja kodinkoneita Tampereella ja Pirkanmaalla. Huonekalujen nouto onnistuu esimerkiksi Tori.fi-myyjältä tai IKEAsta ja muista liikkeistä. IKEA-kuljetus Tampereella sekä Tori.fi-noutopalvelu sovitaan tavaran koon ja reitin mukaan.',
       en: 'We transport sofas, beds, tables, appliances, Tori.fi purchases, store pickups and other suitable items in Tampere and Pirkanmaa.',
     },
     sections: {
@@ -306,7 +306,7 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Mitä voimme kuljettaa?',
           paragraphs: [
-            'Kuljetamme huonekaluja, kodinkoneita, paketteja, laatikoita, toimistotarvikkeita, yritysten tavaraeriä, myymäläostoksia sekä Tori.fi- ja Facebook Marketplace -hankintoja. Myös EUR- ja FIN-lavojen kuljetus voidaan sopia etukäteen, kun kuorman mitat, paino ja lastausolosuhteet sopivat kalustolle.',
+            'Tarjoamme pakettiautokuljetusta Tampereella huonekaluille, kodinkoneille, paketeille, laatikoille, toimistotarvikkeille, yritysten tavaraerille, myymäläostoksille sekä Tori.fi- ja Facebook Marketplace -hankinnoille. Myös EUR- ja FIN-lavojen kuljetus voidaan sopia etukäteen, kun kuorman mitat, paino ja lastausolosuhteet sopivat kalustolle.',
             'Pakettiauton tavaratilan tilavuus on noin 13 m³ ja suurin sallittu hyötykuorma 1 310 kg. Autossa ei ole perälautaa eikä trukkia. Lavakuormissa asiakkaan tulee järjestää sopiva lastaus ja purku, ellei muuta sovita.',
           ],
         },
@@ -416,7 +416,7 @@ export const landingPages: LandingPage[] = [
         {
           heading: 'Näin voit pitää muuton kustannukset kurissa',
           paragraphs: [
-            'Pakkaa pienet tavarat valmiiksi, merkitse laatikot ja varmista, että muuttoautolle on tilaa pysähtyä. Kerro etukäteen, mitkä huonekalut pitää purkaa ja mitkä esineet ovat painavia tai hankalan kokoisia. Näin työ voidaan suunnitella oikein eikä aikaa kulu yllätyksiin.',
+            'Jos etsit edullista muuttoapua Tampereella, valitse palvelu työn todellisen tarpeen mukaan: pelkkä pakettiauto ja kuljettaja maksaa 50 €/h, ja kantamiseen voi lisätä muuttomiehiä. Pakkaa pienet tavarat valmiiksi, merkitse laatikot ja varmista, että muuttoautolle on tilaa pysähtyä. Kerro etukäteen purettavat huonekalut sekä painavat tai hankalan kokoiset esineet, jotta työ voidaan suunnitella oikein.',
             'Jos tarvitset vain kuljetuksen, pakettiauto ja kuljettaja voi olla edullisempi vaihtoehto kuin muuttomiehillä varustettu palvelu. Jos et pysty kantamaan itse, valitse sopiva määrä muuttomiehiä turvallista lastausta ja purkua varten.',
           ],
         },
