@@ -41,7 +41,7 @@ export const landingPages: LandingPage[] = [
     path: '/muuttopalvelu-tampere',
     navLabel: { fi: 'Muuttopalvelu Tampere', en: 'Moving service Tampere' },
     title: {
-      fi: 'Muuttoauto kuljettajalla Tampereella | MoveX Logistics',
+      fi: 'Muuttopalvelu ja muuttoauto kuljettajalla Tampere | MoveX Logistics',
       en: 'Moving Service in Tampere & Pirkanmaa | MoveX Logistics',
     },
     description: {
