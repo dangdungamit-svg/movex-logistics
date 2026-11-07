@@ -69,7 +69,7 @@ export default function Header() {
                         {lang === 'fi' ? 'Kaikki palvelut' : 'All services'}
                       </a>
                     </li>
-                    {landingPages.map((page) => (
+                    {landingPages.filter((page) => !page.area).map((page) => (
                       <li key={page.path}>
                         <a href={getLocalizedPath(page.path, lang)} className="block rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/5 hover:text-white">
                           {page.navLabel[lang]}
@@ -120,7 +120,7 @@ export default function Header() {
               <p className="px-4 pb-1 text-xs font-semibold uppercase tracking-wide text-slate-400">
                 {lang === 'fi' ? 'Muuttopalvelut' : 'Moving services'}
               </p>
-              {landingPages.map((page) => (
+              {landingPages.filter((page) => !page.area).map((page) => (
                 <a key={page.path} href={getLocalizedPath(page.path, lang)} onClick={closeMenu} className="block rounded-lg px-4 py-3 text-base font-medium text-slate-200 transition-colors hover:bg-white/5 hover:text-white">
                   {page.navLabel[lang]}
                 </a>

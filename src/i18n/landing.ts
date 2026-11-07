@@ -9,6 +9,8 @@ export interface LandingPage {
   intro: Record<Lang, string>;
   sections: Record<Lang, { heading: string; paragraphs: string[] }[]>;
   faq: Record<Lang, { q: string; a: string }[]>;
+  /** Town/district page: listed in the footer and related links, not in the header menu. */
+  area?: boolean;
 }
 
 const prices = {
@@ -768,6 +770,264 @@ export const landingPages: LandingPage[] = [
       ],
     },
   },
+  {
+    path: '/muutto-nokia',
+    area: true,
+    navLabel: { fi: 'Muutto Nokia', en: 'Moving Nokia' },
+    title: { fi: 'Muutto Nokia – muuttofirma ja kuljetukset Nokialla | MoveX Logistics', en: 'Moving in Nokia – Movers & Transport | MoveX Logistics' },
+    description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Nokialla. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Nokia, near Tampere. Van + driver €50/h incl. VAT. Request a quote.' },
+    h1: { fi: 'Muutto ja kuljetukset Nokialla', en: 'Moving and transport in Nokia' },
+    intro: { fi: 'Muutatko Nokialla tai Nokialta Tampereelle? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Nokialla. Nokia sijaitsee Tampereen länsipuolella. Matkaa Tampereen keskustasta on noin 17 km.', en: 'Moving in Nokia or from Nokia to Tampere? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Nokia. Nokia lies just west of Tampere. It is about 17 km from Tampere city centre.' },
+    sections: {
+      fi: [
+        { heading: 'Palvelut Nokialla', paragraphs: [
+          'Asunto- ja pienmuutot, myös opiskelijamuutot.',
+          'Huonekalujen ja kodinkoneiden kuljetus sekä IKEA-, Tori.fi- ja Marketplace-noudot.',
+          'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
+          'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
+        ] },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: 'Services in Nokia', paragraphs: [
+          'Apartment and small moves, including student moves.',
+          'Furniture and appliance transport, plus IKEA, Tori.fi and Marketplace pickups.',
+          'Old furniture taken to the waste station, by the hour or for a fixed price.',
+          'Van and driver, or 1–3 movers for carrying.',
+        ] },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Paljonko muutto Nokialla maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
+        { q: 'Kuljetatteko tavaroita Nokialta Tampereelle?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, päivä ja tavaroiden määrä, niin annamme hinnan tai tarjouksen.' },
+        { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
+      ],
+      en: [
+        { q: 'How much does a move in Nokia cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
+        { q: 'Do you transport items from Nokia to Tampere?', a: 'Yes. Send the pickup and delivery addresses, the date and the amount of items, and we give you a price or quote.' },
+        { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
+      ],
+    },
+  },
+  {
+    path: '/muutto-ylojarvi',
+    area: true,
+    navLabel: { fi: 'Muutto Ylöjärvi', en: 'Moving Ylöjärvi' },
+    title: { fi: 'Muutto Ylöjärvi – muuttofirma ja kuljetukset Ylöjärvellä | MoveX Logistics', en: 'Moving in Ylöjärvi – Movers & Transport | MoveX Logistics' },
+    description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Ylöjärvellä. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Ylöjärvi, near Tampere. Van + driver €50/h incl. VAT. Request a quote.' },
+    h1: { fi: 'Muutto ja kuljetukset Ylöjärvellä', en: 'Moving and transport in Ylöjärvi' },
+    intro: { fi: 'Muutatko Ylöjärvellä tai Ylöjärveltä Tampereelle? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Ylöjärvellä. Ylöjärvi sijaitsee Tampereen luoteispuolella. Matkaa Tampereen keskustasta on noin 17 km.', en: 'Moving in Ylöjärvi or from Ylöjärvi to Tampere? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Ylöjärvi. Ylöjärvi lies north-west of Tampere. It is about 17 km from Tampere city centre.' },
+    sections: {
+      fi: [
+        { heading: 'Palvelut Ylöjärvellä', paragraphs: [
+          'Asunto- ja pienmuutot, myös opiskelijamuutot.',
+          'Huonekalujen ja kodinkoneiden kuljetus sekä IKEA-, Tori.fi- ja Marketplace-noudot.',
+          'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
+          'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
+        ] },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: 'Services in Ylöjärvi', paragraphs: [
+          'Apartment and small moves, including student moves.',
+          'Furniture and appliance transport, plus IKEA, Tori.fi and Marketplace pickups.',
+          'Old furniture taken to the waste station, by the hour or for a fixed price.',
+          'Van and driver, or 1–3 movers for carrying.',
+        ] },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Paljonko muutto Ylöjärvellä maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
+        { q: 'Kuljetatteko tavaroita Ylöjärveltä Tampereelle?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, päivä ja tavaroiden määrä, niin annamme hinnan tai tarjouksen.' },
+        { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
+      ],
+      en: [
+        { q: 'How much does a move in Ylöjärvi cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
+        { q: 'Do you transport items from Ylöjärvi to Tampere?', a: 'Yes. Send the pickup and delivery addresses, the date and the amount of items, and we give you a price or quote.' },
+        { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
+      ],
+    },
+  },
+  {
+    path: '/muutto-pirkkala',
+    area: true,
+    navLabel: { fi: 'Muutto Pirkkala', en: 'Moving Pirkkala' },
+    title: { fi: 'Muutto Pirkkala – muuttofirma ja kuljetukset Pirkkalassa | MoveX Logistics', en: 'Moving in Pirkkala – Movers & Transport | MoveX Logistics' },
+    description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Pirkkalassa. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Pirkkala, near Tampere. Van + driver €50/h incl. VAT. Request a quote.' },
+    h1: { fi: 'Muutto ja kuljetukset Pirkkalassa', en: 'Moving and transport in Pirkkala' },
+    intro: { fi: 'Muutatko Pirkkalassa tai Pirkkalasta Tampereelle? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Pirkkalassa. Pirkkala sijaitsee Tampereen lounaispuolella, Tampere-Pirkkalan lentoaseman lähellä. Matkaa Tampereen keskustasta on noin 12 km.', en: 'Moving in Pirkkala or from Pirkkala to Tampere? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Pirkkala. Pirkkala lies south-west of Tampere, near Tampere-Pirkkala Airport. It is about 12 km from Tampere city centre.' },
+    sections: {
+      fi: [
+        { heading: 'Palvelut Pirkkalassa', paragraphs: [
+          'Asunto- ja pienmuutot, myös opiskelijamuutot.',
+          'Huonekalujen ja kodinkoneiden kuljetus sekä IKEA-, Tori.fi- ja Marketplace-noudot.',
+          'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
+          'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
+        ] },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: 'Services in Pirkkala', paragraphs: [
+          'Apartment and small moves, including student moves.',
+          'Furniture and appliance transport, plus IKEA, Tori.fi and Marketplace pickups.',
+          'Old furniture taken to the waste station, by the hour or for a fixed price.',
+          'Van and driver, or 1–3 movers for carrying.',
+        ] },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Paljonko muutto Pirkkalassa maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
+        { q: 'Kuljetatteko tavaroita Pirkkalasta Tampereelle?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, päivä ja tavaroiden määrä, niin annamme hinnan tai tarjouksen.' },
+        { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
+      ],
+      en: [
+        { q: 'How much does a move in Pirkkala cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
+        { q: 'Do you transport items from Pirkkala to Tampere?', a: 'Yes. Send the pickup and delivery addresses, the date and the amount of items, and we give you a price or quote.' },
+        { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
+      ],
+    },
+  },
+  {
+    path: '/muutto-lempaala',
+    area: true,
+    navLabel: { fi: 'Muutto Lempäälä', en: 'Moving Lempäälä' },
+    title: { fi: 'Muutto Lempäälä – muuttofirma ja kuljetukset Lempäälässä | MoveX Logistics', en: 'Moving in Lempäälä – Movers & Transport | MoveX Logistics' },
+    description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Lempäälässä. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Lempäälä, near Tampere. Van + driver €50/h incl. VAT. Request a quote.' },
+    h1: { fi: 'Muutto ja kuljetukset Lempäälässä', en: 'Moving and transport in Lempäälä' },
+    intro: { fi: 'Muutatko Lempäälässä tai Lempäälästä Tampereelle? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Lempäälässä. Lempäälä sijaitsee Tampereen eteläpuolella. Noudamme myös Ideaparkista ostetut huonekalut ja kodinkoneet. Matkaa Tampereen keskustasta on noin 22 km.', en: 'Moving in Lempäälä or from Lempäälä to Tampere? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Lempäälä. Lempäälä lies south of Tampere. We also collect furniture and appliances bought at Ideapark. It is about 22 km from Tampere city centre.' },
+    sections: {
+      fi: [
+        { heading: 'Palvelut Lempäälässä', paragraphs: [
+          'Asunto- ja pienmuutot, myös opiskelijamuutot.',
+          'Huonekalujen ja kodinkoneiden kuljetus sekä IKEA-, Tori.fi- ja Marketplace-noudot.',
+          'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
+          'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
+        ] },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: 'Services in Lempäälä', paragraphs: [
+          'Apartment and small moves, including student moves.',
+          'Furniture and appliance transport, plus IKEA, Tori.fi and Marketplace pickups.',
+          'Old furniture taken to the waste station, by the hour or for a fixed price.',
+          'Van and driver, or 1–3 movers for carrying.',
+        ] },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Paljonko muutto Lempäälässä maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
+        { q: 'Kuljetatteko tavaroita Lempäälästä Tampereelle?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, päivä ja tavaroiden määrä, niin annamme hinnan tai tarjouksen.' },
+        { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
+      ],
+      en: [
+        { q: 'How much does a move in Lempäälä cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
+        { q: 'Do you transport items from Lempäälä to Tampere?', a: 'Yes. Send the pickup and delivery addresses, the date and the amount of items, and we give you a price or quote.' },
+        { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
+      ],
+    },
+  },
+  {
+    path: '/muutto-kangasala',
+    area: true,
+    navLabel: { fi: 'Muutto Kangasala', en: 'Moving Kangasala' },
+    title: { fi: 'Muutto Kangasala – muuttofirma ja kuljetukset Kangasalla | MoveX Logistics', en: 'Moving in Kangasala – Movers & Transport | MoveX Logistics' },
+    description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Kangasalla. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Kangasala, near Tampere. Van + driver €50/h incl. VAT. Request a quote.' },
+    h1: { fi: 'Muutto ja kuljetukset Kangasalla', en: 'Moving and transport in Kangasala' },
+    intro: { fi: 'Muutatko Kangasalla tai Kangasalta Tampereelle? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Kangasalla. Kangasala sijaitsee Tampereen itäpuolella. Matkaa Tampereen keskustasta on noin 18 km.', en: 'Moving in Kangasala or from Kangasala to Tampere? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Kangasala. Kangasala lies east of Tampere. It is about 18 km from Tampere city centre.' },
+    sections: {
+      fi: [
+        { heading: 'Palvelut Kangasalla', paragraphs: [
+          'Asunto- ja pienmuutot, myös opiskelijamuutot.',
+          'Huonekalujen ja kodinkoneiden kuljetus sekä IKEA-, Tori.fi- ja Marketplace-noudot.',
+          'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
+          'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
+        ] },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: 'Services in Kangasala', paragraphs: [
+          'Apartment and small moves, including student moves.',
+          'Furniture and appliance transport, plus IKEA, Tori.fi and Marketplace pickups.',
+          'Old furniture taken to the waste station, by the hour or for a fixed price.',
+          'Van and driver, or 1–3 movers for carrying.',
+        ] },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Paljonko muutto Kangasalla maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
+        { q: 'Kuljetatteko tavaroita Kangasalta Tampereelle?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, päivä ja tavaroiden määrä, niin annamme hinnan tai tarjouksen.' },
+        { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
+      ],
+      en: [
+        { q: 'How much does a move in Kangasala cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
+        { q: 'Do you transport items from Kangasala to Tampere?', a: 'Yes. Send the pickup and delivery addresses, the date and the amount of items, and we give you a price or quote.' },
+        { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
+      ],
+    },
+  },
+  {
+    path: '/muutto-hervanta',
+    area: true,
+    navLabel: { fi: 'Muutto Hervanta', en: 'Moving Hervanta' },
+    title: { fi: 'Muutto Hervanta – muuttofirma ja kuljetukset Hervannassa | MoveX Logistics', en: 'Moving in Hervanta – Movers & Transport | MoveX Logistics' },
+    description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Hervannassa. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Hervanta, near Tampere. Van + driver €50/h incl. VAT. Request a quote.' },
+    h1: { fi: 'Muutto ja kuljetukset Hervannassa', en: 'Moving and transport in Hervanta' },
+    intro: { fi: 'Muutatko Hervannassa tai Hervannasta Tampereelle? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Hervannassa. Hervanta on Tampereen eteläosa, jossa on Tampereen yliopiston Hervannan kampus ja paljon opiskelija-asuntoja. Matkaa Tampereen keskustasta on noin 8 km.', en: 'Moving in Hervanta or from Hervanta to Tampere? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Hervanta. Hervanta is a district in southern Tampere with Tampere University\u2019s Hervanta campus and a lot of student housing. It is about 8 km from Tampere city centre.' },
+    sections: {
+      fi: [
+        { heading: 'Palvelut Hervannassa', paragraphs: [
+          'Asunto- ja pienmuutot, myös opiskelijamuutot.',
+          'Huonekalujen ja kodinkoneiden kuljetus sekä IKEA-, Tori.fi- ja Marketplace-noudot.',
+          'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
+          'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
+        ] },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: 'Services in Hervanta', paragraphs: [
+          'Apartment and small moves, including student moves.',
+          'Furniture and appliance transport, plus IKEA, Tori.fi and Marketplace pickups.',
+          'Old furniture taken to the waste station, by the hour or for a fixed price.',
+          'Van and driver, or 1–3 movers for carrying.',
+        ] },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Paljonko muutto Hervannassa maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
+        { q: 'Kuljetatteko tavaroita Hervannasta Tampereelle?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, päivä ja tavaroiden määrä, niin annamme hinnan tai tarjouksen.' },
+        { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
+      ],
+      en: [
+        { q: 'How much does a move in Hervanta cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
+        { q: 'Do you transport items from Hervanta to Tampere?', a: 'Yes. Send the pickup and delivery addresses, the date and the amount of items, and we give you a price or quote.' },
+        { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
+      ],
+    },
+  },
 ];
 
 const englishSlugs: Record<string, string> = {
@@ -782,6 +1042,12 @@ const englishSlugs: Record<string, string> = {
   '/kodinkonekuljetus-tampere': '/en/appliance-transport-tampere',
   '/opiskelijamuutto-tampere': '/en/student-move-tampere',
   '/kaatopaikkakuljetus-tampere': '/en/junk-removal-tampere',
+  '/muutto-nokia': '/en/moving-nokia',
+  '/muutto-ylojarvi': '/en/moving-ylojarvi',
+  '/muutto-pirkkala': '/en/moving-pirkkala',
+  '/muutto-lempaala': '/en/moving-lempaala',
+  '/muutto-kangasala': '/en/moving-kangasala',
+  '/muutto-hervanta': '/en/moving-hervanta',
 };
 
 export function getLandingPage(path: string) {
