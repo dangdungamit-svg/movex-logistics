@@ -711,6 +711,63 @@ export const landingPages: LandingPage[] = [
       ],
     },
   },
+  {
+    path: '/kaatopaikkakuljetus-tampere',
+    navLabel: { fi: 'Kaatopaikkakuljetus Tampere', en: 'Junk removal Tampere' },
+    title: {
+      fi: 'Kaatopaikkakuljetus Tampere – vanhojen huonekalujen poisvienti | MoveX Logistics',
+      en: 'Junk Removal in Tampere – Old Furniture Taken Away | MoveX Logistics',
+    },
+    description: {
+      fi: 'Viemme vanhat sohvat, tuolit, patjat ja muut tavarat jäteasemalle Tampereella ja Pirkanmaalla. Tuntihinta alkaen 50 €/h tai kiinteä hinta tarjouksella.',
+      en: 'We take old sofas, chairs, mattresses and other items to the waste station in Tampere and Pirkanmaa. Hourly from €50/h or a fixed price by quote.',
+    },
+    h1: { fi: 'Kaatopaikkakuljetus Tampereella', en: 'Junk removal in Tampere' },
+    intro: {
+      fi: 'Onko kotona vanha sohva, tuoleja, patja tai muuta tavaraa, joka pitää viedä pois? MoveX Logistics hakee tavarat ja vie ne jäteasemalle Tampereella ja Pirkanmaalla. Voit valita, maksatko tuntihinnan vai pyydätkö kiinteän hinnan etukäteen.',
+      en: 'Have an old sofa, chairs, a mattress or other items that need to go? MoveX Logistics collects them and takes them to the waste station in Tampere and Pirkanmaa. You can choose to pay by the hour or ask for a fixed price in advance.',
+    },
+    sections: {
+      fi: [
+        {
+          heading: 'Kaksi tapaa hinnoitella',
+          paragraphs: [
+            'Tuntihinta: maksat työhön kuluneesta ajasta hinnaston mukaan.',
+            'Kiinteä hinta: kerro meille noutopaikka, mitä viedään (esimerkiksi sohva ja neljä tuolia), kerros ja onko talossa hissi. Laskemme matkan ja työn ja lähetämme sinulle tarjouksen ennen työn aloittamista.',
+            'Mahdolliset jäteaseman vastaanottomaksut sovitaan tarjouksessa.',
+          ],
+        },
+        { heading: 'Tuntihinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        {
+          heading: 'Two ways to price the job',
+          paragraphs: [
+            'Hourly rate: you pay for the time the job takes, according to the price list.',
+            'Fixed price: tell us the pickup address, what needs to go (for example a sofa and four chairs), the floor and whether there is a lift. We work out the distance and the work and send you a quote before the job starts.',
+            'Any waste station reception fees are agreed in the quote.',
+          ],
+        },
+        { heading: 'Hourly prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Voinko saada kiinteän hinnan?', a: 'Kyllä. Kerro noutopaikka, tavarat, kerros ja hissi, niin lähetämme tarjouksen ennen työn aloittamista.' },
+        { q: 'Mitä tavaroita viette?', a: 'Esimerkiksi sohvat, tuolit, pöydät, sängyt, patjat ja muut huonekalut. Kerro tavarat tarjouspyynnössä.' },
+        { q: 'Kannatteko tavarat ulos asunnosta?', a: 'Kyllä, kun valitset palvelun, jossa on mukana muuttomies. Kerro kerros ja onko talossa hissi.' },
+        { q: 'Paljonko kaatopaikkakuljetus maksaa tuntihinnalla?', a: 'Pakettiauto + kuljettaja 50 €/h ja 1 muuttomies + auto 75 €/h (sis. alv 25,5 %). Vähimmäisvaraus on yksi tunti.' },
+      ],
+      en: [
+        { q: 'Can I get a fixed price?', a: 'Yes. Tell us the pickup address, the items, the floor and whether there is a lift, and we send a quote before the job starts.' },
+        { q: 'What items do you take?', a: 'For example sofas, chairs, tables, beds, mattresses and other furniture. List the items in your quote request.' },
+        { q: 'Do you carry the items out of the flat?', a: 'Yes, when you choose a service that includes a mover. Tell us the floor and whether there is a lift.' },
+        { q: 'How much does junk removal cost by the hour?', a: 'Van + driver €50/hour and 1 mover + van €75/hour (Finnish VAT 25.5% included). The minimum booking is one hour.' },
+      ],
+    },
+  },
 ];
 
 const englishSlugs: Record<string, string> = {
@@ -724,6 +781,7 @@ const englishSlugs: Record<string, string> = {
   '/tori-nouto-tampere': '/en/marketplace-pickup-tampere',
   '/kodinkonekuljetus-tampere': '/en/appliance-transport-tampere',
   '/opiskelijamuutto-tampere': '/en/student-move-tampere',
+  '/kaatopaikkakuljetus-tampere': '/en/junk-removal-tampere',
 };
 
 export function getLandingPage(path: string) {
