@@ -491,6 +491,116 @@ export const landingPages: LandingPage[] = [
     },
   },
 
+  {
+    path: '/ikea-kuljetus-tampere',
+    navLabel: { fi: 'IKEA-kuljetus Tampere', en: 'IKEA delivery Tampere' },
+    title: {
+      fi: 'IKEA-kuljetus Tampere – nouto ja kotiinkuljetus | MoveX Logistics',
+      en: 'IKEA Delivery in Tampere – Pickup & Home Delivery | MoveX Logistics',
+    },
+    description: {
+      fi: 'IKEA-kuljetus Tampereella ja Pirkanmaalla: noudamme huonekalut ja paketit myymälästä tai noutopisteestä kotiisi. Pakettiauto + kuljettaja 50 €/h sis. alv.',
+      en: 'IKEA delivery in Tampere and Pirkanmaa: we collect your furniture and boxes from the store or pickup point and bring them home. Van and driver €50/h incl. VAT.',
+    },
+    h1: { fi: 'IKEA-kuljetus Tampereella', en: 'IKEA delivery in Tampere' },
+    intro: {
+      fi: 'Ostitko sängyn, sohvan, kaapin tai monta pakettia IKEAsta, mutta auto on liian pieni? MoveX Logistics noutaa ostokset puolestasi tai yhdessä kanssasi ja toimittaa ne kotiovelle Tampereella ja Pirkanmaalla. Käytössä on tilava pakettiauto (Fiat Ducato, noin 13 m³) ja tarvittaessa kantoapu.',
+      en: 'Bought a bed, sofa, wardrobe or a stack of flat-pack boxes at IKEA but your car is too small? MoveX Logistics collects the items for you or together with you and delivers them to your door in Tampere and Pirkanmaa. We use a spacious van (Fiat Ducato, about 13 m³) and can add carrying help.',
+    },
+    sections: {
+      fi: [
+        {
+          heading: 'Näin IKEA-kuljetus toimii',
+          paragraphs: [
+            'Kerro meille, mistä tuotteet noudetaan (myymälä tai noutopiste), toimitusosoite, toivottu päivä sekä tuotteiden määrä ja suurimmat paketit. Sovimme ajan, noudamme tuotteet ja kuljetamme ne perille. Jos tarvitset apua kantamisessa portaissa tai sisälle asuntoon, valitse palvelu, jossa on mukana muuttomies.',
+            'Varmista ennen noutoa, että tilaus on maksettu ja noudettavissa, ja lähetä meille tilausnumero tai noutovahvistus, jos noudamme tuotteet ilman sinua.',
+          ],
+        },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        {
+          heading: 'How IKEA delivery works',
+          paragraphs: [
+            'Tell us where to collect the items (store or pickup point), the delivery address, your preferred date, and the number and size of the largest packages. We agree a time, collect the items and drive them to you. If you need help carrying them up the stairs or into your home, choose a service that includes a mover.',
+            'Before the pickup, make sure the order is paid and ready for collection. If we collect without you, send us the order number or pickup confirmation.',
+          ],
+        },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Voitteko noutaa IKEA-tilauksen ilman minua?', a: 'Kyllä, kun tilaus on maksettu ja noudettavissa. Lähetä meille tilausnumero tai noutovahvistus ja noutoon tarvittavat tiedot.' },
+        { q: 'Mahtuuko isompi kalustekokonaisuus kerralla?', a: 'Pakettiauton kuormatila on noin 13 m³, joten tavallinen keittiö-, makuuhuone- tai olohuoneen kalustekokonaisuus mahtuu yleensä yhdellä kertaa. Kerro suurimmat paketit tarjouspyynnössä.' },
+        { q: 'Kantavatteko tuotteet sisälle?', a: 'Kyllä, kun valitset palvelun, jossa on mukana muuttomies. Kerro kerros ja onko talossa hissi.' },
+        { q: 'Paljonko IKEA-kuljetus maksaa?', a: 'Pakettiauto ja kuljettaja maksaa 50 €/h ja 1 muuttomies + auto 75 €/h (sis. alv 25,5 %). Vähimmäisvaraus on yksi tunti.' },
+      ],
+      en: [
+        { q: 'Can you collect my IKEA order without me?', a: 'Yes, once the order is paid and ready for collection. Send us the order number or pickup confirmation and the details needed for the pickup.' },
+        { q: 'Will a larger furniture set fit in one trip?', a: 'The van has about 13 m³ of cargo space, so a typical kitchen, bedroom or living-room set usually fits in one trip. List the largest packages in your quote request.' },
+        { q: 'Do you carry the items inside?', a: 'Yes, when you choose a service that includes a mover. Tell us the floor and whether there is a lift.' },
+        { q: 'How much does IKEA delivery cost?', a: 'A van and driver costs €50/hour and one mover plus van €75/hour (Finnish VAT 25.5% included). The minimum booking is one hour.' },
+      ],
+    },
+  },
+  {
+    path: '/tori-nouto-tampere',
+    navLabel: { fi: 'Tori- ja Marketplace-nouto', en: 'Tori & Marketplace pickup' },
+    title: {
+      fi: 'Tori.fi- ja Marketplace-nouto Tampere | MoveX Logistics',
+      en: 'Tori.fi & Facebook Marketplace Pickup in Tampere | MoveX Logistics',
+    },
+    description: {
+      fi: 'Ostitko sohvan tai pesukoneen Tori.fi:stä tai Facebook Marketplacesta? Noudamme tavaran myyjältä ja tuomme sen kotiisi Tampereella ja Pirkanmaalla. 50 €/h sis. alv.',
+      en: 'Bought a sofa or washing machine on Tori.fi or Facebook Marketplace? We collect it from the seller and deliver it to your home in Tampere and Pirkanmaa. €50/h incl. VAT.',
+    },
+    h1: { fi: 'Tori.fi- ja Marketplace-noudot Tampereella', en: 'Tori.fi and Marketplace pickups in Tampere' },
+    intro: {
+      fi: 'Löysitkö hyvän sohvan, sängyn, pöydän tai kodinkoneen Tori.fi:stä tai Facebook Marketplacesta, mutta kuljetus puuttuu? MoveX Logistics noutaa tavaran myyjältä ja toimittaa sen sinulle Tampereella ja Pirkanmaalla – myös samana päivänä, jos aikataulu sallii.',
+      en: 'Found a great sofa, bed, table or appliance on Tori.fi or Facebook Marketplace but have no way to move it? MoveX Logistics collects the item from the seller and delivers it to you in Tampere and Pirkanmaa – even on the same day when the schedule allows.',
+    },
+    sections: {
+      fi: [
+        {
+          heading: 'Näin nouto toimii',
+          paragraphs: [
+            'Sovi kauppa ja maksu myyjän kanssa ennen noutoa. Lähetä meille myyjän osoite, toimitusosoite, toivottu aika sekä kuvaus tai kuva tavarasta (koko, paino, kerros ja hissi molemmissa päissä). Sovimme ajan ja hoidamme noudon ja kuljetuksen.',
+            'Painavat tavarat, kuten pesukoneet, jääkaapit ja isot sohvat, vaativat yleensä kaksi kantajaa. Valitse silloin palvelu, jossa on mukana muuttomies.',
+          ],
+        },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        {
+          heading: 'How the pickup works',
+          paragraphs: [
+            'Agree the purchase and payment with the seller before the pickup. Send us the seller’s address, the delivery address, your preferred time and a description or photo of the item (size, weight, floor and lift at both ends). We agree a time and take care of the pickup and delivery.',
+            'Heavy items such as washing machines, fridges and large sofas usually need two people to carry. In that case, choose a service that includes a mover.',
+          ],
+        },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Maksatteko tavaran myyjälle puolestani?', a: 'Emme. Sovi kauppa ja maksu suoraan myyjän kanssa ennen noutoa, niin nouto sujuu nopeasti.' },
+        { q: 'Onnistuuko nouto samana päivänä?', a: 'Usein onnistuu, jos aikataulu sallii. Soita tai lähetä WhatsApp-viesti, niin kerromme vapaat ajat.' },
+        { q: 'Tarvitsenko kantoapua?', a: 'Kevyet tavarat kuljettaja voi hoitaa. Painavat tai isot tavarat, kuten pesukoneet ja sohvat, vaativat yleensä kaksi kantajaa – valitse silloin 1 muuttomies + auto.' },
+        { q: 'Paljonko nouto maksaa?', a: 'Pakettiauto ja kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h (sis. alv 25,5 %). Vähimmäisvaraus on yksi tunti.' },
+      ],
+      en: [
+        { q: 'Do you pay the seller on my behalf?', a: 'No. Agree the purchase and payment directly with the seller before the pickup so it goes quickly.' },
+        { q: 'Is same-day pickup possible?', a: 'Often, if the schedule allows. Call or send a WhatsApp message and we will tell you the available times.' },
+        { q: 'Do I need carrying help?', a: 'The driver can handle light items. Heavy or bulky items such as washing machines and sofas usually need two people – choose 1 mover + van.' },
+        { q: 'How much does a pickup cost?', a: 'Van and driver €50/hour, 1 mover + van €75/hour (Finnish VAT 25.5% included). The minimum booking is one hour.' },
+      ],
+    },
+  },
 ];
 
 const englishSlugs: Record<string, string> = {
@@ -500,6 +610,8 @@ const englishSlugs: Record<string, string> = {
   '/pieni-muutto-tampere': '/en/small-move-tampere',
   '/kuljetuspalvelu-tampere': '/en/transport-service-tampere',
   '/muuttopalvelu-hinta-tampere': '/en/moving-cost-tampere',
+  '/ikea-kuljetus-tampere': '/en/ikea-delivery-tampere',
+  '/tori-nouto-tampere': '/en/marketplace-pickup-tampere',
 };
 
 export function getLandingPage(path: string) {
