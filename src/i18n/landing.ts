@@ -404,12 +404,13 @@ export const landingPages: LandingPage[] = [
           ],
         },
         {
-          heading: 'Muuttoavun hintaesimerkkejä Tampereella',
+          heading: 'Näin laskutus toimii – hintaesimerkkejä',
           paragraphs: [
-            'Pakettiauto + kuljettaja 2 tuntia: 2 × 50 € = 100 €.',
-            '1 muuttomies + auto 1,5 tuntia: 75 € + 37,50 € = 112,50 €.',
-            '2 muuttomiestä + auto 3 tuntia: 3 × 100 € = 300 €.',
-            'Esimerkit on laskettu yllä olevasta hinnastosta, ja hinnat sisältävät alv 25,5 %. Ne eivät ole kiinteitä hintoja: todellinen kesto riippuu tavaramäärästä, matkasta, kerroksista ja kantomatkoista. Kiinteän hinnan saat pyytämällä tarjouksen.',
+            'Vähimmäisveloitus on yksi tunti. Ensimmäisen tunnin jälkeen jokainen alkanut 30 minuuttia laskutetaan.',
+            'Työ kesti 40 min → laskutetaan 1 h: pakettiauto + kuljettaja 50 €, 1 muuttomies + auto 75 €, 2 muuttomiestä + auto 100 €.',
+            'Työ kesti 1 h 25 min → laskutetaan 1,5 h: pakettiauto + kuljettaja 75 €, 1 muuttomies + auto 112,50 €, 2 muuttomiestä + auto 150 €.',
+            'Työ kesti 1 h 45 min → laskutetaan 2 h: pakettiauto + kuljettaja 100 €, 1 muuttomies + auto 150 €, 2 muuttomiestä + auto 200 €.',
+            'Hinnat sisältävät alv 25,5 %. Esimerkit eivät ole kiinteitä hintoja: työn kesto riippuu tavaramäärästä, matkasta, kerroksista ja kantomatkoista. Kiinteän hinnan saat pyytämällä tarjouksen.',
           ],
         },
         {
@@ -453,12 +454,13 @@ export const landingPages: LandingPage[] = [
           ],
         },
         {
-          heading: 'Moving help price examples in Tampere',
+          heading: 'How billing works – price examples',
           paragraphs: [
-            'Van + driver for 2 hours: 2 × €50 = €100.',
-            '1 mover + van for 1.5 hours: €75 + €37.50 = €112.50.',
-            '2 movers + van for 3 hours: 3 × €100 = €300.',
-            'These examples are calculated from the price list above and include Finnish VAT (25.5%). They are not fixed prices: the actual time depends on the volume, distance, floors and carrying distances. Request a quote for a fixed price.',
+            'The minimum charge is one hour. After the first hour, every started 30 minutes is billed.',
+            'Job took 40 min → billed 1 h: van + driver €50, 1 mover + van €75, 2 movers + van €100.',
+            'Job took 1 h 25 min → billed 1.5 h: van + driver €75, 1 mover + van €112.50, 2 movers + van €150.',
+            'Job took 1 h 45 min → billed 2 h: van + driver €100, 1 mover + van €150, 2 movers + van €200.',
+            'Prices include Finnish VAT (25.5%). The examples are not fixed prices: the time needed depends on the volume, distance, floors and carrying distances. Request a quote for a fixed price.',
           ],
         },
         {
