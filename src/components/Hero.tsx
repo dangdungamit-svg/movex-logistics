@@ -1,4 +1,4 @@
-import { Phone, MessageCircle, ArrowRight, Clock, Truck } from 'lucide-react';
+import { Phone, MessageCircle, ArrowRight, Clock, Truck, Star, ShieldCheck } from 'lucide-react';
 import { useLanguage, getWhatsAppLink } from '@/i18n/LanguageContext';
 import { COMPANY, HERO_IMAGE } from '@/i18n/translations';
 import { getResponsiveWebpSrcSet } from '@/lib/images';
@@ -127,17 +127,23 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Phone + hours */}
-            <div
-              className="mt-4 flex flex-col items-center gap-2 text-sm text-slate-400 sm:flex-row sm:gap-4 lg:justify-start"
-            >
+            {/* Trust row */}
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-slate-300 lg:justify-start">
               <a
-                href={COMPANY.phoneHref}
-                className="font-medium text-slate-300 transition-colors hover:text-white"
+                href="#reviews"
+                className="inline-flex items-center gap-1.5 font-medium transition-colors hover:text-white"
               >
-                {t.hero.callLabel}
+                <span className="flex" aria-hidden="true">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </span>
+                {lang === 'fi' ? '5,0 Googlessa' : '5.0 on Google'}
               </a>
-              <span className="hidden sm:inline">·</span>
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="h-4 w-4 text-brand-400" />
+                {lang === 'fi' ? 'Vakuutettu yritys' : 'Insured company'}
+              </span>
               <span className="inline-flex items-center gap-1.5">
                 <Clock className="h-4 w-4 text-brand-400" />
                 {t.hero.openDaily}
@@ -150,13 +156,13 @@ export default function Hero() {
             className="animate-fade-up relative hidden lg:block"
             style={{ animationDelay: '0.15s' }}
           >
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
+            <div className="relative mx-auto max-w-[360px] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
               <picture>
                 <source
                   media="(min-width: 1024px)"
                   type="image/webp"
                   srcSet={getResponsiveWebpSrcSet('/images/14_20260924_225406_0013')}
-                  sizes="(min-width: 1280px) 576px, 50vw"
+                  sizes="360px"
                 />
                 <source
                   media="(min-width: 1024px)"
@@ -166,33 +172,13 @@ export default function Hero() {
                 <img
                   src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                   alt="Muuttomiehet lastaamassa huonekaluja pakettiautoon"
-                  className="h-[520px] w-full object-cover"
+                  className="aspect-[9/16] h-auto w-full object-contain"
                   loading="eager"
                   fetchPriority="high"
                   width={1080}
-                  height={520}
+                  height={1920}
                 />
               </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-
-              {/* Floating VAT badge */}
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-slate-900/90 p-5 backdrop-blur-md ring-1 ring-white/10">
-                <div className="flex items-center justify-center gap-8">
-                  <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-brand-400">25.5%</p>
-                    <p className="mt-0.5 text-xs text-slate-400">
-                      {lang === 'fi' ? 'ALV sisältyy' : 'VAT inc.'}
-                    </p>
-                  </div>
-                  <div className="h-10 w-px bg-white/15" />
-                  <div className="text-center">
-                    <p className="font-display text-3xl font-bold text-white">1 h</p>
-                    <p className="mt-0.5 text-xs text-slate-400">
-                      {lang === 'fi' ? 'Vähimmäisvaraus' : 'Minimum'}
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

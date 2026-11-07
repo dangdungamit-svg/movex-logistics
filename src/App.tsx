@@ -6,6 +6,7 @@ import GoogleReviews from '@/components/GoogleReviews';
 import Pricing from '@/components/Pricing';
 import FixedPriceQuote from '@/components/FixedPriceQuote';
 import Services from '@/components/Services';
+import Gallery from '@/components/Gallery';
 import QualitySafety from '@/components/QualitySafety';
 import LongDistance from '@/components/LongDistance';
 import HowItWorks from '@/components/HowItWorks';
@@ -19,11 +20,7 @@ import BlogPage from '@/components/Blog';
 import Admin from '@/components/Admin';
 import LandingPage from '@/components/LandingPage';
 import { getLandingPage } from '@/i18n/landing';
-import { getResponsiveWebpSrcSet } from '@/lib/images';
 import { setHreflangLinks } from '@/lib/seo';
-
-const photoSizes =
-  '(max-width: 640px) calc(100vw - 2rem), (max-width: 1024px) calc(100vw - 3rem), (max-width: 1280px) calc(100vw - 4rem), 1216px';
 
 function setHomepageMetadata(lang: 'fi' | 'en') {
   const title = lang === 'fi'
@@ -88,137 +85,14 @@ function AppContent() {
           <Pricing />
           <FixedPriceQuote />
           <Services />
-
-          {/* Photo 1: After Services */}
-          <section className="bg-white py-6 lg:py-8">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={getResponsiveWebpSrcSet('/images/20_20260924_225406_0019')}
-                    sizes={photoSizes}
-                  />
-                  <img
-                    src="/images/20_20260924_225406_0019.png"
-                    alt="Muuttopalvelu Tampereella – muuttoauto ja kuljettaja"
-                    className="aspect-video w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={1080}
-                    height={608}
-                  />
-                </picture>
-              </div>
-            </div>
-          </section>
-
+          <Gallery />
           <QualitySafety />
-
-          {/* Photo 3: After QualitySafety */}
-          <section className="bg-white py-6 lg:py-8">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={getResponsiveWebpSrcSet('/images/32_20260924_225406_0031')}
-                    sizes={photoSizes}
-                  />
-                  <img
-                    src="/images/32_20260924_225406_0031.png"
-                    alt="Huonekalujen ja esineiden kuljetus Tampereella"
-                    className="aspect-video w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={1080}
-                    height={608}
-                  />
-                </picture>
-              </div>
-            </div>
-          </section>
-
           <LongDistance />
           <HowItWorks />
-
-          {/* Photo 4: After HowItWorks */}
-          <section className="bg-white py-6 lg:py-8">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={getResponsiveWebpSrcSet('/images/25_20260924_225406_0024')}
-                    sizes={photoSizes}
-                  />
-                  <img
-                    src="/images/25_20260924_225406_0024.png"
-                    alt="Pakettiauto ja kuljettaja"
-                    className="aspect-video w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={1080}
-                    height={608}
-                  />
-                </picture>
-              </div>
-            </div>
-          </section>
-
           <WhyMoveX />
           <ServiceArea />
-
-          {/* Photo 5: After ServiceArea */}
-          <section className="bg-white py-6 lg:py-8">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={getResponsiveWebpSrcSet('/images/35_20260924_225406_0034')}
-                    sizes={photoSizes}
-                  />
-                  <img
-                    src="/images/35_20260924_225406_0034.png"
-                    alt="Kuljetuspalvelu Tampereella ja Pirkanmaalla"
-                    className="aspect-video w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={1080}
-                    height={608}
-                  />
-                </picture>
-              </div>
-            </div>
-          </section>
-
           <FAQ />
           <Contact />
-
-          {/* Photo 6: After Contact */}
-          <section className="bg-white py-6 lg:py-8">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={getResponsiveWebpSrcSet('/images/34_20260924_225406_0033')}
-                    sizes={photoSizes}
-                  />
-                  <img
-                    src="/images/34_20260924_225406_0033.png"
-                    alt="Ota yhteyttä MoveX Logisticsiin"
-                    className="aspect-video w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={1080}
-                    height={608}
-                  />
-                </picture>
-              </div>
-            </div>
-          </section>
         </main>
       )}
       <Footer />
