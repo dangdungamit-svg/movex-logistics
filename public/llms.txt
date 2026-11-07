@@ -3,10 +3,19 @@
 > MoveX Logistics is a Tampere-based moving and transport service in Pirkanmaa, Finland, serving households and small businesses. It also accepts suitable transport jobs elsewhere in Finland by quotation.
 
 ## Official website
-- https://movexlogistics.fi/
-- Finnish moving service: https://movexlogistics.fi/muuttopalvelu-tampere/
-- Moving company in Tampere: https://movexlogistics.fi/muuttofirma-tampere/
-- Furniture transport in Tampere: https://movexlogistics.fi/huonekalukuljetus-tampere/
+- https://movexlogistics.fi/ (Finnish) · https://movexlogistics.fi/en/ (English)
+- Moving company in Tampere: https://movexlogistics.fi/muuttofirma-tampere/ · https://movexlogistics.fi/en/moving-company-tampere/
+- Moving service in Tampere: https://movexlogistics.fi/muuttopalvelu-tampere/ · https://movexlogistics.fi/en/moving-service-tampere/
+- Moving prices: https://movexlogistics.fi/muuttopalvelu-hinta-tampere/ · https://movexlogistics.fi/en/moving-cost-tampere/
+- Small moves: https://movexlogistics.fi/pieni-muutto-tampere/ · https://movexlogistics.fi/en/small-move-tampere/
+- Student moves: https://movexlogistics.fi/opiskelijamuutto-tampere/ · https://movexlogistics.fi/en/student-move-tampere/
+- Furniture transport: https://movexlogistics.fi/huonekalukuljetus-tampere/ · https://movexlogistics.fi/en/furniture-transport-tampere/
+- Appliance transport: https://movexlogistics.fi/kodinkonekuljetus-tampere/ · https://movexlogistics.fi/en/appliance-transport-tampere/
+- IKEA pickup and delivery: https://movexlogistics.fi/ikea-kuljetus-tampere/ · https://movexlogistics.fi/en/ikea-delivery-tampere/
+- Tori.fi and Facebook Marketplace pickups: https://movexlogistics.fi/tori-nouto-tampere/ · https://movexlogistics.fi/en/marketplace-pickup-tampere/
+- Junk removal to the waste station: https://movexlogistics.fi/kaatopaikkakuljetus-tampere/ · https://movexlogistics.fi/en/junk-removal-tampere/
+- Transport service: https://movexlogistics.fi/kuljetuspalvelu-tampere/ · https://movexlogistics.fi/en/transport-service-tampere/
+- Town pages: Nokia https://movexlogistics.fi/muutto-nokia/ · Ylöjärvi https://movexlogistics.fi/muutto-ylojarvi/ · Pirkkala https://movexlogistics.fi/muutto-pirkkala/ · Lempäälä https://movexlogistics.fi/muutto-lempaala/ · Kangasala https://movexlogistics.fi/muutto-kangasala/ · Hervanta (Tampere) https://movexlogistics.fi/muutto-hervanta/
 - Finnish guides: https://movexlogistics.fi/blog/
 
 ## Services
@@ -15,6 +24,11 @@
 - Van and driver for transport-only jobs
 - Furniture and single-item transport
 - Store, Tori.fi and Facebook Marketplace pickups
+- IKEA pickups and home delivery
+- Appliance transport (washing machines, fridges, freezers, cookers)
+- Student moves
+- Junk removal: old furniture taken to the waste station, priced by the hour or as a fixed quote
+- Courier and delivery jobs
 - Loading, unloading and carrying assistance with 1–3 movers
 - Long-distance transport across Finland by quotation
 
@@ -28,7 +42,7 @@ All prices below include Finnish VAT (25.5%):
 Minimum booking: 1 hour. After the first hour, billing continues in 30-minute increments. A fixed quotation may be requested; it is confirmed before the work starts when the job details allow a reliable estimate.
 
 ## Service area
-Primary area: Tampere and Pirkanmaa, including Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Jobs elsewhere in Finland are considered by quotation.
+Primary area: Tampere (including Hervanta) and Pirkanmaa, including Nokia, Ylöjärvi, Pirkkala, Lempäälä, Kangasala, Valkeakoski and Orivesi. Open every day 07:00–21:00. Jobs elsewhere in Finland are considered by quotation.
 
 ## Contact
 - Phone: +358 41 328 6939
