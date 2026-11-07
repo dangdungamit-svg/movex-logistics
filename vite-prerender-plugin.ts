@@ -20,6 +20,7 @@ const languagePairs = [
   ['/tori-nouto-tampere', '/en/marketplace-pickup-tampere'],
   ['/kodinkonekuljetus-tampere', '/en/appliance-transport-tampere'],
   ['/opiskelijamuutto-tampere', '/en/student-move-tampere'],
+  ['/kaatopaikkakuljetus-tampere', '/en/junk-removal-tampere'],
   ['/blog', '/en/blog'],
   ...blogArticles.filter((article) => article.published).map((article) => [`/blog/${article.slug}`, `/en/blog/${article.slug}`] as const),
 ] as const;
@@ -302,6 +303,18 @@ const routes = [
     title: 'Student Move in Tampere – Affordable Moving Help | MoveX Logistics',
     description: 'Student moves in Tampere: studio, shared flat room or a few pieces of furniture. Van + driver €50/h incl. VAT, carrying help available. Request a quote.',
     canonical: `${origin}/en/student-move-tampere/`,
+  },
+  {
+    path: '/kaatopaikkakuljetus-tampere',
+    title: 'Kaatopaikkakuljetus Tampere – vanhojen huonekalujen poisvienti | MoveX Logistics',
+    description: 'Viemme vanhat sohvat, tuolit, patjat ja muut tavarat jäteasemalle Tampereella ja Pirkanmaalla. Tuntihinta alkaen 50 €/h tai kiinteä hinta tarjouksella.',
+    canonical: `${origin}/kaatopaikkakuljetus-tampere/`,
+  },
+  {
+    path: '/en/junk-removal-tampere',
+    title: 'Junk Removal in Tampere – Old Furniture Taken Away | MoveX Logistics',
+    description: 'We take old sofas, chairs, mattresses and other items to the waste station in Tampere and Pirkanmaa. Hourly from €50/h or a fixed price by quote.',
+    canonical: `${origin}/en/junk-removal-tampere/`,
   },
   ...blogArticles.filter((article) => article.published).map((article) => ({
     path: `/en/blog/${article.slug}`,
