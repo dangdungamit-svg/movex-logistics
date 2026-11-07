@@ -29,8 +29,8 @@ export default function Hero() {
           height={608}
         />
       </picture>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/30" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-950/10" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/75 via-slate-950/20 to-transparent" />
 
       <div className="mx-auto w-full max-w-7xl px-4 pb-14 sm:px-6 lg:px-8 lg:pb-20">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-slate-300">
