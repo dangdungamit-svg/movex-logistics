@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { LanguageProvider, useLanguage } from '@/i18n/LanguageContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import IntroSplash from '@/components/IntroSplash';
 import GoogleReviews from '@/components/GoogleReviews';
 import Pricing from '@/components/Pricing';
 import FixedPriceQuote from '@/components/FixedPriceQuote';
@@ -73,13 +74,14 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Header overlay={!landing && !isBlog} />
       {landing ? (
         <LandingPage page={landing} />
       ) : isBlog ? (
         <BlogPage />
       ) : (
         <main>
+          <IntroSplash />
           <Hero />
           <GoogleReviews />
           <Pricing />
