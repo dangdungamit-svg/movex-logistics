@@ -601,6 +601,116 @@ export const landingPages: LandingPage[] = [
       ],
     },
   },
+  {
+    path: '/kodinkonekuljetus-tampere',
+    navLabel: { fi: 'Kodinkonekuljetus Tampere', en: 'Appliance transport Tampere' },
+    title: {
+      fi: 'Kodinkonekuljetus Tampere – pesukone, jääkaappi, liesi | MoveX Logistics',
+      en: 'Appliance Transport in Tampere – Washing Machines & Fridges | MoveX Logistics',
+    },
+    description: {
+      fi: 'Kodinkoneiden kuljetus Tampereella ja Pirkanmaalla: pesukoneet, jääkaapit, pakastimet ja liedet. Kantoapu saatavilla. 1 muuttomies + auto 75 €/h sis. alv.',
+      en: 'Appliance transport in Tampere and Pirkanmaa: washing machines, fridges, freezers and cookers. Carrying help available. 1 mover + van €75/h incl. VAT.',
+    },
+    h1: { fi: 'Kodinkonekuljetus Tampereella', en: 'Appliance transport in Tampere' },
+    intro: {
+      fi: 'Pesukone, jääkaappi, pakastin tai liesi on painava ja hankala kantaa. MoveX Logistics kuljettaa kodinkoneet kaupasta, Tori.fi-myyjältä tai vanhasta kodista uuteen osoitteeseen Tampereella ja Pirkanmaalla. Painaville laitteille suosittelemme palvelua, jossa on mukana muuttomies.',
+      en: 'A washing machine, fridge, freezer or cooker is heavy and awkward to carry. MoveX Logistics transports appliances from a store, a Tori.fi seller or your old home to the new address in Tampere and Pirkanmaa. For heavy appliances we recommend a service that includes a mover.',
+    },
+    sections: {
+      fi: [
+        {
+          heading: 'Näin valmistaudut kodinkoneen kuljetukseen',
+          paragraphs: [
+            'Irrota laite vesi- ja sähköliitännöistä ennen noutoa. Pesukoneeseen kannattaa asentaa kuljetuslukitus, jos se on tallessa. Sulata ja kuivaa jääkaappi tai pakastin edellisenä päivänä.',
+            'Kerro tarjouspyynnössä laitteen tyyppi, kerrokset ja onko molemmissa päissä hissi. Kahden kantajan työ sujuu turvallisesti, kun valitset 1 muuttomies + auto -palvelun.',
+          ],
+        },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        {
+          heading: 'How to prepare an appliance for transport',
+          paragraphs: [
+            'Disconnect the appliance from water and power before the pickup. If you still have the washing machine’s transport bolts, fit them. Defrost and dry a fridge or freezer the day before.',
+            'In your quote request, tell us the type of appliance, the floors and whether there is a lift at both ends. Carrying with two people is safe when you choose the 1 mover + van service.',
+          ],
+        },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Kuljetatteko pesukoneen tai jääkaapin Tori.fi-myyjältä?', a: 'Kyllä. Sovi kauppa ja maksu myyjän kanssa, ja lähetä meille nouto- ja toimitusosoite sekä kerrokset.' },
+        { q: 'Tarvitaanko kaksi kantajaa?', a: 'Pesukoneet, jääkaapit ja pakastimet ovat yleensä niin painavia, että suosittelemme palvelua 1 muuttomies + auto (75 €/h).' },
+        { q: 'Mitä minun pitää tehdä ennen noutoa?', a: 'Irrota laite liitännöistä, sulata jääkaappi tai pakastin ja varmista, että kulkureitti on vapaa.' },
+        { q: 'Paljonko kodinkonekuljetus maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h (sis. alv 25,5 %). Vähimmäisvaraus on yksi tunti.' },
+      ],
+      en: [
+        { q: 'Can you collect a washing machine or fridge from a Tori.fi seller?', a: 'Yes. Agree the purchase and payment with the seller, then send us the pickup and delivery addresses and the floors.' },
+        { q: 'Are two people needed?', a: 'Washing machines, fridges and freezers are usually heavy enough that we recommend the 1 mover + van service (€75/hour).' },
+        { q: 'What should I do before the pickup?', a: 'Disconnect the appliance, defrost a fridge or freezer and make sure the route out is clear.' },
+        { q: 'How much does appliance transport cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour (Finnish VAT 25.5% included). The minimum booking is one hour.' },
+      ],
+    },
+  },
+  {
+    path: '/opiskelijamuutto-tampere',
+    navLabel: { fi: 'Opiskelijamuutto Tampere', en: 'Student move Tampere' },
+    title: {
+      fi: 'Opiskelijamuutto Tampere – edullinen muuttoapu | MoveX Logistics',
+      en: 'Student Move in Tampere – Affordable Moving Help | MoveX Logistics',
+    },
+    description: {
+      fi: 'Opiskelijamuutto Tampereella: yksiö, soluhuone tai muutama huonekalu. Pakettiauto + kuljettaja 50 €/h sis. alv, kantoapu saatavilla. Pyydä tarjous.',
+      en: 'Student moves in Tampere: studio, shared flat room or a few pieces of furniture. Van + driver €50/h incl. VAT, carrying help available. Request a quote.',
+    },
+    h1: { fi: 'Opiskelijamuutto Tampereella', en: 'Student moves in Tampere' },
+    intro: {
+      fi: 'Muutatko opiskelija-asuntoon, solusta yksiöön tai pois Tampereelta? MoveX Logistics hoitaa pienet opiskelijamuutot nopeasti ja selkein hinnoin. Valitse pelkkä pakettiauto ja kuljettaja, jos kannat itse, tai lisää muuttomies, jos haluat apua kantamiseen.',
+      en: 'Moving into student housing, from a shared flat to a studio, or away from Tampere? MoveX Logistics handles small student moves quickly with clear prices. Choose a van and driver if you carry yourself, or add a mover if you want help carrying.',
+    },
+    sections: {
+      fi: [
+        {
+          heading: 'Vinkit edulliseen opiskelijamuuttoon',
+          paragraphs: [
+            'Pakkaa kaikki pienet tavarat laatikoihin ja kasseihin ennen kuin auto saapuu, ja pura isot huonekalut valmiiksi, jos mahdollista. Kun tavarat ovat valmiina oven lähellä, muutto on nopea ja tunnit pysyvät vähissä.',
+            'Suositut muuttopäivät ovat kuun lopussa ja elokuussa lukukauden alussa. Varaa aika hyvissä ajoin, niin saat sopivan päivän.',
+          ],
+        },
+        { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        {
+          heading: 'Tips for an affordable student move',
+          paragraphs: [
+            'Pack all small items into boxes and bags before the van arrives, and take large furniture apart in advance if you can. When everything is ready near the door, the move is quick and the hours stay low.',
+            'Popular moving days are at the end of the month and in August at the start of term. Book early to get a suitable day.',
+          ],
+        },
+        { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Mikä on edullisin vaihtoehto opiskelijamuuttoon?', a: 'Jos jaksat kantaa itse tai sinulla on kavereita apuna, pakettiauto + kuljettaja 50 €/h on edullisin vaihtoehto.' },
+        { q: 'Mahtuuko yksiön tavarat yhdellä kertaa?', a: 'Pakettiauton kuormatila on noin 13 m³, joten tavallisen yksiön tai soluhuoneen tavarat mahtuvat yleensä yhdellä kertaa.' },
+        { q: 'Voinko muuttaa viikonloppuna?', a: 'Palvelemme joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
+        { q: 'Paljonko opiskelijamuutto maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h ja 1 muuttomies + auto 75 €/h (sis. alv 25,5 %). Vähimmäisvaraus on yksi tunti.' },
+      ],
+      en: [
+        { q: 'What is the most affordable option for a student move?', a: 'If you can carry yourself or have friends helping, van + driver at €50/hour is the most affordable option.' },
+        { q: 'Will a studio’s belongings fit in one trip?', a: 'The van has about 13 m³ of cargo space, so the belongings of a typical studio or shared-flat room usually fit in one trip.' },
+        { q: 'Can I move at the weekend?', a: 'We serve every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
+        { q: 'How much does a student move cost?', a: 'Van + driver €50/hour and 1 mover + van €75/hour (Finnish VAT 25.5% included). The minimum booking is one hour.' },
+      ],
+    },
+  },
 ];
 
 const englishSlugs: Record<string, string> = {
@@ -612,6 +722,8 @@ const englishSlugs: Record<string, string> = {
   '/muuttopalvelu-hinta-tampere': '/en/moving-cost-tampere',
   '/ikea-kuljetus-tampere': '/en/ikea-delivery-tampere',
   '/tori-nouto-tampere': '/en/marketplace-pickup-tampere',
+  '/kodinkonekuljetus-tampere': '/en/appliance-transport-tampere',
+  '/opiskelijamuutto-tampere': '/en/student-move-tampere',
 };
 
 export function getLandingPage(path: string) {
