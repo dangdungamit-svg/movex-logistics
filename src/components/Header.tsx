@@ -50,7 +50,7 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
               width="72"
               height="56"
             />
-            <span className="font-display text-lg font-bold tracking-tight sm:text-xl">
+            <span className="font-display text-lg font-bold tracking-tight sm:text-xl lg:hidden 2xl:inline">
               MoveX<span className="text-brand-400"> Logistics</span>
             </span>
           </a>
