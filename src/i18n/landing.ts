@@ -34,8 +34,8 @@ const priceNote = {
 };
 
 const area = {
-  fi: 'Tarjoamme muuttoapua Tampereella ja lähialueilla: Pirkkala, Nokia, Ylöjärvi, Lempäälä ja Kangasala. Kuljetukset muualle Suomeen onnistuvat tarjouksella.',
-  en: 'We operate in Tampere and Pirkanmaa (including Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala). Transport elsewhere in Finland is available by quotation.',
+  fi: 'Tuntihinnalla palvelemme Tampereella ja lähikunnissa: Nokia, Ylöjärvi, Pirkkala, Lempäälä ja Kangasala. Pidemmät matkat – muualle Pirkanmaalle tai muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun – hinnoitellaan kiinteällä tarjouksella.',
+  en: 'Hourly rates apply in Tampere and the nearby municipalities: Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Longer distances – elsewhere in Pirkanmaa or elsewhere in Finland, for example Helsinki, Jyväskylä or Oulu – are priced as a fixed quote.',
 };
 
 export const landingPages: LandingPage[] = [
@@ -777,7 +777,7 @@ export const landingPages: LandingPage[] = [
     title: { fi: 'Muutto Nokia – muuttofirma ja kuljetukset Nokialla | MoveX Logistics', en: 'Moving in Nokia – Movers & Transport | MoveX Logistics' },
     description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Nokialla. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Nokia, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.' },
     h1: { fi: 'Muutto ja kuljetukset Nokialla', en: 'Moving and transport in Nokia' },
-    intro: { fi: 'Muutatko Nokialla? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Nokialla ja koko Pirkanmaan alueella – Tampereella, Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Nokia sijaitsee Tampereen länsipuolella.', en: 'Moving in Nokia, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Nokia and across the Pirkanmaa region – Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Nokia lies just west of Tampere.' },
+    intro: { fi: 'Muutatko Nokialla? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Nokialla sekä koko Tampereella ja sen lähikunnissa. Nokia sijaitsee Tampereen länsipuolella.', en: 'Moving in Nokia, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Nokia and across Tampere and its nearby municipalities. Nokia lies just west of Tampere.' },
     sections: {
       fi: [
         { heading: 'Palvelut Nokialla', paragraphs: [
@@ -786,9 +786,9 @@ export const landingPages: LandingPage[] = [
           'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
           'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
         ] },
-        { heading: 'Muutot Pirkanmaalla ja muualle Suomeen', paragraphs: [
-          'Pirkanmaan sisällä voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
-          'Muutot muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, asunnon koko tai tavaramäärä ja tarvittavat palvelut, niin lähetämme tarjouksen.',
+        { heading: 'Lähialueen muutot ja kaukomuutot', paragraphs: [
+          'Tampereella ja lähikunnissa voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
+          'Pidemmät muutot – muualle Pirkanmaalle tai muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun – tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, muuttopäivä, asunnon koko (m²) tai tavaramäärä, kerrokset ja hissit sekä tarvittavat palvelut, niin lähetämme tarjouksen.',
         ] },
         { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
@@ -800,9 +800,9 @@ export const landingPages: LandingPage[] = [
           'Old furniture taken to the waste station, by the hour or for a fixed price.',
           'Van and driver, or 1–3 movers for carrying.',
         ] },
-        { heading: 'Moves within Pirkanmaa and across Finland', paragraphs: [
-          'Within Pirkanmaa you can choose the hourly rate or ask for a fixed quote.',
-          'Moves elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the pickup and delivery addresses, the size of the home or the amount of items and the services you need, and we send you a quote.',
+        { heading: 'Local moves and long-distance moves', paragraphs: [
+          'In Tampere and the nearby municipalities you can choose the hourly rate or ask for a fixed quote.',
+          'Longer moves – elsewhere in Pirkanmaa or elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu – are priced as a fixed quote. Send the pickup and delivery addresses, the moving date, the size of the home (m²) or the amount of items, floors and lifts, and the services you need, and we send you a quote.',
         ] },
         { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
         { heading: 'Service area', paragraphs: [area.en] },
@@ -811,12 +811,12 @@ export const landingPages: LandingPage[] = [
     faq: {
       fi: [
         { q: 'Paljonko muutto Nokialla maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
-        { q: 'Teettekö muuttoja Nokialta muualle Suomeen?', a: 'Kyllä. Pirkanmaan ulkopuolelle, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, muutot tehdään kiinteällä tarjouksella. Kerro osoitteet, tavaramäärä ja tarvittavat palvelut.' },
+        { q: 'Teettekö muuttoja Nokialta muualle Suomeen?', a: 'Kyllä. Pidemmät muutot, kuten muualle Pirkanmaalle tai Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro osoitteet, muuttopäivä, asunnon koko tai tavaramäärä ja tarvittavat palvelut.' },
         { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
       ],
       en: [
         { q: 'How much does a move in Nokia cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
-        { q: 'Do you move people from Nokia to other parts of Finland?', a: 'Yes. Moves outside Pirkanmaa, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the amount of items and the services you need.' },
+        { q: 'Do you move people from Nokia to other parts of Finland?', a: 'Yes. Longer moves, such as elsewhere in Pirkanmaa or to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the moving date, the size of the home or the amount of items and the services you need.' },
         { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
       ],
     },
@@ -828,7 +828,7 @@ export const landingPages: LandingPage[] = [
     title: { fi: 'Muutto Ylöjärvi – muuttofirma ja kuljetukset Ylöjärvellä | MoveX Logistics', en: 'Moving in Ylöjärvi – Movers & Transport | MoveX Logistics' },
     description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Ylöjärvellä. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Ylöjärvi, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.' },
     h1: { fi: 'Muutto ja kuljetukset Ylöjärvellä', en: 'Moving and transport in Ylöjärvi' },
-    intro: { fi: 'Muutatko Ylöjärvellä? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Ylöjärvellä ja koko Pirkanmaan alueella – Tampereella, Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Ylöjärvi sijaitsee Tampereen luoteispuolella.', en: 'Moving in Ylöjärvi, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Ylöjärvi and across the Pirkanmaa region – Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Ylöjärvi lies north-west of Tampere.' },
+    intro: { fi: 'Muutatko Ylöjärvellä? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Ylöjärvellä sekä koko Tampereella ja sen lähikunnissa. Ylöjärvi sijaitsee Tampereen luoteispuolella.', en: 'Moving in Ylöjärvi, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Ylöjärvi and across Tampere and its nearby municipalities. Ylöjärvi lies north-west of Tampere.' },
     sections: {
       fi: [
         { heading: 'Palvelut Ylöjärvellä', paragraphs: [
@@ -837,9 +837,9 @@ export const landingPages: LandingPage[] = [
           'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
           'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
         ] },
-        { heading: 'Muutot Pirkanmaalla ja muualle Suomeen', paragraphs: [
-          'Pirkanmaan sisällä voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
-          'Muutot muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, asunnon koko tai tavaramäärä ja tarvittavat palvelut, niin lähetämme tarjouksen.',
+        { heading: 'Lähialueen muutot ja kaukomuutot', paragraphs: [
+          'Tampereella ja lähikunnissa voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
+          'Pidemmät muutot – muualle Pirkanmaalle tai muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun – tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, muuttopäivä, asunnon koko (m²) tai tavaramäärä, kerrokset ja hissit sekä tarvittavat palvelut, niin lähetämme tarjouksen.',
         ] },
         { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
@@ -851,9 +851,9 @@ export const landingPages: LandingPage[] = [
           'Old furniture taken to the waste station, by the hour or for a fixed price.',
           'Van and driver, or 1–3 movers for carrying.',
         ] },
-        { heading: 'Moves within Pirkanmaa and across Finland', paragraphs: [
-          'Within Pirkanmaa you can choose the hourly rate or ask for a fixed quote.',
-          'Moves elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the pickup and delivery addresses, the size of the home or the amount of items and the services you need, and we send you a quote.',
+        { heading: 'Local moves and long-distance moves', paragraphs: [
+          'In Tampere and the nearby municipalities you can choose the hourly rate or ask for a fixed quote.',
+          'Longer moves – elsewhere in Pirkanmaa or elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu – are priced as a fixed quote. Send the pickup and delivery addresses, the moving date, the size of the home (m²) or the amount of items, floors and lifts, and the services you need, and we send you a quote.',
         ] },
         { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
         { heading: 'Service area', paragraphs: [area.en] },
@@ -862,12 +862,12 @@ export const landingPages: LandingPage[] = [
     faq: {
       fi: [
         { q: 'Paljonko muutto Ylöjärvellä maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
-        { q: 'Teettekö muuttoja Ylöjärveltä muualle Suomeen?', a: 'Kyllä. Pirkanmaan ulkopuolelle, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, muutot tehdään kiinteällä tarjouksella. Kerro osoitteet, tavaramäärä ja tarvittavat palvelut.' },
+        { q: 'Teettekö muuttoja Ylöjärveltä muualle Suomeen?', a: 'Kyllä. Pidemmät muutot, kuten muualle Pirkanmaalle tai Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro osoitteet, muuttopäivä, asunnon koko tai tavaramäärä ja tarvittavat palvelut.' },
         { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
       ],
       en: [
         { q: 'How much does a move in Ylöjärvi cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
-        { q: 'Do you move people from Ylöjärvi to other parts of Finland?', a: 'Yes. Moves outside Pirkanmaa, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the amount of items and the services you need.' },
+        { q: 'Do you move people from Ylöjärvi to other parts of Finland?', a: 'Yes. Longer moves, such as elsewhere in Pirkanmaa or to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the moving date, the size of the home or the amount of items and the services you need.' },
         { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
       ],
     },
@@ -879,7 +879,7 @@ export const landingPages: LandingPage[] = [
     title: { fi: 'Muutto Pirkkala – muuttofirma ja kuljetukset Pirkkalassa | MoveX Logistics', en: 'Moving in Pirkkala – Movers & Transport | MoveX Logistics' },
     description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Pirkkalassa. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Pirkkala, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.' },
     h1: { fi: 'Muutto ja kuljetukset Pirkkalassa', en: 'Moving and transport in Pirkkala' },
-    intro: { fi: 'Muutatko Pirkkalassa? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Pirkkalassa ja koko Pirkanmaan alueella – Tampereella, Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Pirkkala on Tampereen naapurikunta lounaassa, Tampere-Pirkkalan lentoaseman lähellä.', en: 'Moving in Pirkkala, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Pirkkala and across the Pirkanmaa region – Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Pirkkala is Tampere\u2019s neighbouring municipality to the south-west, near Tampere-Pirkkala Airport.' },
+    intro: { fi: 'Muutatko Pirkkalassa? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Pirkkalassa sekä koko Tampereella ja sen lähikunnissa. Pirkkala on Tampereen naapurikunta lounaassa, Tampere-Pirkkalan lentoaseman lähellä.', en: 'Moving in Pirkkala, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Pirkkala and across Tampere and its nearby municipalities. Pirkkala is Tampere\u2019s neighbouring municipality to the south-west, near Tampere-Pirkkala Airport.' },
     sections: {
       fi: [
         { heading: 'Palvelut Pirkkalassa', paragraphs: [
@@ -888,9 +888,9 @@ export const landingPages: LandingPage[] = [
           'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
           'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
         ] },
-        { heading: 'Muutot Pirkanmaalla ja muualle Suomeen', paragraphs: [
-          'Pirkanmaan sisällä voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
-          'Muutot muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, asunnon koko tai tavaramäärä ja tarvittavat palvelut, niin lähetämme tarjouksen.',
+        { heading: 'Lähialueen muutot ja kaukomuutot', paragraphs: [
+          'Tampereella ja lähikunnissa voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
+          'Pidemmät muutot – muualle Pirkanmaalle tai muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun – tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, muuttopäivä, asunnon koko (m²) tai tavaramäärä, kerrokset ja hissit sekä tarvittavat palvelut, niin lähetämme tarjouksen.',
         ] },
         { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
@@ -902,9 +902,9 @@ export const landingPages: LandingPage[] = [
           'Old furniture taken to the waste station, by the hour or for a fixed price.',
           'Van and driver, or 1–3 movers for carrying.',
         ] },
-        { heading: 'Moves within Pirkanmaa and across Finland', paragraphs: [
-          'Within Pirkanmaa you can choose the hourly rate or ask for a fixed quote.',
-          'Moves elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the pickup and delivery addresses, the size of the home or the amount of items and the services you need, and we send you a quote.',
+        { heading: 'Local moves and long-distance moves', paragraphs: [
+          'In Tampere and the nearby municipalities you can choose the hourly rate or ask for a fixed quote.',
+          'Longer moves – elsewhere in Pirkanmaa or elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu – are priced as a fixed quote. Send the pickup and delivery addresses, the moving date, the size of the home (m²) or the amount of items, floors and lifts, and the services you need, and we send you a quote.',
         ] },
         { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
         { heading: 'Service area', paragraphs: [area.en] },
@@ -913,12 +913,12 @@ export const landingPages: LandingPage[] = [
     faq: {
       fi: [
         { q: 'Paljonko muutto Pirkkalassa maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
-        { q: 'Teettekö muuttoja Pirkkalasta muualle Suomeen?', a: 'Kyllä. Pirkanmaan ulkopuolelle, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, muutot tehdään kiinteällä tarjouksella. Kerro osoitteet, tavaramäärä ja tarvittavat palvelut.' },
+        { q: 'Teettekö muuttoja Pirkkalasta muualle Suomeen?', a: 'Kyllä. Pidemmät muutot, kuten muualle Pirkanmaalle tai Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro osoitteet, muuttopäivä, asunnon koko tai tavaramäärä ja tarvittavat palvelut.' },
         { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
       ],
       en: [
         { q: 'How much does a move in Pirkkala cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
-        { q: 'Do you move people from Pirkkala to other parts of Finland?', a: 'Yes. Moves outside Pirkanmaa, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the amount of items and the services you need.' },
+        { q: 'Do you move people from Pirkkala to other parts of Finland?', a: 'Yes. Longer moves, such as elsewhere in Pirkanmaa or to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the moving date, the size of the home or the amount of items and the services you need.' },
         { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
       ],
     },
@@ -930,7 +930,7 @@ export const landingPages: LandingPage[] = [
     title: { fi: 'Muutto Lempäälä – muuttofirma ja kuljetukset Lempäälässä | MoveX Logistics', en: 'Moving in Lempäälä – Movers & Transport | MoveX Logistics' },
     description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Lempäälässä. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Lempäälä, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.' },
     h1: { fi: 'Muutto ja kuljetukset Lempäälässä', en: 'Moving and transport in Lempäälä' },
-    intro: { fi: 'Muutatko Lempäälässä? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Lempäälässä ja koko Pirkanmaan alueella – Tampereella, Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Lempäälä sijaitsee Tampereen eteläpuolella. Noudamme myös Ideaparkista ostetut huonekalut ja kodinkoneet.', en: 'Moving in Lempäälä, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Lempäälä and across the Pirkanmaa region – Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Lempäälä lies south of Tampere. We also collect furniture and appliances bought at Ideapark.' },
+    intro: { fi: 'Muutatko Lempäälässä? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Lempäälässä sekä koko Tampereella ja sen lähikunnissa. Lempäälä sijaitsee Tampereen eteläpuolella. Noudamme myös Ideaparkista ostetut huonekalut ja kodinkoneet.', en: 'Moving in Lempäälä, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Lempäälä and across Tampere and its nearby municipalities. Lempäälä lies south of Tampere. We also collect furniture and appliances bought at Ideapark.' },
     sections: {
       fi: [
         { heading: 'Palvelut Lempäälässä', paragraphs: [
@@ -939,9 +939,9 @@ export const landingPages: LandingPage[] = [
           'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
           'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
         ] },
-        { heading: 'Muutot Pirkanmaalla ja muualle Suomeen', paragraphs: [
-          'Pirkanmaan sisällä voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
-          'Muutot muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, asunnon koko tai tavaramäärä ja tarvittavat palvelut, niin lähetämme tarjouksen.',
+        { heading: 'Lähialueen muutot ja kaukomuutot', paragraphs: [
+          'Tampereella ja lähikunnissa voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
+          'Pidemmät muutot – muualle Pirkanmaalle tai muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun – tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, muuttopäivä, asunnon koko (m²) tai tavaramäärä, kerrokset ja hissit sekä tarvittavat palvelut, niin lähetämme tarjouksen.',
         ] },
         { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
@@ -953,9 +953,9 @@ export const landingPages: LandingPage[] = [
           'Old furniture taken to the waste station, by the hour or for a fixed price.',
           'Van and driver, or 1–3 movers for carrying.',
         ] },
-        { heading: 'Moves within Pirkanmaa and across Finland', paragraphs: [
-          'Within Pirkanmaa you can choose the hourly rate or ask for a fixed quote.',
-          'Moves elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the pickup and delivery addresses, the size of the home or the amount of items and the services you need, and we send you a quote.',
+        { heading: 'Local moves and long-distance moves', paragraphs: [
+          'In Tampere and the nearby municipalities you can choose the hourly rate or ask for a fixed quote.',
+          'Longer moves – elsewhere in Pirkanmaa or elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu – are priced as a fixed quote. Send the pickup and delivery addresses, the moving date, the size of the home (m²) or the amount of items, floors and lifts, and the services you need, and we send you a quote.',
         ] },
         { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
         { heading: 'Service area', paragraphs: [area.en] },
@@ -964,12 +964,12 @@ export const landingPages: LandingPage[] = [
     faq: {
       fi: [
         { q: 'Paljonko muutto Lempäälässä maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
-        { q: 'Teettekö muuttoja Lempäälästä muualle Suomeen?', a: 'Kyllä. Pirkanmaan ulkopuolelle, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, muutot tehdään kiinteällä tarjouksella. Kerro osoitteet, tavaramäärä ja tarvittavat palvelut.' },
+        { q: 'Teettekö muuttoja Lempäälästä muualle Suomeen?', a: 'Kyllä. Pidemmät muutot, kuten muualle Pirkanmaalle tai Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro osoitteet, muuttopäivä, asunnon koko tai tavaramäärä ja tarvittavat palvelut.' },
         { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
       ],
       en: [
         { q: 'How much does a move in Lempäälä cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
-        { q: 'Do you move people from Lempäälä to other parts of Finland?', a: 'Yes. Moves outside Pirkanmaa, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the amount of items and the services you need.' },
+        { q: 'Do you move people from Lempäälä to other parts of Finland?', a: 'Yes. Longer moves, such as elsewhere in Pirkanmaa or to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the moving date, the size of the home or the amount of items and the services you need.' },
         { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
       ],
     },
@@ -981,7 +981,7 @@ export const landingPages: LandingPage[] = [
     title: { fi: 'Muutto Kangasala – muuttofirma ja kuljetukset Kangasalla | MoveX Logistics', en: 'Moving in Kangasala – Movers & Transport | MoveX Logistics' },
     description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Kangasalla. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Kangasala, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.' },
     h1: { fi: 'Muutto ja kuljetukset Kangasalla', en: 'Moving and transport in Kangasala' },
-    intro: { fi: 'Muutatko Kangasalla? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Kangasalla ja koko Pirkanmaan alueella – Tampereella, Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Kangasala sijaitsee Tampereen itäpuolella.', en: 'Moving in Kangasala, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Kangasala and across the Pirkanmaa region – Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Kangasala lies east of Tampere.' },
+    intro: { fi: 'Muutatko Kangasalla? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Kangasalla sekä koko Tampereella ja sen lähikunnissa. Kangasala sijaitsee Tampereen itäpuolella.', en: 'Moving in Kangasala, Pirkanmaa? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Kangasala and across Tampere and its nearby municipalities. Kangasala lies east of Tampere.' },
     sections: {
       fi: [
         { heading: 'Palvelut Kangasalla', paragraphs: [
@@ -990,9 +990,9 @@ export const landingPages: LandingPage[] = [
           'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
           'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
         ] },
-        { heading: 'Muutot Pirkanmaalla ja muualle Suomeen', paragraphs: [
-          'Pirkanmaan sisällä voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
-          'Muutot muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, asunnon koko tai tavaramäärä ja tarvittavat palvelut, niin lähetämme tarjouksen.',
+        { heading: 'Lähialueen muutot ja kaukomuutot', paragraphs: [
+          'Tampereella ja lähikunnissa voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
+          'Pidemmät muutot – muualle Pirkanmaalle tai muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun – tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, muuttopäivä, asunnon koko (m²) tai tavaramäärä, kerrokset ja hissit sekä tarvittavat palvelut, niin lähetämme tarjouksen.',
         ] },
         { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
@@ -1004,9 +1004,9 @@ export const landingPages: LandingPage[] = [
           'Old furniture taken to the waste station, by the hour or for a fixed price.',
           'Van and driver, or 1–3 movers for carrying.',
         ] },
-        { heading: 'Moves within Pirkanmaa and across Finland', paragraphs: [
-          'Within Pirkanmaa you can choose the hourly rate or ask for a fixed quote.',
-          'Moves elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the pickup and delivery addresses, the size of the home or the amount of items and the services you need, and we send you a quote.',
+        { heading: 'Local moves and long-distance moves', paragraphs: [
+          'In Tampere and the nearby municipalities you can choose the hourly rate or ask for a fixed quote.',
+          'Longer moves – elsewhere in Pirkanmaa or elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu – are priced as a fixed quote. Send the pickup and delivery addresses, the moving date, the size of the home (m²) or the amount of items, floors and lifts, and the services you need, and we send you a quote.',
         ] },
         { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
         { heading: 'Service area', paragraphs: [area.en] },
@@ -1015,12 +1015,12 @@ export const landingPages: LandingPage[] = [
     faq: {
       fi: [
         { q: 'Paljonko muutto Kangasalla maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
-        { q: 'Teettekö muuttoja Kangasalta muualle Suomeen?', a: 'Kyllä. Pirkanmaan ulkopuolelle, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, muutot tehdään kiinteällä tarjouksella. Kerro osoitteet, tavaramäärä ja tarvittavat palvelut.' },
+        { q: 'Teettekö muuttoja Kangasalta muualle Suomeen?', a: 'Kyllä. Pidemmät muutot, kuten muualle Pirkanmaalle tai Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro osoitteet, muuttopäivä, asunnon koko tai tavaramäärä ja tarvittavat palvelut.' },
         { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
       ],
       en: [
         { q: 'How much does a move in Kangasala cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
-        { q: 'Do you move people from Kangasala to other parts of Finland?', a: 'Yes. Moves outside Pirkanmaa, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the amount of items and the services you need.' },
+        { q: 'Do you move people from Kangasala to other parts of Finland?', a: 'Yes. Longer moves, such as elsewhere in Pirkanmaa or to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the moving date, the size of the home or the amount of items and the services you need.' },
         { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
       ],
     },
@@ -1032,7 +1032,7 @@ export const landingPages: LandingPage[] = [
     title: { fi: 'Muutto Hervanta – muuttofirma ja kuljetukset Hervannassa | MoveX Logistics', en: 'Moving in Hervanta – Movers & Transport | MoveX Logistics' },
     description: { fi: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Hervannassa. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.', en: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Hervanta, Tampere. Van + driver €50/h incl. VAT. Request a quote.' },
     h1: { fi: 'Muutto ja kuljetukset Hervannassa', en: 'Moving and transport in Hervanta' },
-    intro: { fi: 'Muutatko Hervannassa? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Hervannassa ja koko Pirkanmaan alueella – Tampereella, Nokialla, Ylöjärvellä, Pirkkalassa, Lempäälässä ja Kangasalla. Hervanta on osa Tamperetta: kaupunginosa Tampereen eteläosassa, jossa on Tampereen yliopiston Hervannan kampus ja paljon opiskelija-asuntoja.', en: 'Moving in Hervanta, Tampere? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Hervanta and across the Pirkanmaa region – Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä and Kangasala. Hervanta is part of Tampere: a district in the south of the city with Tampere University\u2019s Hervanta campus and a lot of student housing.' },
+    intro: { fi: 'Muutatko Hervannassa? MoveX Logistics hoitaa muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot, kodinkoneiden kuljetukset ja kaatopaikkakuljetukset Hervannassa sekä koko Tampereella ja sen lähikunnissa. Hervanta on osa Tamperetta: kaupunginosa Tampereen eteläosassa, jossa on Tampereen yliopiston Hervannan kampus ja paljon opiskelija-asuntoja.', en: 'Moving in Hervanta, Tampere? MoveX Logistics handles moves, furniture transport, IKEA and Tori.fi pickups, appliance transport and junk removal in Hervanta and across Tampere and its nearby municipalities. Hervanta is part of Tampere: a district in the south of the city with Tampere University\u2019s Hervanta campus and a lot of student housing.' },
     sections: {
       fi: [
         { heading: 'Palvelut Hervannassa', paragraphs: [
@@ -1041,9 +1041,9 @@ export const landingPages: LandingPage[] = [
           'Vanhojen huonekalujen vienti jäteasemalle tuntihinnalla tai kiinteällä hinnalla.',
           'Pakettiauto ja kuljettaja tai 1–3 muuttomiestä kantamiseen.',
         ] },
-        { heading: 'Muutot Pirkanmaalla ja muualle Suomeen', paragraphs: [
-          'Pirkanmaan sisällä voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
-          'Muutot muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, asunnon koko tai tavaramäärä ja tarvittavat palvelut, niin lähetämme tarjouksen.',
+        { heading: 'Lähialueen muutot ja kaukomuutot', paragraphs: [
+          'Tampereella ja lähikunnissa voit valita tuntihinnan tai pyytää kiinteän tarjouksen.',
+          'Pidemmät muutot – muualle Pirkanmaalle tai muualle Suomeen, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun – tehdään kiinteällä tarjouksella. Kerro nouto- ja toimitusosoite, muuttopäivä, asunnon koko (m²) tai tavaramäärä, kerrokset ja hissit sekä tarvittavat palvelut, niin lähetämme tarjouksen.',
         ] },
         { heading: 'Hinnat', paragraphs: [...prices.fi, priceNote.fi] },
         { heading: 'Toiminta-alue', paragraphs: [area.fi] },
@@ -1055,9 +1055,9 @@ export const landingPages: LandingPage[] = [
           'Old furniture taken to the waste station, by the hour or for a fixed price.',
           'Van and driver, or 1–3 movers for carrying.',
         ] },
-        { heading: 'Moves within Pirkanmaa and across Finland', paragraphs: [
-          'Within Pirkanmaa you can choose the hourly rate or ask for a fixed quote.',
-          'Moves elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the pickup and delivery addresses, the size of the home or the amount of items and the services you need, and we send you a quote.',
+        { heading: 'Local moves and long-distance moves', paragraphs: [
+          'In Tampere and the nearby municipalities you can choose the hourly rate or ask for a fixed quote.',
+          'Longer moves – elsewhere in Pirkanmaa or elsewhere in Finland, for example to Helsinki, Jyväskylä or Oulu – are priced as a fixed quote. Send the pickup and delivery addresses, the moving date, the size of the home (m²) or the amount of items, floors and lifts, and the services you need, and we send you a quote.',
         ] },
         { heading: 'Prices', paragraphs: [...prices.en, priceNote.en] },
         { heading: 'Service area', paragraphs: [area.en] },
@@ -1066,12 +1066,12 @@ export const landingPages: LandingPage[] = [
     faq: {
       fi: [
         { q: 'Paljonko muutto Hervannassa maksaa?', a: 'Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %). Voit myös pyytää kiinteän hinnan.' },
-        { q: 'Teettekö muuttoja Hervannasta muualle Suomeen?', a: 'Kyllä. Pirkanmaan ulkopuolelle, esimerkiksi Helsinkiin, Jyväskylään tai Ouluun, muutot tehdään kiinteällä tarjouksella. Kerro osoitteet, tavaramäärä ja tarvittavat palvelut.' },
+        { q: 'Teettekö muuttoja Hervannasta muualle Suomeen?', a: 'Kyllä. Pidemmät muutot, kuten muualle Pirkanmaalle tai Helsinkiin, Jyväskylään tai Ouluun, tehdään kiinteällä tarjouksella. Kerro osoitteet, muuttopäivä, asunnon koko tai tavaramäärä ja tarvittavat palvelut.' },
         { q: 'Milloin palvelette?', a: 'Joka päivä klo 7–21. Varaa aika etukäteen, varsinkin kuun lopussa.' },
       ],
       en: [
         { q: 'How much does a move in Hervanta cost?', a: 'Van + driver €50/hour, 1 mover + van €75/hour, 2 movers + van €100/hour and 3 movers + van €125/hour (Finnish VAT 25.5% included). You can also ask for a fixed price.' },
-        { q: 'Do you move people from Hervanta to other parts of Finland?', a: 'Yes. Moves outside Pirkanmaa, for example to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the amount of items and the services you need.' },
+        { q: 'Do you move people from Hervanta to other parts of Finland?', a: 'Yes. Longer moves, such as elsewhere in Pirkanmaa or to Helsinki, Jyväskylä or Oulu, are priced as a fixed quote. Send the addresses, the moving date, the size of the home or the amount of items and the services you need.' },
         { q: 'When are you available?', a: 'Every day from 7:00 to 21:00. Book in advance, especially at the end of the month.' },
       ],
     },
