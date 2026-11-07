@@ -237,7 +237,7 @@ const routes = [
   },
   {
     path: '/muuttopalvelu-hinta-tampere',
-    title: 'Muuttopalvelun hinta Tampereella | MoveX Logistics',
+    title: 'Muuttoapu ja muuttopalvelun hinta Tampere – hinnasto | MoveX Logistics',
     description: 'Muuttopalvelun hinta Tampereella alkaen 50 €/h. Vertaa selkeitä tuntihintoja, katso mistä muuton hinta muodostuu ja pyydä tarjous.',
     canonical: `${origin}/muuttopalvelu-hinta-tampere/`,
   },
