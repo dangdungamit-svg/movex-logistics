@@ -11,9 +11,9 @@ export default function Hero() {
       id="home"
       className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-slate-950 pt-24"
     >
-      {/* Full-bleed background: still image first, then a muted looping aerial video of a Finnish winter road */}
+      {/* Full-bleed background: still image first, then a muted looping aerial video of a van on a lakeside road */}
       <img
-        src="/images/hero-lapland.jpg"
+        src="/images/hero-road.jpg"
         alt=""
         className="absolute inset-0 -z-20 h-full w-full object-cover"
         loading="eager"
@@ -24,7 +24,7 @@ export default function Hero() {
       />
       <video
         className="movex-hero-video absolute inset-0 -z-20 h-full w-full object-cover"
-        poster="/images/hero-lapland.jpg"
+        poster="/images/hero-road.jpg"
         autoPlay
         muted
         loop
@@ -32,8 +32,8 @@ export default function Hero() {
         preload="metadata"
         aria-hidden="true"
       >
-        <source src="/images/hero-lapland-720.mp4" type="video/mp4" media="(max-width: 767px)" />
-        <source src="/images/hero-lapland.mp4" type="video/mp4" />
+        <source src="/images/hero-road-720.mp4" type="video/mp4" media="(max-width: 767px)" />
+        <source src="/images/hero-road.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/45" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent" />
