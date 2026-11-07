@@ -404,16 +404,6 @@ export const landingPages: LandingPage[] = [
           ],
         },
         {
-          heading: 'Näin laskutus toimii – hintaesimerkkejä',
-          paragraphs: [
-            'Vähimmäisveloitus on yksi tunti. Ensimmäisen tunnin jälkeen jokainen alkanut 30 minuuttia laskutetaan.',
-            'Työ kesti 40 min → laskutetaan 1 h: pakettiauto + kuljettaja 50 €, 1 muuttomies + auto 75 €, 2 muuttomiestä + auto 100 €.',
-            'Työ kesti 1 h 25 min → laskutetaan 1,5 h: pakettiauto + kuljettaja 75 €, 1 muuttomies + auto 112,50 €, 2 muuttomiestä + auto 150 €.',
-            'Työ kesti 1 h 45 min → laskutetaan 2 h: pakettiauto + kuljettaja 100 €, 1 muuttomies + auto 150 €, 2 muuttomiestä + auto 200 €.',
-            'Hinnat sisältävät alv 25,5 %. Esimerkit eivät ole kiinteitä hintoja: työn kesto riippuu tavaramäärästä, matkasta, kerroksista ja kantomatkoista. Kiinteän hinnan saat pyytämällä tarjouksen.',
-          ],
-        },
-        {
           heading: 'Mistä muuton hinta muodostuu?',
           paragraphs: [
             'Muuton hintaan vaikuttavat nouto- ja toimitusosoitteiden välinen matka, tavaroiden määrä ja koko, kerrokset, hissin saatavuus sekä se, kuinka monta henkilöä tarvitaan kantamiseen. Myös pysäköinti, pitkät kantomatkat, huonekalujen purkaminen ja erityisen painavat esineet voivat vaikuttaa työn kestoon.',
@@ -451,16 +441,6 @@ export const landingPages: LandingPage[] = [
             '2 movers + van: €100 / hour',
             '3 movers + van: €125 / hour',
             'All prices include Finnish VAT (25.5%). The minimum booking is one hour, followed by 30-minute billing increments. Van + driver is mainly for transport. Movers help with carrying, loading and unloading.',
-          ],
-        },
-        {
-          heading: 'How billing works – price examples',
-          paragraphs: [
-            'The minimum charge is one hour. After the first hour, every started 30 minutes is billed.',
-            'Job took 40 min → billed 1 h: van + driver €50, 1 mover + van €75, 2 movers + van €100.',
-            'Job took 1 h 25 min → billed 1.5 h: van + driver €75, 1 mover + van €112.50, 2 movers + van €150.',
-            'Job took 1 h 45 min → billed 2 h: van + driver €100, 1 mover + van €150, 2 movers + van €200.',
-            'Prices include Finnish VAT (25.5%). The examples are not fixed prices: the time needed depends on the volume, distance, floors and carrying distances. Request a quote for a fixed price.',
           ],
         },
         {
