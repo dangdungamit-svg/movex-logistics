@@ -331,7 +331,7 @@ const routes = [
   {
     path: '/en/moving-nokia',
     title: 'Moving in Nokia – Movers & Transport | MoveX Logistics',
-    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Nokia, near Tampere. Van + driver €50/h incl. VAT. Request a quote.',
+    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Nokia, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.',
     canonical: `${origin}/en/moving-nokia/`,
   },
   {
@@ -343,7 +343,7 @@ const routes = [
   {
     path: '/en/moving-ylojarvi',
     title: 'Moving in Ylöjärvi – Movers & Transport | MoveX Logistics',
-    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Ylöjärvi, near Tampere. Van + driver €50/h incl. VAT. Request a quote.',
+    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Ylöjärvi, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.',
     canonical: `${origin}/en/moving-ylojarvi/`,
   },
   {
@@ -355,7 +355,7 @@ const routes = [
   {
     path: '/en/moving-pirkkala',
     title: 'Moving in Pirkkala – Movers & Transport | MoveX Logistics',
-    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Pirkkala, near Tampere. Van + driver €50/h incl. VAT. Request a quote.',
+    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Pirkkala, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.',
     canonical: `${origin}/en/moving-pirkkala/`,
   },
   {
@@ -367,7 +367,7 @@ const routes = [
   {
     path: '/en/moving-lempaala',
     title: 'Moving in Lempäälä – Movers & Transport | MoveX Logistics',
-    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Lempäälä, near Tampere. Van + driver €50/h incl. VAT. Request a quote.',
+    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Lempäälä, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.',
     canonical: `${origin}/en/moving-lempaala/`,
   },
   {
@@ -379,7 +379,7 @@ const routes = [
   {
     path: '/en/moving-kangasala',
     title: 'Moving in Kangasala – Movers & Transport | MoveX Logistics',
-    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Kangasala, near Tampere. Van + driver €50/h incl. VAT. Request a quote.',
+    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Kangasala, Pirkanmaa. Van + driver €50/h incl. VAT. Request a quote.',
     canonical: `${origin}/en/moving-kangasala/`,
   },
   {
@@ -391,7 +391,7 @@ const routes = [
   {
     path: '/en/moving-hervanta',
     title: 'Moving in Hervanta – Movers & Transport | MoveX Logistics',
-    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Hervanta, near Tampere. Van + driver €50/h incl. VAT. Request a quote.',
+    description: 'Moves, furniture transport, IKEA and Tori.fi pickups and junk removal in Hervanta, Tampere. Van + driver €50/h incl. VAT. Request a quote.',
     canonical: `${origin}/en/moving-hervanta/`,
   },
   ...blogArticles.filter((article) => article.published).map((article) => ({
