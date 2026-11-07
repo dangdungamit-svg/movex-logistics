@@ -18,6 +18,8 @@ const languagePairs = [
   ['/muuttopalvelu-hinta-tampere', '/en/moving-cost-tampere'],
   ['/ikea-kuljetus-tampere', '/en/ikea-delivery-tampere'],
   ['/tori-nouto-tampere', '/en/marketplace-pickup-tampere'],
+  ['/kodinkonekuljetus-tampere', '/en/appliance-transport-tampere'],
+  ['/opiskelijamuutto-tampere', '/en/student-move-tampere'],
   ['/blog', '/en/blog'],
   ...blogArticles.filter((article) => article.published).map((article) => [`/blog/${article.slug}`, `/en/blog/${article.slug}`] as const),
 ] as const;
@@ -276,6 +278,30 @@ const routes = [
     title: 'Tori.fi & Facebook Marketplace Pickup in Tampere | MoveX Logistics',
     description: 'Bought a sofa or washing machine on Tori.fi or Facebook Marketplace? We collect it from the seller and deliver it to your home in Tampere and Pirkanmaa. €50/h incl. VAT.',
     canonical: `${origin}/en/marketplace-pickup-tampere/`,
+  },
+  {
+    path: '/kodinkonekuljetus-tampere',
+    title: 'Kodinkonekuljetus Tampere – pesukone, jääkaappi, liesi | MoveX Logistics',
+    description: 'Kodinkoneiden kuljetus Tampereella ja Pirkanmaalla: pesukoneet, jääkaapit, pakastimet ja liedet. Kantoapu saatavilla. 1 muuttomies + auto 75 €/h sis. alv.',
+    canonical: `${origin}/kodinkonekuljetus-tampere/`,
+  },
+  {
+    path: '/en/appliance-transport-tampere',
+    title: 'Appliance Transport in Tampere – Washing Machines & Fridges | MoveX Logistics',
+    description: 'Appliance transport in Tampere and Pirkanmaa: washing machines, fridges, freezers and cookers. Carrying help available. 1 mover + van €75/h incl. VAT.',
+    canonical: `${origin}/en/appliance-transport-tampere/`,
+  },
+  {
+    path: '/opiskelijamuutto-tampere',
+    title: 'Opiskelijamuutto Tampere – edullinen muuttoapu | MoveX Logistics',
+    description: 'Opiskelijamuutto Tampereella: yksiö, soluhuone tai muutama huonekalu. Pakettiauto + kuljettaja 50 €/h sis. alv, kantoapu saatavilla. Pyydä tarjous.',
+    canonical: `${origin}/opiskelijamuutto-tampere/`,
+  },
+  {
+    path: '/en/student-move-tampere',
+    title: 'Student Move in Tampere – Affordable Moving Help | MoveX Logistics',
+    description: 'Student moves in Tampere: studio, shared flat room or a few pieces of furniture. Van + driver €50/h incl. VAT, carrying help available. Request a quote.',
+    canonical: `${origin}/en/student-move-tampere/`,
   },
   ...blogArticles.filter((article) => article.published).map((article) => ({
     path: `/en/blog/${article.slug}`,
