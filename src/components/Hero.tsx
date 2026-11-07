@@ -29,6 +29,18 @@ export default function Hero() {
           height={608}
         />
       </picture>
+      {/* Moving background: slow camera motion over MoveX scenes, muted and looping */}
+      <video
+        className="movex-hero-video absolute inset-0 -z-20 h-full w-full object-cover"
+        src="/images/hero-loop.mp4"
+        poster="/images/hero-tampere-van.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-950/10" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/75 via-slate-950/20 to-transparent" />
 

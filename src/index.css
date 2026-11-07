@@ -116,6 +116,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .movex-intro { display: none; }
+  .movex-hero-video { display: none; }
   .movex-road-van { animation: none; left: 100%; }
   .movex-road-fill { animation: none; width: 100%; }
 }
