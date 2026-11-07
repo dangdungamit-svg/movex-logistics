@@ -11,38 +11,32 @@ export default function Hero() {
       id="home"
       className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-slate-950 pt-24"
     >
-      {/* Full-bleed photo: MoveX van in Tampere */}
-      <picture>
-        <source
-          type="image/webp"
-          srcSet="/images/hero-tampere-van-480w.webp 480w, /images/hero-tampere-van-768w.webp 768w, /images/hero-tampere-van-1080w.webp 1080w"
-          sizes="100vw"
-        />
-        <img
-          src="/images/hero-tampere-van.jpg"
-          alt={fi ? 'MoveX-pakettiauto ja muuttomies Tampereella' : 'MoveX van and mover in Tampere'}
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-[60%_center]"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          width={1080}
-          height={608}
-        />
-      </picture>
-      {/* Moving background: slow camera motion over MoveX scenes, muted and looping */}
+      {/* Full-bleed background: still image first, then a muted looping aerial video of a Finnish winter road */}
+      <img
+        src="/images/hero-lapland.jpg"
+        alt=""
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        width={1920}
+        height={1080}
+      />
       <video
         className="movex-hero-video absolute inset-0 -z-20 h-full w-full object-cover"
-        src="/images/hero-loop.mp4"
-        poster="/images/hero-tampere-van.jpg"
+        poster="/images/hero-lapland.jpg"
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
         aria-hidden="true"
-      />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-950/10" />
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/75 via-slate-950/20 to-transparent" />
+      >
+        <source src="/images/hero-lapland-720.mp4" type="video/mp4" media="(max-width: 767px)" />
+        <source src="/images/hero-lapland.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/45" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent" />
 
       <div className="mx-auto w-full max-w-7xl px-4 pb-14 sm:px-6 lg:px-8 lg:pb-20">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-slate-300">
