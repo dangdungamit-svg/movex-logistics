@@ -379,7 +379,7 @@ export const landingPages: LandingPage[] = [
     path: '/muuttopalvelu-hinta-tampere',
     navLabel: { fi: 'Muuttopalvelun hinta', en: 'Moving cost Tampere' },
     title: {
-      fi: 'Muuttopalvelun hinta Tampereella | MoveX Logistics',
+      fi: 'Muuttoapu ja muuttopalvelun hinta Tampere – hinnasto | MoveX Logistics',
       en: 'Moving Costs in Tampere, Finland | MoveX Logistics',
     },
     description: {
@@ -401,6 +401,15 @@ export const landingPages: LandingPage[] = [
             '2 muuttomiestä + auto: 100 € / h',
             '3 muuttomiestä + auto: 125 € / h',
             'Kaikki hinnat sisältävät alv 25,5 %. Vähimmäisvaraus on yksi tunti, minkä jälkeen laskutus jatkuu 30 minuutin jaksoissa. Pakettiauto + kuljettaja sopii ensisijaisesti kuljetukseen. Muuttomiehet auttavat kantamisessa, lastauksessa ja purkamisessa.',
+          ],
+        },
+        {
+          heading: 'Muuttoavun hintaesimerkkejä Tampereella',
+          paragraphs: [
+            'Pakettiauto + kuljettaja 2 tuntia: 2 × 50 € = 100 €.',
+            '1 muuttomies + auto 1,5 tuntia: 75 € + 37,50 € = 112,50 €.',
+            '2 muuttomiestä + auto 3 tuntia: 3 × 100 € = 300 €.',
+            'Esimerkit on laskettu yllä olevasta hinnastosta, ja hinnat sisältävät alv 25,5 %. Ne eivät ole kiinteitä hintoja: todellinen kesto riippuu tavaramäärästä, matkasta, kerroksista ja kantomatkoista. Kiinteän hinnan saat pyytämällä tarjouksen.',
           ],
         },
         {
@@ -441,6 +450,15 @@ export const landingPages: LandingPage[] = [
             '2 movers + van: €100 / hour',
             '3 movers + van: €125 / hour',
             'All prices include Finnish VAT (25.5%). The minimum booking is one hour, followed by 30-minute billing increments. Van + driver is mainly for transport. Movers help with carrying, loading and unloading.',
+          ],
+        },
+        {
+          heading: 'Moving help price examples in Tampere',
+          paragraphs: [
+            'Van + driver for 2 hours: 2 × €50 = €100.',
+            '1 mover + van for 1.5 hours: €75 + €37.50 = €112.50.',
+            '2 movers + van for 3 hours: 3 × €100 = €300.',
+            'These examples are calculated from the price list above and include Finnish VAT (25.5%). They are not fixed prices: the actual time depends on the volume, distance, floors and carrying distances. Request a quote for a fixed price.',
           ],
         },
         {
