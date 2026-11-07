@@ -2,12 +2,11 @@ import { useEffect } from 'react';
 import { LanguageProvider, useLanguage } from '@/i18n/LanguageContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import GoogleReviews from '@/components/GoogleReviews';
 import Pricing from '@/components/Pricing';
 import FixedPriceQuote from '@/components/FixedPriceQuote';
 import Services from '@/components/Services';
-import VehicleCapacity from '@/components/VehicleCapacity';
 import QualitySafety from '@/components/QualitySafety';
-import WhatsIncluded from '@/components/WhatsIncluded';
 import LongDistance from '@/components/LongDistance';
 import HowItWorks from '@/components/HowItWorks';
 import WhyMoveX from '@/components/WhyMoveX';
@@ -85,6 +84,7 @@ function AppContent() {
       ) : (
         <main>
           <Hero />
+          <GoogleReviews />
           <Pricing />
           <FixedPriceQuote />
           <Services />
@@ -113,36 +113,9 @@ function AppContent() {
             </div>
           </section>
 
-          <VehicleCapacity />
-
-          {/* Photo 2: After VehicleCapacity */}
-          <section className="bg-white py-6 lg:py-8">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
-                <picture>
-                  <source
-                    type="image/webp"
-                    srcSet={getResponsiveWebpSrcSet('/images/22_20260924_225406_0021')}
-                    sizes={photoSizes}
-                  />
-                  <img
-                    src="/images/22_20260924_225406_0021.png"
-                    alt="Muuttomiehet lastaamassa ja kiinnittämässä tavaroita"
-                    className="aspect-video w-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={1080}
-                    height={608}
-                  />
-                </picture>
-              </div>
-            </div>
-          </section>
-
           <QualitySafety />
-          <WhatsIncluded />
 
-          {/* Photo 3: After WhatsIncluded */}
+          {/* Photo 3: After QualitySafety */}
           <section className="bg-white py-6 lg:py-8">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-200/60">
