@@ -4,7 +4,7 @@ import { useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
 import { landingPages, getLocalizedPath } from '@/i18n/landing';
 
-export default function Header() {
+export default function Header({ overlay = false }: { overlay?: boolean }) {
   const { lang, t, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -31,9 +31,9 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-slate-900/95 backdrop-blur-md shadow-lg shadow-slate-900/10'
-          : 'bg-slate-900'
+        scrolled || open || !overlay
+          ? 'bg-slate-950/90 backdrop-blur-md shadow-lg shadow-slate-950/20'
+          : 'bg-gradient-to-b from-slate-950/70 to-transparent'
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -50,12 +50,12 @@ export default function Header() {
               width="72"
               height="56"
             />
-            <span className="font-display text-lg font-bold tracking-tight sm:text-xl">
+            <span className="font-display text-lg font-bold tracking-tight sm:text-xl lg:hidden 2xl:inline">
               MoveX<span className="text-brand-400"> Logistics</span>
             </span>
           </a>
 
-          <nav className="hidden items-center gap-0.5 lg:flex">
+          <nav className="hidden items-center gap-0.5 rounded-lg border border-white/10 bg-white/5 p-1 backdrop-blur-md lg:flex">
             {navItems.map((item) =>
               item.href === '/#services' ? (
                 <details key={item.href} className="group relative">
@@ -97,7 +97,7 @@ export default function Header() {
               {COMPANY.phone}
             </a>
 
-            <a href={lang === "en" ? "/en/#contact" : "/#contact"} className="hidden rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-500/20 transition-all hover:bg-brand-700 hover:shadow-brand-500/30 lg:inline-flex">
+            <a href={lang === "en" ? "/en/#contact" : "/#contact"} className="hidden rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition-colors hover:bg-slate-200 lg:inline-flex">
               {t.nav.getQuote}
             </a>
 

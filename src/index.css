@@ -14,6 +14,7 @@
 
   h1, h2, h3, h4 {
     @apply font-display text-slate-900;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -46,4 +47,76 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Homepage intro (IntroSplash) */
+.movex-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  background: #020617;
+  pointer-events: none;
+  animation: movex-intro-out 0.7s cubic-bezier(0.7, 0, 0.3, 1) 1.15s forwards;
+}
+.movex-intro-word {
+  font-family: Sora, 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  color: #fff;
+  letter-spacing: 0.35em;
+  margin-right: -0.35em;
+  animation: movex-intro-word 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.movex-intro-line {
+  display: block;
+  height: 2px;
+  width: min(14rem, 50vw);
+  background: #3b82f6;
+  transform-origin: left;
+  animation: movex-intro-line 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+}
+@keyframes movex-intro-word {
+  from { opacity: 0; letter-spacing: 0.8em; filter: blur(8px); }
+  to { opacity: 1; letter-spacing: 0.35em; filter: blur(0); }
+}
+@keyframes movex-intro-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes movex-intro-out {
+  to { transform: translateY(-100%); visibility: hidden; }
+}
+
+/* How it works: van driving along the timeline */
+.movex-road-van {
+  animation: movex-road-van 6s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+@keyframes movex-road-van {
+  0% { left: 0%; }
+  30% { left: 50%; }
+  45% { left: 50%; }
+  80% { left: 100%; }
+  100% { left: 100%; }
+}
+.movex-road-fill {
+  animation: movex-road-fill 6s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+@keyframes movex-road-fill {
+  0% { width: 0%; }
+  30% { width: 50%; }
+  45% { width: 50%; }
+  80% { width: 100%; }
+  100% { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .movex-intro { display: none; }
+  .movex-hero-video { display: none; }
+  .movex-road-van { animation: none; left: 100%; }
+  .movex-road-fill { animation: none; width: 100%; }
 }

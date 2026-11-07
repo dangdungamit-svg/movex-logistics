@@ -1,190 +1,114 @@
-import { Phone, MessageCircle, ArrowRight, Clock, Truck, Star, ShieldCheck } from 'lucide-react';
+import { Phone, MessageCircle, ArrowRight, Clock, Star, ShieldCheck } from 'lucide-react';
 import { useLanguage, getWhatsAppLink } from '@/i18n/LanguageContext';
-import { COMPANY, HERO_IMAGE } from '@/i18n/translations';
-import { getResponsiveWebpSrcSet } from '@/lib/images';
+import { COMPANY } from '@/i18n/translations';
 
 export default function Hero() {
   const { lang, t } = useLanguage();
+  const fi = lang === 'fi';
 
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-slate-900 pt-16 lg:pt-20"
+      className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-slate-950 pt-24"
     >
-      {/* Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950" />
-        <div className="absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-brand-600/20 blur-[120px]" />
-        <div className="absolute -right-32 bottom-0 h-[400px] w-[400px] rounded-full bg-brand-500/10 blur-[100px]" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-      </div>
+      {/* Full-bleed background: still image first, then a muted looping aerial video of a van on a lakeside road */}
+      <img
+        src="/images/hero-road.jpg"
+        alt=""
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        width={1920}
+        height={1080}
+      />
+      <video
+        className="movex-hero-video absolute inset-0 -z-20 h-full w-full object-cover"
+        poster="/images/hero-road.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source src="/images/hero-road-720.mp4" type="video/mp4" media="(max-width: 767px)" />
+        <source src="/images/hero-road.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/45" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Left — text + price */}
-          <div className="text-center lg:text-left">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide text-brand-300 ring-1 ring-white/10">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
-              {t.hero.badge}
-            </div>
+      <div className="mx-auto w-full max-w-7xl px-4 pb-14 sm:px-6 lg:px-8 lg:pb-20">
+        <p className="font-mono text-xs uppercase tracking-[0.25em] text-slate-300">
+          {t.hero.badge}
+        </p>
 
-            <h1
-              className="text-4xl font-bold leading-[1.1] text-white text-balance sm:text-5xl lg:text-6xl"
-            >
-              {t.hero.title}
-            </h1>
+        <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.98] tracking-[-0.035em] text-white text-balance sm:text-6xl lg:text-7xl xl:text-8xl">
+          {t.hero.title}
+        </h1>
 
-            <p
-              className="mt-4 text-lg text-slate-300 sm:text-xl"
-            >
-              {t.hero.subtitle}
-            </p>
+        <p className="mt-6 max-w-xl text-lg text-slate-300 sm:text-xl">
+          {t.hero.subtitle}
+        </p>
 
-            <p
-              className="mt-2 text-base text-slate-400"
-            >
-              {t.hero.supporting}
-            </p>
-
-            {/* Price card */}
-            <div
-              className="mt-6 inline-block rounded-2xl bg-gradient-to-br from-brand-500/15 to-brand-600/5 p-5 text-left ring-1 ring-brand-400/30 sm:p-6"
-            >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-brand-300">
-                    {t.hero.priceLabel}
-                  </p>
-                  <div className="mt-1 flex items-baseline gap-1.5">
-                    <span className="font-display text-4xl font-bold text-white sm:text-5xl">
-                      {t.hero.price}
-                    </span>
-                    <span className="text-lg font-semibold text-brand-300">
-                      {t.hero.priceUnit}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-sm font-medium text-brand-200">
-                    {t.hero.vatNote}
-                  </p>
-                </div>
-                <div className="border-t border-brand-400/20 pt-3 sm:border-l sm:border-t-0 sm:pl-6 sm:pt-0">
-                  <p className="text-sm font-semibold text-white">
-                    {t.hero.minNote}
-                  </p>
-                  <p className="mt-0.5 text-xs text-slate-400">
-                    {t.hero.incrementNote}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Service + capacity row */}
-            <div
-              className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4"
-            >
-              <div className="inline-flex items-center gap-2.5 rounded-xl bg-white/5 px-4 py-2.5 ring-1 ring-white/10">
-                <Truck className="h-5 w-5 text-brand-400" />
-                <div className="text-left">
-                  <p className="text-sm font-bold text-white">{t.hero.serviceLabel}</p>
-                  <p className="text-xs text-slate-400">{t.hero.serviceDesc}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* CTAs */}
-            <div
-              className="mt-6 flex flex-col items-stretch gap-2.5 sm:flex-row sm:items-center sm:justify-center lg:justify-start"
-            >
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-xl shadow-brand-500/25 transition-all hover:bg-brand-700 hover:shadow-brand-500/40"
-              >
-                {t.hero.ctaQuote}
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              <a
-                href={getWhatsAppLink(lang)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3.5 text-base font-semibold text-slate-950 shadow-xl shadow-[#25D366]/20 transition-all hover:bg-[#1da851] hover:shadow-[#25D366]/30"
-              >
-                <MessageCircle className="h-5 w-5" />
-                {t.hero.ctaWhatsApp}
-              </a>
-              <a
-                href={COMPANY.phoneHref}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-6 py-3.5 text-base font-semibold text-white ring-1 ring-white/15 transition-all hover:bg-white/15"
-              >
-                <Phone className="h-5 w-5" />
-                {t.hero.ctaCall}
-              </a>
-            </div>
-
-            {/* Trust row */}
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-slate-300 lg:justify-start">
-              <a
-                href="#reviews"
-                className="inline-flex items-center gap-1.5 font-medium transition-colors hover:text-white"
-              >
-                <span className="flex" aria-hidden="true">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </span>
-                {lang === 'fi' ? '5,0 Googlessa' : '5.0 on Google'}
-              </a>
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="h-4 w-4 text-brand-400" />
-                {lang === 'fi' ? 'Vakuutettu yritys' : 'Insured company'}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Clock className="h-4 w-4 text-brand-400" />
-                {t.hero.openDaily}
-              </span>
-            </div>
+        {/* Price + CTAs */}
+        <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-6">
+          <div className="inline-flex items-baseline gap-2 self-start rounded-lg border border-white/15 bg-white/5 px-4 py-3 backdrop-blur-md">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400">
+              {t.hero.priceLabel}
+            </span>
+            <span className="font-display text-3xl font-semibold text-white">{t.hero.price}</span>
+            <span className="text-sm font-medium text-slate-300">{t.hero.priceUnit}</span>
+            <span className="ml-2 hidden text-xs text-slate-400 sm:inline">{t.hero.vatNote}</span>
           </div>
 
-          {/* Right — visual */}
-          <div
-            className="animate-fade-up relative hidden lg:block"
-            style={{ animationDelay: '0.15s' }}
-          >
-            <div className="relative mx-auto max-w-[360px] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
-              <picture>
-                <source
-                  media="(min-width: 1024px)"
-                  type="image/webp"
-                  srcSet={getResponsiveWebpSrcSet('/images/14_20260924_225406_0013')}
-                  sizes="360px"
-                />
-                <source
-                  media="(min-width: 1024px)"
-                  type="image/png"
-                  srcSet={HERO_IMAGE}
-                />
-                <img
-                  src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-                  alt="Muuttomiehet lastaamassa huonekaluja pakettiautoon"
-                  className="aspect-[9/16] h-auto w-full object-contain"
-                  loading="eager"
-                  fetchPriority="high"
-                  width={1080}
-                  height={1920}
-                />
-              </picture>
-            </div>
+          <div className="flex flex-col gap-2.5 sm:flex-row">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-base font-semibold text-slate-950 transition-colors hover:bg-slate-200"
+            >
+              {t.hero.ctaQuote}
+              <ArrowRight className="h-5 w-5" />
+            </a>
+            <a
+              href={getWhatsAppLink(lang)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3.5 text-base font-semibold text-slate-950 transition-colors hover:bg-[#1da851]"
+            >
+              <MessageCircle className="h-5 w-5" />
+              {t.hero.ctaWhatsApp}
+            </a>
+            <a
+              href={COMPANY.phoneHref}
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3.5 text-base font-semibold text-white backdrop-blur-md transition-colors hover:bg-white/15"
+            >
+              <Phone className="h-5 w-5" />
+              {t.hero.ctaCall}
+            </a>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 to-transparent" />
+        {/* Trust row */}
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-white/10 pt-5 text-sm text-slate-300">
+          <a href="#reviews" className="inline-flex items-center gap-1.5 font-medium transition-colors hover:text-white">
+            <span className="flex" aria-hidden="true">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+              ))}
+            </span>
+            {fi ? '5,0 Googlessa' : '5.0 on Google'}
+          </a>
+          <span className="inline-flex items-center gap-1.5">
+            <ShieldCheck className="h-4 w-4 text-brand-400" />
+            {fi ? 'Vakuutettu yritys' : 'Insured company'}
+          </span>
+          <span className="inline-flex items-center gap-1.5">
+            <Clock className="h-4 w-4 text-brand-400" />
+            {t.hero.openDaily}
+          </span>
+        </div>
+      </div>
     </section>
   );
 }

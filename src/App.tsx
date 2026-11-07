@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { LanguageProvider, useLanguage } from '@/i18n/LanguageContext';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import IntroSplash from '@/components/IntroSplash';
 import GoogleReviews from '@/components/GoogleReviews';
 import Pricing from '@/components/Pricing';
 import FixedPriceQuote from '@/components/FixedPriceQuote';
@@ -10,7 +11,10 @@ import Gallery from '@/components/Gallery';
 import QualitySafety from '@/components/QualitySafety';
 import LongDistance from '@/components/LongDistance';
 import HowItWorks from '@/components/HowItWorks';
-import WhyMoveX from '@/components/WhyMoveX';
+import FactsBand from '@/components/FactsBand';
+import AskBeforeYouBook from '@/components/AskBeforeYouBook';
+import WhatsAppDemo from '@/components/WhatsAppDemo';
+import FinalCta from '@/components/FinalCta';
 import ServiceArea from '@/components/ServiceArea';
 import FAQ from '@/components/FAQ';
 import Contact from '@/components/Contact';
@@ -73,25 +77,29 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Header overlay={!landing && !isBlog} />
       {landing ? (
         <LandingPage page={landing} />
       ) : isBlog ? (
         <BlogPage />
       ) : (
         <main>
+          <IntroSplash />
           <Hero />
+          <FactsBand />
           <GoogleReviews />
           <Pricing />
           <FixedPriceQuote />
           <Services />
           <Gallery />
+          <AskBeforeYouBook />
+          <WhatsAppDemo />
           <QualitySafety />
           <LongDistance />
           <HowItWorks />
-          <WhyMoveX />
           <ServiceArea />
           <FAQ />
+          <FinalCta />
           <Contact />
         </main>
       )}
