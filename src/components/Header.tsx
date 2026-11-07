@@ -44,10 +44,10 @@ export default function Header({ overlay = false }: { overlay?: boolean }) {
             className="flex items-center gap-2.5 text-white"
           >
             <img
-              src="/images/movex-logo.webp"
+              src="/images/movex-logo-light.webp"
               alt="MoveX Logistics — Safe, Fast, Reliable"
               className="h-11 w-auto object-contain sm:h-14"
-              width="72"
+              width="80"
               height="56"
             />
             <span className="font-display text-lg font-bold tracking-tight sm:text-xl lg:hidden 2xl:inline">
