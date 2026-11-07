@@ -16,6 +16,8 @@ const languagePairs = [
   ['/pieni-muutto-tampere', '/en/small-move-tampere'],
   ['/kuljetuspalvelu-tampere', '/en/transport-service-tampere'],
   ['/muuttopalvelu-hinta-tampere', '/en/moving-cost-tampere'],
+  ['/ikea-kuljetus-tampere', '/en/ikea-delivery-tampere'],
+  ['/tori-nouto-tampere', '/en/marketplace-pickup-tampere'],
   ['/blog', '/en/blog'],
   ...blogArticles.filter((article) => article.published).map((article) => [`/blog/${article.slug}`, `/en/blog/${article.slug}`] as const),
 ] as const;
@@ -250,6 +252,30 @@ const routes = [
     title: 'Moving Costs in Tampere, Finland | MoveX Logistics',
     description: 'Moving costs in Tampere, Finland: van and driver from €50/hour. Compare clear hourly rates, understand what affects the price and request a quote.',
     canonical: `${origin}/en/moving-cost-tampere/`,
+  },
+  {
+    path: '/ikea-kuljetus-tampere',
+    title: 'IKEA-kuljetus Tampere – nouto ja kotiinkuljetus | MoveX Logistics',
+    description: 'IKEA-kuljetus Tampereella ja Pirkanmaalla: noudamme huonekalut ja paketit myymälästä tai noutopisteestä kotiisi. Pakettiauto + kuljettaja 50 €/h sis. alv.',
+    canonical: `${origin}/ikea-kuljetus-tampere/`,
+  },
+  {
+    path: '/en/ikea-delivery-tampere',
+    title: 'IKEA Delivery in Tampere – Pickup & Home Delivery | MoveX Logistics',
+    description: 'IKEA delivery in Tampere and Pirkanmaa: we collect your furniture and boxes from the store or pickup point and bring them home. Van and driver €50/h incl. VAT.',
+    canonical: `${origin}/en/ikea-delivery-tampere/`,
+  },
+  {
+    path: '/tori-nouto-tampere',
+    title: 'Tori.fi- ja Marketplace-nouto Tampere | MoveX Logistics',
+    description: 'Ostitko sohvan tai pesukoneen Tori.fi:stä tai Facebook Marketplacesta? Noudamme tavaran myyjältä ja tuomme sen kotiisi Tampereella ja Pirkanmaalla. 50 €/h sis. alv.',
+    canonical: `${origin}/tori-nouto-tampere/`,
+  },
+  {
+    path: '/en/marketplace-pickup-tampere',
+    title: 'Tori.fi & Facebook Marketplace Pickup in Tampere | MoveX Logistics',
+    description: 'Bought a sofa or washing machine on Tori.fi or Facebook Marketplace? We collect it from the seller and deliver it to your home in Tampere and Pirkanmaa. €50/h incl. VAT.',
+    canonical: `${origin}/en/marketplace-pickup-tampere/`,
   },
   ...blogArticles.filter((article) => article.published).map((article) => ({
     path: `/en/blog/${article.slug}`,
