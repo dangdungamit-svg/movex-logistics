@@ -75,8 +75,37 @@
       "@id": "https://movexlogistics.fi/#business",
       "name": "MoveX Logistics",
       "url": "https://movexlogistics.fi/",
-      "description": "Transport and delivery services for goods, parcels, furniture, appliances, store pickups, business cargo and suitable pallet loads in Tampere, Pirkanmaa and across Finland.",
-      "areaServed": ["Tampere", "Pirkanmaa", "Nokia", "Ylöjärvi", "Pirkkala", "Lempäälä", "Kangasala", "Finland"],
+      "description": "Muutto- ja kuljetuspalvelu Tampereella ja Pirkanmaalla: kotimuutot, pienmuutot, huonekalukuljetukset, IKEA- ja Tori-noudot sekä kaukomuutot koko Suomeen. Moving and transport services in Tampere, Pirkanmaa and across Finland.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tampere",
+        "addressRegion": "Pirkanmaa",
+        "addressCountry": "FI"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Tampere" },
+        { "@type": "Place", "name": "Hervanta, Tampere" },
+        { "@type": "City", "name": "Nokia" },
+        { "@type": "City", "name": "Ylöjärvi" },
+        { "@type": "City", "name": "Pirkkala" },
+        { "@type": "City", "name": "Lempäälä" },
+        { "@type": "City", "name": "Kangasala" },
+        { "@type": "AdministrativeArea", "name": "Pirkanmaa" },
+        { "@type": "Country", "name": "Finland" }
+      ],
+      "knowsLanguage": ["fi", "en"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Muutto- ja kuljetuspalvelut",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Muuttopalvelu Tampere", "url": "https://movexlogistics.fi/muuttopalvelu-tampere/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pieni muutto Tampere", "url": "https://movexlogistics.fi/pieni-muutto-tampere/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Huonekalukuljetus Tampere", "url": "https://movexlogistics.fi/huonekalukuljetus-tampere/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IKEA-kuljetus Tampere", "url": "https://movexlogistics.fi/ikea-kuljetus-tampere/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tori-nouto Tampere", "url": "https://movexlogistics.fi/tori-nouto-tampere/" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kuljetuspalvelu Tampere", "url": "https://movexlogistics.fi/kuljetuspalvelu-tampere/" } }
+        ]
+      },
       "priceRange": "€50–€125 per hour (VAT included)",
       "image": "https://movexlogistics.fi/images/movex-logo.webp",
       "telephone": "+358 41 328 6939",
