@@ -323,6 +323,30 @@ const routes = [
     canonical: `${origin}/en/junk-removal-tampere/`,
   },
   {
+    path: '/edullinen-muuttopalvelu-tampere',
+    title: 'Edullinen muuttopalvelu Tampere – halpa muutto alk. 50 €/h | MoveX Logistics',
+    description: 'Etsitkö edullista tai halpaa muuttofirmaa Tampereelta? MoveX: pakettiauto + kuljettaja 50 €/h, muuttomies + auto 75 €/h (sis. alv). Selkeät hinnat, kiinteä tarjous pyynnöstä.',
+    canonical: `${origin}/edullinen-muuttopalvelu-tampere/`,
+  },
+  {
+    path: '/en/cheap-movers-tampere',
+    title: 'Cheap Movers in Tampere – Affordable Moving from €50/h | MoveX Logistics',
+    description: 'Looking for cheap, affordable movers in Tampere? MoveX: van + driver €50/h, mover + van €75/h incl. VAT. Clear prices online and fixed quotes on request.',
+    canonical: `${origin}/en/cheap-movers-tampere/`,
+  },
+  {
+    path: '/edullinen-kuljetus-tampere',
+    title: 'Edullinen kuljetus Tampere – halpa kuljetuspalvelu alk. 50 €/h | MoveX Logistics',
+    description: 'Halpa ja nopea kuljetus Tampereella: huonekalut, kodinkoneet, IKEA-, Tori.fi- ja Marketplace-noudot. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous WhatsAppilla.',
+    canonical: `${origin}/edullinen-kuljetus-tampere/`,
+  },
+  {
+    path: '/en/cheap-transport-tampere',
+    title: 'Cheap Transport & Delivery in Tampere from €50/h | MoveX Logistics',
+    description: 'Cheap and quick transport in Tampere: furniture, appliances, IKEA, Tori.fi and Marketplace pickups. Van + driver €50/h incl. VAT. Ask for a quote on WhatsApp.',
+    canonical: `${origin}/en/cheap-transport-tampere/`,
+  },
+  {
     path: '/muutto-nokia',
     title: 'Muutto Nokia – muuttofirma ja kuljetukset Nokialla | MoveX Logistics',
     description: 'Muutot, huonekalukuljetukset, IKEA- ja Tori.fi-noudot sekä kaatopaikkakuljetukset Nokialla. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous.',

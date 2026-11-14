@@ -771,6 +771,126 @@ export const landingPages: LandingPage[] = [
     },
   },
   {
+    path: '/edullinen-muuttopalvelu-tampere',
+    navLabel: { fi: 'Edullinen muutto Tampere', en: 'Cheap movers Tampere' },
+    title: {
+      fi: 'Edullinen muuttopalvelu Tampere – halpa muutto alk. 50 €/h | MoveX Logistics',
+      en: 'Cheap Movers in Tampere – Affordable Moving from €50/h | MoveX Logistics',
+    },
+    description: {
+      fi: 'Etsitkö edullista tai halpaa muuttofirmaa Tampereelta? MoveX: pakettiauto + kuljettaja 50 €/h, muuttomies + auto 75 €/h (sis. alv). Selkeät hinnat, kiinteä tarjous pyynnöstä.',
+      en: 'Looking for cheap, affordable movers in Tampere? MoveX: van + driver €50/h, mover + van €75/h incl. VAT. Clear prices online and fixed quotes on request.',
+    },
+    h1: { fi: 'Edullinen muuttopalvelu Tampereella', en: 'Cheap and affordable movers in Tampere' },
+    intro: {
+      fi: 'Halpa muutto ei tarkoita huonoa palvelua. MoveX Logistics on pieni tamperelainen muuttofirma, joten kulut pysyvät pieninä ja hinnat ovat näkyvillä etukäteen. Maksat vain siitä avusta, jota tarvitset: pelkästä autosta ja kuljettajasta tai 1–3 muuttomiehestä.',
+      en: 'A cheap move does not have to mean poor service. MoveX Logistics is a small Tampere-based moving company, so our costs stay low and our prices are shown up front. You only pay for the help you need: a van and driver, or 1–3 movers.',
+    },
+    sections: {
+      fi: [
+        {
+          heading: 'Miksi MoveX on edullinen muuttofirma?',
+          paragraphs: [
+            'Hinnat ovat netissä, eikä tarjousta tarvitse odottaa päiviä. Vähimmäisveloitus on yksi tunti, ja sen jälkeen laskutus jatkuu 30 minuutin jaksoissa, joten et maksa turhasta ajasta.',
+            'Jos sinulla on omat kantoapulaiset, valitse pakettiauto ja kuljettaja 50 €/h. Se on usein halvin tapa muuttaa Tampereella ilman oman vuokra-auton hakemista ja palauttamista.',
+            'Haluatko tietää kokonaishinnan etukäteen? Kerro osoitteet, kerrokset, hissi ja tavaroiden määrä, niin lähetämme kiinteän tarjouksen.',
+          ],
+        },
+        { heading: 'Muuttopalvelun hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        {
+          heading: 'Vinkit halvempaan muuttoon',
+          paragraphs: [
+            'Pakkaa tavarat valmiiksi laatikoihin ja pura isot huonekalut etukäteen. Varaa hissi, jos taloyhtiössä on varausjärjestelmä. Arkipäivät ja kuukauden puolivälit ovat usein joustavampia kuin kuun viimeiset päivät.',
+          ],
+        },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        {
+          heading: 'Why MoveX is an affordable moving company',
+          paragraphs: [
+            'Our prices are online, so you do not have to wait days for a quote. The minimum charge is one hour, and after that billing continues in 30-minute steps, so you do not pay for idle time.',
+            'If you have your own helpers to carry, choose a van and driver for €50/h. It is often the cheapest way to move in Tampere without collecting and returning a rental van yourself.',
+            'Want to know the total price in advance? Tell us the addresses, floors, lift and amount of belongings, and we send you a fixed quote.',
+          ],
+        },
+        { heading: 'Moving prices', paragraphs: [...prices.en, priceNote.en] },
+        {
+          heading: 'Tips for a cheaper move',
+          paragraphs: [
+            'Pack everything into boxes and take large furniture apart in advance. Book the lift if your building has a booking system. Weekdays and the middle of the month are often more flexible than the last days of the month.',
+          ],
+        },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Mikä on halvin tapa muuttaa Tampereella?', a: 'Usein pakettiauto ja kuljettaja 50 €/h, kun kantoapu on omasta takaa. Jos tarvitset kantoapua, muuttomies + auto maksaa 75 €/h (sis. alv 25,5 %).' },
+        { q: 'Paljonko yksiön muutto maksaa?', a: 'Lyhyt yksiön muutto Tampereella vie usein 1–3 tuntia. Hinta riippuu matkasta, kerroksista ja tavaroiden määrästä. Pyydä kiinteä tarjous, niin tiedät hinnan etukäteen.' },
+        { q: 'Onko hinnoissa piilokuluja?', a: 'Tuntihinnat sisältävät alv:n. Kerromme mahdolliset lisäkulut, kuten jäteaseman maksut tai pidemmät ajomatkat, ennen työn aloittamista.' },
+        { q: 'Saako edullisen muuton myös viikonloppuna?', a: 'Kyllä. Palvelemme joka päivä klo 7–21 samoilla tuntihinnoilla.' },
+      ],
+      en: [
+        { q: 'What is the cheapest way to move in Tampere?', a: 'Often a van and driver for €50/h when you have your own helpers to carry. If you need carrying help, a mover + van costs €75/h (Finnish VAT 25.5% included).' },
+        { q: 'How much does a studio move cost?', a: 'A short studio move in Tampere often takes 1–3 hours. The price depends on distance, floors and the amount of belongings. Ask for a fixed quote to know the price in advance.' },
+        { q: 'Are there hidden costs?', a: 'Hourly prices include VAT. We tell you about any extra costs, such as waste station fees or longer drives, before the job starts.' },
+        { q: 'Can I get an affordable move at the weekend?', a: 'Yes. We work every day from 7:00 to 21:00 at the same hourly prices.' },
+      ],
+    },
+  },
+  {
+    path: '/edullinen-kuljetus-tampere',
+    navLabel: { fi: 'Edullinen kuljetus Tampere', en: 'Cheap transport Tampere' },
+    title: {
+      fi: 'Edullinen kuljetus Tampere – halpa kuljetuspalvelu alk. 50 €/h | MoveX Logistics',
+      en: 'Cheap Transport & Delivery in Tampere from €50/h | MoveX Logistics',
+    },
+    description: {
+      fi: 'Halpa ja nopea kuljetus Tampereella: huonekalut, kodinkoneet, IKEA-, Tori.fi- ja Marketplace-noudot. Pakettiauto + kuljettaja 50 €/h sis. alv. Pyydä tarjous WhatsAppilla.',
+      en: 'Cheap and quick transport in Tampere: furniture, appliances, IKEA, Tori.fi and Marketplace pickups. Van + driver €50/h incl. VAT. Ask for a quote on WhatsApp.',
+    },
+    h1: { fi: 'Edullinen kuljetuspalvelu Tampereella', en: 'Cheap transport service in Tampere' },
+    intro: {
+      fi: 'Tarvitsetko halvan kuljetuksen sohvalle, pesukoneelle tai Tori.fi-löydölle? MoveX Logistics hakee ja toimittaa tavarat Tampereella ja lähikunnissa pakettiautolla. Hinta on selvillä etukäteen, ja palvelemme joka päivä klo 7–21, myös iltaisin ja viikonloppuisin.',
+      en: 'Need a cheap delivery for a sofa, washing machine or a Tori.fi find? MoveX Logistics collects and delivers in Tampere and nearby towns by van. The price is clear in advance, and we work every day from 7:00 to 21:00, including evenings and weekends.',
+    },
+    sections: {
+      fi: [
+        {
+          heading: 'Mitä kuljetamme edullisesti?',
+          paragraphs: [
+            'Huonekalut, kodinkoneet, IKEA-ostokset, Tori.fi- ja Facebook Marketplace -noudot, myymälänoudot ja vanhojen tavaroiden viennit jäteasemalle. Kerro mitä kuljetetaan, mistä ja minne, niin kerromme hinnan heti.',
+          ],
+        },
+        { heading: 'Kuljetuksen hinnat', paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        {
+          heading: 'What we transport at a low price',
+          paragraphs: [
+            'Furniture, appliances, IKEA purchases, Tori.fi and Facebook Marketplace pickups, store pickups and trips to the waste station. Tell us what needs moving, from where and to where, and we tell you the price straight away.',
+          ],
+        },
+        { heading: 'Transport prices', paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [
+        { q: 'Paljonko halpa kuljetus maksaa Tampereella?', a: 'Pakettiauto + kuljettaja 50 €/h ja muuttomies + auto 75 €/h (sis. alv 25,5 %). Vähimmäisveloitus on yksi tunti.' },
+        { q: 'Voinko saada kiinteän hinnan?', a: 'Kyllä. Kerro nouto- ja toimitusosoite, tavarat, kerrokset ja hissi, niin lähetämme hinnan ennen kuljetusta.' },
+        { q: 'Milloin kuljetus onnistuu?', a: 'Palvelemme joka päivä klo 7–21. Kerro toivottu päivä, niin kerromme vapaat ajat.' },
+      ],
+      en: [
+        { q: 'How much does cheap transport cost in Tampere?', a: 'Van + driver €50/h and mover + van €75/h (Finnish VAT 25.5% included). The minimum charge is one hour.' },
+        { q: 'Can I get a fixed price?', a: 'Yes. Tell us the pickup and delivery addresses, the items, floors and lift, and we send the price before the job.' },
+        { q: 'When can you do it?', a: 'We work every day from 7:00 to 21:00. Tell us your preferred day and we tell you the free times.' },
+      ],
+    },
+  },
+  {
     path: '/muutto-nokia',
     area: true,
     navLabel: { fi: 'Muutto Nokia', en: 'Moving Nokia' },
@@ -1090,6 +1210,8 @@ const englishSlugs: Record<string, string> = {
   '/kodinkonekuljetus-tampere': '/en/appliance-transport-tampere',
   '/opiskelijamuutto-tampere': '/en/student-move-tampere',
   '/kaatopaikkakuljetus-tampere': '/en/junk-removal-tampere',
+  '/edullinen-muuttopalvelu-tampere': '/en/cheap-movers-tampere',
+  '/edullinen-kuljetus-tampere': '/en/cheap-transport-tampere',
   '/muutto-nokia': '/en/moving-nokia',
   '/muutto-ylojarvi': '/en/moving-ylojarvi',
   '/muutto-pirkkala': '/en/moving-pirkkala',

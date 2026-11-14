@@ -12,6 +12,8 @@ const languagePairs = [
   ['/huonekalukuljetus-tampere/', '/en/furniture-transport-tampere/'],
   ['/pieni-muutto-tampere/', '/en/small-move-tampere/'],
   ['/kuljetuspalvelu-tampere/', '/en/transport-service-tampere/'],
+  ['/edullinen-muuttopalvelu-tampere/', '/en/cheap-movers-tampere/'],
+  ['/edullinen-kuljetus-tampere/', '/en/cheap-transport-tampere/'],
 ] as const;
 
 function outputPath(route: string) {
@@ -51,7 +53,7 @@ export function hreflangPlugin() {
             fs.writeFileSync(file, html.replace('</head>', '    ' + markup + '\n  </head>'));
           }
         }
-        console.log('  added reciprocal fi-FI/en-FI hreflang links to 6 language pairs');
+        console.log(`  added reciprocal fi-FI/en-FI hreflang links to ${languagePairs.length} language pairs`);
       },
     },
   };
