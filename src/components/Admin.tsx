@@ -30,6 +30,9 @@ interface QuoteRequest {
   status: QuoteStatus;
   quoted_price: number | null;
   admin_notes: string | null;
+  payment_status: 'unpaid' | 'pending' | 'paid' | 'refunded';
+  payment_amount_cents: number | null;
+  paid_at: string | null;
 }
 
 const labels = {
@@ -207,7 +210,7 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
     setLoading(true);
     const { data, error } = await client
       .from('quote_requests')
-      .select('id, created_at, updated_at, name, email, phone, service, pickup_location, destination, preferred_date, preferred_time, number_of_movers, number_of_rooms, large_items, elevator_available, stairs, parking_info, message, consent, status, quoted_price, admin_notes')
+      .select('id, created_at, updated_at, name, email, phone, service, pickup_location, destination, preferred_date, preferred_time, number_of_movers, number_of_rooms, large_items, elevator_available, stairs, parking_info, message, consent, status, quoted_price, admin_notes, payment_status, payment_amount_cents, paid_at')
       .order('created_at', { ascending: false })
       .range(offset, offset + 499);
     setLoading(false);
@@ -421,7 +424,20 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
                     >
                       <span className="flex items-start justify-between gap-2">
                         <span className="font-semibold text-slate-900">{request.name}</span>
-                        <span className="shrink-0 rounded-full bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-600">{statusLabels[lang][request.status]}</span>
+                        <span className="flex shrink-0 gap-1">
+                          {request.payment_status === 'paid' && (
+                            <span className="rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-semibold text-emerald-700">
+                              {lang === 'fi' ? 'Maksettu' : 'Paid'} {request.payment_amount_cents !== null ? `${(request.payment_amount_cents / 100).toFixed(0)} €` : ''}
+                            </span>
+                          )}
+                          {request.payment_status === 'pending' && (
+                            <span className="rounded-full bg-amber-100 px-2 py-1 text-[10px] font-semibold text-amber-700">{lang === 'fi' ? 'Maksu kesken' : 'Payment pending'}</span>
+                          )}
+                          {request.payment_status === 'refunded' && (
+                            <span className="rounded-full bg-slate-200 px-2 py-1 text-[10px] font-semibold text-slate-700">{lang === 'fi' ? 'Palautettu' : 'Refunded'}</span>
+                          )}
+                          <span className="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-600">{statusLabels[lang][request.status]}</span>
+                        </span>
                       </span>
                       <span className="mt-1 block truncate text-xs text-slate-600">{request.email}</span>
                       <span className="mt-2 block truncate text-xs text-slate-500">{request.service}</span>

@@ -25,7 +25,20 @@ interface QuoteRequest {
 
 interface SubmitQuoteBody extends Partial<QuoteRequest> {
   website?: unknown;
+  pay_online?: unknown;
+  lang?: unknown;
+  return_path?: unknown;
 }
+
+// Online booking advance = price of the first hour (minimum booking), VAT included.
+const advanceCentsByMovers = new Map<number, number>([
+  [0, 5000],
+  [1, 7500],
+  [2, 10000],
+  [3, 12500],
+]);
+
+const SITE_ORIGIN = 'https://movexlogistics.fi';
 
 const allowedServices = new Set([
   'Van + Driver — €50/h, VAT included',
@@ -50,7 +63,7 @@ interface DenoRuntime {
 
 const runtime = (globalThis as typeof globalThis & { Deno?: DenoRuntime }).Deno;
 
-function jsonResponse(body: Record<string, boolean>, status = 200) {
+function jsonResponse(body: Record<string, boolean | string>, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
     headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -70,7 +83,66 @@ function validDate(value: string | null | undefined): value is string | null {
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
 }
 
-async function notifyByEmail(request: QuoteRequest) {
+async function createCheckoutSession(options: {
+  quoteId: string;
+  service: string;
+  amountCents: number;
+  email: string;
+  lang: 'fi' | 'en';
+  returnPath: string;
+}): Promise<string | null> {
+  const secretKey = runtime?.env.get('STRIPE_SECRET_KEY');
+  if (!secretKey) {
+    console.error('Stripe is not configured (STRIPE_SECRET_KEY missing).');
+    return null;
+  }
+  const productName = options.lang === 'fi'
+    ? 'MoveX Logistics – varausmaksu (1. tunti)'
+    : 'MoveX Logistics – booking advance (1st hour)';
+  const description = options.lang === 'fi'
+    ? `${options.service}. Ensimmäinen tunti maksetaan etukäteen, loput työn jälkeen. ALV 25,5 % sisältyy. Ilmainen peruutus viimeistään 48 h ennen työn alkua.`
+    : `${options.service}. First hour paid in advance, the rest after the job. VAT 25.5% included. Free cancellation up to 48 h before the job.`;
+  const separator = options.returnPath.includes('?') ? '&' : '?';
+  const params = new URLSearchParams({
+    mode: 'payment',
+    locale: options.lang,
+    customer_email: options.email,
+    client_reference_id: options.quoteId,
+    'metadata[quote_id]': options.quoteId,
+    'payment_intent_data[metadata][quote_id]': options.quoteId,
+    'payment_intent_data[description]': `MoveX booking advance – ${options.quoteId}`,
+    'line_items[0][quantity]': '1',
+    'line_items[0][price_data][currency]': 'eur',
+    'line_items[0][price_data][unit_amount]': String(options.amountCents),
+    'line_items[0][price_data][product_data][name]': productName,
+    'line_items[0][price_data][product_data][description]': description.slice(0, 500),
+    success_url: `${SITE_ORIGIN}${options.returnPath}${separator}payment=success#contact`,
+    cancel_url: `${SITE_ORIGIN}${options.returnPath}${separator}payment=cancelled#contact`,
+  });
+  try {
+    const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + secretKey,
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Idempotency-Key': `checkout-${options.quoteId}`,
+      },
+      body: params.toString(),
+      signal: AbortSignal.timeout(15_000),
+    });
+    const session = await response.json();
+    if (!response.ok || typeof session?.url !== 'string') {
+      console.error('Stripe Checkout session could not be created.', response.status, session?.error?.message);
+      return null;
+    }
+    return session.url;
+  } catch {
+    console.error('Stripe Checkout session could not be created.');
+    return null;
+  }
+}
+
+async function notifyByEmail(request: QuoteRequest, payment?: { amountCents: number }) {
   const apiKey = runtime?.env.get('RESEND_API_KEY');
   const from = runtime?.env.get('RESEND_FROM_EMAIL');
   if (!apiKey || !from) {
@@ -96,6 +168,7 @@ async function notifyByEmail(request: QuoteRequest) {
     `Stairs: ${request.stairs === null ? 'Not specified' : request.stairs ? 'Yes' : 'No'}`,
     `Parking information: ${request.parking_info ?? 'Not provided'}`,
     `Message: ${request.message ?? 'Not provided'}`,
+    `Online payment: ${payment ? `Customer chose to pay the booking advance €${(payment.amountCents / 100).toFixed(2)} online (wait for the "paid" email before confirming)` : 'No'}`,
   ];
 
   try {
@@ -157,6 +230,11 @@ runtime?.serve(async (request) => {
   const numberOfRooms = body.number_of_rooms;
   const elevatorAvailable = body.elevator_available;
   const stairs = body.stairs;
+  const payOnline = body.pay_online === true;
+  const lang: 'fi' | 'en' = body.lang === 'en' ? 'en' : 'fi';
+  const returnPath = typeof body.return_path === 'string' && /^\/[A-Za-z0-9/_-]{0,120}$/.test(body.return_path)
+    ? body.return_path
+    : '/';
 
   if (
     !name || name.length < 2 ||
@@ -178,7 +256,8 @@ runtime?.serve(async (request) => {
     message === undefined ||
     elevatorAvailable !== null && elevatorAvailable !== undefined && typeof elevatorAvailable !== 'boolean' ||
     stairs !== null && stairs !== undefined && typeof stairs !== 'boolean' ||
-    body.consent !== true
+    body.consent !== true ||
+    (payOnline && (numberOfMovers === null || !advanceCentsByMovers.has(numberOfMovers)))
   ) {
     return jsonResponse({ success: false }, 400);
   }
@@ -189,6 +268,9 @@ runtime?.serve(async (request) => {
     console.error('Quote submission database is not configured.');
     return jsonResponse({ success: false }, 500);
   }
+
+  const quoteId = crypto.randomUUID();
+  const advanceCents = payOnline && numberOfMovers !== null ? advanceCentsByMovers.get(numberOfMovers)! : null;
 
   const quote: QuoteRequest = {
     name,
@@ -219,6 +301,8 @@ runtime?.serve(async (request) => {
         Prefer: 'return=minimal',
       },
       body: JSON.stringify({
+        id: quoteId,
+        payment_status: advanceCents !== null ? 'pending' : 'unpaid',
         name: quote.name,
         email: quote.email,
         phone: quote.phone,
@@ -246,6 +330,20 @@ runtime?.serve(async (request) => {
     return jsonResponse({ success: false }, 500);
   }
 
-  await notifyByEmail(quote);
+  await notifyByEmail(quote, advanceCents !== null ? { amountCents: advanceCents } : undefined);
+
+  if (advanceCents !== null) {
+    const checkoutUrl = await createCheckoutSession({
+      quoteId,
+      service: quote.service,
+      amountCents: advanceCents,
+      email: quote.email,
+      lang,
+      returnPath,
+    });
+    if (!checkoutUrl) return jsonResponse({ success: true, checkout_error: true });
+    return jsonResponse({ success: true, checkout_url: checkoutUrl });
+  }
+
   return jsonResponse({ success: true });
 });

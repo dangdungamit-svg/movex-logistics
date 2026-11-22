@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import { MessageCircle, Mail } from 'lucide-react';
+import { CreditCard, MessageCircle, Mail } from 'lucide-react';
 import { trackContactConversion } from '@/lib/analytics';
 import { supabase } from '@/lib/supabase';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -25,8 +25,21 @@ export default function QuoteRequestForm() {
   const [error, setError] = useState('');
   const [opened, setOpened] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [redirecting, setRedirecting] = useState(false);
   const [saved, setSaved] = useState(false);
   const [saveError, setSaveError] = useState('');
+  const [paymentNotice, setPaymentNotice] = useState<'success' | 'cancelled' | ''>('');
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const payment = params.get('payment');
+    if (payment === 'success' || payment === 'cancelled') {
+      setPaymentNotice(payment);
+      params.delete('payment');
+      const query = params.toString();
+      window.history.replaceState(null, '', window.location.pathname + (query ? '?' + query : '') + window.location.hash);
+    }
+  }, []);
 
   useEffect(() => {
     setError('');
@@ -102,6 +115,7 @@ export default function QuoteRequestForm() {
     if (pref === 'hourly' && !pkg) { setError(q.errDirectRequired); return; }
     const service = pref === 'hourly' ? pkg!.value : pref === 'fixed' ? 'Fixed offer — quote requested' : 'Not sure — recommend an option';
     const messageText = buildMessage(form);
+    const payOnline = channel === 'pay' && pref === 'hourly' && !!pkg;
     const externalWindow = channel === 'whatsapp' || channel === 'email' ? window.open('about:blank', '_blank') : null;
     setSubmitting(true);
     try {
@@ -112,9 +126,21 @@ export default function QuoteRequestForm() {
         large_items: get('items') || null, elevator_available: null, stairs: null, parking_info: null,
         message: messageText.slice(0, 4000) || null,
         consent: form.get('consent') === 'on', website: get('website'),
+        pay_online: payOnline, lang, return_path: window.location.pathname,
       }});
       if (fnError || data?.success !== true) throw new Error('Quote request was not saved');
-      trackContactConversion(); setSaved(true);
+      trackContactConversion();
+      if (payOnline) {
+        if (typeof data?.checkout_url === 'string' && data.checkout_url.startsWith('https://checkout.stripe.com/')) {
+          setRedirecting(true);
+          window.location.href = data.checkout_url;
+          return;
+        }
+        formElement.reset();
+        setSaveError(q.checkoutError);
+        return;
+      }
+      setSaved(true);
       if (channel === 'whatsapp' || channel === 'email') {
         const encoded = encodeURIComponent(messageText);
         const url = channel === 'email'
@@ -257,6 +283,12 @@ export default function QuoteRequestForm() {
         {opened && !error && (
           <p className="text-sm text-green-700 sm:col-span-2" role="status" aria-live="polite">{q.opened}</p>
         )}
+        {paymentNotice === 'success' && (
+          <p className="text-sm font-medium text-green-700 sm:col-span-2" role="status" aria-live="polite">{q.paymentSuccess}</p>
+        )}
+        {paymentNotice === 'cancelled' && (
+          <p className="text-sm text-amber-700 sm:col-span-2" role="status" aria-live="polite">{q.paymentCancelled}</p>
+        )}
         {saved && (
           <p className="text-sm text-green-700 sm:col-span-2" role="status" aria-live="polite">{q.saved}</p>
         )}
@@ -264,7 +296,21 @@ export default function QuoteRequestForm() {
           <p className="text-sm text-red-700 sm:col-span-2" role="alert">{saveError}</p>
         )}
         <p className="text-xs text-slate-500 sm:col-span-2">{q.directNote}</p>
-        <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row">
+        {pref === 'hourly' && (
+          <p className="text-xs text-slate-600 sm:col-span-2">{q.payOnlineNote}</p>
+        )}
+        <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:flex-wrap">
+          {pref === 'hourly' && (
+            <button
+              type="submit"
+              value="pay"
+              disabled={submitting || redirecting}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <CreditCard className="h-4 w-4" />
+              {redirecting ? q.redirecting : submitting ? q.sending : q.payOnline}
+            </button>
+          )}
           <button
             type="submit"
             value="direct"
