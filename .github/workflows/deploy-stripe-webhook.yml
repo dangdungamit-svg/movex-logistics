@@ -31,4 +31,4 @@ jobs:
 
       # Stripe calls this endpoint without a Supabase JWT; the function verifies the Stripe signature itself.
       - name: Deploy stripe-webhook
-        run: supabase functions deploy stripe-webhook --no-verify-jwt --project-ref "$SUPABASE_PROJECT_ID"
+        run: supabase functions deploy stripe-webhook --no-verify-jwt --project-ref "$SUPABASE_PROJECT_ID" --yes
