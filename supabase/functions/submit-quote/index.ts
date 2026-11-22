@@ -91,7 +91,7 @@ async function createCheckoutSession(options: {
   lang: 'fi' | 'en';
   returnPath: string;
 }): Promise<string | null> {
-  const secretKey = runtime?.env.get('STRIPE_SECRET_KEY');
+  const secretKey = runtime?.env.get('STRIPE_SECRET_KEY')?.trim();
   if (!secretKey) {
     console.error('Stripe is not configured (STRIPE_SECRET_KEY missing).');
     return null;
@@ -136,8 +136,8 @@ async function createCheckoutSession(options: {
       return null;
     }
     return session.url;
-  } catch {
-    console.error('Stripe Checkout session could not be created.');
+  } catch (error) {
+    console.error('Stripe Checkout session could not be created (request error).', error instanceof Error ? error.message : String(error));
     return null;
   }
 }

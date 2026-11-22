@@ -98,7 +98,7 @@ async function notifyPaid(row: Record<string, unknown> | null, amountCents: numb
 
 runtime?.serve(async (request) => {
   if (request.method !== 'POST') return text('Method not allowed', 405);
-  const secret = runtime?.env.get('STRIPE_WEBHOOK_SECRET');
+  const secret = runtime?.env.get('STRIPE_WEBHOOK_SECRET')?.trim();
   if (!secret) {
     console.error('STRIPE_WEBHOOK_SECRET is not configured.');
     return text('Not configured', 500);
