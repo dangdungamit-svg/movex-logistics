@@ -1196,6 +1196,195 @@ export const landingPages: LandingPage[] = [
       ],
     },
   },
+  {
+    path: "/muuttopalvelu-pirkanmaa",
+    area: true,
+    navLabel: {"fi": "Muuttopalvelu Pirkanmaa", "en": "Moving service Pirkanmaa"},
+    title: {"fi": "Muuttopalvelu Pirkanmaa – muutot koko Pirkanmaalla | MoveX Logistics", "en": "Moving Service in Pirkanmaa, Finland | MoveX Logistics"},
+    description: {"fi": "Muuttopalvelu Pirkanmaalla: Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä, Kangasala, Valkeakoski, Sastamala ja muut kunnat. Alkaen 50 €/h sis. alv. Pyydä tarjous.", "en": "Moving service across Pirkanmaa: Tampere, Nokia, Ylöjärvi, Pirkkala, Lempäälä, Kangasala, Valkeakoski, Sastamala and more. From €50/h incl. VAT."},
+    h1: {"fi": "Muuttopalvelu Pirkanmaa", "en": "Moving service in Pirkanmaa"},
+    intro: {"fi": "MoveX Logistics on tamperelainen muuttopalvelu, joka hoitaa muutot koko Pirkanmaan alueella. Lähikunnissa (Nokia, Ylöjärvi, Pirkkala, Lempäälä, Kangasala) voit valita tuntihinnan alkaen 50 €/h. Muualle Pirkanmaalle – esimerkiksi Valkeakoskelle, Sastamalaan, Akaaseen, Orivedelle, Mänttä-Vilppulaan tai Ikaalisiin – teemme kiinteän tarjouksen, jotta tiedät hinnan etukäteen.", "en": "MoveX Logistics is a Tampere-based moving service covering the whole Pirkanmaa region. In the nearby municipalities (Nokia, Ylöjärvi, Pirkkala, Lempäälä, Kangasala) you can choose an hourly rate from €50/h. For the rest of Pirkanmaa – for example Valkeakoski, Sastamala, Akaa, Orivesi, Mänttä-Vilppula or Ikaalinen – we give a fixed quote so you know the price in advance."},
+    sections: {
+      fi: [
+        { heading: "Muutot Pirkanmaan kunnissa", paragraphs: ["Kotimuutot yksiöstä perheasuntoon, opiskelijamuutot ja pienet muutot, kuten muutama huonekalu tai kodinkone.", "Muutot Tampereelta muualle Pirkanmaalle ja Pirkanmaalta Tampereelle – esimerkiksi Valkeakoski–Tampere tai Tampere–Sastamala.", "Mökki- ja varastomuutot sekä vanhojen tavaroiden vienti jäteasemalle samalla kertaa."] },
+        { heading: "Näin muutto etenee", paragraphs: ["1. Lähetä tarjouspyyntö: osoitteet, muuttopäivä, asunnon koko tai tavaramäärä, kerrokset ja hissit.", "2. Saat vastauksen yleensä samana päivänä: tuntihinta-arvio tai kiinteä hinta.", "3. Muuttopäivänä tulemme sovittuun aikaan pakettiautolla ja tarvittaessa 1–3 muuttomiehen kanssa. Kuormat sidotaan ja suojataan huolellisesti."] },
+        { heading: "Hinnat", paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: "Moves in Pirkanmaa municipalities", paragraphs: ["Home moves from studios to family homes, student moves and small moves such as a few pieces of furniture or appliances.", "Moves from Tampere to the rest of Pirkanmaa and back – for example Valkeakoski–Tampere or Tampere–Sastamala.", "Cottage and storage moves, and taking old items to the waste station in the same trip."] },
+        { heading: "How the move works", paragraphs: ["1. Send a quote request: addresses, moving date, size of the home or amount of items, floors and lifts.", "2. You usually get an answer the same day: an hourly estimate or a fixed price.", "3. On moving day we arrive at the agreed time with a van and, if needed, 1–3 movers. Loads are strapped and protected carefully."] },
+        { heading: "Prices", paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [{"q": "Mihin Pirkanmaan kuntiin teette muuttoja?", "a": "Koko Pirkanmaalle. Tampereella ja lähikunnissa (Nokia, Ylöjärvi, Pirkkala, Lempäälä, Kangasala) tuntihinnalla, muualle Pirkanmaalle kiinteällä tarjouksella."}, {"q": "Paljonko muutto Pirkanmaalla maksaa?", "a": "Lähialueella pakettiauto + kuljettaja 50 €/h ja 1–3 muuttomiestä + auto 75–125 €/h (sis. alv 25,5 %). Pidemmät matkat hinnoitellaan kiinteänä hintana reitin ja työn mukaan."}, {"q": "Voiko muuton varata viikonlopuksi?", "a": "Kyllä, palvelemme joka päivä klo 7–21. Kuun vaihde täyttyy nopeasti, joten varaa ajoissa."}],
+      en: [{"q": "Which Pirkanmaa municipalities do you serve?", "a": "All of Pirkanmaa. Tampere and nearby municipalities (Nokia, Ylöjärvi, Pirkkala, Lempäälä, Kangasala) at hourly rates, the rest of Pirkanmaa with a fixed quote."}, {"q": "How much does a move in Pirkanmaa cost?", "a": "Locally, van + driver €50/h and 1–3 movers + van €75–125/h (Finnish VAT 25.5% included). Longer distances are priced as a fixed price based on the route and the job."}, {"q": "Can I book a move for the weekend?", "a": "Yes, we work every day 7am–9pm. The turn of the month fills up quickly, so book early."}],
+    },
+  },
+  {
+    path: "/muuttofirma-pirkanmaa",
+    area: true,
+    navLabel: {"fi": "Muuttofirma Pirkanmaa", "en": "Moving company Pirkanmaa"},
+    title: {"fi": "Muuttofirma Pirkanmaa – edullinen muuttofirma Tampereelta | MoveX Logistics", "en": "Moving Company in Pirkanmaa | MoveX Logistics"},
+    description: {"fi": "Etsitkö muuttofirmaa Pirkanmaalta? MoveX Logistics: selkeät tuntihinnat 50–125 €/h sis. alv, kiinteät tarjoukset, palvelu joka päivä klo 7–21. Pyydä tarjous.", "en": "Looking for a moving company in Pirkanmaa? MoveX Logistics: clear hourly rates €50–125/h incl. VAT, fixed quotes, open every day 7am–9pm."},
+    h1: {"fi": "Muuttofirma Pirkanmaa", "en": "Moving company in Pirkanmaa"},
+    intro: {"fi": "Kun vertailet muuttofirmoja Pirkanmaalla, katso ainakin kolmea asiaa: onko hinta selvä etukäteen, sisältääkö se arvonlisäveron ja vastaako firma nopeasti. MoveX Logisticsilla tuntihinnat on kerrottu suoraan verkkosivuilla (alv 25,5 % sisältyy), ja kiinteän tarjouksen saat yleensä samana päivänä.", "en": "When you compare moving companies in Pirkanmaa, check at least three things: is the price clear in advance, does it include VAT, and does the company reply quickly. At MoveX Logistics the hourly rates are listed openly on the website (VAT 25.5% included), and you usually get a fixed quote the same day."},
+    sections: {
+      fi: [
+        { heading: "Miksi MoveX Logistics?", paragraphs: ["Läpinäkyvä hinnoittelu: ei piilokuluja, ei erillistä starttimaksua – hinta on tuntihinta tai sovittu kiinteä hinta.", "Joustava miehitys: valitse pelkkä auto ja kuljettaja, tai 1–3 muuttomiestä kantamaan.", "Pieni ja ketterä yritys: saat suoraan yhteyden yrittäjään, ja aikataulut sovitaan joustavasti myös iltaisin ja viikonloppuisin."] },
+        { heading: "Mitä tarjouspyyntöön kannattaa kertoa?", paragraphs: ["Lähtö- ja määräosoite sekä kerrokset ja hissit.", "Asunnon koko neliöinä tai lista isoista tavaroista (sohvat, kaapit, pesukone, jääkaappi).", "Toivottu päivä ja kellonaika sekä tarvitaanko kantoapua."] },
+        { heading: "Hinnat", paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: "Why MoveX Logistics?", paragraphs: ["Transparent pricing: no hidden costs, no separate starting fee – the price is the hourly rate or an agreed fixed price.", "Flexible crew: choose just a van and driver, or 1–3 movers to carry.", "Small and agile company: you deal directly with the owner, and schedules are flexible, also evenings and weekends."] },
+        { heading: "What to include in a quote request", paragraphs: ["Pickup and delivery addresses, floors and lifts.", "Size of the home in m² or a list of large items (sofas, wardrobes, washing machine, fridge).", "Preferred date and time, and whether you need help carrying."] },
+        { heading: "Prices", paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [{"q": "Onko MoveX Logistics rekisteröity yritys?", "a": "Kyllä. MoveX Logistics on tamperelainen yritys, Y-tunnus 3615629-3."}, {"q": "Sisältyykö arvonlisävero hintoihin?", "a": "Kyllä, kaikki hinnat sisältävät alv 25,5 %."}, {"q": "Kuinka nopeasti saan tarjouksen?", "a": "Yleensä samana päivänä. Nopeimmin onnistuu WhatsAppilla tai sivun tarjouslomakkeella."}],
+      en: [{"q": "Is MoveX Logistics a registered company?", "a": "Yes. MoveX Logistics is a Tampere-based company, business ID 3615629-3."}, {"q": "Is VAT included in the prices?", "a": "Yes, all prices include Finnish VAT 25.5%."}, {"q": "How quickly do I get a quote?", "a": "Usually the same day. Fastest via WhatsApp or the quote form on this site."}],
+    },
+  },
+  {
+    path: "/muuttoapu-tampere",
+    area: true,
+    navLabel: {"fi": "Muuttoapu Tampere", "en": "Moving help Tampere"},
+    title: {"fi": "Muuttoapu Tampere – kantoapu ja muuttoauto kuljettajalla | MoveX Logistics", "en": "Moving Help in Tampere – Movers & Van | MoveX Logistics"},
+    description: {"fi": "Muuttoapu Tampereella: muuttoauto kuljettajalla 50 €/h tai kantoapu 1–3 muuttomiehellä 75–125 €/h (sis. alv). Myös pienet muutot ja yksittäiset huonekalut.", "en": "Moving help in Tampere: van with driver €50/h or 1–3 movers €75–125/h (incl. VAT). Small moves and single furniture items too."},
+    h1: {"fi": "Muuttoapu Tampere", "en": "Moving help in Tampere"},
+    intro: {"fi": "Tarvitsetko vain vähän muuttoapua? Kaikki eivät tarvitse täyden palvelun muuttofirmaa. MoveX Logisticsilta saat juuri sen avun, jota tarvitset: pelkän muuttoauton kuljettajalla, kun kantajat ovat omasta takaa, tai 1–3 muuttomiestä, kun haluat että kantaminen hoidetaan puolestasi.", "en": "Need just a bit of moving help? Not everyone needs a full-service moving company. At MoveX Logistics you get exactly the help you need: just a van with a driver when you have your own carriers, or 1–3 movers when you want the carrying done for you."},
+    sections: {
+      fi: [
+        { heading: "Valitse sopiva muuttoapu", paragraphs: ["Pakettiauto + kuljettaja (50 €/h): sinä ja ystäväsi kannatte, kuljettaja auttaa kuorman lastaamisessa ja sitomisessa.", "1 muuttomies + auto (75 €/h): kuljettaja kantaa kanssasi – sopii yksiöön ja pieniin muuttoihin.", "2–3 muuttomiestä + auto (100–125 €/h): isommat asunnot, raskaat kalusteet ja portaat ilman hissiä."] },
+        { heading: "Muuttoapu myös pieniin töihin", paragraphs: ["Yksittäinen sohva, sänky tai kodinkone, IKEA- ja Tori.fi-noudot sekä varastomuutot.", "Vähimmäisveloitus on yksi tunti, ja sen jälkeen laskutus 30 minuutin jaksoissa – maksat vain käytetystä ajasta."] },
+        { heading: "Hinnat", paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: "Choose the right help", paragraphs: ["Van + driver (€50/h): you and your friends carry, the driver helps load and strap.", "1 mover + van (€75/h): the driver carries with you – good for studios and small moves.", "2–3 movers + van (€100–125/h): larger homes, heavy furniture and stairs without a lift."] },
+        { heading: "Help for small jobs too", paragraphs: ["A single sofa, bed or appliance, IKEA and Tori.fi pickups and storage moves.", "Minimum charge is one hour, then billing in 30-minute steps – you only pay for the time used."] },
+        { heading: "Prices", paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [{"q": "Paljonko muuttoapu maksaa Tampereella?", "a": "Pakettiauto + kuljettaja 50 €/h, 1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %)."}, {"q": "Voiko muuttoavun tilata samalle päivälle?", "a": "Usein kyllä, jos aikataulussa on tilaa. Kysy nopeimmin WhatsAppilla."}, {"q": "Tarvitseeko minun pakata itse?", "a": "Kyllä, pakkaa tavarat laatikoihin ennen muuttoa. Me hoidamme kantamisen, lastaamisen ja kuljetuksen."}],
+      en: [{"q": "How much does moving help cost in Tampere?", "a": "Van + driver €50/h, 1 mover + van €75/h, 2 movers + van €100/h and 3 movers + van €125/h (Finnish VAT 25.5% included)."}, {"q": "Can I book moving help for the same day?", "a": "Often yes, if the schedule allows. Ask fastest via WhatsApp."}, {"q": "Do I need to pack myself?", "a": "Yes, please pack items into boxes before the move. We handle carrying, loading and transport."}],
+    },
+  },
+  {
+    path: "/muuttomiehet-tampere",
+    area: true,
+    navLabel: {"fi": "Muuttomiehet Tampere", "en": "Movers Tampere"},
+    title: {"fi": "Muuttomiehet Tampere – 1–3 muuttomiestä ja pakettiauto | MoveX Logistics", "en": "Movers in Tampere – 1–3 Movers with a Van | MoveX Logistics"},
+    description: {"fi": "Muuttomiehet Tampereella: 1 muuttomies + auto 75 €/h, 2 muuttomiestä 100 €/h, 3 muuttomiestä 125 €/h (sis. alv). Kokeneet kantajat, huolellinen sidonta.", "en": "Movers in Tampere: 1 mover + van €75/h, 2 movers €100/h, 3 movers €125/h (incl. VAT). Experienced carriers, careful strapping."},
+    h1: {"fi": "Muuttomiehet Tampere", "en": "Movers in Tampere"},
+    intro: {"fi": "Tarvitsetko muuttomiehet kantamaan raskaat tavarat? MoveX Logisticsin muuttomiehet kantavat, purkavat tarvittaessa yksinkertaiset kalusteet ja sitovat kuorman huolellisesti pakettiautoon. Valitse 1, 2 tai 3 muuttomiestä sen mukaan, kuinka paljon tavaraa on ja onko kohteessa hissiä.", "en": "Need movers to carry the heavy items? MoveX Logistics movers carry, take apart simple furniture when needed and strap the load carefully in the van. Choose 1, 2 or 3 movers depending on the amount of items and whether there is a lift."},
+    sections: {
+      fi: [
+        { heading: "Montako muuttomiestä tarvitsen?", paragraphs: ["1 muuttomies: yksiö tai pieni kaksio, hissi tai vähän portaita, tai yksittäiset raskaat tavarat.", "2 muuttomiestä: kaksio–kolmio, isot sohvat ja kaapit tai portaat ilman hissiä.", "3 muuttomiestä: perheasunnot ja talot, kun halutaan muutto nopeasti valmiiksi."] },
+        { heading: "Mitä muuttomiehet tekevät?", paragraphs: ["Kantavat laatikot ja huonekalut autoon ja uuteen kotiin haluamiisi huoneisiin.", "Suojaavat ja sitovat kuorman, jotta tavarat eivät liiku ajon aikana.", "Purkavat ja kokoavat tarvittaessa yksinkertaisia huonekaluja (esim. sängyt ja pöydät)."] },
+        { heading: "Hinnat", paragraphs: [...prices.fi, priceNote.fi] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: "How many movers do I need?", paragraphs: ["1 mover: a studio or small one-bedroom, a lift or few stairs, or single heavy items.", "2 movers: one- to two-bedroom homes, large sofas and wardrobes, or stairs without a lift.", "3 movers: family homes and houses when you want the move done fast."] },
+        { heading: "What do the movers do?", paragraphs: ["Carry boxes and furniture to the van and into the rooms you want in your new home.", "Protect and strap the load so nothing moves during the drive.", "Take apart and reassemble simple furniture when needed (e.g. beds and tables)."] },
+        { heading: "Prices", paragraphs: [...prices.en, priceNote.en] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [{"q": "Paljonko muuttomiehet maksavat Tampereella?", "a": "1 muuttomies + auto 75 €/h, 2 muuttomiestä + auto 100 €/h ja 3 muuttomiestä + auto 125 €/h (sis. alv 25,5 %)."}, {"q": "Voinko tilata pelkät muuttomiehet ilman autoa?", "a": "Ota yhteyttä ja kerro tilanteesta – sovitaan sinulle sopiva ratkaisu."}, {"q": "Kantavatteko pianon tai kassakaapin?", "a": "Erittäin raskaat erikoiskappaleet, kuten pianot ja kassakaapit, sovitaan aina erikseen. Kysy tarjous."}],
+      en: [{"q": "How much do movers cost in Tampere?", "a": "1 mover + van €75/h, 2 movers + van €100/h and 3 movers + van €125/h (Finnish VAT 25.5% included)."}, {"q": "Can I book movers without the van?", "a": "Contact us and describe the situation – we will agree on a solution that suits you."}, {"q": "Do you carry pianos or safes?", "a": "Very heavy special items such as pianos and safes are always agreed separately. Ask for a quote."}],
+    },
+  },
+  {
+    path: "/muutto-tampere-helsinki",
+    area: true,
+    navLabel: {"fi": "Muutto Tampere–Helsinki", "en": "Moving Tampere–Helsinki"},
+    title: {"fi": "Muutto Tampere–Helsinki – muuttopalvelu kiinteällä hinnalla | MoveX Logistics", "en": "Moving Tampere–Helsinki – Fixed-Price Moving Service | MoveX Logistics"},
+    description: {"fi": "Muutto Tampereelta Helsinkiin tai Helsingistä Tampereelle kiinteällä hinnalla. Pakettiauto, kuljettaja ja tarvittaessa muuttomiehet. Pyydä tarjous – vastaamme yleensä samana päivänä.", "en": "Moving from Tampere to Helsinki or from Helsinki to Tampere at a fixed price. Van, driver and movers if needed. Request a quote – we usually reply the same day."},
+    h1: {"fi": "Muutto Tampere–Helsinki", "en": "Moving between Tampere and Helsinki"},
+    intro: {"fi": "Muutatko Tampereelta Helsinkiin tai Helsingistä Tampereelle? Matkaa on noin 180 km suuntaansa, ja ajoon kuluu noin noin 2 tuntia. Teemme kaukomuutot aina kiinteällä hinnalla, joten tiedät kokonaishinnan etukäteen – ei yllätyksiä tuntien tai kilometrien kanssa.", "en": "Moving from Tampere to Helsinki or from Helsinki to Tampere? The distance is about 180 km one way and the drive takes about 2 hours. Long-distance moves are always priced as a fixed price, so you know the total in advance – no surprises with hours or kilometres."},
+    sections: {
+      fi: [
+        { heading: "Mitä hintaan sisältyy?", paragraphs: ["Pakettiauto ja kuljettaja koko matkalle sekä ajo- ja polttoainekulut.", "Kantoapu valintasi mukaan: pelkkä kuljettaja tai 1–3 muuttomiestä.", "Kuorman suojaus ja sidonta. Hinta sisältää alv 25,5 %."] },
+        { heading: "Mistä hinta muodostuu?", paragraphs: ["Tavaramäärä (asunnon koko tai lista isoista tavaroista) ja se, mahtuuko kaikki yhteen kuormaan.", "Kerrokset, hissit ja kantomatkat molemmissa päissä.", "Tarvittavien muuttomiesten määrä ja muuttopäivä."] },
+        { heading: "Pyydä tarjous", paragraphs: ["Lähetä lähtö- ja määräosoite, muuttopäivä, asunnon koko tai tavaralista sekä tieto kerroksista ja hisseistä. Lähetämme kiinteän hinnan yleensä samana päivänä."] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: "What does the price include?", paragraphs: ["Van and driver for the whole trip, plus driving and fuel costs.", "Carrying help as you choose: just the driver or 1–3 movers.", "Load protection and strapping. The price includes Finnish VAT 25.5%."] },
+        { heading: "What affects the price?", paragraphs: ["Amount of items (size of the home or list of large items) and whether everything fits in one load.", "Floors, lifts and carrying distances at both ends.", "Number of movers needed and the moving date."] },
+        { heading: "Request a quote", paragraphs: ["Send the pickup and delivery addresses, moving date, home size or item list, and floors and lifts. We usually send a fixed price the same day."] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [{"q": "Paljonko muutto Tampereelta Helsinkiin maksaa?", "a": "Hinta riippuu tavaramäärästä, kerroksista ja tarvittavasta kantoavusta. Annamme kiinteän hinnan tarjouspyynnön perusteella – kysy tarjous, se on ilmainen."}, {"q": "Teettekö muuttoja myös Helsingistä Tampereelle?", "a": "Kyllä, ajamme molempiin suuntiin."}, {"q": "Mahtuuko koko asunto yhteen kuormaan?", "a": "Pakettiautoon mahtuu tyypillisesti yksiön tai pienen kaksion tavarat. Isommissa muutoissa kerromme tarjouksessa, tarvitaanko kaksi kuormaa."}],
+      en: [{"q": "How much does a move from Tampere to Helsinki cost?", "a": "The price depends on the amount of items, floors and the carrying help needed. We give a fixed price based on your quote request – asking for a quote is free."}, {"q": "Do you also move from Helsinki to Tampere?", "a": "Yes, we drive both directions."}, {"q": "Will my whole home fit in one load?", "a": "The van typically fits the contents of a studio or small one-bedroom apartment. For larger moves we tell you in the quote if two loads are needed."}],
+    },
+  },
+  {
+    path: "/muutto-tampere-turku",
+    area: true,
+    navLabel: {"fi": "Muutto Tampere–Turku", "en": "Moving Tampere–Turku"},
+    title: {"fi": "Muutto Tampere–Turku – muuttopalvelu kiinteällä hinnalla | MoveX Logistics", "en": "Moving Tampere–Turku – Fixed-Price Moving Service | MoveX Logistics"},
+    description: {"fi": "Muutto Tampereelta Turkuun tai Turusta Tampereelle kiinteällä hinnalla. Pakettiauto, kuljettaja ja tarvittaessa muuttomiehet. Pyydä tarjous – vastaamme yleensä samana päivänä.", "en": "Moving from Tampere to Turku or from Turku to Tampere at a fixed price. Van, driver and movers if needed. Request a quote – we usually reply the same day."},
+    h1: {"fi": "Muutto Tampere–Turku", "en": "Moving between Tampere and Turku"},
+    intro: {"fi": "Muutatko Tampereelta Turkuun tai Turusta Tampereelle? Matkaa on noin 160 km suuntaansa, ja ajoon kuluu noin noin 2 tuntia. Teemme kaukomuutot aina kiinteällä hinnalla, joten tiedät kokonaishinnan etukäteen – ei yllätyksiä tuntien tai kilometrien kanssa.", "en": "Moving from Tampere to Turku or from Turku to Tampere? The distance is about 160 km one way and the drive takes about 2 hours. Long-distance moves are always priced as a fixed price, so you know the total in advance – no surprises with hours or kilometres."},
+    sections: {
+      fi: [
+        { heading: "Mitä hintaan sisältyy?", paragraphs: ["Pakettiauto ja kuljettaja koko matkalle sekä ajo- ja polttoainekulut.", "Kantoapu valintasi mukaan: pelkkä kuljettaja tai 1–3 muuttomiestä.", "Kuorman suojaus ja sidonta. Hinta sisältää alv 25,5 %."] },
+        { heading: "Mistä hinta muodostuu?", paragraphs: ["Tavaramäärä (asunnon koko tai lista isoista tavaroista) ja se, mahtuuko kaikki yhteen kuormaan.", "Kerrokset, hissit ja kantomatkat molemmissa päissä.", "Tarvittavien muuttomiesten määrä ja muuttopäivä."] },
+        { heading: "Pyydä tarjous", paragraphs: ["Lähetä lähtö- ja määräosoite, muuttopäivä, asunnon koko tai tavaralista sekä tieto kerroksista ja hisseistä. Lähetämme kiinteän hinnan yleensä samana päivänä."] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: "What does the price include?", paragraphs: ["Van and driver for the whole trip, plus driving and fuel costs.", "Carrying help as you choose: just the driver or 1–3 movers.", "Load protection and strapping. The price includes Finnish VAT 25.5%."] },
+        { heading: "What affects the price?", paragraphs: ["Amount of items (size of the home or list of large items) and whether everything fits in one load.", "Floors, lifts and carrying distances at both ends.", "Number of movers needed and the moving date."] },
+        { heading: "Request a quote", paragraphs: ["Send the pickup and delivery addresses, moving date, home size or item list, and floors and lifts. We usually send a fixed price the same day."] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [{"q": "Paljonko muutto Tampereelta Turkuun maksaa?", "a": "Hinta riippuu tavaramäärästä, kerroksista ja tarvittavasta kantoavusta. Annamme kiinteän hinnan tarjouspyynnön perusteella – kysy tarjous, se on ilmainen."}, {"q": "Teettekö muuttoja myös Turusta Tampereelle?", "a": "Kyllä, ajamme molempiin suuntiin."}, {"q": "Mahtuuko koko asunto yhteen kuormaan?", "a": "Pakettiautoon mahtuu tyypillisesti yksiön tai pienen kaksion tavarat. Isommissa muutoissa kerromme tarjouksessa, tarvitaanko kaksi kuormaa."}],
+      en: [{"q": "How much does a move from Tampere to Turku cost?", "a": "The price depends on the amount of items, floors and the carrying help needed. We give a fixed price based on your quote request – asking for a quote is free."}, {"q": "Do you also move from Turku to Tampere?", "a": "Yes, we drive both directions."}, {"q": "Will my whole home fit in one load?", "a": "The van typically fits the contents of a studio or small one-bedroom apartment. For larger moves we tell you in the quote if two loads are needed."}],
+    },
+  },
+  {
+    path: "/muutto-tampere-oulu",
+    area: true,
+    navLabel: {"fi": "Muutto Tampere–Oulu", "en": "Moving Tampere–Oulu"},
+    title: {"fi": "Muutto Tampere–Oulu – muuttopalvelu kiinteällä hinnalla | MoveX Logistics", "en": "Moving Tampere–Oulu – Fixed-Price Moving Service | MoveX Logistics"},
+    description: {"fi": "Muutto Tampereelta Ouluun tai Oulusta Tampereelle kiinteällä hinnalla. Pakettiauto, kuljettaja ja tarvittaessa muuttomiehet. Pyydä tarjous – vastaamme yleensä samana päivänä.", "en": "Moving from Tampere to Oulu or from Oulu to Tampere at a fixed price. Van, driver and movers if needed. Request a quote – we usually reply the same day."},
+    h1: {"fi": "Muutto Tampere–Oulu", "en": "Moving between Tampere and Oulu"},
+    intro: {"fi": "Muutatko Tampereelta Ouluun tai Oulusta Tampereelle? Matkaa on noin 490 km suuntaansa, ja ajoon kuluu noin noin 6 tuntia. Teemme kaukomuutot aina kiinteällä hinnalla, joten tiedät kokonaishinnan etukäteen – ei yllätyksiä tuntien tai kilometrien kanssa.", "en": "Moving from Tampere to Oulu or from Oulu to Tampere? The distance is about 490 km one way and the drive takes about 6 hours. Long-distance moves are always priced as a fixed price, so you know the total in advance – no surprises with hours or kilometres."},
+    sections: {
+      fi: [
+        { heading: "Mitä hintaan sisältyy?", paragraphs: ["Pakettiauto ja kuljettaja koko matkalle sekä ajo- ja polttoainekulut.", "Kantoapu valintasi mukaan: pelkkä kuljettaja tai 1–3 muuttomiestä.", "Kuorman suojaus ja sidonta. Hinta sisältää alv 25,5 %."] },
+        { heading: "Mistä hinta muodostuu?", paragraphs: ["Tavaramäärä (asunnon koko tai lista isoista tavaroista) ja se, mahtuuko kaikki yhteen kuormaan.", "Kerrokset, hissit ja kantomatkat molemmissa päissä.", "Tarvittavien muuttomiesten määrä ja muuttopäivä."] },
+        { heading: "Pyydä tarjous", paragraphs: ["Lähetä lähtö- ja määräosoite, muuttopäivä, asunnon koko tai tavaralista sekä tieto kerroksista ja hisseistä. Lähetämme kiinteän hinnan yleensä samana päivänä."] },
+        { heading: 'Toiminta-alue', paragraphs: [area.fi] },
+      ],
+      en: [
+        { heading: "What does the price include?", paragraphs: ["Van and driver for the whole trip, plus driving and fuel costs.", "Carrying help as you choose: just the driver or 1–3 movers.", "Load protection and strapping. The price includes Finnish VAT 25.5%."] },
+        { heading: "What affects the price?", paragraphs: ["Amount of items (size of the home or list of large items) and whether everything fits in one load.", "Floors, lifts and carrying distances at both ends.", "Number of movers needed and the moving date."] },
+        { heading: "Request a quote", paragraphs: ["Send the pickup and delivery addresses, moving date, home size or item list, and floors and lifts. We usually send a fixed price the same day."] },
+        { heading: 'Service area', paragraphs: [area.en] },
+      ],
+    },
+    faq: {
+      fi: [{"q": "Paljonko muutto Tampereelta Ouluun maksaa?", "a": "Hinta riippuu tavaramäärästä, kerroksista ja tarvittavasta kantoavusta. Annamme kiinteän hinnan tarjouspyynnön perusteella – kysy tarjous, se on ilmainen."}, {"q": "Teettekö muuttoja myös Oulusta Tampereelle?", "a": "Kyllä, ajamme molempiin suuntiin."}, {"q": "Mahtuuko koko asunto yhteen kuormaan?", "a": "Pakettiautoon mahtuu tyypillisesti yksiön tai pienen kaksion tavarat. Isommissa muutoissa kerromme tarjouksessa, tarvitaanko kaksi kuormaa."}],
+      en: [{"q": "How much does a move from Tampere to Oulu cost?", "a": "The price depends on the amount of items, floors and the carrying help needed. We give a fixed price based on your quote request – asking for a quote is free."}, {"q": "Do you also move from Oulu to Tampere?", "a": "Yes, we drive both directions."}, {"q": "Will my whole home fit in one load?", "a": "The van typically fits the contents of a studio or small one-bedroom apartment. For larger moves we tell you in the quote if two loads are needed."}],
+    },
+  },
 ];
 
 const englishSlugs: Record<string, string> = {
@@ -1218,6 +1407,13 @@ const englishSlugs: Record<string, string> = {
   '/muutto-lempaala': '/en/moving-lempaala',
   '/muutto-kangasala': '/en/moving-kangasala',
   '/muutto-hervanta': '/en/moving-hervanta',
+  "/muuttopalvelu-pirkanmaa": "/en/moving-service-pirkanmaa",
+  "/muuttofirma-pirkanmaa": "/en/moving-company-pirkanmaa",
+  "/muuttoapu-tampere": "/en/moving-help-tampere",
+  "/muuttomiehet-tampere": "/en/movers-tampere",
+  "/muutto-tampere-helsinki": "/en/moving-tampere-helsinki",
+  "/muutto-tampere-turku": "/en/moving-tampere-turku",
+  "/muutto-tampere-oulu": "/en/moving-tampere-oulu",
 };
 
 export function getLandingPage(path: string) {
