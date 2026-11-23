@@ -91,7 +91,7 @@ async function sendOwnerEmail(subject: string, fields: Record<string, string>) {
         Referer: 'https://movexlogistics.fi/',
       },
       body: JSON.stringify({ _subject: subject, _template: 'table', _captcha: 'false', ...fields }),
-      signal: AbortSignal.timeout(10_000),
+      signal: AbortSignal.timeout(25_000),
     });
     const result = await response.text();
     if (!response.ok) console.error('FormSubmit email failed.', response.status, result.slice(0, 300));
