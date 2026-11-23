@@ -38,7 +38,6 @@ const advanceCentsByMovers = new Map<number, number>([
   [3, 12500],
 ]);
 
-const SITE_ORIGIN = 'https://movexlogistics.fi';
 
 const allowedServices = new Set([
   'Van + Driver — €50/h, VAT included',
@@ -83,63 +82,25 @@ function validDate(value: string | null | undefined): value is string | null {
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
 }
 
-async function createCheckoutSession(options: {
-  quoteId: string;
-  service: string;
-  amountCents: number;
-  email: string;
-  lang: 'fi' | 'en';
-  returnPath: string;
-}): Promise<string | null> {
-  const secretKey = runtime?.env.get('STRIPE_SECRET_KEY')?.trim();
-  if (!secretKey) {
-    console.error('Stripe is not configured (STRIPE_SECRET_KEY missing).');
-    return null;
-  }
-  const productName = options.lang === 'fi'
-    ? 'MoveX Logistics – varausmaksu (1. tunti)'
-    : 'MoveX Logistics – booking advance (1st hour)';
-  const description = options.lang === 'fi'
-    ? `${options.service}. Ensimmäinen tunti maksetaan etukäteen, loput työn jälkeen. ALV 25,5 % sisältyy. Ilmainen peruutus viimeistään 48 h ennen työn alkua.`
-    : `${options.service}. First hour paid in advance, the rest after the job. VAT 25.5% included. Free cancellation up to 48 h before the job.`;
-  const separator = options.returnPath.includes('?') ? '&' : '?';
+// Stripe Payment Links (created in the Stripe dashboard, MoveX Logistics account).
+// No API key is needed: the quote id is passed as client_reference_id and the
+// stripe-webhook function marks the quote as paid on checkout.session.completed.
+const paymentLinkByMovers = new Map<number, string>([
+  [0, 'https://buy.stripe.com/fZuaEZ1v9dRd6iZf2ReZ200'], // 50 EUR
+  [1, 'https://buy.stripe.com/6oU14p8XB4gDazf6wleZ201'], // 75 EUR
+  [2, 'https://buy.stripe.com/8x200la1FdRd36N4odeZ202'], // 100 EUR
+  [3, 'https://buy.stripe.com/8x228tgq34gD6iZf2ReZ203'], // 125 EUR
+]);
+
+function paymentLinkUrl(options: { quoteId: string; movers: number; email: string; lang: 'fi' | 'en' }): string | null {
+  const base = paymentLinkByMovers.get(options.movers);
+  if (!base) return null;
   const params = new URLSearchParams({
-    mode: 'payment',
-    locale: options.lang,
-    customer_email: options.email,
     client_reference_id: options.quoteId,
-    'metadata[quote_id]': options.quoteId,
-    'payment_intent_data[metadata][quote_id]': options.quoteId,
-    'payment_intent_data[description]': `MoveX booking advance – ${options.quoteId}`,
-    'line_items[0][quantity]': '1',
-    'line_items[0][price_data][currency]': 'eur',
-    'line_items[0][price_data][unit_amount]': String(options.amountCents),
-    'line_items[0][price_data][product_data][name]': productName,
-    'line_items[0][price_data][product_data][description]': description.slice(0, 500),
-    success_url: `${SITE_ORIGIN}${options.returnPath}${separator}payment=success#contact`,
-    cancel_url: `${SITE_ORIGIN}${options.returnPath}${separator}payment=cancelled#contact`,
+    prefilled_email: options.email,
+    locale: options.lang,
   });
-  try {
-    const response = await fetch('https://api.stripe.com/v1/checkout/sessions', {
-      method: 'POST',
-      headers: {
-        Authorization: 'Bearer ' + secretKey,
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Idempotency-Key': `checkout-${options.quoteId}`,
-      },
-      body: params.toString(),
-      signal: AbortSignal.timeout(15_000),
-    });
-    const session = await response.json();
-    if (!response.ok || typeof session?.url !== 'string') {
-      console.error('Stripe Checkout session could not be created.', response.status, session?.error?.message);
-      return null;
-    }
-    return session.url;
-  } catch (error) {
-    console.error('Stripe Checkout session could not be created (request error).', error instanceof Error ? error.message : String(error));
-    return null;
-  }
+  return `${base}?${params.toString()}`;
 }
 
 async function notifyByEmail(request: QuoteRequest, payment?: { amountCents: number }) {
@@ -232,9 +193,6 @@ runtime?.serve(async (request) => {
   const stairs = body.stairs;
   const payOnline = body.pay_online === true;
   const lang: 'fi' | 'en' = body.lang === 'en' ? 'en' : 'fi';
-  const returnPath = typeof body.return_path === 'string' && /^\/[A-Za-z0-9/_-]{0,120}$/.test(body.return_path)
-    ? body.return_path
-    : '/';
 
   if (
     !name || name.length < 2 ||
@@ -332,15 +290,8 @@ runtime?.serve(async (request) => {
 
   await notifyByEmail(quote, advanceCents !== null ? { amountCents: advanceCents } : undefined);
 
-  if (advanceCents !== null) {
-    const checkoutUrl = await createCheckoutSession({
-      quoteId,
-      service: quote.service,
-      amountCents: advanceCents,
-      email: quote.email,
-      lang,
-      returnPath,
-    });
+  if (advanceCents !== null && numberOfMovers !== null) {
+    const checkoutUrl = paymentLinkUrl({ quoteId, movers: numberOfMovers, email: quote.email, lang });
     if (!checkoutUrl) return jsonResponse({ success: true, checkout_error: true });
     return jsonResponse({ success: true, checkout_url: checkoutUrl });
   }

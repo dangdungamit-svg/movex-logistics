@@ -131,7 +131,7 @@ export default function QuoteRequestForm() {
       if (fnError || data?.success !== true) throw new Error('Quote request was not saved');
       trackContactConversion();
       if (payOnline) {
-        if (typeof data?.checkout_url === 'string' && data.checkout_url.startsWith('https://checkout.stripe.com/')) {
+        if (typeof data?.checkout_url === 'string' && data.checkout_url.startsWith('https://buy.stripe.com/')) {
           setRedirecting(true);
           window.location.href = data.checkout_url;
           return;
