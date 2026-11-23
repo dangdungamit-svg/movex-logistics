@@ -63,13 +63,13 @@ async function updateQuote(quoteId: string, values: Record<string, unknown>) {
 }
 
 
-// Optional server-side owner email via Resend (only when RESEND_API_KEY/RESEND_FROM_EMAIL are set).
-// Booking emails are otherwise sent from the visitor's browser via FormSubmit (QuoteRequestForm).
+// Owner email via Resend. Needs only RESEND_API_KEY; the sender defaults to onboarding@resend.dev,
+// which Resend allows for sending to the account owner's own address (dangdung.amit@gmail.com).
 const OWNER_EMAIL = 'dangdung.amit@gmail.com';
 
 async function sendOwnerEmail(subject: string, fields: Record<string, string>) {
   const apiKey = runtime?.env.get('RESEND_API_KEY')?.trim();
-  const from = runtime?.env.get('RESEND_FROM_EMAIL')?.trim();
+  const from = runtime?.env.get('RESEND_FROM_EMAIL')?.trim() || 'MoveX Website <onboarding@resend.dev>';
   const text = Object.entries(fields).map(([k, v]) => `${k}: ${v}`).join('\n');
   try {
     if (apiKey && from) {
@@ -82,7 +82,7 @@ async function sendOwnerEmail(subject: string, fields: Record<string, string>) {
       if (response.ok) return;
       console.error('Resend email failed.', response.status);
     }
-    if (!apiKey || !from) console.log('Owner email is sent from the browser (FormSubmit); Resend is not configured.');
+    if (!apiKey) console.error('Owner email not sent: RESEND_API_KEY is not set.');
   } catch (error) {
     console.error('Owner email could not be sent.', error instanceof Error ? error.message : String(error));
   }
