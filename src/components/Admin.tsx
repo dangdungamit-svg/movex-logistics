@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, type FormEvent } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { COMPANY } from '@/i18n/translations';
@@ -173,6 +173,15 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
   const [nextOffset, setNextOffset] = useState(0);
   const [hasMore, setHasMore] = useState(false);
   const [selectedId, setSelectedId] = useState('');
+  const detailRef = useRef<HTMLDivElement>(null);
+
+  // On phones the details panel is below the list: scroll to it when a request is opened.
+  const openRequest = (id: string) => {
+    setSelectedId(id);
+    if (window.matchMedia('(max-width: 1023px)').matches) {
+      window.setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+  };
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState('');
   const [filterStatus, setFilterStatus] = useState<'all' | QuoteStatus>('all');
@@ -419,7 +428,7 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
                     <button
                       key={request.id}
                       className={`w-full rounded-xl border p-3 text-left transition ${selectedId === request.id ? 'border-brand-400 bg-brand-50' : 'border-slate-200 hover:bg-slate-50'}`}
-                      onClick={() => setSelectedId(request.id)}
+                      onClick={() => openRequest(request.id)}
                       type="button"
                     >
                       <span className="flex items-start justify-between gap-2">
@@ -457,7 +466,7 @@ export default function Admin({ loginOnly = false }: { loginOnly?: boolean }) {
                 </div>
               </div>
 
-              <div className="min-h-80 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-7">
+              <div ref={detailRef} className="min-h-80 scroll-mt-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:p-7">
                 {!selected ? (
                   <p className="text-sm text-slate-600">{copy.allDetails}</p>
                 ) : (

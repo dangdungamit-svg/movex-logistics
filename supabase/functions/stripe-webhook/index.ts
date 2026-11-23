@@ -62,38 +62,58 @@ async function updateQuote(quoteId: string, values: Record<string, unknown>) {
   return Array.isArray(rows) ? rows[0] : null;
 }
 
-async function notifyPaid(row: Record<string, unknown> | null, amountCents: number) {
-  const apiKey = runtime?.env.get('RESEND_API_KEY');
-  const from = runtime?.env.get('RESEND_FROM_EMAIL');
-  if (!apiKey || !from || !row) return;
-  const lines = [
-    `Booking advance PAID online: €${(amountCents / 100).toFixed(2)}`,
-    '',
-    `Name: ${row.name}`,
-    `Phone: ${row.phone ?? '-'}`,
-    `Email: ${row.email ?? '-'}`,
-    `Service: ${row.service}`,
-    `Pickup: ${row.pickup_location ?? '-'}`,
-    `Destination: ${row.destination ?? '-'}`,
-    `Preferred date: ${row.preferred_date ?? '-'}`,
-    '',
-    'Confirm the booking with the customer and add it to the calendar.',
-  ];
+
+// Owner notification email. Uses Resend when RESEND_API_KEY/RESEND_FROM_EMAIL are set,
+// otherwise FormSubmit (no API key; the first email asks the owner to click "Activate" once).
+const OWNER_EMAIL = 'dangdung.amit@gmail.com';
+
+async function sendOwnerEmail(subject: string, fields: Record<string, string>) {
+  const apiKey = runtime?.env.get('RESEND_API_KEY')?.trim();
+  const from = runtime?.env.get('RESEND_FROM_EMAIL')?.trim();
+  const text = Object.entries(fields).map(([k, v]) => `${k}: ${v}`).join('\n');
   try {
-    await fetch('https://api.resend.com/emails', {
+    if (apiKey && from) {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + apiKey, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from, to: [OWNER_EMAIL], subject, text }),
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (response.ok) return;
+      console.error('Resend email failed, falling back to FormSubmit.', response.status);
+    }
+    const response = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
       method: 'POST',
-      headers: { Authorization: 'Bearer ' + apiKey, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        from,
-        to: ['dangdung.amit@gmail.com'],
-        subject: `PAID booking advance – ${String(row.name ?? '').replace(/[\r\n]+/g, ' ')}`,
-        text: lines.join('\n'),
-      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Origin: 'https://movexlogistics.fi',
+        Referer: 'https://movexlogistics.fi/',
+      },
+      body: JSON.stringify({ _subject: subject, _template: 'table', _captcha: 'false', ...fields }),
       signal: AbortSignal.timeout(10_000),
     });
-  } catch {
-    console.error('Paid notification email could not be sent.');
+    const result = await response.text();
+    if (!response.ok) console.error('FormSubmit email failed.', response.status, result.slice(0, 300));
+    else console.log('Owner email sent via FormSubmit.', result.slice(0, 200));
+  } catch (error) {
+    console.error('Owner email could not be sent.', error instanceof Error ? error.message : String(error));
   }
+}
+
+async function notifyPaid(row: Record<string, unknown> | null, amountCents: number) {
+  if (!row) return;
+  await sendOwnerEmail(`PAID booking advance €${(amountCents / 100).toFixed(2)} – ${String(row.name ?? '').replace(/[\r\n]+/g, ' ')}`, {
+    Paid: `€${(amountCents / 100).toFixed(2)} (booking advance, 1st hour)`,
+    Name: String(row.name ?? '-'),
+    Phone: String(row.phone ?? '-'),
+    Email: String(row.email ?? '-'),
+    Service: String(row.service ?? '-'),
+    Pickup: String(row.pickup_location ?? '-'),
+    Destination: String(row.destination ?? '-'),
+    'Preferred date': String(row.preferred_date ?? '-'),
+    Next: 'Confirm the booking with the customer and add it to the calendar.',
+  });
 }
 
 runtime?.serve(async (request) => {

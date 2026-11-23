@@ -103,54 +103,65 @@ function paymentLinkUrl(options: { quoteId: string; movers: number; email: strin
   return `${base}?${params.toString()}`;
 }
 
-async function notifyByEmail(request: QuoteRequest, payment?: { amountCents: number }) {
-  const apiKey = runtime?.env.get('RESEND_API_KEY');
-  const from = runtime?.env.get('RESEND_FROM_EMAIL');
-  if (!apiKey || !from) {
-    console.error('Quote notification email is not configured.');
-    return;
-  }
 
-  const lines = [
-    'A new quote request was submitted on movexlogistics.fi.',
-    '',
-    `Name: ${request.name}`,
-    `Email: ${request.email}`,
-    `Phone: ${request.phone ?? 'Not provided'}`,
-    `Service: ${request.service}`,
-    `Pickup: ${request.pickup_location ?? 'Not provided'}`,
-    `Destination: ${request.destination ?? 'Not provided'}`,
-    `Preferred date: ${request.preferred_date ?? 'Not provided'}`,
-    `Preferred time: ${request.preferred_time ?? 'Not provided'}`,
-    `Number of movers: ${request.number_of_movers ?? 'Not specified'}`,
-    `Number of rooms: ${request.number_of_rooms ?? 'Not provided'}`,
-    `Large or heavy items: ${request.large_items ?? 'Not provided'}`,
-    `Elevator available: ${request.elevator_available === null ? 'Not specified' : request.elevator_available ? 'Yes' : 'No'}`,
-    `Stairs: ${request.stairs === null ? 'Not specified' : request.stairs ? 'Yes' : 'No'}`,
-    `Parking information: ${request.parking_info ?? 'Not provided'}`,
-    `Message: ${request.message ?? 'Not provided'}`,
-    `Online payment: ${payment ? `Customer chose to pay the booking advance €${(payment.amountCents / 100).toFixed(2)} online (wait for the "paid" email before confirming)` : 'No'}`,
-  ];
+// Owner notification email. Uses Resend when RESEND_API_KEY/RESEND_FROM_EMAIL are set,
+// otherwise FormSubmit (no API key; the first email asks the owner to click "Activate" once).
+const OWNER_EMAIL = 'dangdung.amit@gmail.com';
 
+async function sendOwnerEmail(subject: string, fields: Record<string, string>) {
+  const apiKey = runtime?.env.get('RESEND_API_KEY')?.trim();
+  const from = runtime?.env.get('RESEND_FROM_EMAIL')?.trim();
+  const text = Object.entries(fields).map(([k, v]) => `${k}: ${v}`).join('\n');
   try {
-    const response = await fetch('https://api.resend.com/emails', {
+    if (apiKey && from) {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + apiKey, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from, to: [OWNER_EMAIL], subject, text }),
+        signal: AbortSignal.timeout(10_000),
+      });
+      if (response.ok) return;
+      console.error('Resend email failed, falling back to FormSubmit.', response.status);
+    }
+    const response = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
       method: 'POST',
       headers: {
-        Authorization: 'Bearer ' + apiKey,
         'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Origin: 'https://movexlogistics.fi',
+        Referer: 'https://movexlogistics.fi/',
       },
-      body: JSON.stringify({
-        from,
-        to: ['dangdung.amit@gmail.com'],
-        subject: `New MoveX quote request – ${request.name.replace(/[\r\n]+/g, ' ').trim()}`,
-        text: lines.join('\n'),
-      }),
+      body: JSON.stringify({ _subject: subject, _template: 'table', _captcha: 'false', ...fields }),
       signal: AbortSignal.timeout(10_000),
     });
-    if (!response.ok) console.error('Quote notification email could not be sent.');
-  } catch {
-    console.error('Quote notification email could not be sent.');
+    const result = await response.text();
+    if (!response.ok) console.error('FormSubmit email failed.', response.status, result.slice(0, 300));
+    else console.log('Owner email sent via FormSubmit.', result.slice(0, 200));
+  } catch (error) {
+    console.error('Owner email could not be sent.', error instanceof Error ? error.message : String(error));
   }
+}
+
+async function notifyByEmail(request: QuoteRequest, payment?: { amountCents: number }) {
+  const yesNo = (v: boolean | null) => (v === null ? '-' : v ? 'Yes' : 'No');
+  await sendOwnerEmail(`New MoveX booking request – ${request.name.replace(/[\r\n]+/g, ' ').trim()}`, {
+    Name: request.name,
+    Phone: request.phone ?? '-',
+    Email: request.email,
+    Service: request.service,
+    Pickup: request.pickup_location ?? '-',
+    Destination: request.destination ?? '-',
+    'Preferred date': request.preferred_date ?? '-',
+    'Preferred time': request.preferred_time ?? '-',
+    'Large items': request.large_items ?? '-',
+    Elevator: yesNo(request.elevator_available),
+    Stairs: yesNo(request.stairs),
+    Parking: request.parking_info ?? '-',
+    'Online payment': payment
+      ? `Customer is paying the booking advance €${(payment.amountCents / 100).toFixed(2)} online (wait for the PAID email)`
+      : 'No',
+    Message: request.message ?? '-',
+  });
 }
 
 runtime?.serve(async (request) => {
