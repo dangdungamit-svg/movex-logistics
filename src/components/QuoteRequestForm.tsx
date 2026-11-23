@@ -15,6 +15,8 @@ const packages = [
   { value: 'Van + Driver + 3 movers — €125/h, VAT included', movers: 3, fi: '3 muuttomiestä + auto — 125 €/h, ALV sisältyy', en: '3 Movers + Van — €125/h, VAT included' },
 ];
 
+const BOOKING_EMAIL = 'dangdung.amit@gmail.com';
+
 const fieldClass =
   'mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100';
 
@@ -86,6 +88,20 @@ export default function QuoteRequestForm() {
     return `${q.msgHello}\n\n${lines.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join('\n')}`;
   }
 
+  // Email the owner about every booking via FormSubmit (no API key; first email needs one-time "Activate").
+  function emailOwner(fields: Record<string, string>) {
+    try {
+      void fetch('https://formsubmit.co/ajax/' + BOOKING_EMAIL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ _template: 'table', _captcha: 'false', ...fields }),
+        keepalive: true,
+      }).catch(() => undefined);
+    } catch {
+      /* ignore */
+    }
+  }
+
   function validate(form: FormData, requireDirect: boolean) {
     const get = (k: string) => String(form.get(k) ?? '').trim();
     const phone = get('phone');
@@ -130,6 +146,18 @@ export default function QuoteRequestForm() {
       }});
       if (fnError || data?.success !== true) throw new Error('Quote request was not saved');
       trackContactConversion();
+      emailOwner({
+        _subject: `${payOnline ? 'New MoveX booking (paying online)' : 'New MoveX booking request'} – ${get('name')}`,
+        Name: get('name'),
+        Phone: get('phone') || '-',
+        Email: get('email') || '-',
+        Service: service,
+        Pickup: get('pickup'),
+        Destination: get('delivery'),
+        'Preferred date': get('date'),
+        'Online payment': payOnline ? `Customer chose to pay the 1st hour (€${[50, 75, 100, 125][pkg!.movers]}) online – check Stripe` : 'No',
+        Message: messageText.slice(0, 4000),
+      });
       if (payOnline) {
         if (typeof data?.checkout_url === 'string' && data.checkout_url.startsWith('https://buy.stripe.com/')) {
           setRedirecting(true);

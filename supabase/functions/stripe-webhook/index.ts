@@ -63,8 +63,8 @@ async function updateQuote(quoteId: string, values: Record<string, unknown>) {
 }
 
 
-// Owner notification email. Uses Resend when RESEND_API_KEY/RESEND_FROM_EMAIL are set,
-// otherwise FormSubmit (no API key; the first email asks the owner to click "Activate" once).
+// Optional server-side owner email via Resend (only when RESEND_API_KEY/RESEND_FROM_EMAIL are set).
+// Booking emails are otherwise sent from the visitor's browser via FormSubmit (QuoteRequestForm).
 const OWNER_EMAIL = 'dangdung.amit@gmail.com';
 
 async function sendOwnerEmail(subject: string, fields: Record<string, string>) {
@@ -80,22 +80,9 @@ async function sendOwnerEmail(subject: string, fields: Record<string, string>) {
         signal: AbortSignal.timeout(10_000),
       });
       if (response.ok) return;
-      console.error('Resend email failed, falling back to FormSubmit.', response.status);
+      console.error('Resend email failed.', response.status);
     }
-    const response = await fetch(`https://formsubmit.co/ajax/${OWNER_EMAIL}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Origin: 'https://movexlogistics.fi',
-        Referer: 'https://movexlogistics.fi/',
-      },
-      body: JSON.stringify({ _subject: subject, _template: 'table', _captcha: 'false', ...fields }),
-      signal: AbortSignal.timeout(25_000),
-    });
-    const result = await response.text();
-    if (!response.ok) console.error('FormSubmit email failed.', response.status, result.slice(0, 300));
-    else console.log('Owner email sent via FormSubmit.', result.slice(0, 200));
+    if (!apiKey || !from) console.log('Owner email is sent from the browser (FormSubmit); Resend is not configured.');
   } catch (error) {
     console.error('Owner email could not be sent.', error instanceof Error ? error.message : String(error));
   }
